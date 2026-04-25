@@ -1,6 +1,17 @@
-// scripts/build_teams.js  (v4 — time decay + shrinkage + sanity checks)
+// scripts/build_teams.js  (v5 — adds FIFA ranking integration)
 //
-// Computes stratified atk/def values for all 48 World Cup 2026 teams.
+// Computes stratified atk/def values for all 48 World Cup 2026 teams,
+// integrating Elo (eloratings.net), FIFA points (football-ranking.com),
+// and Opta values to feed multiple rating modes in the simulator.
+//
+// === v5 changes vs v4 ===
+//   - Reads scripts/fifa_data.json (produced by fetch_fifa_rank.js)
+//   - Adds fifaR (rank) and fifaP (points) to each team object
+//   - Sanity check: warns if FIFA data is missing for any of the 48 teams
+//   - Metadata includes FIFA source info
+//   - Does NOT use FIFA values in atk/def or shrinkage computation
+//     (atk/def remains driven by eloratings.net match history; FIFA is
+//      stored as parallel data for the simulator's rating-mode switch)
 //
 // === v4 changes vs v3 ===
 //   - Time decay: matches weighted by exp decay (half-life 540 days)
@@ -331,11 +342,27 @@ function main() {
   const dir = __dirname;
   const eloDataPath = path.join(dir, 'elo_data.json');
   const matchDataPath = path.join(dir, 'match_data.json');
+  const fifaDataPath = path.join(dir, 'fifa_data.json');
   const teamsJsonPath = path.join(dir, '..', 'teams.json');
   
   const eloData = JSON.parse(fs.readFileSync(eloDataPath, 'utf-8'));
   const matchData = JSON.parse(fs.readFileSync(matchDataPath, 'utf-8'));
   const teamsRaw = JSON.parse(fs.readFileSync(teamsJsonPath, 'utf-8'));
+  
+  // FIFA data is optional — if missing we keep going without it
+  let fifaData = null;
+  let fifaByCode = {};
+  if (fs.existsSync(fifaDataPath)) {
+    try {
+      fifaData = JSON.parse(fs.readFileSync(fifaDataPath, 'utf-8'));
+      fifaByCode = fifaData?.teams || {};
+      console.log(`Loaded FIFA data for ${Object.keys(fifaByCode).length} teams (source: ${fifaData.source}, lastUpdated: ${fifaData.lastUpdated})`);
+    } catch (err) {
+      console.warn(`Failed to read fifa_data.json: ${err.message}`);
+    }
+  } else {
+    console.warn(`fifa_data.json not found (FIFA mode will be disabled)`);
+  }
   
   const eloByCode = {};
   if (eloData.teams && typeof eloData.teams === 'object') {
@@ -399,9 +426,11 @@ function main() {
     if (!raw) {
       console.warn(`  ${code}: no match data, keeping existing`);
       issues.push(code);
+      const fifaInfo = fifaByCode[code];
       updatedTeams.push({
         ...team,
-        f: TLA_TO_ISO2[code] || team.f || ''
+        f: TLA_TO_ISO2[code] || team.f || '',
+        ...(fifaInfo ? { fifaR: fifaInfo.rank, fifaP: fifaInfo.points } : {})
       });
       continue;
     }
@@ -413,13 +442,15 @@ function main() {
     const defW = shrunk(raw.def.w, raw.nEff.weak, GLOBAL.defW, SHRINK_K);
     
     const newElo = eloByCode[code] != null ? eloByCode[code] : team.elo;
+    const fifaInfo = fifaByCode[code];
     
     const updated = {
       ...team,
       elo: newElo,
       f: TLA_TO_ISO2[code] || team.f || '',
       atk: { s: +atkS.toFixed(2), w: +atkW.toFixed(2) },
-      def: { s: +defS.toFixed(2), w: +defW.toFixed(2) }
+      def: { s: +defS.toFixed(2), w: +defW.toFixed(2) },
+      ...(fifaInfo ? { fifaR: fifaInfo.rank, fifaP: fifaInfo.points } : {})
     };
     updatedTeams.push(updated);
     
@@ -439,6 +470,14 @@ function main() {
   // === Sanity checks BEFORE writing ===
   console.log(`\n=== Sanity checks ===`);
   const sanityErrors = runSanityChecks(updatedTeams, prevTeams, totalMatches);
+  
+  // FIFA sanity: warn (not error) if FIFA data incomplete
+  const fifaCount = updatedTeams.filter(t => typeof t.fifaR === 'number' && typeof t.fifaP === 'number').length;
+  console.log(`FIFA data: ${fifaCount}/${updatedTeams.length} teams have FIFA rank+points`);
+  if (fifaData && fifaCount < updatedTeams.length) {
+    console.warn(`  WARNING: ${updatedTeams.length - fifaCount} teams missing FIFA data (FIFA mode may be incomplete)`);
+  }
+  
   if (sanityErrors.length > 0) {
     console.error(`\n!!! SANITY CHECK FAILED — aborting before write !!!`);
     sanityErrors.forEach(e => console.error(`  - ${e}`));
@@ -460,6 +499,9 @@ function main() {
       generatedAt: new Date().toISOString(),
       eloSource: 'eloratings.net',
       matchSource: 'eloratings.net',
+      fifaSource: fifaData ? fifaData.source : null,
+      fifaLastUpdated: fifaData ? fifaData.lastUpdated : null,
+      fifaTeamCount: fifaCount,
       methodology: {
         primaryPeriodStart: PRIMARY_PERIOD_START,
         fallbackPeriodStart: FALLBACK_PERIOD_START,
