@@ -2104,7 +2104,28 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
   margin: 0 8px;
 }
 .match-team.right { text-align: right; }
+
+/* flag-icons sizing (added by migrate_flags.js) */
+.fi {
+  display: inline-block;
+  width: 1.3em;
+  height: 1em;
+  vertical-align: -0.15em;
+  margin-right: 5px;
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  border-radius: 1px;
+}
+[dir="rtl"] .fi { margin-right: 0; margin-left: 5px; }
+.hbr-match .fi { width: 1.1em; margin-right: 3px; }
+.mhbr-half-grid .fi { width: 1em; margin-right: 2px; }
+@media (max-width: 600px) {
+  .mhbr-half-grid .fi { width: 0.9em; margin-right: 1px; }
+}
+
 </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css">
 </head>
 <body>
 <div class="app">
@@ -3555,7 +3576,7 @@ const t = (key, vars) => {
 };
 const flag = (code) => {
   const team = TEAMS.find(x => x.c === code);
-  return team && team.f ? team.f : '';
+  return flagHtml(team);
 };
 const nm = (code) => (CN[code] && CN[code][LANG]) || (CN[code] && CN[code].en) || code;
 const nmf = (code) => {
@@ -3563,6 +3584,23 @@ const nmf = (code) => {
   return f ? `<span class="flag">${f}</span>${nm(code)}` : nm(code);
 };
 const rating = (team) => RATING_MODE === 'opta' ? team.opta : team.elo;
+
+// === Flag rendering helpers (added by migrate_flags.js) ===
+// Convert team.f (ISO2 code like "jp", "br", "gb-eng") into a flag-icons HTML span.
+// Falls back to empty string. Legacy emoji values (if any) are passed through.
+function flagHtml(team) {
+  if (!team || !team.f) return '';
+  if (/^[a-z]{2}(-[a-z]+)?$/.test(team.f)) {
+    return '<span class="fi fi-' + team.f + '"></span>';
+  }
+  return team.f;
+}
+function flagHtmlByCode(code) {
+  const t = (typeof TEAMS !== 'undefined') ? TEAMS.find(x => x.c === code) : null;
+  return flagHtml(t);
+}
+// ===========================================================
+
 const getTeam = (code) => TEAMS.find(x => x.c === code);
 const getGroup = (g) => TEAMS.filter(x => x.g === g);
 const fmtRating = (r) => RATING_MODE === 'opta' ? r.toFixed(1) : Math.round(r).toString();
@@ -5667,11 +5705,11 @@ function openShareX(sim) {
   const championCode = sim.M.final.winner.c;
   const championTeam = sim.M.final.winner;
   const championName = nm(championCode);
-  const championFlag = championTeam.f;
+  const championFlag = flagHtml(championTeam);
   const focusCode = FOCUS;
   const focusName = nm(focusCode);
   const focusTeam = getTeam(focusCode);
-  const focusFlag = focusTeam.f;
+  const focusFlag = flagHtml(focusTeam);
   const focusChamp = championCode === focusCode;
   const url = 'https://noahsark-wc2026.netlify.app';
 
@@ -6396,8 +6434,8 @@ function buildWorkerCode() {
           const s = picked.score || {};
           return {
             stage,
-            t1: { c: picked.t1.c, f: picked.t1.f || '' },
-            t2: { c: picked.t2.c, f: picked.t2.f || '' },
+            t1: { c: picked.t1.c, f: flagHtml(picked.t1) },
+            t2: { c: picked.t2.c, f: flagHtml(picked.t2) },
             winner: picked.winner.c,
             // isFocusMatch: whether FOCUS actually played this match (vs Final
             // fallback when FOCUS didn't reach any knockout stage). Used by
@@ -6506,7 +6544,7 @@ function updateLiveFeed(champs, done, sim) {
       const pct = done > 0 ? (n / done * 100).toFixed(2) : '0.00';
       const barPct = maxN > 0 ? Math.max(2, (n / maxN) * 100) : 2;
       const focusCls = code === FOCUS ? ' focus' : '';
-      const flag = getTeam(code) ? (getTeam(code).f || '') : '';
+      const flag = flagHtmlByCode(code);
       html += `<div class="live-rank-row${focusCls}">`;
       html += `<span class="live-rank-flag">${flag}</span>`;
       html += `<span class="live-rank-name">${nmf(code)}</span>`;
@@ -6748,7 +6786,7 @@ function updateLiveFeedFromWorker(champs, done, serializedMatch) {
       const barPct = maxN > 0 ? Math.max(2, (n / maxN) * 100) : 2;
       const focusCls = code === FOCUS ? ' focus' : '';
       const team = getTeam(code);
-      const flag = team ? (team.f || '') : '';
+      const flag = flagHtml(team);
       html += `<div class="live-rank-row${focusCls}">`;
       html += `<span class="live-rank-flag">${flag}</span>`;
       html += `<span class="live-rank-name">${nmf(code)}</span>`;
@@ -7029,7 +7067,7 @@ function populateFocusSelect() {
     getGroup(g).sort((a,b) => rating(b) - rating(a)).forEach(team => {
       const opt = document.createElement('option');
       opt.value = team.c;
-      opt.textContent = `${team.f} ${nm(team.c)} (${fmtRating(rating(team))})`;
+      opt.textContent = `${nm(team.c)} (${fmtRating(rating(team))})`;
       if (team.c === FOCUS) opt.selected = true;
       og.appendChild(opt);
     });
@@ -7060,7 +7098,7 @@ function renderRatingsTable() {
     const focusCls = team.c === FOCUS ? ' focus' : '';
     html += `<div class="ratings-row${focusCls}">`;
     html += `<span class="r-rank">${i + 1}</span>`;
-    html += `<span class="r-flag">${team.f || ''}</span>`;
+    html += `<span class="r-flag">${flagHtml(team)}</span>`;
     html += `<span class="r-name">${nm(team.c)}</span>`;
     html += `<span class="r-group">${team.g}</span>`;
     html += `<span class="r-elo ${RATING_MODE === 'elo' ? 'active' : ''}">${team.elo}</span>`;

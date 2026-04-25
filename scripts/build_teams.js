@@ -27,6 +27,27 @@ const FALLBACK_PERIOD_START = '2020-01-01';
 const MIN_SAMPLES = 5;          // If stratum < this in 2022+, extend to 2020+
 const FALLBACK_THRESHOLD = 3;   // If stratum < this even with 2020+, use overall avg
 
+// TLA -> ISO2 code mapping for flag-icons CDN.
+// England/Scotland use the special gb-eng/gb-sct codes (flag-icons supports these).
+const TLA_TO_ISO2 = {
+  // UEFA
+  ESP:'es', FRA:'fr', ENG:'gb-eng', POR:'pt', NED:'nl',
+  GER:'de', CRO:'hr', SUI:'ch', BEL:'be', AUT:'at',
+  CZE:'cz', NOR:'no', BIH:'ba', SCO:'gb-sct', TUR:'tr', SWE:'se',
+  // CONMEBOL
+  ARG:'ar', BRA:'br', COL:'co', URU:'uy', ECU:'ec', PAR:'py',
+  // CONCACAF
+  USA:'us', CAN:'ca', MEX:'mx', PAN:'pa', CUW:'cw', HAI:'ht',
+  // AFC
+  JPN:'jp', KOR:'kr', IRN:'ir', KSA:'sa', AUS:'au',
+  UZB:'uz', JOR:'jo', IRQ:'iq', QAT:'qa',
+  // CAF
+  MAR:'ma', SEN:'sn', TUN:'tn', EGY:'eg', ALG:'dz',
+  CIV:'ci', GHA:'gh', CPV:'cv', RSA:'za', COD:'cd',
+  // OFC
+  NZL:'nz'
+};
+
 const NAME_TO_CODE = {
   'spain': 'ESP', 'france': 'FRA', 'england': 'ENG', 'portugal': 'POR',
   'netherlands': 'NED', 'germany': 'GER', 'croatia': 'CRO', 'switzerland': 'SUI',
@@ -218,7 +239,10 @@ function main() {
     if (!matchResult || !matchResult.ok || !matchResult.matches || matchResult.matches.length === 0) {
       console.warn(`  ${code}: no match data, keeping existing`);
       issues.push(code);
-      updatedTeams.push(team);
+      updatedTeams.push({
+        ...team,
+        f: TLA_TO_ISO2[code] || team.f || ''
+      });
       continue;
     }
     
@@ -228,6 +252,7 @@ function main() {
     const updated = {
       ...team,
       elo: newElo,
+      f: TLA_TO_ISO2[code] || team.f || '',  // ISO2 code for flag-icons CSS
       atk: result.atk,
       def: result.def
     };
