@@ -7,11 +7,11 @@
 <title>World Cup 2026 Tournament Simulator</title>
 
 <!-- SEO -->
-<meta name="description" content="48 nations, 100,000 Monte Carlo sims, Elo/Opta ratings. Build your own World Cup 2026 prediction.">
+<meta name="description" content="48 nations, 100,000 Monte Carlo sims, Elo/Opta/FIFA ratings. Build your own World Cup 2026 prediction.">
 
 <!-- Open Graph (Facebook, LINE, Discord, Slack, etc.) -->
 <meta property="og:title" content="World Cup 2026 Tournament Simulator">
-<meta property="og:description" content="48 nations, 100,000 Monte Carlo sims, Elo/Opta ratings. Build your own World Cup 2026 prediction.">
+<meta property="og:description" content="48 nations, 100,000 Monte Carlo sims, Elo/Opta/FIFA ratings. Build your own World Cup 2026 prediction.">
 <meta property="og:image" content="https://noahsark-wc2026.pages.dev/ogp.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -24,7 +24,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="World Cup 2026 Tournament Simulator">
-<meta name="twitter:description" content="48 nations, 100,000 Monte Carlo sims, Elo/Opta ratings. Build your own World Cup 2026 prediction.">
+<meta name="twitter:description" content="48 nations, 100,000 Monte Carlo sims, Elo/Opta/FIFA ratings. Build your own World Cup 2026 prediction.">
 <meta name="twitter:image" content="https://noahsark-wc2026.pages.dev/ogp.png">
 <meta name="twitter:site" content="@noahsark_yk">
 <meta name="twitter:creator" content="@noahsark_yk">
@@ -2170,7 +2170,7 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
   </div>
 
   <!-- v2.16: Collapsible ratings reference panel. Lets users peek at the
-       underlying Elo/Opta numbers that drive the simulation, without
+       underlying Elo/Opta/FIFA numbers that drive the simulation, without
        cluttering the main UI. Rendered once at app boot; re-renders on
        rating-mode toggle (sort order changes) and on language switch. -->
   <details class="ratings-panel" id="ratings-panel">
@@ -2212,6 +2212,7 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
         <div id="ui-footer-data-desc">
           <div class="source-item"><strong id="ui-src-opta-label">Opta Power Rating</strong>: <a href="https://theanalyst.com/articles/world-cup-2026-draw-easiest-toughest-groups" target="_blank" rel="noopener" class="footer-link">theanalyst.com</a> <span class="source-date">(2025-12-05)</span></div>
           <div class="source-item"><strong id="ui-src-elo-label">Elo Rating</strong>: <a href="https://www.eloratings.net/" target="_blank" rel="noopener" class="footer-link">eloratings.net</a> <span class="source-date">(<span id="ui-src-elo-date">2026-04-25</span>, <span id="ui-src-elo-freq">daily updated</span>)</span></div>
+          <div class="source-item"><strong id="ui-src-fifa-label">FIFA Ranking</strong>: <a href="https://football-ranking.com/fifa-rankings" target="_blank" rel="noopener" class="footer-link">football-ranking.com</a> <span class="source-date">(<span id="ui-src-fifa-date">2026-04-25</span>, <span id="ui-src-fifa-freq">daily updated</span>)</span></div>
           <div class="source-item"><strong id="ui-src-atkdef-label">Atk/Def values</strong>: <span id="ui-src-atkdef-desc">Computed from <a href="https://www.eloratings.net/" target="_blank" rel="noopener" class="footer-link">eloratings.net</a> match histories since 2022</span></div>
           <div class="source-item"><strong id="ui-src-bracket-label">Bracket</strong>: <span id="ui-src-bracket-desc">FIFA World Cup 2026 official format (48 teams, 12 groups)</span></div>
         </div>
@@ -2444,13 +2445,15 @@ const T = {
     footer_data: 'データソース',
     footer_method: '計算方法',
     footer_note: '注記',
-    footer_method_desc: '試合の勝敗は選択中のレーティング(Elo/Opta)で決定。得点分布と同勝ち点時のGDタイブレークは対戦相手強度別(強豪/弱小)のatk/defレイヤーで生成。3位抜けはFIFA公式の495シナリオ対応表に従う。開催国(米国・カナダ・メキシコ)には+70 Eloのホームアドバンテージを適用(UIでON/OFF切替可能)。',
+    footer_method_desc: '試合の勝敗は選択中のレーティング(Elo/Opta/FIFA)で決定。得点分布と同勝ち点時のGDタイブレークは対戦相手強度別(強豪/弱小)のatk/defレイヤーで生成。3位抜けはFIFA公式の495シナリオ対応表に従う。開催国(米国・カナダ・メキシコ)には+70 Eloのホームアドバンテージを適用(UIでON/OFF切替可能)。',
     footer_note_desc: 'Germany、Ecuador、Côte d\'Ivoire、BosniaのOpta値はOpta世界順位からの推定値。本シミュレーターは娯楽・分析目的で、実際の結果を予測するものではありません。',
     last_updated: '最終更新',
     unit_matches: '試合',
     src_opta_label: 'Opta Power Rating',
     src_elo_label: 'Elo Rating',
     src_elo_freq: '日次更新',
+    src_fifa_label: 'FIFAランキング',
+    src_fifa_freq: '日次更新',
     src_atkdef_label: 'Atk/Def 値',
     src_atkdef_desc: 'eloratings.net の試合履歴 (2022年以降) から算出',
     src_bracket_label: 'ブラケット',
@@ -2565,13 +2568,15 @@ const T = {
     footer_data: 'DATA SOURCES',
     footer_method: 'METHODOLOGY',
     footer_note: 'NOTES',
-    footer_method_desc: 'Match outcomes determined by the selected rating (Elo/Opta). Score distribution and goal-difference tiebreakers for equal-point groups are generated from stratified atk/def layers (strong vs weak opponents). Third-place qualification follows FIFA\'s official 495-scenario matrix. Host nations (USA/CAN/MEX) receive a +70 Elo home advantage bonus, toggleable in the UI.',
+    footer_method_desc: 'Match outcomes determined by the selected rating (Elo/Opta/FIFA). Score distribution and goal-difference tiebreakers for equal-point groups are generated from stratified atk/def layers (strong vs weak opponents). Third-place qualification follows FIFA\'s official 495-scenario matrix. Host nations (USA/CAN/MEX) receive a +70 Elo home advantage bonus, toggleable in the UI.',
     footer_note_desc: 'Germany, Ecuador, Côte d\'Ivoire, and Bosnia Opta values are estimates based on Opta world rank. Simulator is for entertainment/analysis purposes only and does not predict actual results.',
     last_updated: 'Last updated',
     unit_matches: 'matches',
     src_opta_label: 'Opta Power Rating',
     src_elo_label: 'Elo Rating',
     src_elo_freq: 'daily updated',
+    src_fifa_label: 'FIFA Ranking',
+    src_fifa_freq: 'daily updated',
     src_atkdef_label: 'Atk/Def values',
     src_atkdef_desc: 'Computed from eloratings.net match histories since 2022',
     src_bracket_label: 'Bracket',
@@ -2686,13 +2691,15 @@ const T = {
     footer_data: 'FUENTES DE DATOS',
     footer_method: 'METODOLOGÍA',
     footer_note: 'NOTAS',
-    footer_method_desc: 'Los resultados de los partidos se determinan por el ranking seleccionado (Elo/Opta). La distribución de goles y los desempates por diferencia de goles en grupos empatados se generan mediante capas atk/def estratificadas por fuerza del oponente (fuerte/débil). La clasificación de los mejores terceros sigue la matriz oficial de 495 escenarios de FIFA. Los países anfitriones (EE.UU./CAN/MEX) reciben una bonificación de ventaja local de +70 Elo, activable en la interfaz.',
+    footer_method_desc: 'Los resultados de los partidos se determinan por el ranking seleccionado (Elo/Opta/FIFA). La distribución de goles y los desempates por diferencia de goles en grupos empatados se generan mediante capas atk/def estratificadas por fuerza del oponente (fuerte/débil). La clasificación de los mejores terceros sigue la matriz oficial de 495 escenarios de FIFA. Los países anfitriones (EE.UU./CAN/MEX) reciben una bonificación de ventaja local de +70 Elo, activable en la interfaz.',
     footer_note_desc: 'Los valores Opta de Alemania, Ecuador, Costa de Marfil y Bosnia son estimaciones basadas en su ranking mundial Opta. El simulador es solo para fines de entretenimiento/análisis y no predice resultados reales.',
     last_updated: 'Última actualización',
     unit_matches: 'partidos',
     src_opta_label: 'Opta Power Rating',
     src_elo_label: 'Elo Rating',
     src_elo_freq: 'actualizado diariamente',
+    src_fifa_label: 'Ranking FIFA',
+    src_fifa_freq: 'actualizado diariamente',
     src_atkdef_label: 'Valores Atk/Def',
     src_atkdef_desc: 'Calculados desde los historiales de partidos de eloratings.net desde 2022',
     src_bracket_label: 'Cuadro',
@@ -2807,13 +2814,15 @@ const T = {
     footer_data: 'FONTES DE DADOS',
     footer_method: 'METODOLOGIA',
     footer_note: 'NOTAS',
-    footer_method_desc: 'Os resultados das partidas são determinados pelo ranking selecionado (Elo/Opta). A distribuição de gols e os desempates por saldo de gols em grupos empatados são gerados por camadas atk/def estratificadas por força do adversário (forte/fraco). A classificação dos melhores terceiros segue a matriz oficial de 495 cenários da FIFA. Os países-sede (EUA/CAN/MEX) recebem um bônus de vantagem de mando de +70 Elo, ativável na interface.',
+    footer_method_desc: 'Os resultados das partidas são determinados pelo ranking selecionado (Elo/Opta/FIFA). A distribuição de gols e os desempates por saldo de gols em grupos empatados são gerados por camadas atk/def estratificadas por força do adversário (forte/fraco). A classificação dos melhores terceiros segue a matriz oficial de 495 cenários da FIFA. Os países-sede (EUA/CAN/MEX) recebem um bônus de vantagem de mando de +70 Elo, ativável na interface.',
     footer_note_desc: 'Os valores Opta de Alemanha, Equador, Costa do Marfim e Bósnia são estimativas baseadas no ranking mundial Opta. O simulador é apenas para fins de entretenimento/análise e não prevê resultados reais.',
     last_updated: 'Última atualização',
     unit_matches: 'partidas',
     src_opta_label: 'Opta Power Rating',
     src_elo_label: 'Elo Rating',
     src_elo_freq: 'atualizado diariamente',
+    src_fifa_label: 'Ranking FIFA',
+    src_fifa_freq: 'atualizado diariamente',
     src_atkdef_label: 'Valores Atk/Def',
     src_atkdef_desc: 'Calculados a partir dos históricos de partidas de eloratings.net desde 2022',
     src_bracket_label: 'Chave',
@@ -2928,13 +2937,15 @@ const T = {
     footer_data: 'SOURCES DES DONNÉES',
     footer_method: 'MÉTHODOLOGIE',
     footer_note: 'NOTES',
-    footer_method_desc: 'Les résultats des matchs sont déterminés par le classement sélectionné (Elo/Opta). La distribution des buts et les départages par différence de buts dans les groupes à égalité de points sont générés via des couches atk/def stratifiées selon la force de l\'adversaire (fort/faible). La qualification des meilleurs troisièmes suit la matrice officielle FIFA à 495 scénarios. Les pays hôtes (USA/CAN/MEX) bénéficient d\'un bonus d\'avantage à domicile de +70 Elo, activable dans l\'interface.',
+    footer_method_desc: 'Les résultats des matchs sont déterminés par le classement sélectionné (Elo/Opta/FIFA). La distribution des buts et les départages par différence de buts dans les groupes à égalité de points sont générés via des couches atk/def stratifiées selon la force de l\'adversaire (fort/faible). La qualification des meilleurs troisièmes suit la matrice officielle FIFA à 495 scénarios. Les pays hôtes (USA/CAN/MEX) bénéficient d\'un bonus d\'avantage à domicile de +70 Elo, activable dans l\'interface.',
     footer_note_desc: 'Les valeurs Opta de l\'Allemagne, l\'Équateur, la Côte d\'Ivoire et la Bosnie sont des estimations basées sur leur rang mondial Opta. Le simulateur est uniquement à des fins de divertissement/analyse et ne prédit pas les résultats réels.',
     last_updated: 'Dernière mise à jour',
     unit_matches: 'matchs',
     src_opta_label: 'Opta Power Rating',
     src_elo_label: 'Elo Rating',
     src_elo_freq: 'mis à jour quotidiennement',
+    src_fifa_label: 'Classement FIFA',
+    src_fifa_freq: 'mis à jour quotidiennement',
     src_atkdef_label: 'Valeurs Atk/Def',
     src_atkdef_desc: 'Calculées à partir des historiques de matchs d\'eloratings.net depuis 2022',
     src_bracket_label: 'Tableau',
@@ -3049,13 +3060,15 @@ const T = {
     footer_data: 'DATENQUELLEN',
     footer_method: 'METHODIK',
     footer_note: 'ANMERKUNGEN',
-    footer_method_desc: 'Spielergebnisse werden durch das ausgewählte Rating (Elo/Opta) bestimmt. Torverteilung und Tordifferenz-Tiebreak bei Punktgleichheit werden über nach Gegnerstärke stratifizierte atk/def-Ebenen (stark/schwach) erzeugt. Die Qualifikation der besten Dritten folgt der offiziellen FIFA-Matrix mit 495 Szenarien. Gastgeberländer (USA/CAN/MEX) erhalten einen Heimvorteil-Bonus von +70 Elo, über die UI ein-/ausschaltbar.',
+    footer_method_desc: 'Spielergebnisse werden durch das ausgewählte Rating (Elo/Opta/FIFA) bestimmt. Torverteilung und Tordifferenz-Tiebreak bei Punktgleichheit werden über nach Gegnerstärke stratifizierte atk/def-Ebenen (stark/schwach) erzeugt. Die Qualifikation der besten Dritten folgt der offiziellen FIFA-Matrix mit 495 Szenarien. Gastgeberländer (USA/CAN/MEX) erhalten einen Heimvorteil-Bonus von +70 Elo, über die UI ein-/ausschaltbar.',
     footer_note_desc: 'Die Opta-Werte für Deutschland, Ecuador, Elfenbeinküste und Bosnien sind Schätzungen basierend auf dem Opta-Weltrang. Der Simulator dient nur zu Unterhaltungs-/Analysezwecken und sagt keine tatsächlichen Ergebnisse voraus.',
     last_updated: 'Zuletzt aktualisiert',
     unit_matches: 'Spiele',
     src_opta_label: 'Opta Power Rating',
     src_elo_label: 'Elo Rating',
     src_elo_freq: 'täglich aktualisiert',
+    src_fifa_label: 'FIFA-Rangliste',
+    src_fifa_freq: 'täglich aktualisiert',
     src_atkdef_label: 'Atk/Def-Werte',
     src_atkdef_desc: 'Berechnet aus eloratings.net Spielverläufen seit 2022',
     src_bracket_label: 'Turnierbaum',
@@ -3170,13 +3183,15 @@ const T = {
     footer_data: 'FONTI DATI',
     footer_method: 'METODOLOGIA',
     footer_note: 'NOTE',
-    footer_method_desc: 'I risultati delle partite sono determinati dal ranking selezionato (Elo/Opta). La distribuzione dei gol e gli spareggi per differenza reti nei gruppi a pari punti sono generati tramite livelli atk/def stratificati per forza dell\'avversario (forte/debole). La qualificazione delle migliori terze segue la matrice ufficiale FIFA a 495 scenari. I paesi ospitanti (USA/CAN/MEX) ricevono un bonus di vantaggio casalingo di +70 Elo, attivabile nell\'interfaccia.',
+    footer_method_desc: 'I risultati delle partite sono determinati dal ranking selezionato (Elo/Opta/FIFA). La distribuzione dei gol e gli spareggi per differenza reti nei gruppi a pari punti sono generati tramite livelli atk/def stratificati per forza dell\'avversario (forte/debole). La qualificazione delle migliori terze segue la matrice ufficiale FIFA a 495 scenari. I paesi ospitanti (USA/CAN/MEX) ricevono un bonus di vantaggio casalingo di +70 Elo, attivabile nell\'interfaccia.',
     footer_note_desc: 'I valori Opta di Germania, Ecuador, Costa d\'Avorio e Bosnia sono stime basate sul loro ranking mondiale Opta. Il simulatore è solo a scopo di intrattenimento/analisi e non prevede risultati reali.',
     last_updated: 'Ultimo aggiornamento',
     unit_matches: 'partite',
     src_opta_label: 'Opta Power Rating',
     src_elo_label: 'Elo Rating',
     src_elo_freq: 'aggiornato quotidianamente',
+    src_fifa_label: 'Classifica FIFA',
+    src_fifa_freq: 'aggiornato quotidianamente',
     src_atkdef_label: 'Valori Atk/Def',
     src_atkdef_desc: 'Calcolati dagli storici delle partite di eloratings.net dal 2022',
     src_bracket_label: 'Tabellone',
@@ -3291,13 +3306,15 @@ const T = {
     footer_data: '데이터 출처',
     footer_method: '방법론',
     footer_note: '참고',
-    footer_method_desc: '경기 결과는 선택한 레이팅(Elo/Opta)으로 결정. 득점 분포와 승점 동률 시 골득실 타이브레이크는 상대 강도별(강팀/약팀)로 계층화된 atk/def 레이어로 생성. 3위 진출은 FIFA 공식 495가지 시나리오 매트릭스를 따름. 개최국(미국·캐나다·멕시코)에는 +70 Elo의 홈 이점 보너스가 적용됩니다(UI에서 ON/OFF 전환 가능).',
+    footer_method_desc: '경기 결과는 선택한 레이팅(Elo/Opta/FIFA)으로 결정. 득점 분포와 승점 동률 시 골득실 타이브레이크는 상대 강도별(강팀/약팀)로 계층화된 atk/def 레이어로 생성. 3위 진출은 FIFA 공식 495가지 시나리오 매트릭스를 따름. 개최국(미국·캐나다·멕시코)에는 +70 Elo의 홈 이점 보너스가 적용됩니다(UI에서 ON/OFF 전환 가능).',
     footer_note_desc: '독일, 에콰도르, 코트디부아르, 보스니아의 Opta 값은 Opta 세계 순위 기반 추정치. 이 시뮬레이터는 오락·분석 목적이며 실제 결과를 예측하지 않음.',
     last_updated: '최종 업데이트',
     unit_matches: '경기',
     src_opta_label: 'Opta Power Rating',
     src_elo_label: 'Elo Rating',
     src_elo_freq: '매일 업데이트',
+    src_fifa_label: 'FIFA 랭킹',
+    src_fifa_freq: '매일 업데이트',
     src_atkdef_label: 'Atk/Def 값',
     src_atkdef_desc: 'eloratings.net 경기 기록(2022년 이후)으로부터 산출',
     src_bracket_label: '대진표',
@@ -3412,13 +3429,15 @@ const T = {
     footer_data: '数据来源',
     footer_method: '计算方法',
     footer_note: '备注',
-    footer_method_desc: '比赛胜负由所选评分(Elo/Opta)决定。得分分布与小组同分时的净胜球排序通过按对手强度分层(强队/弱队)的atk/def层生成。小组第三出线遵循FIFA官方的495场景矩阵。东道主(美国·加拿大·墨西哥)获得+70 Elo的主场优势加成(UI可切换开启/关闭)。',
+    footer_method_desc: '比赛胜负由所选评分(Elo/Opta/FIFA)决定。得分分布与小组同分时的净胜球排序通过按对手强度分层(强队/弱队)的atk/def层生成。小组第三出线遵循FIFA官方的495场景矩阵。东道主(美国·加拿大·墨西哥)获得+70 Elo的主场优势加成(UI可切换开启/关闭)。',
     footer_note_desc: '德国、厄瓜多尔、科特迪瓦、波黑的Opta值为基于Opta世界排名的估计值。本模拟器仅供娱乐/分析用途,不预测实际结果。',
     last_updated: '最后更新',
     unit_matches: '场',
     src_opta_label: 'Opta Power Rating',
     src_elo_label: 'Elo Rating',
     src_elo_freq: '每日更新',
+    src_fifa_label: 'FIFA排名',
+    src_fifa_freq: '每日更新',
     src_atkdef_label: 'Atk/Def 数值',
     src_atkdef_desc: '基于 eloratings.net 比赛记录(2022年起)计算得出',
     src_bracket_label: '赛程',
@@ -3533,13 +3552,15 @@ const T = {
     footer_data: 'مصادر البيانات',
     footer_method: 'المنهجية',
     footer_note: 'ملاحظات',
-    footer_method_desc: 'نتائج المباريات تُحدد بواسطة التصنيف المختار (Elo/Opta). توزيع الأهداف وكسر التعادل بفارق الأهداف في المجموعات المتساوية يتم توليدهما عبر طبقات atk/def مقسمة حسب قوة الخصم (قوي/ضعيف). تأهل أفضل ثالث يتبع مصفوفة FIFA الرسمية ذات 495 سيناريو. تتلقى الدول المضيفة (الولايات المتحدة/كندا/المكسيك) مكافأة ميزة أرضية قدرها +70 إلو، قابلة للتبديل في الواجهة.',
+    footer_method_desc: 'نتائج المباريات تُحدد بواسطة التصنيف المختار (Elo/Opta/FIFA). توزيع الأهداف وكسر التعادل بفارق الأهداف في المجموعات المتساوية يتم توليدهما عبر طبقات atk/def مقسمة حسب قوة الخصم (قوي/ضعيف). تأهل أفضل ثالث يتبع مصفوفة FIFA الرسمية ذات 495 سيناريو. تتلقى الدول المضيفة (الولايات المتحدة/كندا/المكسيك) مكافأة ميزة أرضية قدرها +70 إلو، قابلة للتبديل في الواجهة.',
     footer_note_desc: 'قيم Opta لألمانيا وإكوادور وساحل العاج والبوسنة هي تقديرات بناءً على الترتيب العالمي لـ Opta. المحاكي لأغراض الترفيه/التحليل فقط ولا يتنبأ بالنتائج الفعلية.',
     last_updated: 'آخر تحديث',
     unit_matches: 'مباريات',
     src_opta_label: 'Opta Power Rating',
     src_elo_label: 'Elo Rating',
     src_elo_freq: 'يتم التحديث يومياً',
+    src_fifa_label: 'تصنيف FIFA',
+    src_fifa_freq: 'يتم التحديث يومياً',
     src_atkdef_label: 'قيم Atk/Def',
     src_atkdef_desc: 'محسوبة من سجلات مباريات eloratings.net منذ 2022',
     src_bracket_label: 'القوس',
@@ -5952,7 +5973,7 @@ function renderStats(counts, groupPos, champs, N, opponents, championPath, stage
   // later rounds spread more but cutoff naturally narrows to main rivals.
   // Opponents below 0.5% collapse into "Other (N)".
   //
-  // NOTE: The opponent distribution depends on the current Rating Mode (Elo/Opta)
+  // NOTE: The opponent distribution depends on the current Rating Mode (Elo/Opta/FIFA)
   // and Home Advantage (ON/OFF) settings, because those change the advancement
   // probabilities of every potential opponent. UI should communicate this.
   if (opponents && N >= 1000) {
@@ -7168,6 +7189,8 @@ function applyLanguage() {
   $('ui-src-opta-label').textContent = t('src_opta_label');
   $('ui-src-elo-label').textContent = t('src_elo_label');
   $('ui-src-elo-freq').textContent = t('src_elo_freq');
+  $('ui-src-fifa-label').textContent = t('src_fifa_label');
+  $('ui-src-fifa-freq').textContent = t('src_fifa_freq');
   $('ui-src-atkdef-label').textContent = t('src_atkdef_label');
   $('ui-src-atkdef-desc').innerHTML = t('src_atkdef_desc').replace('eloratings.net', '<a href="https://www.eloratings.net/" target="_blank" rel="noopener" class="footer-link">eloratings.net</a>');
   $('ui-src-bracket-label').textContent = t('src_bracket_label');
