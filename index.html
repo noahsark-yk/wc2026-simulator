@@ -879,7 +879,7 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 }
 .ratings-row {
   display: grid;
-  grid-template-columns: 24px 22px 1fr 28px 52px 52px;
+  grid-template-columns: 24px 22px 1fr 28px 52px 52px 52px;
   align-items: center;
   gap: 8px;
   padding: 6px 10px;
@@ -917,18 +917,18 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
   text-align: center;
   font-weight: 500;
 }
-.ratings-row .r-elo, .ratings-row .r-opta {
+.ratings-row .r-elo, .ratings-row .r-opta, .ratings-row .r-fifa {
   text-align: right;
   font-variant-numeric: tabular-nums;
   color: var(--text-secondary);
 }
-.ratings-row .r-elo.active, .ratings-row .r-opta.active {
+.ratings-row .r-elo.active, .ratings-row .r-opta.active, .ratings-row .r-fifa.active {
   color: var(--focus);
   font-weight: 600;
 }
 @media (max-width: 420px) {
   .ratings-row {
-    grid-template-columns: 20px 20px 1fr 24px 44px 44px;
+    grid-template-columns: 20px 20px 1fr 24px 44px 44px 44px;
     gap: 5px;
     padding: 5px 8px;
     font-size: 11px;
@@ -2152,6 +2152,7 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
       <span class="control-label" id="ui-label-rating">Rating</span>
       <div class="mode-toggle" id="rating-toggle">
         <button data-mode="opta">Opta</button>
+        <button data-mode="fifa">FIFA</button>
         <button data-mode="elo" class="active">Elo</button>
       </div>
     </div>
@@ -3562,7 +3563,7 @@ let LAST_UPDATED = '2026-04-25'; // Will be overridden by teams.json
 // v2.16.6: LANG is initialized via auto-detection (URL param > localStorage > browser).
 // See detectInitialLang() defined just below. Falls back to 'en' if nothing matches.
 let LANG = detectInitialLang();
-let RATING_MODE = 'elo'; // 'opta' or 'elo'
+let RATING_MODE = 'elo'; // 'elo' | 'opta' | 'fifa'
 let FOCUS = 'JPN';
 
 // v2.16.6: Determine the user's preferred language at startup.
@@ -3606,7 +3607,11 @@ const nmf = (code) => {
   const f = flag(code);
   return f ? `<span class="flag">${f}</span>${nm(code)}` : nm(code);
 };
-const rating = (team) => RATING_MODE === 'opta' ? team.opta : team.elo;
+const rating = (team) => {
+  if (RATING_MODE === 'opta') return team.opta;
+  if (RATING_MODE === 'fifa') return (typeof team.fifaP === 'number') ? team.fifaP : team.elo;
+  return team.elo;
+};
 
 // === Flag rendering helpers (added by migrate_flags.js) ===
 // Convert team.f (ISO2 code like "jp", "br", "gb-eng") into a flag-icons HTML span.
@@ -3626,7 +3631,7 @@ function flagHtmlByCode(code) {
 
 const getTeam = (code) => TEAMS.find(x => x.c === code);
 const getGroup = (g) => TEAMS.filter(x => x.g === g);
-const fmtRating = (r) => RATING_MODE === 'opta' ? r.toFixed(1) : Math.round(r).toString();
+const fmtRating = (r) => RATING_MODE === 'elo' ? Math.round(r).toString() : r.toFixed(1);
 
 // 95% Wilson score confidence interval for a binomial proportion.
 // n = observed count, N = total trials. Returns symmetric half-width in percentage-points.
@@ -3816,6 +3821,7 @@ function assignThirds(availableGroups) {
 const HOME_TEAMS = new Set(['USA', 'CAN', 'MEX']);
 const HOME_BONUS_ELO = 70;
 const HOME_BONUS_OPTA = 3.5;
+const HOME_BONUS_FIFA = 60;
 let HOME_ADVANTAGE_ON = true;
 
 // Stage-aware home-bonus effectiveness.
@@ -3835,7 +3841,9 @@ function homeBonusMultiplier(teamCode, stage) {
 // negative if opponent is such a host, zero otherwise.
 function homeBonus(t1, t2, stage) {
   if (!HOME_ADVANTAGE_ON) return 0;
-  const bonus = RATING_MODE === 'opta' ? HOME_BONUS_OPTA : HOME_BONUS_ELO;
+  const bonus = RATING_MODE === 'opta' ? HOME_BONUS_OPTA
+              : RATING_MODE === 'fifa' ? HOME_BONUS_FIFA
+              : HOME_BONUS_ELO;
   const t1Home = HOME_TEAMS.has(t1.c);
   const t2Home = HOME_TEAMS.has(t2.c);
   const m1 = t1Home ? homeBonusMultiplier(t1.c, stage) : 0;
@@ -3856,8 +3864,8 @@ function homeBonus(t1, t2, stage) {
 // We keep the 3-tier table (already validated against the 100k aggregates),
 // but rating-system scaled thresholds remain so Opta numeric scale works too.
 function drawProb(absDiff) {
-  const smallT = RATING_MODE === 'opta' ? 5 : 75;
-  const medT   = RATING_MODE === 'opta' ? 10 : 150;
+  const smallT = RATING_MODE === 'opta' ? 5 : RATING_MODE === 'fifa' ? 100 : 75;
+  const medT   = RATING_MODE === 'opta' ? 10 : RATING_MODE === 'fifa' ? 200 : 150;
   if (absDiff < smallT) return 0.35;
   if (absDiff < medT)   return 0.25;
   return 0.15;
@@ -3867,7 +3875,7 @@ function simMatch(t1, t2, allowDraw, stage) {
   const r1 = rating(t1), r2 = rating(t2);
   const diff = r1 - r2 + homeBonus(t1, t2, stage);
   // Opta scale: divide by 28; Elo scale: divide by 400 (standard)
-  const divisor = RATING_MODE === 'opta' ? 28 : 400;
+  const divisor = RATING_MODE === 'opta' ? 28 : RATING_MODE === 'fifa' ? 300 : 400;
   const p1_raw = 1 / (1 + Math.pow(10, -diff / divisor));
   if (allowDraw) {
     // Draw probability from shared drawProb() — see its comment for history.
@@ -3960,8 +3968,8 @@ function bivariatePoissonRand(lambda1, lambda2, lambda0) {
 // Smoothstep interpolation at [1700, 1900] Elo (or Opta equivalent)
 // Returns 0 for weak opponent, 1 for strong opponent, smooth transition between
 function strongFactor(opponentRating) {
-  const low = RATING_MODE === 'opta' ? 72 : 1700;
-  const hi  = RATING_MODE === 'opta' ? 82 : 1900;
+  const low = RATING_MODE === 'opta' ? 72 : RATING_MODE === 'fifa' ? 1500 : 1700;
+  const hi  = RATING_MODE === 'opta' ? 82 : RATING_MODE === 'fifa' ? 1700 : 1900;
   const t = Math.max(0, Math.min(1, (opponentRating - low) / (hi - low)));
   return t * t * (3 - 2 * t);
 }
@@ -4001,7 +4009,7 @@ function computeLambdas(t1, t2, stage) {
   // v2.3: softened factor (0.75〜1.25) because stratified atk/def already encodes strength gap.
   // Previous 0.55〜1.45 was double-counting the rating effect and caused elite-vs-elite blowouts.
   // v2.7: home advantage added to rating diff for the ratingP1 computation as well
-  const divisor = RATING_MODE === 'opta' ? 28 : 400;
+  const divisor = RATING_MODE === 'opta' ? 28 : RATING_MODE === 'fifa' ? 300 : 400;
   const ratingDiff = (r1 - r2) + homeBonus(t1, t2, stage);
   const ratingP1 = 1 / (1 + Math.pow(10, -ratingDiff / divisor));
   const ratingFactor1 = 0.75 + 0.5 * ratingP1;
@@ -4060,7 +4068,7 @@ function generateScore(t1, t2, stage) {
       // the old values over-determined outcomes. Real WC PKs (ESP-MAR 2022, BRA-CRO,
       // NED-ARG) show favorites losing regularly. Ratings still nudge slightly.
       const r1 = rating(t1), r2 = rating(t2);
-      const divisor = RATING_MODE === 'opta' ? 28 : 400;
+      const divisor = RATING_MODE === 'opta' ? 28 : RATING_MODE === 'fifa' ? 300 : 400;
       const p1Strength = 1 / (1 + Math.pow(10, -(r1 - r2) / divisor));
       const conv1 = 0.73 + 0.04 * p1Strength;
       const conv2 = 0.73 + 0.04 * (1 - p1Strength);
@@ -4105,7 +4113,7 @@ function generateScoreNative(t1, t2, stage) {
 
   // Compute rating-based probabilities (same formula as simMatch for MC consistency).
   const _r1 = rating(t1), _r2 = rating(t2);
-  const _divisor = RATING_MODE === 'opta' ? 28 : 400;
+  const _divisor = RATING_MODE === 'opta' ? 28 : RATING_MODE === 'fifa' ? 300 : 400;
   const _diff = _r1 - _r2 + homeBonus(t1, t2, stage);
   const p1_raw = 1 / (1 + Math.pow(10, -_diff / _divisor));
   const KO_PULLBACK_BY_STAGE = { r32: 0.20, r16: 0.18, qf: 0.15, sf: 0.12, f: 0.10 };
@@ -4427,7 +4435,7 @@ function generateScoreForOutcome(t1, t2, winnerTeam, stage) {
   // Compute ratingP1 (raw rating-based win prob) to size the bias appropriately.
   const winnerIsT1 = (winnerTeam === t1);
   const _r1 = rating(t1), _r2 = rating(t2);
-  const _divisor = RATING_MODE === 'opta' ? 28 : 400;
+  const _divisor = RATING_MODE === 'opta' ? 28 : RATING_MODE === 'fifa' ? 300 : 400;
   const _diff = _r1 - _r2 + homeBonus(t1, t2, stage);
   const ratingP1 = 1 / (1 + Math.pow(10, -_diff / _divisor));
 
@@ -4521,7 +4529,7 @@ function generateScoreForOutcome(t1, t2, winnerTeam, stage) {
   // more — PK-Panenka mentality emerges (Modric, Mbappe, etc). Range 0.73-0.77 (R32)
   // widens to 0.72-0.80 (Final).
   const r1 = rating(t1), r2 = rating(t2);
-  const divisor = RATING_MODE === 'opta' ? 28 : 400;
+  const divisor = RATING_MODE === 'opta' ? 28 : RATING_MODE === 'fifa' ? 300 : 400;
   const p1Strength = 1 / (1 + Math.pow(10, -(r1 - r2) / divisor));
   // conv1 = base + spread * p1Strength; conv2 = base + spread * (1-p1Strength)
   // Stage-aware spread: R32 0.04, R16 0.05, QF 0.06, SF 0.07, F 0.08
@@ -4556,7 +4564,7 @@ function simGroup(teams) {
       } else {
         const l = w === teams[i] ? teams[j] : teams[i];
         pts[w.c] += 3;
-        const rDiff = RATING_MODE === 'opta' ? (rating(w) - rating(l)) / 20 : (rating(w) - rating(l)) / 150;
+        const rDiff = RATING_MODE === 'opta' ? (rating(w) - rating(l)) / 20 : RATING_MODE === 'fifa' ? (rating(w) - rating(l)) / 150 : (rating(w) - rating(l)) / 150;
         const d = Math.max(0.5, rDiff + Math.random());
         sc[w.c] += d; sc[l.c] -= d;
       }
@@ -5970,7 +5978,7 @@ function renderStats(counts, groupPos, champs, N, opponents, championPath, stage
     if (hasData) {
       // Settings caption: opponent distribution depends on Rating Mode and Home ADV.
       // Making these dependencies visible so users know the current conditions.
-      const ratingLabel = RATING_MODE === 'opta' ? 'Opta' : 'Elo';
+      const ratingLabel = RATING_MODE === 'opta' ? 'Opta' : RATING_MODE === 'fifa' ? 'FIFA' : 'Elo';
       const homeLabel = HOME_ADVANTAGE_ON ? 'ON' : 'OFF';
       const settingsCaption = `${t('label_rating')}: ${ratingLabel} · ${t('label_home')}: ${homeLabel}`;
       html += `<div class="section-head"><h2>${t('section_opponents', {country: focusName})}</h2><span class="meta">${t('opponents_meta') || ''} · ${settingsCaption}</span></div>`;
@@ -6410,7 +6418,7 @@ function buildWorkerCode() {
     const BASE_GOALS_KO = 2.55;
 
     // Helpers that are method-style in main (const foo = ...) — redefined here
-    const rating = (team) => RATING_MODE === 'opta' ? team.opta : team.elo;
+    const rating = (team) => RATING_MODE === 'opta' ? team.opta : RATING_MODE === 'fifa' ? (typeof team.fifaP === 'number' ? team.fifaP : team.elo) : team.elo;
     const getGroup = (g) => TEAMS.filter(x => x.g === g);
     const getTeam = (code) => TEAMS.find(t => t.c === code);
 
@@ -7116,6 +7124,7 @@ function renderRatingsTable() {
   html += `<span class="r-group">${t('ratings_col_group')}</span>`;
   html += `<span class="r-elo ${RATING_MODE === 'elo' ? 'active' : ''}">Elo</span>`;
   html += `<span class="r-opta ${RATING_MODE === 'opta' ? 'active' : ''}">Opta</span>`;
+  html += `<span class="r-fifa ${RATING_MODE === 'fifa' ? 'active' : ''}">FIFA</span>`;
   html += `</div>`;
   sorted.forEach((team, i) => {
     const focusCls = team.c === FOCUS ? ' focus' : '';
@@ -7126,6 +7135,7 @@ function renderRatingsTable() {
     html += `<span class="r-group">${team.g}</span>`;
     html += `<span class="r-elo ${RATING_MODE === 'elo' ? 'active' : ''}">${team.elo}</span>`;
     html += `<span class="r-opta ${RATING_MODE === 'opta' ? 'active' : ''}">${team.opta.toFixed(1)}</span>`;
+    html += `<span class="r-fifa ${RATING_MODE === 'fifa' ? 'active' : ''}">${typeof team.fifaP === 'number' ? team.fifaP.toFixed(1) : '—'}</span>`;
     html += `</div>`;
   });
   body.innerHTML = html;
