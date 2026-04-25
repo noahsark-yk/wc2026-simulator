@@ -399,6 +399,120 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
   font-weight: 700;
   letter-spacing: -0.01em;
 }
+/* === Focus-country custom dropdown (replaces native <select>) === */
+.focus-control {
+  position: relative;
+  display: inline-block;
+}
+.focus-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 13px;
+  cursor: pointer;
+  min-height: 32px;
+  font-family: inherit;
+  transition: border-color 0.15s, background 0.15s;
+}
+.focus-toggle:hover { border-color: var(--accent); }
+.focus-toggle:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-subtle); }
+.focus-toggle:disabled { opacity: 0.5; cursor: not-allowed; }
+.focus-toggle .focus-toggle-flag { font-size: 16px; line-height: 1; }
+.focus-toggle .focus-toggle-caret {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  margin-left: 4px;
+  transition: transform 0.15s;
+}
+.focus-toggle.open .focus-toggle-caret { transform: rotate(180deg); }
+
+.focus-grid-wrapper {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 100;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  max-height: 70vh;
+  overflow-y: auto;
+  min-width: 320px;
+  max-width: 90vw;
+}
+.focus-grid-group {
+  margin-bottom: 8px;
+}
+.focus-grid-group:last-child { margin-bottom: 0; }
+.focus-grid-group-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-tertiary);
+  font-weight: 600;
+  padding: 4px 4px 2px;
+}
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+}
+.focus-grid-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  color: var(--text-primary);
+  font-size: 12px;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: background 0.1s, border-color 0.1s;
+}
+.focus-grid-button:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--border);
+}
+.focus-grid-button.selected {
+  background: var(--focus-bg);
+  border-color: var(--focus-border);
+  color: var(--focus);
+  font-weight: 600;
+}
+.focus-grid-button .fi {
+  font-size: 14px;
+  line-height: 1;
+}
+.focus-grid-button .focus-grid-button-rating {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-tertiary);
+  font-size: 11px;
+}
+.focus-grid-button.selected .focus-grid-button-rating {
+  color: var(--focus);
+  opacity: 0.8;
+}
+@media (max-width: 480px) {
+  .focus-grid-wrapper {
+    min-width: 280px;
+    padding: 8px;
+  }
+  .focus-grid-button {
+    font-size: 11px;
+    padding: 5px 6px;
+  }
+}
+
 .focus-result-badge {
   display: inline-flex;
   flex-direction: column;
@@ -2165,7 +2279,14 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
     </div>
     <div class="control-group">
       <span class="control-label" id="ui-label-focus">Focus</span>
-      <select id="focus-select"></select>
+      <div class="focus-control" id="focus-control">
+        <button class="focus-toggle" id="focus-toggle" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="focus-toggle-flag" id="focus-toggle-flag"></span>
+          <span class="focus-toggle-text" id="focus-toggle-text">—</span>
+          <span class="focus-toggle-caret" aria-hidden="true">▼</span>
+        </button>
+        <div class="focus-grid-wrapper" id="focus-grid-wrapper" hidden role="listbox"></div>
+      </div>
     </div>
   </div>
 
@@ -6230,7 +6351,8 @@ function statBox(key, count, div, dec, highlight, totalN) {
 // ============ PROGRESS ============
 function setButtonsDisabled(d) {
   ['btn-once','btn-1k','btn-100k','btn-modal','btn-reset'].forEach(id => $(id).disabled = d);
-  $('focus-select').disabled = d;
+  const _ft = document.getElementById('focus-toggle');
+  if (_ft) _ft.disabled = d;
   $('lang-select').disabled = d;
   document.querySelectorAll('#rating-toggle button').forEach(b => b.disabled = d);
   document.querySelectorAll('#home-toggle button').forEach(b => b.disabled = d);
@@ -6609,7 +6731,7 @@ function updateLiveFeed(champs, done, sim) {
   }
 
   // 2) Match hero: show queued match at most every 500ms for readability
-  if (__liveMatchQueue && now - __liveMatchLastShow >= 500) {
+  if (__liveMatchQueue && now - __liveMatchLastShow >= 1000) {
     __liveMatchLastShow = now;
     const mBody = document.getElementById('live-match-body');
     if (mBody) {
@@ -6708,15 +6830,15 @@ function run100000() {
   // around it, the feed visually appeared "too far down". Now we put the
   // feed's TOP at ~15% of viewport height — leaving a comfortable margin
   // above (for context) while keeping the feed clearly the focal point.
-  if (window.innerWidth < 720) {
-    requestAnimationFrame(() => {
-      const feed = document.querySelector('.live-feed');
-      if (!feed) return;
-      const rect = feed.getBoundingClientRect();
-      const targetY = window.scrollY + rect.top - (window.innerHeight * 0.15);
-      window.scrollTo({ top: targetY, behavior: 'smooth' });
-    });
-  }
+  // (Now also active on desktop — the live feed is the focal point during
+  //  long simulations regardless of viewport size.)
+  requestAnimationFrame(() => {
+    const feed = document.querySelector('.live-feed');
+    if (!feed) return;
+    const rect = feed.getBoundingClientRect();
+    const targetY = window.scrollY + rect.top - (window.innerHeight * 0.15);
+    window.scrollTo({ top: targetY, behavior: 'smooth' });
+  });
   showProgress(t('calculating'));
 
   // Feature-detect Worker — fall back to main-thread loop if unavailable.
@@ -6851,7 +6973,7 @@ function updateLiveFeedFromWorker(champs, done, serializedMatch) {
   }
 
   // Match hero: throttle to 500ms per swap
-  if (__liveMatchQueueW && now - __liveMatchLastShowW >= 500) {
+  if (__liveMatchQueueW && now - __liveMatchLastShowW >= 1000) {
     __liveMatchLastShowW = now;
     const mBody = document.getElementById('live-match-body');
     if (mBody) {
@@ -6888,16 +7010,15 @@ function runModalTournament() {
   // Phase 1 is a 10k-shot Monte Carlo over the whole tournament — the same
   // animation that makes Run 100k feel watchable applies here too.
   $('results').innerHTML = liveFeedHtml();
-  // Mobile auto-scroll (same precise positioning as Run 100k, v2.16.5)
-  if (window.innerWidth < 720) {
-    requestAnimationFrame(() => {
-      const feed = document.querySelector('.live-feed');
-      if (!feed) return;
-      const rect = feed.getBoundingClientRect();
-      const targetY = window.scrollY + rect.top - (window.innerHeight * 0.15);
-      window.scrollTo({ top: targetY, behavior: 'smooth' });
-    });
-  }
+  // Auto-scroll to the feed (same precise positioning as Run 100k, v2.16.5).
+  // Active on both mobile and desktop now.
+  requestAnimationFrame(() => {
+    const feed = document.querySelector('.live-feed');
+    if (!feed) return;
+    const rect = feed.getBoundingClientRect();
+    const targetY = window.scrollY + rect.top - (window.innerHeight * 0.15);
+    window.scrollTo({ top: targetY, behavior: 'smooth' });
+  });
   const start = Date.now();
 
   // --- Phase 1: sample R32 pairs + group standings tuples ---
@@ -7110,21 +7231,101 @@ function populateLanguageSelect() {
   });
 }
 
+// TLA -> Unicode flag emoji (used in <option> elements where HTML/CSS flags
+// don't render). Falls back to regional-indicator pairs for ISO2 nations
+// and tag sequences for England/Scotland.
+const TLA_TO_FLAG_EMOJI = {
+  ESP:'🇪🇸', FRA:'🇫🇷', ENG:'🏴󠁧󠁢󠁥󠁮󠁧󠁿', POR:'🇵🇹', NED:'🇳🇱',
+  GER:'🇩🇪', CRO:'🇭🇷', SUI:'🇨🇭', BEL:'🇧🇪', AUT:'🇦🇹',
+  CZE:'🇨🇿', NOR:'🇳🇴', BIH:'🇧🇦', SCO:'🏴󠁧󠁢󠁳󠁣󠁴󠁿', TUR:'🇹🇷', SWE:'🇸🇪',
+  ARG:'🇦🇷', BRA:'🇧🇷', COL:'🇨🇴', URU:'🇺🇾', ECU:'🇪🇨', PAR:'🇵🇾',
+  USA:'🇺🇸', CAN:'🇨🇦', MEX:'🇲🇽', PAN:'🇵🇦', CUW:'🇨🇼', HAI:'🇭🇹',
+  JPN:'🇯🇵', KOR:'🇰🇷', IRN:'🇮🇷', KSA:'🇸🇦', AUS:'🇦🇺',
+  UZB:'🇺🇿', JOR:'🇯🇴', IRQ:'🇮🇶', QAT:'🇶🇦',
+  MAR:'🇲🇦', SEN:'🇸🇳', TUN:'🇹🇳', EGY:'🇪🇬', ALG:'🇩🇿',
+  CIV:'🇨🇮', GHA:'🇬🇭', CPV:'🇨🇻', RSA:'🇿🇦', COD:'🇨🇩',
+  NZL:'🇳🇿'
+};
+
 function populateFocusSelect() {
-  const sel = $('focus-select');
-  sel.innerHTML = '';
+  // Builds the flag-grid dropdown contents and updates the toggle button.
+  const wrapper = document.getElementById('focus-grid-wrapper');
+  if (!wrapper) return;
+  wrapper.innerHTML = '';
   GROUPS.forEach(g => {
-    const og = document.createElement('optgroup');
-    og.label = 'Group ' + g;
+    const groupDiv = document.createElement('div');
+    groupDiv.className = 'focus-grid-group';
+    const label = document.createElement('div');
+    label.className = 'focus-grid-group-label';
+    label.textContent = 'Group ' + g;
+    groupDiv.appendChild(label);
+    const grid = document.createElement('div');
+    grid.className = 'focus-grid';
     getGroup(g).sort((a,b) => rating(b) - rating(a)).forEach(team => {
-      const opt = document.createElement('option');
-      opt.value = team.c;
-      opt.textContent = `${nm(team.c)} (${fmtRating(rating(team))})`;
-      if (team.c === FOCUS) opt.selected = true;
-      og.appendChild(opt);
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'focus-grid-button' + (team.c === FOCUS ? ' selected' : '');
+      btn.dataset.code = team.c;
+      btn.setAttribute('role', 'option');
+      btn.setAttribute('aria-selected', team.c === FOCUS ? 'true' : 'false');
+      const flagSpan = document.createElement('span');
+      flagSpan.className = 'fi fi-' + (team.f || '');
+      btn.appendChild(flagSpan);
+      const nameSpan = document.createElement('span');
+      nameSpan.textContent = nm(team.c);
+      btn.appendChild(nameSpan);
+      const ratingSpan = document.createElement('span');
+      ratingSpan.className = 'focus-grid-button-rating';
+      ratingSpan.textContent = fmtRating(rating(team));
+      btn.appendChild(ratingSpan);
+      btn.addEventListener('click', () => {
+        if (FOCUS === team.c) { closeFocusGrid(); return; }
+        FOCUS = team.c;
+        updateFocusToggle();
+        closeFocusGrid();
+        renderRatingsTable();
+        resetAll();
+      });
+      grid.appendChild(btn);
     });
-    sel.appendChild(og);
+    groupDiv.appendChild(grid);
+    wrapper.appendChild(groupDiv);
   });
+  updateFocusToggle();
+}
+
+function updateFocusToggle() {
+  const flagEl = document.getElementById('focus-toggle-flag');
+  const textEl = document.getElementById('focus-toggle-text');
+  if (!flagEl || !textEl) return;
+  const team = TEAMS.find(t => t.c === FOCUS);
+  if (!team) { textEl.textContent = '—'; flagEl.className = 'focus-toggle-flag'; return; }
+  flagEl.className = 'focus-toggle-flag fi fi-' + (team.f || '');
+  textEl.textContent = nm(team.c) + ' (' + fmtRating(rating(team)) + ')';
+}
+
+function openFocusGrid() {
+  const wrapper = document.getElementById('focus-grid-wrapper');
+  const toggle = document.getElementById('focus-toggle');
+  if (!wrapper || !toggle) return;
+  wrapper.hidden = false;
+  toggle.classList.add('open');
+  toggle.setAttribute('aria-expanded', 'true');
+}
+
+function closeFocusGrid() {
+  const wrapper = document.getElementById('focus-grid-wrapper');
+  const toggle = document.getElementById('focus-toggle');
+  if (!wrapper || !toggle) return;
+  wrapper.hidden = true;
+  toggle.classList.remove('open');
+  toggle.setAttribute('aria-expanded', 'false');
+}
+
+function toggleFocusGrid() {
+  const wrapper = document.getElementById('focus-grid-wrapper');
+  if (!wrapper) return;
+  if (wrapper.hidden) openFocusGrid(); else closeFocusGrid();
 }
 
 // v2.16: Render the ratings reference panel. Shows all 48 teams with both
@@ -7239,7 +7440,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Wrapped in try because localStorage is unavailable in some private modes.
     try { localStorage.setItem('userLang', LANG); } catch (err) { /* ignore */ }
   });
-  $('focus-select').addEventListener('change', (e) => { FOCUS = e.target.value; renderRatingsTable(); resetAll(); });
+  // Custom focus-control wiring: toggle button, outside-click, Escape key.
+  const _ft = document.getElementById('focus-toggle');
+  if (_ft) _ft.addEventListener('click', (e) => { e.stopPropagation(); toggleFocusGrid(); });
+  document.addEventListener('click', (e) => {
+    const ctrl = document.getElementById('focus-control');
+    if (ctrl && !ctrl.contains(e.target)) closeFocusGrid();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeFocusGrid();
+  });
   document.querySelectorAll('#rating-toggle button').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('#rating-toggle button').forEach(b => b.classList.remove('active'));
