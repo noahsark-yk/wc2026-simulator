@@ -2211,6 +2211,7 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
         <div id="ui-footer-data-desc">
           <div class="source-item"><strong id="ui-src-opta-label">Opta Power Rating</strong>: <a href="https://theanalyst.com/articles/world-cup-2026-draw-easiest-toughest-groups" target="_blank" rel="noopener" class="footer-link">theanalyst.com</a> <span class="source-date">(2025-12-05)</span></div>
           <div class="source-item"><strong id="ui-src-elo-label">Elo Rating</strong>: <a href="https://www.eloratings.net/" target="_blank" rel="noopener" class="footer-link">eloratings.net</a> <span class="source-date">(<span id="ui-src-elo-date">2026-04-25</span>, <span id="ui-src-elo-freq">daily updated</span>)</span></div>
+          <div class="source-item"><strong id="ui-src-atkdef-label">Atk/Def values</strong>: <span id="ui-src-atkdef-desc">Computed from <a href="https://www.eloratings.net/" target="_blank" rel="noopener" class="footer-link">eloratings.net</a> match histories since 2022</span></div>
           <div class="source-item"><strong id="ui-src-bracket-label">Bracket</strong>: <span id="ui-src-bracket-desc">FIFA World Cup 2026 official format (48 teams, 12 groups)</span></div>
         </div>
       </div>
@@ -2449,6 +2450,8 @@ const T = {
     src_opta_label: 'Opta Power Rating',
     src_elo_label: 'Elo Rating',
     src_elo_freq: '日次更新',
+    src_atkdef_label: 'Atk/Def 値',
+    src_atkdef_desc: 'eloratings.net の試合履歴 (2022年以降) から算出',
     src_bracket_label: 'ブラケット',
     src_bracket_desc: 'FIFA ワールドカップ2026 公式フォーマット (48カ国、12組)',
     empty_hint: '上のボタンを押してシミュレーションを開始',
@@ -2568,6 +2571,8 @@ const T = {
     src_opta_label: 'Opta Power Rating',
     src_elo_label: 'Elo Rating',
     src_elo_freq: 'daily updated',
+    src_atkdef_label: 'Atk/Def values',
+    src_atkdef_desc: 'Computed from eloratings.net match histories since 2022',
     src_bracket_label: 'Bracket',
     src_bracket_desc: 'FIFA World Cup 2026 official format (48 teams, 12 groups)',
     empty_hint: 'Press a button above to start the simulation',
@@ -2687,6 +2692,8 @@ const T = {
     src_opta_label: 'Opta Power Rating',
     src_elo_label: 'Elo Rating',
     src_elo_freq: 'actualizado diariamente',
+    src_atkdef_label: 'Valores Atk/Def',
+    src_atkdef_desc: 'Calculados desde los historiales de partidos de eloratings.net desde 2022',
     src_bracket_label: 'Cuadro',
     src_bracket_desc: 'Formato oficial FIFA Mundial 2026 (48 selecciones, 12 grupos)',
     empty_hint: 'Pulsa un botón arriba para comenzar la simulación',
@@ -2806,6 +2813,8 @@ const T = {
     src_opta_label: 'Opta Power Rating',
     src_elo_label: 'Elo Rating',
     src_elo_freq: 'atualizado diariamente',
+    src_atkdef_label: 'Valores Atk/Def',
+    src_atkdef_desc: 'Calculados a partir dos históricos de partidas de eloratings.net desde 2022',
     src_bracket_label: 'Chave',
     src_bracket_desc: 'Formato oficial FIFA Copa do Mundo 2026 (48 seleções, 12 grupos)',
     empty_hint: 'Pressione um botão acima para iniciar a simulação',
@@ -2925,6 +2934,8 @@ const T = {
     src_opta_label: 'Opta Power Rating',
     src_elo_label: 'Elo Rating',
     src_elo_freq: 'mis à jour quotidiennement',
+    src_atkdef_label: 'Valeurs Atk/Def',
+    src_atkdef_desc: 'Calculées à partir des historiques de matchs d\'eloratings.net depuis 2022',
     src_bracket_label: 'Tableau',
     src_bracket_desc: 'Format officiel Coupe du Monde FIFA 2026 (48 équipes, 12 groupes)',
     empty_hint: 'Appuyez sur un bouton ci-dessus pour lancer la simulation',
@@ -3044,6 +3055,8 @@ const T = {
     src_opta_label: 'Opta Power Rating',
     src_elo_label: 'Elo Rating',
     src_elo_freq: 'täglich aktualisiert',
+    src_atkdef_label: 'Atk/Def-Werte',
+    src_atkdef_desc: 'Berechnet aus eloratings.net Spielverläufen seit 2022',
     src_bracket_label: 'Turnierbaum',
     src_bracket_desc: 'Offizielles FIFA WM 2026 Format (48 Teams, 12 Gruppen)',
     empty_hint: 'Drücken Sie oben eine Taste, um die Simulation zu starten',
@@ -3163,6 +3176,8 @@ const T = {
     src_opta_label: 'Opta Power Rating',
     src_elo_label: 'Elo Rating',
     src_elo_freq: 'aggiornato quotidianamente',
+    src_atkdef_label: 'Valori Atk/Def',
+    src_atkdef_desc: 'Calcolati dagli storici delle partite di eloratings.net dal 2022',
     src_bracket_label: 'Tabellone',
     src_bracket_desc: 'Formato ufficiale FIFA Mondiale 2026 (48 squadre, 12 gironi)',
     empty_hint: 'Premi un pulsante sopra per avviare la simulazione',
@@ -3282,6 +3297,8 @@ const T = {
     src_opta_label: 'Opta Power Rating',
     src_elo_label: 'Elo Rating',
     src_elo_freq: '매일 업데이트',
+    src_atkdef_label: 'Atk/Def 값',
+    src_atkdef_desc: 'eloratings.net 경기 기록(2022년 이후)으로부터 산출',
     src_bracket_label: '대진표',
     src_bracket_desc: 'FIFA 월드컵 2026 공식 포맷 (48개국, 12개 조)',
     empty_hint: '위의 버튼을 눌러 시뮬레이션을 시작하세요',
@@ -3401,6 +3418,8 @@ const T = {
     src_opta_label: 'Opta Power Rating',
     src_elo_label: 'Elo Rating',
     src_elo_freq: '每日更新',
+    src_atkdef_label: 'Atk/Def 数值',
+    src_atkdef_desc: '基于 eloratings.net 比赛记录(2022年起)计算得出',
     src_bracket_label: '赛程',
     src_bracket_desc: '国际足联2026世界杯官方赛程(48队,12组)',
     empty_hint: '按上方按钮开始模拟',
@@ -3520,6 +3539,8 @@ const T = {
     src_opta_label: 'Opta Power Rating',
     src_elo_label: 'Elo Rating',
     src_elo_freq: 'يتم التحديث يومياً',
+    src_atkdef_label: 'قيم Atk/Def',
+    src_atkdef_desc: 'محسوبة من سجلات مباريات eloratings.net منذ 2022',
     src_bracket_label: 'القوس',
     src_bracket_desc: 'التنسيق الرسمي لكأس العالم FIFA 2026 (48 دولة، 12 مجموعة)',
     empty_hint: 'اضغط زر بالأعلى لبدء المحاكاة',
@@ -7137,6 +7158,8 @@ function applyLanguage() {
   $('ui-src-opta-label').textContent = t('src_opta_label');
   $('ui-src-elo-label').textContent = t('src_elo_label');
   $('ui-src-elo-freq').textContent = t('src_elo_freq');
+  $('ui-src-atkdef-label').textContent = t('src_atkdef_label');
+  $('ui-src-atkdef-desc').innerHTML = t('src_atkdef_desc').replace('eloratings.net', '<a href="https://www.eloratings.net/" target="_blank" rel="noopener" class="footer-link">eloratings.net</a>');
   $('ui-src-bracket-label').textContent = t('src_bracket_label');
   $('ui-src-bracket-desc').textContent = t('src_bracket_desc');
   $('lang-label').textContent = 'Language';
