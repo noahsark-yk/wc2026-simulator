@@ -97,7 +97,7 @@ function stripHtml(s) {
 async function navigate(page, slug) {
   const url = 'https://www.eloratings.net/' + slug;
   try {
-    const res = await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
+    const res = await page.goto(url, { waitUntil: 'networkidle2', timeout: 60000 });
     if (res.status() !== 200) return { ok: false };
     await new Promise(r => setTimeout(r, PER_PAGE_WAIT));
     const ok = await page.evaluate(() => {

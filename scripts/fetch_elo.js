@@ -114,12 +114,12 @@ async function main() {
     console.log('Loading eloratings.net...');
     await page.goto('https://www.eloratings.net/', {
       waitUntil: 'networkidle2',
-      timeout: 60000
+      timeout: 90000
     });
 
     // The site uses SlickGrid. Wait for the data rows to render.
     console.log('Waiting for rankings table to render...');
-    await page.waitForSelector('.slick-row', { timeout: 30000 });
+    await page.waitForSelector('.slick-row', { timeout: 60000 });
     // Give it a moment to fully populate
     await new Promise(r => setTimeout(r, 2000));
 
@@ -218,7 +218,23 @@ async function main() {
   }
 }
 
-main().catch(err => {
+// === Retry wrapper (added by add_retry_to_fetchers.js) ===
+async function withRetry(fn, maxRetries = 3) {
+  for (let i = 0; i < maxRetries; i++) {
+    try {
+      return await fn();
+    } catch (err) {
+      const isLast = (i === maxRetries - 1);
+      console.warn(`Attempt ${i+1}/${maxRetries} failed: ${err.message}`);
+      if (isLast) throw err;
+      const backoffMs = 10000 * (i + 1);
+      console.log(`Retrying in ${backoffMs/1000}s...`);
+      await new Promise(r => setTimeout(r, backoffMs));
+    }
+  }
+}
+
+withRetry(main).catch(err => {
   console.error('FATAL:', err);
   process.exit(1);
 });
