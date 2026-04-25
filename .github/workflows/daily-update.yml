@@ -52,6 +52,23 @@ jobs:
           git commit -m "Auto-update: $(date -u +'%Y-%m-%d %H:%M UTC') from eloratings.net"
           git push
       
+      # === Cloudflare Pages deployment ===
+      # Deploys the site (index.html + teams.json) to Cloudflare Pages.
+      # Runs on every workflow execution (whether teams.json changed or not),
+      # so the first run after adding this workflow will sync the latest site.
+      - name: Prepare deploy directory
+        run: |
+          mkdir -p _deploy
+          cp index.html _deploy/
+          cp teams.json _deploy/
+      
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy _deploy --project-name=noahsark-wc2026 --branch=main
+      
       - name: No changes summary
         if: steps.check_changes.outputs.has_changes == 'false'
-        run: echo "✅ No changes to teams.json today"
+        run: echo "No changes to teams.json today, but site was redeployed to ensure freshness"
