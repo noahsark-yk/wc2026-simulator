@@ -2224,7 +2224,8 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 //        UZB/JOR/IRQ N=2-3, TUN/ALG/CPV N=3) use either research priors or
 //        single-value duplication (see CUW). QAT/TUR/SWE use old single value
 //        for both layers (not covered by stratified research).
-const TEAMS = [
+let TEAMS = []; // Will be populated from teams.json
+const TEAMS_FALLBACK = [
   {c:'MEX',opta:77.2,elo:1858,g:'A',f:'🇲🇽',atk:{s:0.80,w:1.60},def:{s:1.60,w:0.60}}, {c:'RSA',opta:64.8,elo:1524,g:'A',f:'🇿🇦',atk:{s:1.00,w:2.11},def:{s:0.80,w:0.67}},
   {c:'KOR',opta:74.6,elo:1752,g:'A',f:'🇰🇷',atk:{s:0.80,w:2.20},def:{s:2.20,w:0.90}}, {c:'CZE',opta:70.0,elo:1726,g:'A',f:'🇨🇿',atk:{s:1.40,w:2.30},def:{s:2.00,w:0.60}},
   {c:'CAN',opta:71.7,elo:1784,g:'B',f:'🇨🇦',atk:{s:1.40,w:2.00},def:{s:0.80,w:0.70}}, {c:'BIH',opta:60.0,elo:1594,g:'B',f:'🇧🇦',atk:{s:1.00,w:2.20},def:{s:1.20,w:1.00}},
@@ -3513,7 +3514,7 @@ const T = {
 // v2.16.7: Single source of truth for "last updated" date — bump this when
 // you ship a meaningful update (rating refresh, new feature, etc.). Both the
 // footer and the Elo source line read from this.
-const LAST_UPDATED = '2026-04-25';
+let LAST_UPDATED = '2026-04-25'; // Will be overridden by teams.json
 // v2.16.6: LANG is initialized via auto-detection (URL param > localStorage > browser).
 // See detectInitialLang() defined just below. Falls back to 'en' if nothing matches.
 let LANG = detectInitialLang();
@@ -7111,7 +7112,26 @@ function applyLanguage() {
 }
 
 // ============ INIT ============
-document.addEventListener('DOMContentLoaded', () => {
+// Load teams from teams.json (with fallback)
+async function loadTeams() {
+  try {
+    const res = await fetch('teams.json', { cache: 'no-cache' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    if (!data || !Array.isArray(data.teams) || data.teams.length === 0) {
+      throw new Error('Invalid teams.json structure');
+    }
+    TEAMS = data.teams;
+    if (data.lastUpdated) LAST_UPDATED = data.lastUpdated;
+    console.log('Loaded ' + TEAMS.length + ' teams from teams.json (updated: ' + LAST_UPDATED + ')');
+  } catch (err) {
+    console.warn('Failed to load teams.json, using inline fallback:', err);
+    TEAMS = TEAMS_FALLBACK;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  await loadTeams();
   populateLanguageSelect();
   populateFocusSelect();
   applyLanguage();
