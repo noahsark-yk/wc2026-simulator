@@ -1,0 +1,206 @@
+{
+  "lastUpdated": "2026-04-25",
+  "source": "football-ranking.com",
+  "sourceUrl": "https://football-ranking.com/fifa-rankings",
+  "teams": {
+    "FRA": {
+      "rank": 1,
+      "points": 1877.32
+    },
+    "ESP": {
+      "rank": 2,
+      "points": 1876.4
+    },
+    "ARG": {
+      "rank": 3,
+      "points": 1874.82
+    },
+    "ENG": {
+      "rank": 4,
+      "points": 1825.97
+    },
+    "POR": {
+      "rank": 5,
+      "points": 1763.83
+    },
+    "BRA": {
+      "rank": 6,
+      "points": 1761.16
+    },
+    "NED": {
+      "rank": 7,
+      "points": 1757.87
+    },
+    "MAR": {
+      "rank": 8,
+      "points": 1756.8
+    },
+    "BEL": {
+      "rank": 9,
+      "points": 1734.72
+    },
+    "GER": {
+      "rank": 10,
+      "points": 1730.37
+    },
+    "CRO": {
+      "rank": 11,
+      "points": 1717.06
+    },
+    "COL": {
+      "rank": 12,
+      "points": 1693.09
+    },
+    "SEN": {
+      "rank": 13,
+      "points": 1691.97
+    },
+    "MEX": {
+      "rank": 15,
+      "points": 1681.03
+    },
+    "USA": {
+      "rank": 16,
+      "points": 1673.13
+    },
+    "URU": {
+      "rank": 17,
+      "points": 1673.07
+    },
+    "JPN": {
+      "rank": 18,
+      "points": 1660.43
+    },
+    "SUI": {
+      "rank": 19,
+      "points": 1649.4
+    },
+    "IRN": {
+      "rank": 20,
+      "points": 1615.3
+    },
+    "TUR": {
+      "rank": 22,
+      "points": 1599.03
+    },
+    "ECU": {
+      "rank": 23,
+      "points": 1594.79
+    },
+    "AUT": {
+      "rank": 24,
+      "points": 1593.45
+    },
+    "KOR": {
+      "rank": 25,
+      "points": 1588.67
+    },
+    "AUS": {
+      "rank": 27,
+      "points": 1580.68
+    },
+    "ALG": {
+      "rank": 28,
+      "points": 1564.26
+    },
+    "EGY": {
+      "rank": 29,
+      "points": 1563.24
+    },
+    "CAN": {
+      "rank": 30,
+      "points": 1556.48
+    },
+    "NOR": {
+      "rank": 31,
+      "points": 1550.95
+    },
+    "PAN": {
+      "rank": 33,
+      "points": 1540.64
+    },
+    "CIV": {
+      "rank": 34,
+      "points": 1532.97
+    },
+    "SWE": {
+      "rank": 37,
+      "points": 1514.77
+    },
+    "CZE": {
+      "rank": 38,
+      "points": 1513.74
+    },
+    "PAR": {
+      "rank": 41,
+      "points": 1503.51
+    },
+    "SCO": {
+      "rank": 43,
+      "points": 1498.35
+    },
+    "TUN": {
+      "rank": 44,
+      "points": 1483.05
+    },
+    "COD": {
+      "rank": 46,
+      "points": 1479.64
+    },
+    "UZB": {
+      "rank": 49,
+      "points": 1469.4
+    },
+    "QAT": {
+      "rank": 55,
+      "points": 1454.96
+    },
+    "IRQ": {
+      "rank": 57,
+      "points": 1447.13
+    },
+    "RSA": {
+      "rank": 59,
+      "points": 1429.73
+    },
+    "KSA": {
+      "rank": 61,
+      "points": 1421.43
+    },
+    "BIH": {
+      "rank": 63,
+      "points": 1398.23
+    },
+    "JOR": {
+      "rank": 64,
+      "points": 1391.45
+    },
+    "CPV": {
+      "rank": 68,
+      "points": 1371.13
+    },
+    "GHA": {
+      "rank": 73,
+      "points": 1346.31
+    },
+    "CUW": {
+      "rank": 82,
+      "points": 1294.66
+    },
+    "HAI": {
+      "rank": 83,
+      "points": 1291.71
+    },
+    "NZL": {
+      "rank": 85,
+      "points": 1281.57
+    }
+  },
+  "metadata": {
+    "fetchedAt": "2026-04-25T16:19:52.854Z",
+    "totalRowsScraped": 100,
+    "uniqueTlas": 100,
+    "wcTeamsMatched": 48,
+    "wcTeamsMissing": []
+  }
+}

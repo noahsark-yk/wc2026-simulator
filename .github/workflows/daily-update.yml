@@ -13,6 +13,7 @@ on:
     paths-ignore:
       - 'scripts/elo_data.json'
       - 'scripts/match_data.json'
+      - 'scripts/fifa_data.json'
   workflow_dispatch:
 
 jobs:
@@ -54,6 +55,9 @@ jobs:
         if: steps.check_event.outputs.refresh_data == 'true'
         run: node scripts/fetch_matches.js
       
+      - name: Fetch latest FIFA rankings
+        if: steps.check_event.outputs.refresh_data == 'true'
+        run: node scripts/fetch_fifa_rank.js
       - name: Recompute atk/def values
         if: steps.check_event.outputs.refresh_data == 'true'
         run: node scripts/build_teams.js
@@ -73,8 +77,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add teams.json scripts/elo_data.json scripts/match_data.json
-          git commit -m "Auto-update: $(date -u +'%Y-%m-%d %H:%M UTC') from eloratings.net"
+          git add teams.json scripts/elo_data.json scripts/match_data.json scripts/fifa_data.json
+          git commit -m "Auto-update: $(date -u +'%Y-%m-%d %H:%M UTC') from eloratings.net + football-ranking.com"
           git push
       
       # === Cloudflare Pages deployment (always runs) ===
