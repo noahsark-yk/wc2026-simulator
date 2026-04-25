@@ -1,10 +1,18 @@
 name: Daily Update
 
-# Schedule: every day at 02:00 UTC (= 11:00 JST, after most matches finish)
-# Also allows manual trigger from GitHub web UI for testing
+# Triggers:
+#   - Daily at 02:00 UTC (= 11:00 JST), after most matches finish
+#   - On push to main (so manual edits to index.html etc. deploy immediately)
+#   - Manual trigger from GitHub web UI for testing
 on:
   schedule:
     - cron: '0 2 * * *'
+  push:
+    branches: [main]
+    # Skip auto-runs on Bot's own commits to avoid loops
+    paths-ignore:
+      - 'scripts/elo_data.json'
+      - 'scripts/match_data.json'
   workflow_dispatch:
 
 jobs:
@@ -25,16 +33,33 @@ jobs:
       - name: Install dependencies
         run: npm install
       
+      # Skip data refresh on push events (only refresh data on schedule/manual)
+      # Push events just deploy whatever is already in the repo.
+      - name: Determine if data refresh is needed
+        id: check_event
+        run: |
+          if [[ "${{ github.event_name }}" == "push" ]]; then
+            echo "refresh_data=false" >> $GITHUB_OUTPUT
+            echo "Push event: skipping data refresh, just deploying"
+          else
+            echo "refresh_data=true" >> $GITHUB_OUTPUT
+            echo "Schedule/manual event: full data refresh"
+          fi
+      
       - name: Fetch latest Elo ratings
+        if: steps.check_event.outputs.refresh_data == 'true'
         run: node scripts/fetch_elo.js
       
       - name: Fetch match histories (all 48 teams)
+        if: steps.check_event.outputs.refresh_data == 'true'
         run: node scripts/fetch_matches.js
       
       - name: Recompute atk/def values
+        if: steps.check_event.outputs.refresh_data == 'true'
         run: node scripts/build_teams.js
       
       - name: Check for changes
+        if: steps.check_event.outputs.refresh_data == 'true'
         id: check_changes
         run: |
           if [[ -n "$(git status --porcelain teams.json)" ]]; then
@@ -44,7 +69,7 @@ jobs:
           fi
       
       - name: Commit and push if teams.json changed
-        if: steps.check_changes.outputs.has_changes == 'true'
+        if: steps.check_event.outputs.refresh_data == 'true' && steps.check_changes.outputs.has_changes == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -52,10 +77,7 @@ jobs:
           git commit -m "Auto-update: $(date -u +'%Y-%m-%d %H:%M UTC') from eloratings.net"
           git push
       
-      # === Cloudflare Pages deployment ===
-      # Deploys the site (index.html + teams.json) to Cloudflare Pages.
-      # Runs on every workflow execution (whether teams.json changed or not),
-      # so the first run after adding this workflow will sync the latest site.
+      # === Cloudflare Pages deployment (always runs) ===
       - name: Prepare deploy directory
         run: |
           mkdir -p _deploy
@@ -68,7 +90,3 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy _deploy --project-name=noahsark-wc2026 --branch=main
-      
-      - name: No changes summary
-        if: steps.check_changes.outputs.has_changes == 'false'
-        run: echo "No changes to teams.json today, but site was redeployed to ensure freshness"
