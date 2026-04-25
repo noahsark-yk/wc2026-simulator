@@ -1,216 +1,212 @@
-// scripts/fetch_fifa_rank.js
+// scripts/fetch_fifa_rank_v2.js
 //
-// Fetches current FIFA rankings for the 48 World Cup 2026 teams from
-// football-ranking.com (pages 1+2 covers ranks 1-100, includes all WC teams).
-// Outputs to scripts/fifa_data.json
+// Fetches FIFA "live" rankings — i.e., the points displayed on FIFA's
+// official world-ranking page that include match-window adjustments
+// since the last official Ranking Day.
 //
-// Usage: node scripts/fetch_fifa_rank.js
+// Pipeline:
+//   1. Open inside.fifa.com once with Puppeteer to harvest the current
+//      ranking schedule ID (e.g. "FRS_Male_Football_20260119").
+//   2. Hit api.fifa.com/.../rankingsbyschedule to get the 211-team
+//      confirmed table (lastUpdateDate + TotalPoints per country).
+//   3. Hit inside.fifa.com/api/live-world-ranking/get-match-window-matches
+//      to get every team's MatchesList, including TeamA/TeamBPointsBefore
+//      and TeamA/TeamBPoints (post-match values).
+//   4. For each country, take the most recent match's post-match points;
+//      that's the live points value the FIFA site shows. Fallback to
+//      confirmed TotalPoints if the country played no match in the window.
+//   5. Re-sort by live points -> live rank.
+//   6. Filter to the 48 World Cup teams and write fifa_data.json in the
+//      format build_teams.js v5 expects (TLA -> { rank, points }).
+//
+// Backwards-compatible: same output schema as the old football-ranking.com
+// scraper. Source field changes to identify the new origin.
+//
+// Usage: node scripts/fetch_fifa_rank.js (replaces the old script)
 
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
 
-// Our 48 World Cup 2026 team codes (TLAs, mostly standard FIFA codes)
-const WC_TEAM_CODES = [
+// ---- helpers ----
+const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+
+async function withRetry(fn, label, attempts = 3, baseDelayMs = 2000) {
+  let lastErr;
+  for (let i = 1; i <= attempts; i++) {
+    try { return await fn(); }
+    catch (err) {
+      lastErr = err;
+      console.warn(`  ! ${label}: attempt ${i}/${attempts} failed: ${err.message}`);
+      if (i < attempts) await sleep(baseDelayMs * i);
+    }
+  }
+  throw new Error(`${label}: all ${attempts} attempts failed: ${lastErr?.message}`);
+}
+
+// 48 WC2026 teams (TLA = FIFA's IdCountry code)
+const WC2026_TEAMS = [
+  'MEX','CAN','USA','BRA','ARG','URU','COL','ECU','PAR',
+  'JPN','KOR','IRN','KSA','AUS','UZB','JOR','IRQ','QAT',
   'ESP','FRA','ENG','POR','NED','GER','CRO','SUI','BEL','AUT',
   'CZE','NOR','BIH','SCO','TUR','SWE',
-  'ARG','BRA','COL','URU','ECU','PAR',
-  'USA','CAN','MEX','PAN','CUW','HAI',
-  'JPN','KOR','IRN','KSA','AUS','UZB','JOR','IRQ','QAT',
   'MAR','SEN','TUN','EGY','ALG','CIV','GHA','CPV','RSA','COD',
-  'NZL'
+  'NZL','HAI','PAN','CUW'
 ];
 
-const PAGES_TO_FETCH = [
-  'https://football-ranking.com/fifa-rankings',
-  'https://football-ranking.com/fifa-rankings?page=2'
-];
-
-// Map source codes to our codes if they differ.
-// Most use standard FIFA codes — extend this only if mismatches found.
-const SOURCE_TO_OUR_CODE = {
-  // (empty — populated as needed)
-};
-
-async function fetchPageData(page, url) {
-  await page.goto(url, {
-    waitUntil: 'networkidle2',
-    timeout: 90000
-  });
-  // Give the page a moment to settle
-  await new Promise(r => setTimeout(r, 2000));
-  
-  const rows = await page.evaluate(() => {
-    const out = [];
-    const tables = document.querySelectorAll('table');
-    
-    for (const table of tables) {
-      // Identify the rankings table by structure:
-      // It must contain at least one <a href="...team=XXX..."> link.
-      // (The other table on this page is the match history, which doesn't
-      // have team= links in this format.)
-      const teamAnchors = table.querySelectorAll('a[href*="team="]');
-      if (teamAnchors.length < 5) continue;
-      
-      const dataRows = table.querySelectorAll('tbody tr, tr');
-      for (const tr of dataRows) {
-        const cells = tr.querySelectorAll('td');
-        if (cells.length < 3) continue;
-        if (tr.querySelector('th')) continue;  // header row
-        
-        // Rank
-        const rankText = (cells[0].textContent || '').trim();
-        const rankMatch = rankText.match(/^\s*(\d+)/);
-        if (!rankMatch) continue;
-        const rank = parseInt(rankMatch[1], 10);
-        
-        // TLA extraction — try multiple sources
-        let tla = null;
-        
-        // (1) Anchor href with ?team=XXX
-        const anchors = tr.querySelectorAll('a[href*="team="]');
-        for (const a of anchors) {
-          const href = a.getAttribute('href') || '';
-          const m = href.match(/[?&]team=([A-Z]+)/);
-          if (m) { tla = m[1]; break; }
-        }
-        
-        // (2) Pattern "(TLA)" in team-name cell text
-        if (!tla) {
-          const teamText = (cells[1].textContent || '');
-          const m = teamText.match(/\(([A-Z]{3})\)/);
-          if (m) tla = m[1];
-        }
-        
-        if (!tla) continue;  // skip rows we can't identify
-        
-        // Points — first decimal number in cells[2]
-        const ptText = (cells[2].textContent || '').trim();
-        const ptMatch = ptText.match(/(\d{1,3}(?:,\d{3})*)\.(\d+)/);
-        if (!ptMatch) continue;
-        const points = parseFloat(ptMatch[0].replace(/,/g, ''));
-        
-        out.push({ rank, tla, points });
-      }
-      break;  // Only process the first matching table
-    }
-    return out;
-  });
-  
-  return rows;
-}
-
-async function main() {
+(async () => {
+  const startTime = Date.now();
   console.log('Launching browser...');
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
-  });
-  
+  const browser = await puppeteer.launch({ headless: true });
+
+  let scheduleId, confirmed, matchWindow;
   try {
-    const allRows = [];
-    
-    for (const url of PAGES_TO_FETCH) {
-      console.log(`Fetching: ${url}`);
+    // === Step 1: harvest schedule ID from inside.fifa.com ===
+    console.log('\n[1/3] Fetching current ranking schedule ID...');
+    scheduleId = await withRetry(async () => {
       const page = await browser.newPage();
-      await page.setUserAgent(
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-      );
-      
-      const rows = await fetchPageData(page, url);
-      console.log(`  Got ${rows.length} rows from this page`);
-      allRows.push(...rows);
+      await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124.0.0.0 Safari/537.36');
+      await page.goto('https://inside.fifa.com/fifa-world-ranking/men', {
+        waitUntil: 'networkidle2', timeout: 90000
+      });
+      const id = await page.evaluate(() => {
+        const next = document.getElementById('__NEXT_DATA__');
+        if (!next) return null;
+        try {
+          const j = JSON.parse(next.textContent);
+          // pageData.ranking.dates[0].dates[0].id is the most recent schedule ID
+          const dates = j.props?.pageProps?.pageData?.ranking?.dates;
+          if (!dates) return null;
+          for (const yearBlock of dates) {
+            if (yearBlock.dates && yearBlock.dates.length) return yearBlock.dates[0].id;
+          }
+          return null;
+        } catch { return null; }
+      });
       await page.close();
-    }
-    
-    console.log(`\nTotal rows extracted: ${allRows.length}`);
-    
-    // Deduplicate by TLA (page 2 might overlap)
-    const seen = new Set();
-    const uniqueRows = [];
-    for (const r of allRows) {
-      if (seen.has(r.tla)) continue;
-      seen.add(r.tla);
-      uniqueRows.push(r);
-    }
-    console.log(`Unique TLAs: ${uniqueRows.length}`);
-    
-    // Match WC teams
-    const fifaByCode = {};
-    for (const row of uniqueRows) {
-      const ourCode = SOURCE_TO_OUR_CODE[row.tla] || row.tla;
-      if (WC_TEAM_CODES.includes(ourCode)) {
-        fifaByCode[ourCode] = {
-          rank: row.rank,
-          points: row.points
-        };
-      }
-    }
-    
-    const matchedCount = Object.keys(fifaByCode).length;
-    console.log(`\nMatched ${matchedCount}/48 World Cup teams`);
-    
-    // Detect missing teams
-    const missing = WC_TEAM_CODES.filter(c => !fifaByCode[c]);
-    if (missing.length > 0) {
-      console.warn(`\nMissing teams (${missing.length}): ${missing.join(', ')}`);
-      console.warn(`Available source TLAs (first 30):`,
-        uniqueRows.slice(0, 30).map(r => `${r.tla}@${r.rank}`).join(' '));
-    }
-    
-    // Write output
-    const outPath = path.join(__dirname, 'fifa_data.json');
-    const output = {
-      lastUpdated: new Date().toISOString().slice(0, 10),
-      source: 'football-ranking.com',
-      sourceUrl: PAGES_TO_FETCH[0],
-      teams: fifaByCode,
-      metadata: {
-        fetchedAt: new Date().toISOString(),
-        totalRowsScraped: allRows.length,
-        uniqueTlas: uniqueRows.length,
-        wcTeamsMatched: matchedCount,
-        wcTeamsMissing: missing
-      }
-    };
-    fs.writeFileSync(outPath, JSON.stringify(output, null, 2));
-    console.log(`Wrote ${outPath}`);
-    
-    // Sample
-    console.log(`\n=== Sample data (top 10 by FIFA rank) ===`);
-    const sorted = Object.entries(fifaByCode).sort((a, b) => a[1].rank - b[1].rank);
-    for (let i = 0; i < Math.min(10, sorted.length); i++) {
-      const [code, data] = sorted[i];
-      console.log(`  #${data.rank} ${code}: ${data.points} pts`);
-    }
-    
-    if (missing.length > 0) {
-      console.error(`\nFAILED: ${missing.length} WC teams missing!`);
-      process.exit(1);
-    }
+      if (!id) throw new Error('Could not extract schedule ID from __NEXT_DATA__');
+      return id;
+    }, 'harvest schedule ID');
+    console.log(`  ✓ Schedule ID: ${scheduleId}`);
+
+    // === Step 2: fetch confirmed 211-team ranking from api.fifa.com ===
+    console.log('\n[2/3] Fetching confirmed ranking (api.fifa.com)...');
+    confirmed = await withRetry(async () => {
+      const page = await browser.newPage();
+      await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124.0.0.0 Safari/537.36');
+      const url = `https://api.fifa.com/api/v3/fifarankings/rankings/rankingsbyschedule?rankingScheduleId=${scheduleId}&language=en`;
+      const resp = await page.goto(url, { waitUntil: 'networkidle0', timeout: 90000 });
+      const text = await resp.text();
+      await page.close();
+      const json = JSON.parse(text);
+      if (!Array.isArray(json.Results)) throw new Error('Results is not an array');
+      return json.Results;
+    }, 'fetch confirmed ranking');
+    console.log(`  ✓ Got ${confirmed.length} teams (confirmed)`);
+
+    // === Step 3: fetch match-window matches with live deltas ===
+    console.log('\n[3/3] Fetching live match-window data (inside.fifa.com)...');
+    matchWindow = await withRetry(async () => {
+      const page = await browser.newPage();
+      await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124.0.0.0 Safari/537.36');
+      const url = 'https://inside.fifa.com/api/live-world-ranking/get-match-window-matches?locale=en&gender=1&rankingType=0';
+      const resp = await page.goto(url, { waitUntil: 'networkidle0', timeout: 90000 });
+      const text = await resp.text();
+      await page.close();
+      const json = JSON.parse(text);
+      if (!json.matches || typeof json.matches !== 'object') throw new Error('matches missing');
+      return json;
+    }, 'fetch live match window');
+    const teamIdsWithMatches = Object.keys(matchWindow.matches).length;
+    console.log(`  ✓ Got match data for ${teamIdsWithMatches} teams (live)`);
   } finally {
     await browser.close();
-    console.log('Browser closed');
   }
-}
 
-// Retry wrapper (same pattern as fetch_elo.js)
-async function withRetry(fn, maxRetries = 3) {
-  for (let i = 0; i < maxRetries; i++) {
-    try {
-      return await fn();
-    } catch (err) {
-      const isLast = (i === maxRetries - 1);
-      console.warn(`Attempt ${i+1}/${maxRetries} failed: ${err.message}`);
-      if (isLast) throw err;
-      const backoffMs = 10000 * (i + 1);
-      console.log(`Retrying in ${backoffMs/1000}s...`);
-      await new Promise(r => setTimeout(r, backoffMs));
+  // === Compute live points per country ===
+  console.log('\nComputing live points...');
+  // Build TLA -> confirmed entry, and IdTeam -> TLA
+  const tla2confirmed = new Map();
+  const teamId2tla = new Map();
+  for (const r of confirmed) {
+    if (r.IdCountry) {
+      tla2confirmed.set(r.IdCountry, r);
+      if (r.IdTeam) teamId2tla.set(String(r.IdTeam), r.IdCountry);
     }
   }
-}
 
-withRetry(main).catch(err => {
-  console.error('FATAL:', err);
-  process.exit(1);
-});
+  function livePointsFor(tla) {
+    const conf = tla2confirmed.get(tla);
+    if (!conf) return null;
+    const teamId = String(conf.IdTeam);
+    const data = matchWindow.matches[teamId];
+    if (!data || !Array.isArray(data.MatchesList) || data.MatchesList.length === 0) {
+      return { points: conf.TotalPoints, source: 'confirmed-no-window-match' };
+    }
+    // Find most recent COMPLETED match. ResultType 1 typically means final score.
+    const completed = data.MatchesList.filter(m => Number(m.HomeTeamScore) >= 0 && (m.MatchStatus === 0 || m.MatchStatus === 3 || m.Period === 10));
+    const pool = completed.length ? completed : data.MatchesList;
+    const sorted = [...pool].sort((a, b) => new Date(b.Date).getTime() - new Date(a.Date).getTime());
+    const latest = sorted[0];
+    const isTeamA = String(latest.TeamAId) === teamId;
+    const livePts = isTeamA ? latest.TeamAPoints : latest.TeamBPoints;
+    if (typeof livePts !== 'number' || isNaN(livePts)) {
+      return { points: conf.TotalPoints, source: 'fallback-non-numeric' };
+    }
+    return { points: livePts, source: 'live-from-latest-match' };
+  }
+
+  const liveByTla = new Map();
+  for (const r of confirmed) {
+    if (!r.IdCountry) continue;
+    const liveInfo = livePointsFor(r.IdCountry);
+    if (liveInfo) liveByTla.set(r.IdCountry, liveInfo);
+  }
+
+  // Re-rank by live points (descending)
+  const ranked = [...liveByTla.entries()]
+    .map(([tla, info]) => ({ tla, points: info.points, source: info.source }))
+    .sort((a, b) => b.points - a.points);
+  ranked.forEach((row, i) => row.liveRank = i + 1);
+
+  // Filter to WC2026 teams
+  const wcRows = ranked.filter(r => WC2026_TEAMS.includes(r.tla));
+  const matched = new Set(wcRows.map(r => r.tla));
+  const missing = WC2026_TEAMS.filter(t => !matched.has(t));
+
+  console.log(`\nMatched ${wcRows.length}/48 World Cup teams`);
+  if (missing.length) {
+    console.warn(`Missing: ${missing.join(', ')}`);
+  }
+
+  // === Compose output ===
+  const teams = {};
+  for (const r of wcRows) {
+    teams[r.tla] = { rank: r.liveRank, points: Math.round(r.points * 100) / 100 };
+  }
+
+  const today = new Date().toISOString().slice(0, 10);
+  const out = {
+    lastUpdated: today,
+    source: 'inside.fifa.com (live)',
+    sourceScheduleId: scheduleId,
+    sourceConfirmedDate: confirmed[0]?.RankingDate || null,
+    teamCount: wcRows.length,
+    teams
+  };
+
+  const outPath = path.join(__dirname, 'fifa_data.json');
+  fs.writeFileSync(outPath, JSON.stringify(out, null, 2));
+  console.log(`\nWrote ${outPath}`);
+
+  // === Summary ===
+  console.log('\n=== Sample (top 10 WC teams by live rank) ===');
+  for (const r of wcRows.slice(0, 10)) {
+    const conf = tla2confirmed.get(r.tla);
+    const delta = (r.points - conf.TotalPoints).toFixed(2);
+    console.log(`  #${r.liveRank} ${r.tla}: ${r.points.toFixed(2)} pts  (confirmed ${conf.TotalPoints.toFixed(2)}, delta ${delta >= 0 ? '+' : ''}${delta})  [${r.source}]`);
+  }
+
+  const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+  console.log(`\nDone in ${elapsed}s`);
+})();

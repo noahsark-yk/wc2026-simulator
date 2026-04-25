@@ -2333,7 +2333,7 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
         <div id="ui-footer-data-desc">
           <div class="source-item"><strong id="ui-src-opta-label">Opta Power Rating</strong>: <a href="https://theanalyst.com/articles/world-cup-2026-draw-easiest-toughest-groups" target="_blank" rel="noopener" class="footer-link">theanalyst.com</a> <span class="source-date">(2025-12-05)</span></div>
           <div class="source-item"><strong id="ui-src-elo-label">Elo Rating</strong>: <a href="https://www.eloratings.net/" target="_blank" rel="noopener" class="footer-link">eloratings.net</a> <span class="source-date">(<span id="ui-src-elo-date">2026-04-25</span>, <span id="ui-src-elo-freq">daily updated</span>)</span></div>
-          <div class="source-item"><strong id="ui-src-fifa-label">FIFA Ranking</strong>: <a href="https://football-ranking.com/fifa-rankings" target="_blank" rel="noopener" class="footer-link">football-ranking.com</a> <span class="source-date">(<span id="ui-src-fifa-date">2026-04-25</span>, <span id="ui-src-fifa-freq">daily updated</span>)</span></div>
+          <div class="source-item"><strong id="ui-src-fifa-label">FIFA Ranking</strong>: <a href="https://inside.fifa.com/fifa-world-ranking/men" target="_blank" rel="noopener" class="footer-link">inside.fifa.com</a> <span class="source-date">(<span id="ui-src-fifa-date">2026-04-25</span>, <span id="ui-src-fifa-freq">daily updated</span>)</span></div>
           <div class="source-item"><strong id="ui-src-atkdef-label">Atk/Def values</strong>: <span id="ui-src-atkdef-desc">Computed from <a href="https://www.eloratings.net/" target="_blank" rel="noopener" class="footer-link">eloratings.net</a> match histories since 2022</span></div>
           <div class="source-item"><strong id="ui-src-bracket-label">Bracket</strong>: <span id="ui-src-bracket-desc">FIFA World Cup 2026 official format (48 teams, 12 groups)</span></div>
         </div>
@@ -2489,7 +2489,7 @@ const T = {
     stage_sf: '準決勝',
     stage_f: '決勝',
     ratings_summary: 'レーティング一覧を表示する',
-    ratings_note: '※ これは本シミュレーター内部の参考値です。FIFA公式ランキングではありません。EloはclubEloベース、OptaはOptaパワーランキングの派生値を使っています。現在選択中のレーティングでソート、注目国はハイライト。',
+    ratings_note: '※ Elo は clubElo、Opta は Opta Power Rankings、FIFA は FIFA 公式ライブランキングの値です。現在選択中のレーティングでソート、注目国はハイライト。',
     ratings_col_country: '国',
     ratings_col_group: '組',
     modal_phase2_status: '最頻試合のスコアを確定中…',
@@ -2612,7 +2612,7 @@ const T = {
     stage_sf: 'Semi-final',
     stage_f: 'Final',
     ratings_summary: 'Show all team ratings',
-    ratings_note: 'Note: these are the internal reference values this simulator uses — not the FIFA official ranking. Elo is based on clubElo; Opta is a derivative of the Opta Power Rankings. Sorted by the currently-selected rating; the focus country is highlighted.',
+    ratings_note: 'Note: Elo from clubElo, Opta from Opta Power Rankings, FIFA from the official FIFA live ranking. Sorted by the currently selected rating; the focus country is highlighted.',
     ratings_col_country: 'Country',
     ratings_col_group: 'Grp',
     modal_phase2_status: 'Finalizing the most likely scores for each bracket match…',
@@ -2735,7 +2735,7 @@ const T = {
     stage_sf: 'Semis',
     stage_f: 'Final',
     ratings_summary: 'Ver todas las valoraciones',
-    ratings_note: 'Nota: son los valores internos de este simulador, no el ranking oficial FIFA. Elo se basa en clubElo; Opta es un derivado del Opta Power Rankings. Ordenados por la valoración activa; el país destacado aparece resaltado.',
+    ratings_note: 'Nota: Elo de clubElo, Opta de Opta Power Rankings, FIFA del ranking oficial en vivo de la FIFA. Ordenado según el ranking seleccionado; el país destacado aparece resaltado.',
     ratings_col_country: 'País',
     ratings_col_group: 'Grp',
     modal_phase2_status: 'Finalizando los marcadores más probables de cada partido del cuadro…',
@@ -2858,7 +2858,7 @@ const T = {
     stage_sf: 'Semis',
     stage_f: 'Final',
     ratings_summary: 'Ver todas as avaliações',
-    ratings_note: 'Obs.: são os valores internos deste simulador, não o ranking oficial da FIFA. Elo baseia-se no clubElo; Opta é um derivado do Opta Power Rankings. Ordenados pela avaliação ativa; o país em foco é destacado.',
+    ratings_note: 'Obs.: Elo do clubElo, Opta do Opta Power Rankings, FIFA do ranking oficial ao vivo da FIFA. Ordenado pelo ranking selecionado; o país em destaque aparece realçado.',
     ratings_col_country: 'País',
     ratings_col_group: 'Grp',
     modal_phase2_status: 'Finalizando os placares mais prováveis de cada partida do chaveamento…',
@@ -2981,7 +2981,7 @@ const T = {
     stage_sf: 'Demis',
     stage_f: 'Finale',
     ratings_summary: 'Voir toutes les notes',
-    ratings_note: 'Note : ce sont les valeurs internes de ce simulateur, pas le classement FIFA officiel. Elo repose sur clubElo ; Opta est un dérivé des Opta Power Rankings. Triés selon la note active ; le pays en focus est mis en évidence.',
+    ratings_note: 'Note : Elo issu de clubElo, Opta issu d’Opta Power Rankings, FIFA issu du classement officiel en direct de la FIFA. Trié selon le classement sélectionné ; le pays mis en avant est surligné.',
     ratings_col_country: 'Pays',
     ratings_col_group: 'Gr',
     modal_phase2_status: 'Finalisation des scores les plus probables pour chaque match du tableau…',
@@ -3104,7 +3104,7 @@ const T = {
     stage_sf: 'Halbfinale',
     stage_f: 'Finale',
     ratings_summary: 'Alle Ratings anzeigen',
-    ratings_note: 'Hinweis: Dies sind die internen Referenzwerte dieses Simulators, nicht die offizielle FIFA-Rangliste. Elo basiert auf clubElo; Opta ist eine Ableitung der Opta Power Rankings. Sortiert nach aktuell gewähltem Rating; das Fokusland ist hervorgehoben.',
+    ratings_note: 'Hinweis: Elo aus clubElo, Opta aus Opta Power Rankings, FIFA aus der offiziellen Live-Rangliste der FIFA. Sortiert nach dem aktuell ausgewählten Rating; das Fokusland ist hervorgehoben.',
     ratings_col_country: 'Land',
     ratings_col_group: 'Gr',
     modal_phase2_status: 'Wahrscheinlichste Ergebnisse für jedes Spiel werden ermittelt…',
@@ -3227,7 +3227,7 @@ const T = {
     stage_sf: 'Semifinali',
     stage_f: 'Finale',
     ratings_summary: 'Mostra tutte le valutazioni',
-    ratings_note: 'Nota: sono i valori interni di questo simulatore, non il ranking ufficiale FIFA. Elo si basa su clubElo; Opta è un derivato degli Opta Power Rankings. Ordinati secondo la valutazione attiva; il paese in focus è evidenziato.',
+    ratings_note: 'Nota: Elo da clubElo, Opta da Opta Power Rankings, FIFA dal ranking ufficiale in tempo reale della FIFA. Ordinato per il ranking selezionato; il paese evidenziato è in risalto.',
     ratings_col_country: 'Paese',
     ratings_col_group: 'Gr',
     modal_phase2_status: 'Finalizzazione dei risultati più probabili per ogni partita del tabellone…',
@@ -3350,7 +3350,7 @@ const T = {
     stage_sf: '준결승',
     stage_f: '결승',
     ratings_summary: '모든 레이팅 보기',
-    ratings_note: '※ 본 시뮬레이터의 내부 참고값이며 FIFA 공식 랭킹이 아닙니다. Elo는 clubElo 기반, Opta는 Opta Power Rankings 파생값입니다. 현재 선택한 레이팅 기준 정렬, 주목국은 강조 표시됩니다.',
+    ratings_note: '※ Elo는 clubElo, Opta는 Opta Power Rankings, FIFA는 FIFA 공식 라이브 랭킹 기준입니다. 현재 선택한 레이팅 기준 정렬, 주목국은 강조 표시됩니다.',
     ratings_col_country: '국가',
     ratings_col_group: '조',
     modal_phase2_status: '각 대진 경기의 가장 가능성 높은 스코어 확정 중…',
@@ -3473,7 +3473,7 @@ const T = {
     stage_sf: '半决赛',
     stage_f: '决赛',
     ratings_summary: '查看所有评分',
-    ratings_note: '※ 此为本模拟器内部参考值,非FIFA官方排名。Elo基于clubElo,Opta为Opta Power Rankings的衍生值。按当前选中的评分排序,关注国家高亮显示。',
+    ratings_note: '※ Elo 基于 clubElo,Opta 基于 Opta Power Rankings,FIFA 来自 FIFA 官方实时排名。按当前选中的评分排序,关注国家高亮显示。',
     ratings_col_country: '国家',
     ratings_col_group: '组',
     modal_phase2_status: '正在确定对阵图各场比赛最可能的比分…',
@@ -3596,7 +3596,7 @@ const T = {
     stage_sf: 'نصف النهائي',
     stage_f: 'النهائي',
     ratings_summary: 'عرض جميع التقييمات',
-    ratings_note: 'ملاحظة: هذه قيم مرجعية داخلية للمحاكي وليست التصنيف الرسمي لـ FIFA. Elo مبني على clubElo؛ Opta مشتق من Opta Power Rankings. مرتبة حسب التقييم المختار؛ البلد المحدد مميز.',
+    ratings_note: 'ملاحظة: Elo مأخوذ من clubElo، وOpta من Opta Power Rankings، وFIFA من التصنيف الرسمي المباشر لـ FIFA. مرتبة حسب التصنيف المختار حاليًا؛ الدولة المحددة مظللة.',
     ratings_col_country: 'البلد',
     ratings_col_group: 'مج',
     modal_phase2_status: 'جاري تحديد النتائج الأكثر احتمالاً لكل مباراة في الشبكة…',
