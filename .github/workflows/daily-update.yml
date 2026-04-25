@@ -1,0 +1,57 @@
+name: Daily Update
+
+# Schedule: every day at 02:00 UTC (= 11:00 JST, after most matches finish)
+# Also allows manual trigger from GitHub web UI for testing
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Required for the workflow to push commits back
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Fetch latest Elo ratings
+        run: node scripts/fetch_elo.js
+      
+      - name: Fetch match histories (all 48 teams)
+        run: node scripts/fetch_matches.js
+      
+      - name: Recompute atk/def values
+        run: node scripts/build_teams.js
+      
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if [[ -n "$(git status --porcelain teams.json)" ]]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Commit and push if teams.json changed
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add teams.json scripts/elo_data.json scripts/match_data.json
+          git commit -m "Auto-update: $(date -u +'%Y-%m-%d %H:%M UTC') from eloratings.net"
+          git push
+      
+      - name: No changes summary
+        if: steps.check_changes.outputs.has_changes == 'false'
+        run: echo "✅ No changes to teams.json today"

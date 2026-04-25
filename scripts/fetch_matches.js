@@ -1,84 +1,85 @@
 // scripts/fetch_matches.js
 //
 // Scrapes match history for all 48 World Cup 2026 teams from eloratings.net.
+// This is the unified version with all URL fallbacks and display-name fixes
+// integrated, so it works for all 48 teams in a single run.
 //
-// KEY FINDINGS from debug:
-//   - Each .slick-row has 8 .slick-cell elements
-//   - Inside each cell, two values are separated by <br>:
-//       cell[0]: "Mon DD<br>YYYY"      -> date
-//       cell[1]: "<a>TeamA</a><br>TeamB"  -> match teams
-//       cell[2]: "scoreA<br>scoreB"    -> scores
-//       cell[3]: "Tournament<br><a>in Location</a>"
-//       cells[4..7]: rating delta, rating after, rank delta, rank after (ignored)
-//   - Rows are SORTED OLDEST-FIRST. The most recent matches have the
-//     LARGEST `style.top` value. We sort by top descending to get newest-first.
-//   - All 835 rows are present in the DOM at load time (no virtualization).
+// Discoveries baked in:
+//   - eloratings.net uses UNDERSCORE-separated URL slugs (e.g. /South_Korea)
+//   - Each .slick-row has 8 .slick-cell with values separated by <br>
+//   - Rows are sorted oldest-first (top=0); newest matches have largest top
+//   - All 835 rows present in DOM at load (no virtualization)
+//   - Some teams have a different display-name on their match rows than their
+//     URL slug (e.g. "Cote d'Ivoire" URL but "Ivory Coast" in row text;
+//     "Curacao" URL but "Curaçao" in row text)
 //
-// Usage: node scripts/fetch_matches.js
-//        node scripts/fetch_matches.js --test  (Japan only, fast sanity check)
+// Usage:
+//   node scripts/fetch_matches.js
+//   node scripts/fetch_matches.js --test  (Japan only, fast sanity check)
 
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
 
-// Map our team codes to the URL slug eloratings.net uses
-const TEAM_CODE_TO_URL = {
+// Map team code -> { url: URL slug, display: display-name in match rows }
+// "url" is what eloratings.net uses in /CountryName paths.
+// "display" is the EXACT text that appears in the slick-cell when this country is one
+// of the two teams in a match row. This must match exactly for parsing to work.
+const TEAM_INFO = {
   // UEFA
-  'ESP': 'Spain', 'FRA': 'France', 'ENG': 'England', 'POR': 'Portugal',
-  'NED': 'Netherlands', 'GER': 'Germany', 'CRO': 'Croatia', 'SUI': 'Switzerland',
-  'BEL': 'Belgium', 'AUT': 'Austria', 'CZE': 'Czech-Republic', 'NOR': 'Norway',
-  'BIH': 'Bosnia-and-Herzegovina', 'SCO': 'Scotland', 'TUR': 'Turkey', 'SWE': 'Sweden',
+  'ESP': { url: 'Spain',                   display: 'Spain' },
+  'FRA': { url: 'France',                  display: 'France' },
+  'ENG': { url: 'England',                 display: 'England' },
+  'POR': { url: 'Portugal',                display: 'Portugal' },
+  'NED': { url: 'Netherlands',             display: 'Netherlands' },
+  'GER': { url: 'Germany',                 display: 'Germany' },
+  'CRO': { url: 'Croatia',                 display: 'Croatia' },
+  'SUI': { url: 'Switzerland',             display: 'Switzerland' },
+  'BEL': { url: 'Belgium',                 display: 'Belgium' },
+  'AUT': { url: 'Austria',                 display: 'Austria' },
+  'CZE': { url: 'Czechia',                 display: 'Czechia' },
+  'NOR': { url: 'Norway',                  display: 'Norway' },
+  'BIH': { url: 'Bosnia_and_Herzegovina',  display: 'Bosnia and Herzegovina' },
+  'SCO': { url: 'Scotland',                display: 'Scotland' },
+  'TUR': { url: 'Turkey',                  display: 'Turkey' },
+  'SWE': { url: 'Sweden',                  display: 'Sweden' },
   // CONMEBOL
-  'ARG': 'Argentina', 'BRA': 'Brazil', 'COL': 'Colombia', 'URU': 'Uruguay',
-  'ECU': 'Ecuador', 'PAR': 'Paraguay',
+  'ARG': { url: 'Argentina',               display: 'Argentina' },
+  'BRA': { url: 'Brazil',                  display: 'Brazil' },
+  'COL': { url: 'Colombia',                display: 'Colombia' },
+  'URU': { url: 'Uruguay',                 display: 'Uruguay' },
+  'ECU': { url: 'Ecuador',                 display: 'Ecuador' },
+  'PAR': { url: 'Paraguay',                display: 'Paraguay' },
   // CONCACAF
-  'USA': 'United-States', 'CAN': 'Canada', 'MEX': 'Mexico', 'PAN': 'Panama',
-  'CUW': 'Curacao', 'HAI': 'Haiti',
+  'USA': { url: 'United_States',           display: 'United States' },
+  'CAN': { url: 'Canada',                  display: 'Canada' },
+  'MEX': { url: 'Mexico',                  display: 'Mexico' },
+  'PAN': { url: 'Panama',                  display: 'Panama' },
+  'CUW': { url: 'Curacao',                 display: 'Curaçao' },     // Note cedilla
+  'HAI': { url: 'Haiti',                   display: 'Haiti' },
   // AFC
-  'JPN': 'Japan', 'KOR': 'South-Korea', 'IRN': 'Iran', 'KSA': 'Saudi-Arabia',
-  'AUS': 'Australia', 'UZB': 'Uzbekistan', 'JOR': 'Jordan', 'IRQ': 'Iraq',
-  'QAT': 'Qatar',
+  'JPN': { url: 'Japan',                   display: 'Japan' },
+  'KOR': { url: 'South_Korea',             display: 'South Korea' },
+  'IRN': { url: 'Iran',                    display: 'Iran' },
+  'KSA': { url: 'Saudi_Arabia',            display: 'Saudi Arabia' },
+  'AUS': { url: 'Australia',               display: 'Australia' },
+  'UZB': { url: 'Uzbekistan',              display: 'Uzbekistan' },
+  'JOR': { url: 'Jordan',                  display: 'Jordan' },
+  'IRQ': { url: 'Iraq',                    display: 'Iraq' },
+  'QAT': { url: 'Qatar',                   display: 'Qatar' },
   // CAF
-  'MAR': 'Morocco', 'SEN': 'Senegal', 'TUN': 'Tunisia', 'EGY': 'Egypt',
-  'ALG': 'Algeria', 'CIV': 'Cote-dIvoire', 'GHA': 'Ghana', 'CPV': 'Cape-Verde',
-  'RSA': 'South-Africa', 'COD': 'DR-Congo',
+  'MAR': { url: 'Morocco',                 display: 'Morocco' },
+  'SEN': { url: 'Senegal',                 display: 'Senegal' },
+  'TUN': { url: 'Tunisia',                 display: 'Tunisia' },
+  'EGY': { url: 'Egypt',                   display: 'Egypt' },
+  'ALG': { url: 'Algeria',                 display: 'Algeria' },
+  'CIV': { url: 'Ivory_Coast',             display: 'Ivory Coast' },  // Note: not Cote d'Ivoire
+  'GHA': { url: 'Ghana',                   display: 'Ghana' },
+  'CPV': { url: 'Cape_Verde',              display: 'Cape Verde' },
+  'RSA': { url: 'South_Africa',            display: 'South Africa' },
+  'COD': { url: 'DR_Congo',                display: 'DR Congo' },
   // OFC
-  'NZL': 'New-Zealand'
-};
-
-// Fallback URL slugs for countries with naming variations
-const URL_FALLBACKS = {
-  'CZE': ['Czech-Republic', 'Czechia'],
-  'BIH': ['Bosnia-and-Herzegovina', 'Bosnia'],
-  'USA': ['United-States', 'USA'],
-  'KOR': ['South-Korea', 'Korea-Republic'],
-  'KSA': ['Saudi-Arabia'],
-  'CIV': ['Cote-dIvoire', 'Ivory-Coast'],
-  'CPV': ['Cape-Verde'],
-  'RSA': ['South-Africa'],
-  'COD': ['DR-Congo', 'Congo-DR'],
-  'NZL': ['New-Zealand'],
-  'CUW': ['Curacao'],
-  'TUR': ['Turkey']
-};
-
-// Display name as it appears in eloratings.net match rows
-const TEAM_CODE_TO_DISPLAY_NAME = {
-  'ESP': 'Spain', 'FRA': 'France', 'ENG': 'England', 'POR': 'Portugal',
-  'NED': 'Netherlands', 'GER': 'Germany', 'CRO': 'Croatia', 'SUI': 'Switzerland',
-  'BEL': 'Belgium', 'AUT': 'Austria', 'CZE': 'Czechia', 'NOR': 'Norway',
-  'BIH': 'Bosnia and Herzegovina', 'SCO': 'Scotland', 'TUR': 'Turkey', 'SWE': 'Sweden',
-  'ARG': 'Argentina', 'BRA': 'Brazil', 'COL': 'Colombia', 'URU': 'Uruguay',
-  'ECU': 'Ecuador', 'PAR': 'Paraguay',
-  'USA': 'United States', 'CAN': 'Canada', 'MEX': 'Mexico', 'PAN': 'Panama',
-  'CUW': 'Curacao', 'HAI': 'Haiti',
-  'JPN': 'Japan', 'KOR': 'South Korea', 'IRN': 'Iran', 'KSA': 'Saudi Arabia',
-  'AUS': 'Australia', 'UZB': 'Uzbekistan', 'JOR': 'Jordan', 'IRQ': 'Iraq',
-  'QAT': 'Qatar',
-  'MAR': 'Morocco', 'SEN': 'Senegal', 'TUN': 'Tunisia', 'EGY': 'Egypt',
-  'ALG': 'Algeria', 'CIV': "Cote d'Ivoire", 'GHA': 'Ghana', 'CPV': 'Cape Verde',
-  'RSA': 'South Africa', 'COD': 'DR Congo',
-  'NZL': 'New Zealand'
+  'NZL': { url: 'New_Zealand',             display: 'New Zealand' }
 };
 
 const MIN_YEAR = 2020;
@@ -93,25 +94,20 @@ function stripHtml(s) {
   return String(s).replace(/<[^>]+>/g, '').trim();
 }
 
-async function tryNavigate(page, code) {
-  const candidates = URL_FALLBACKS[code] || [TEAM_CODE_TO_URL[code]];
-  for (const slug of candidates) {
-    const url = 'https://www.eloratings.net/' + slug;
-    try {
-      const res = await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
-      if (res.status() === 200) {
-        await new Promise(r => setTimeout(r, PER_PAGE_WAIT));
-        const ok = await page.evaluate(() => {
-          const h1 = document.querySelector('h1');
-          return h1 && h1.textContent.includes(':');
-        });
-        if (ok) return { ok: true, url, slug };
-      }
-    } catch (err) {
-      // try next
-    }
+async function navigate(page, slug) {
+  const url = 'https://www.eloratings.net/' + slug;
+  try {
+    const res = await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
+    if (res.status() !== 200) return { ok: false };
+    await new Promise(r => setTimeout(r, PER_PAGE_WAIT));
+    const ok = await page.evaluate(() => {
+      const h1 = document.querySelector('h1');
+      return h1 && h1.textContent.includes(':');
+    });
+    return ok ? { ok: true, url } : { ok: false };
+  } catch (err) {
+    return { ok: false, error: err.message };
   }
-  return { ok: false };
 }
 
 async function extractRows(page) {
@@ -130,7 +126,6 @@ function parseRow(row, ourCountryName) {
   const cellsHtml = row.cellsHtml;
   if (!cellsHtml || cellsHtml.length < 3) return null;
   
-  // Cell 0: "Mon DD<br>YYYY"
   const dateParts = cellsHtml[0].split(/<br\s*\/?>/i).map(stripHtml);
   if (dateParts.length < 2) return null;
   const dateMatch = dateParts[0].match(/^([A-Za-z]{3})\s+(\d{1,2})$/);
@@ -140,21 +135,18 @@ function parseRow(row, ourCountryName) {
   const year = parseInt(dateParts[1]);
   if (!monthIdx || !day || !year || year < 1900 || year > 2100) return null;
   
-  // Cell 1: teams
   const teamParts = cellsHtml[1].split(/<br\s*\/?>/i).map(stripHtml);
   if (teamParts.length < 2) return null;
   const teamA = teamParts[0];
   const teamB = teamParts[1];
   if (!teamA || !teamB) return null;
   
-  // Cell 2: scores
   const scoreParts = cellsHtml[2].split(/<br\s*\/?>/i).map(stripHtml);
   if (scoreParts.length < 2) return null;
   const scoreA = parseInt(scoreParts[0]);
   const scoreB = parseInt(scoreParts[1]);
   if (Number.isNaN(scoreA) || Number.isNaN(scoreB)) return null;
   
-  // One of teams must match our country
   const cn = ourCountryName.toLowerCase();
   const aMatch = teamA.toLowerCase() === cn;
   const bMatch = teamB.toLowerCase() === cn;
@@ -175,41 +167,33 @@ function parseRow(row, ourCountryName) {
   const dd = String(day).padStart(2, '0');
   const date = `${year}-${mm}-${dd}`;
   
-  return {
-    date,
-    isHome,
-    opponentName,
-    ourScore,
-    oppScore,
-    tournament
-  };
+  return { date, isHome, opponentName, ourScore, oppScore, tournament };
 }
 
 async function scrapeOneCountry(page, code) {
-  const ourCountryName = TEAM_CODE_TO_DISPLAY_NAME[code];
-  console.log(`\n--- ${code} (${ourCountryName}) ---`);
+  const info = TEAM_INFO[code];
+  if (!info) {
+    console.warn(`  ! No TEAM_INFO entry for ${code}`);
+    return { code, ok: false, error: 'no team info' };
+  }
   
-  const navResult = await tryNavigate(page, code);
+  console.log(`\n--- ${code} (${info.display}) ---`);
+  const navResult = await navigate(page, info.url);
   if (!navResult.ok) {
-    console.warn(`  ! Could not load page for ${code}`);
+    console.warn(`  ! Could not load /${info.url}`);
     return { code, ok: false, error: 'navigation failed' };
   }
   console.log(`  loaded: ${navResult.url}`);
   
   const rawRows = await extractRows(page);
   console.log(`  ${rawRows.length} raw rows`);
-  
-  // Sort by top DESC (largest top = newest)
-  rawRows.sort((a, b) => b.top - a.top);
+  rawRows.sort((a, b) => b.top - a.top);  // newest first
   
   const matches = [];
   let parseFailures = 0;
   for (const row of rawRows) {
-    const m = parseRow(row, ourCountryName);
-    if (!m) {
-      parseFailures++;
-      continue;
-    }
+    const m = parseRow(row, info.display);
+    if (!m) { parseFailures++; continue; }
     if (parseInt(m.date.slice(0, 4)) < MIN_YEAR) continue;
     matches.push(m);
   }
@@ -217,7 +201,7 @@ async function scrapeOneCountry(page, code) {
   console.log(`  ${matches.length} matches since ${MIN_YEAR} (parse fails: ${parseFailures})`);
   if (matches.length > 0) {
     const m = matches[0];
-    console.log(`  most recent: ${m.date} ${m.isHome ? ourCountryName + ' vs ' + m.opponentName : m.opponentName + ' vs ' + ourCountryName} (${m.ourScore}-${m.oppScore})`);
+    console.log(`  most recent: ${m.date} ${m.isHome ? info.display + ' vs ' + m.opponentName : m.opponentName + ' vs ' + info.display} (${m.ourScore}-${m.oppScore})`);
   }
   
   return { code, ok: true, matches, sourceUrl: navResult.url };
@@ -226,7 +210,7 @@ async function scrapeOneCountry(page, code) {
 async function main() {
   const isTest = process.argv.includes('--test');
   
-  console.log('Loading current Elo data from elo_data.json...');
+  console.log('Verifying elo_data.json exists...');
   const eloPath = path.join(__dirname, 'elo_data.json');
   if (!fs.existsSync(eloPath)) {
     console.error('elo_data.json not found! Run fetch_elo.js first.');
@@ -239,7 +223,7 @@ async function main() {
     args: ['--no-sandbox', '--disable-setuid-sandbox']
   });
   
-  const codes = isTest ? ['JPN'] : Object.keys(TEAM_CODE_TO_URL);
+  const codes = isTest ? ['JPN'] : Object.keys(TEAM_INFO);
   console.log(`Will scrape ${codes.length} teams${isTest ? ' (TEST MODE)' : ''}`);
   
   const results = {};
@@ -254,7 +238,6 @@ async function main() {
     for (let i = 0; i < codes.length; i++) {
       const code = codes[i];
       console.log(`\n[${i+1}/${codes.length}]`);
-      
       try {
         const result = await scrapeOneCountry(page, code);
         results[code] = result;
@@ -265,6 +248,7 @@ async function main() {
         failed++;
       }
       
+      // Save intermediate every 5 teams
       if ((i + 1) % 5 === 0 || i === codes.length - 1) {
         const outPath = path.join(__dirname, 'match_data.json');
         fs.writeFileSync(outPath, JSON.stringify({
@@ -294,13 +278,17 @@ async function main() {
   for (const [code, r] of Object.entries(results)) {
     if (r.ok && r.matches) {
       totalMatches += r.matches.length;
-      console.log(`  ${code}: ${r.matches.length} matches`);
     } else {
       console.log(`  ${code}: FAILED (${r.error || 'unknown'})`);
     }
   }
-  console.log(`Total matches collected: ${totalMatches}`);
-  console.log(`\nOutput: scripts/match_data.json`);
+  console.log(`Total matches: ${totalMatches}`);
+  
+  // Exit with non-zero if any failed (for CI)
+  if (failed > 0) {
+    console.error('\n⚠️  Some teams failed. Check the log above.');
+    process.exit(1);
+  }
 }
 
 main().catch(err => {
