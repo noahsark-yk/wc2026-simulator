@@ -1,0 +1,201 @@
+{
+  "fetchedAt": "2026-04-25T07:03:40.343Z",
+  "source": "eloratings.net",
+  "matched": 48,
+  "total": 48,
+  "missing": [],
+  "teams": {
+    "ESP": {
+      "name": "Spain",
+      "elo": 2165
+    },
+    "ARG": {
+      "name": "Argentina",
+      "elo": 2113
+    },
+    "FRA": {
+      "name": "France",
+      "elo": 2082
+    },
+    "ENG": {
+      "name": "England",
+      "elo": 2020
+    },
+    "BRA": {
+      "name": "Brazil",
+      "elo": 1984
+    },
+    "POR": {
+      "name": "Portugal",
+      "elo": 1984
+    },
+    "COL": {
+      "name": "Colombia",
+      "elo": 1975
+    },
+    "NED": {
+      "name": "Netherlands",
+      "elo": 1961
+    },
+    "ECU": {
+      "name": "Ecuador",
+      "elo": 1933
+    },
+    "CRO": {
+      "name": "Croatia",
+      "elo": 1930
+    },
+    "GER": {
+      "name": "Germany",
+      "elo": 1923
+    },
+    "NOR": {
+      "name": "Norway",
+      "elo": 1912
+    },
+    "JPN": {
+      "name": "Japan",
+      "elo": 1904
+    },
+    "TUR": {
+      "name": "Turkey",
+      "elo": 1902
+    },
+    "URU": {
+      "name": "Uruguay",
+      "elo": 1892
+    },
+    "SUI": {
+      "name": "Switzerland",
+      "elo": 1889
+    },
+    "SEN": {
+      "name": "Senegal",
+      "elo": 1879
+    },
+    "BEL": {
+      "name": "Belgium",
+      "elo": 1866
+    },
+    "MEX": {
+      "name": "Mexico",
+      "elo": 1858
+    },
+    "PAR": {
+      "name": "Paraguay",
+      "elo": 1833
+    },
+    "AUT": {
+      "name": "Austria",
+      "elo": 1827
+    },
+    "MAR": {
+      "name": "Morocco",
+      "elo": 1821
+    },
+    "CAN": {
+      "name": "Canada",
+      "elo": 1784
+    },
+    "AUS": {
+      "name": "Australia",
+      "elo": 1783
+    },
+    "SCO": {
+      "name": "Scotland",
+      "elo": 1767
+    },
+    "IRN": {
+      "name": "Iran",
+      "elo": 1760
+    },
+    "KOR": {
+      "name": "South Korea",
+      "elo": 1752
+    },
+    "ALG": {
+      "name": "Algeria",
+      "elo": 1743
+    },
+    "PAN": {
+      "name": "Panama",
+      "elo": 1737
+    },
+    "UZB": {
+      "name": "Uzbekistan",
+      "elo": 1727
+    },
+    "CZE": {
+      "name": "Czechia",
+      "elo": 1726
+    },
+    "USA": {
+      "name": "United States",
+      "elo": 1721
+    },
+    "SWE": {
+      "name": "Sweden",
+      "elo": 1719
+    },
+    "JOR": {
+      "name": "Jordan",
+      "elo": 1690
+    },
+    "EGY": {
+      "name": "Egypt",
+      "elo": 1689
+    },
+    "CIV": {
+      "name": "Ivory Coast",
+      "elo": 1676
+    },
+    "COD": {
+      "name": "DR Congo",
+      "elo": 1655
+    },
+    "TUN": {
+      "name": "Tunisia",
+      "elo": 1636
+    },
+    "IRQ": {
+      "name": "Iraq",
+      "elo": 1607
+    },
+    "BIH": {
+      "name": "Bosnia/Herzeg",
+      "elo": 1594
+    },
+    "NZL": {
+      "name": "New Zealand",
+      "elo": 1585
+    },
+    "KSA": {
+      "name": "Saudi Arabia",
+      "elo": 1568
+    },
+    "CPV": {
+      "name": "Cape Verde",
+      "elo": 1549
+    },
+    "HAI": {
+      "name": "Haiti",
+      "elo": 1532
+    },
+    "RSA": {
+      "name": "South Africa",
+      "elo": 1524
+    },
+    "GHA": {
+      "name": "Ghana",
+      "elo": 1505
+    },
+    "CUW": {
+      "name": "Curaçao",
+      "elo": 1436
+    },
+    "QAT": {
+      "name": "Qatar",
+      "elo": 1425
+    }
+  }
+}

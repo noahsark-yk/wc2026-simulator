@@ -1,0 +1,29 @@
+# Node.js dependencies
+node_modules/
+
+# Environment variables (never commit secrets!)
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Build artifacts (just in case)
+dist/
+build/
+
+# Backup files
+*.bak
+
+# Puppeteer cache (sometimes outside node_modules)
+.cache/

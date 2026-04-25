@@ -1,0 +1,25 @@
+{
+  "name": "wc2026",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noahsark-yk/wc2026-simulator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/noahsark-yk/wc2026-simulator/issues"
+  },
+  "homepage": "https://github.com/noahsark-yk/wc2026-simulator#readme",
+  "dependencies": {
+    "node-fetch": "^2.7.0",
+    "puppeteer": "^24.42.0"
+  }
+}
