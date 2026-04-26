@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
-<title>World Cup 2026 Tournament Simulator</title>
+<title>World Cup 2026 Matchup Simulator</title>
 
 <!-- SEO -->
 <meta name="description" content="48 nations, 100,000 Monte Carlo sims, Elo/Opta/FIFA ratings. Build your own World Cup 2026 prediction.">
 
 <!-- Open Graph (Facebook, LINE, Discord, Slack, etc.) -->
-<meta property="og:title" content="World Cup 2026 Tournament Simulator">
+<meta property="og:title" content="World Cup 2026 Matchup Simulator">
 <meta property="og:description" content="48 nations, 100,000 Monte Carlo sims, Elo/Opta/FIFA ratings. Build your own World Cup 2026 prediction.">
 <meta property="og:image" content="https://noahsark-wc2026.pages.dev/ogp.png">
 <meta property="og:image:width" content="1200">
@@ -20,10 +20,18 @@
 <meta property="og:site_name" content="Noahsark WC2026 Simulator">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:locale:alternate" content="ar_SA">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="World Cup 2026 Tournament Simulator">
+<meta name="twitter:title" content="World Cup 2026 Matchup Simulator">
 <meta name="twitter:description" content="48 nations, 100,000 Monte Carlo sims, Elo/Opta/FIFA ratings. Build your own World Cup 2026 prediction.">
 <meta name="twitter:image" content="https://noahsark-wc2026.pages.dev/ogp.png">
 <meta name="twitter:site" content="@noahsark_yk">
@@ -53,7 +61,7 @@
   --text-primary: #e8eaf0;
   --text-secondary: #a0a8b8;
   --text-tertiary: #6b7285;
-  --text-faded: #4a5168;
+  --text-faded: #5a6178;
   --accent: #3b82f6;
   --accent-hover: #2563eb;
   --accent-subtle: rgba(59, 130, 246, 0.1);
@@ -88,7 +96,7 @@
     --text-primary: #0f172a;
     --text-secondary: #475569;
     --text-tertiary: #64748b;
-    --text-faded: #94a3b8;
+    --text-faded: #7d8a9e;
     --accent: #2563eb;
     --accent-hover: #1d4ed8;
     --accent-subtle: rgba(37, 99, 235, 0.08);
@@ -511,6 +519,19 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
     font-size: 11px;
     padding: 5px 6px;
   }
+}
+
+/* Estimated Opta values (GER/ECU/CIV/BIH): subtle marker so they're
+   distinguishable from published values without disrupting the layout. */
+.r-opta-estimated::after {
+  content: '*';
+  color: var(--text-tertiary);
+  font-size: 10px;
+  margin-left: 1px;
+  vertical-align: super;
+}
+.r-opta-estimated[title] {
+  cursor: help;
 }
 
 .focus-result-badge {
@@ -1318,8 +1339,10 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
   color: var(--text-primary);
 }
 .cp-stage-elo {
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: 500;
   color: var(--text-tertiary);
+  font-variant-numeric: tabular-nums;
 }
 .cp-stage-opps {
   display: flex;
@@ -2246,7 +2269,7 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 <div class="app">
   <header class="header">
     <div class="header-main">
-      <h1 id="ui-title">World Cup 2026 Tournament Simulator</h1>
+      <h1 id="ui-title">World Cup 2026 Matchup Simulator</h1>
       <div class="header-sub">
         <span class="badge" id="ui-badge-live">LIVE</span>
         <span id="ui-subtitle">48 Nations · Official FIFA Bracket</span>
@@ -2264,16 +2287,16 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
     <div class="control-group">
       <span class="control-label" id="ui-label-rating">Rating</span>
       <div class="mode-toggle" id="rating-toggle">
-        <button data-mode="elo" class="active">Elo</button>
-        <button data-mode="opta">Opta</button>
-        <button data-mode="fifa">FIFA</button>
+        <button data-mode="elo" class="active" aria-pressed="true">Elo</button>
+        <button data-mode="opta" aria-pressed="false">Opta</button>
+        <button data-mode="fifa" aria-pressed="false">FIFA</button>
       </div>
     </div>
     <div class="control-group">
       <span class="control-label" id="ui-label-home">Home Adv.</span>
       <div class="mode-toggle" id="home-toggle">
-        <button data-home="on" class="active">ON</button>
-        <button data-home="off">OFF</button>
+        <button data-home="on" class="active" aria-pressed="true">ON</button>
+        <button data-home="off" aria-pressed="false">OFF</button>
       </div>
     </div>
     <div class="control-group">
@@ -2463,7 +2486,7 @@ const GROUPS = 'ABCDEFGHIJKL'.split('');
 // ============ UI TRANSLATIONS ============
 const T = {
   ja: {
-    title: 'W杯2026 トーナメントシミュレーター',
+    title: 'W杯2026 対戦シミュレーター',
     subtitle: '48カ国 · FIFA公式ブラケット準拠',
     badge: 'LIVE',
     label_rating: 'レーティング',
@@ -2586,7 +2609,7 @@ const T = {
     share_x: 'Xでシェア',
   },
   en: {
-    title: 'World Cup 2026 Tournament Simulator',
+    title: 'World Cup 2026 Matchup Simulator',
     subtitle: '48 Nations · Official FIFA Bracket',
     badge: 'LIVE',
     label_rating: 'Rating',
@@ -2709,7 +2732,7 @@ const T = {
     share_x: 'Share on X',
   },
   es: {
-    title: 'Simulador del Mundial 2026',
+    title: 'Simulador de Enfrentamientos del Mundial 2026',
     subtitle: '48 selecciones · Cuadro oficial FIFA',
     badge: 'EN VIVO',
     label_rating: 'Rating',
@@ -2832,7 +2855,7 @@ const T = {
     share_x: 'Compartir en X',
   },
   pt: {
-    title: 'Simulador da Copa do Mundo 2026',
+    title: 'Simulador de Confrontos da Copa do Mundo 2026',
     subtitle: '48 seleções · Chave oficial FIFA',
     badge: 'AO VIVO',
     label_rating: 'Rating',
@@ -2955,7 +2978,7 @@ const T = {
     share_x: 'Compartilhar no X',
   },
   fr: {
-    title: 'Simulateur Coupe du Monde 2026',
+    title: 'Simulateur de Confrontations Coupe du Monde 2026',
     subtitle: '48 nations · Tableau officiel FIFA',
     badge: 'EN DIRECT',
     label_rating: 'Classement',
@@ -3078,7 +3101,7 @@ const T = {
     share_x: 'Partager sur X',
   },
   de: {
-    title: 'WM 2026 Turnier-Simulator',
+    title: 'WM 2026 Begegnungssimulator',
     subtitle: '48 Nationen · Offizielle FIFA-Tabelle',
     badge: 'LIVE',
     label_rating: 'Rating',
@@ -3201,7 +3224,7 @@ const T = {
     share_x: 'Auf X teilen',
   },
   it: {
-    title: 'Simulatore Mondiale 2026',
+    title: 'Simulatore Sfide Mondiale 2026',
     subtitle: '48 nazioni · Tabellone ufficiale FIFA',
     badge: 'LIVE',
     label_rating: 'Rating',
@@ -3324,7 +3347,7 @@ const T = {
     share_x: 'Condividi su X',
   },
   ko: {
-    title: '2026 월드컵 토너먼트 시뮬레이터',
+    title: '2026 월드컵 대진 시뮬레이터',
     subtitle: '48개국 · FIFA 공식 대진표',
     badge: 'LIVE',
     label_rating: '레이팅',
@@ -3447,7 +3470,7 @@ const T = {
     share_x: 'X에 공유',
   },
   zh: {
-    title: '2026世界杯淘汰赛模拟器',
+    title: '2026世界杯对阵模拟器',
     subtitle: '48支球队 · FIFA官方赛程',
     badge: '实时',
     label_rating: '评分',
@@ -3570,7 +3593,7 @@ const T = {
     share_x: '分享到X',
   },
   ar: {
-    title: 'محاكي بطولة كأس العالم 2026',
+    title: 'محاكي مواجهات كأس العالم 2026',
     subtitle: '48 دولة · قوس FIFA الرسمي',
     badge: 'مباشر',
     label_rating: 'التصنيف',
@@ -7355,7 +7378,10 @@ function renderRatingsTable() {
     html += `<span class="r-name">${nm(team.c)}</span>`;
     html += `<span class="r-group">${team.g}</span>`;
     html += `<span class="r-elo ${RATING_MODE === 'elo' ? 'active' : ''}">${team.elo}</span>`;
-    html += `<span class="r-opta ${RATING_MODE === 'opta' ? 'active' : ''}">${team.opta.toFixed(1)}</span>`;
+    const _optaEst = ['GER','ECU','CIV','BIH'].includes(team.c);
+    const _optaCls = 'r-opta' + (RATING_MODE === 'opta' ? ' active' : '') + (_optaEst ? ' r-opta-estimated' : '');
+    const _optaTitle = _optaEst ? ' title="' + (t('opta_estimated_tooltip') || 'Estimated value (Opta does not publish a power rating for this team).') + '"' : '';
+    html += `<span class="${_optaCls}"${_optaTitle}>${team.opta.toFixed(1)}</span>`;
     html += `<span class="r-fifa ${RATING_MODE === 'fifa' ? 'active' : ''}">${typeof team.fifaP === 'number' ? team.fifaP.toFixed(1) : '—'}</span>`;
     html += `</div>`;
   });
@@ -7364,6 +7390,18 @@ function renderRatingsTable() {
 
 function applyLanguage() {
   document.documentElement.lang = LANG;
+  // Update og:locale to match the active language (helps social previews
+  // when the URL is shared with ?lang=xx).
+  const _LOCALE_MAP = {
+    ja: 'ja_JP', en: 'en_US', es: 'es_ES', pt: 'pt_BR', fr: 'fr_FR',
+    de: 'de_DE', it: 'it_IT', ko: 'ko_KR', zh: 'zh_CN', ar: 'ar_SA'
+  };
+  const _ogLocale = document.querySelector('meta[property="og:locale"]');
+  if (_ogLocale && _LOCALE_MAP[LANG]) _ogLocale.setAttribute('content', _LOCALE_MAP[LANG]);
+  // Keep the document title in sync with the active language too.
+  if (typeof t === 'function') {
+    try { document.title = t('title') || document.title; } catch (_) {}
+  }
   document.documentElement.dir = LANG === 'ar' ? 'rtl' : 'ltr';
   $('ui-title').textContent = t('title');
   $('ui-subtitle').textContent = t('subtitle');
@@ -7451,8 +7489,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
   document.querySelectorAll('#rating-toggle button').forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('#rating-toggle button').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('#rating-toggle button').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
       RATING_MODE = btn.dataset.mode;
       populateFocusSelect();
       renderRatingsTable();
@@ -7462,8 +7504,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   document.querySelectorAll('#home-toggle button').forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('#home-toggle button').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('#home-toggle button').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
       HOME_ADVANTAGE_ON = (btn.dataset.home === 'on');
       resetAll();
     });
