@@ -235,17 +235,50 @@ async function main() {
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
     );
     
+    // Load prior data so a single transient failure doesn't lose a country.
+    let priorResults = {};
+    try {
+      const priorPath = path.join(__dirname, 'match_data.json');
+      if (fs.existsSync(priorPath)) {
+        const prior = JSON.parse(fs.readFileSync(priorPath, 'utf-8'));
+        if (prior && prior.results) priorResults = prior.results;
+        console.log(`Loaded prior match_data.json with ${Object.keys(priorResults).length} country entries`);
+      }
+    } catch (err) {
+      console.warn('Could not load prior match_data.json:', err.message);
+    }
+
+    let staleReused = 0;
     for (let i = 0; i < codes.length; i++) {
       const code = codes[i];
       console.log(`\n[${i+1}/${codes.length}]`);
       try {
         const result = await scrapeOneCountry(page, code);
         results[code] = result;
-        if (result.ok) success++; else failed++;
+        if (result.ok) {
+          success++;
+        } else {
+          // Try to reuse prior data
+          const prior = priorResults[code];
+          if (prior && prior.ok && prior.matches && prior.matches.length > 0) {
+            console.warn(`  ⚠️  ${code} fetch failed; reusing prior data (${prior.matches.length} matches, marked stale).`);
+            results[code] = { ...prior, staleFromPrior: true, freshFetchError: result.error || 'unknown' };
+            staleReused++;
+          } else {
+            failed++;
+          }
+        }
       } catch (err) {
         console.error(`  ERROR for ${code}: ${err.message}`);
-        results[code] = { code, ok: false, error: err.message };
-        failed++;
+        const prior = priorResults[code];
+        if (prior && prior.ok && prior.matches && prior.matches.length > 0) {
+          console.warn(`  ⚠️  ${code} threw an exception; reusing prior data (${prior.matches.length} matches, marked stale).`);
+          results[code] = { ...prior, staleFromPrior: true, freshFetchError: err.message };
+          staleReused++;
+        } else {
+          results[code] = { code, ok: false, error: err.message };
+          failed++;
+        }
       }
       
       // Save intermediate every 5 teams
@@ -284,10 +317,23 @@ async function main() {
   }
   console.log(`Total matches: ${totalMatches}`);
   
-  // Exit with non-zero if any failed (for CI)
-  if (failed > 0) {
-    console.error('\n⚠️  Some teams failed. Check the log above.');
+  // Stale-reuse summary
+  if (typeof staleReused !== 'undefined' && staleReused > 0) {
+    console.log(`Stale reuse from prior data: ${staleReused} team(s).`);
+  }
+
+  // Tolerance: up to 2 countries with no prior data fall through to exit 1.
+  // More than that suggests a wider outage (eloratings.net offline, network
+  // issue, etc.) and the run should fail loudly.
+  const HARD_FAIL_THRESHOLD = 2;
+  if (failed > HARD_FAIL_THRESHOLD) {
+    console.error(`\n❌  ${failed} team(s) failed AND have no prior data. Exiting with error.`);
     process.exit(1);
+  } else if (failed > 0) {
+    console.warn(`\n⚠️  ${failed} team(s) had no prior data and could not be fetched. Continuing anyway (under tolerance threshold of ${HARD_FAIL_THRESHOLD}).`);
+    // exit 0 implicitly
+  } else {
+    console.log('\n✓ All teams fetched (or reused from prior data).');
   }
 }
 

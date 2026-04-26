@@ -3723,7 +3723,8 @@ const T = {
 // v2.16.7: Single source of truth for "last updated" date — bump this when
 // you ship a meaningful update (rating refresh, new feature, etc.). Both the
 // footer and the Elo source line read from this.
-let LAST_UPDATED = '2026-04-25'; // Will be overridden by teams.json
+let LAST_UPDATED = '2026-04-25'; // Elo date, overridden by teams.json metadata.generatedAt
+let FIFA_LAST_UPDATED = '2026-04-25'; // FIFA date, overridden by teams.json metadata.fifaLastUpdated
 // v2.16.6: LANG is initialized via auto-detection (URL param > localStorage > browser).
 // See detectInitialLang() defined just below. Falls back to 'en' if nothing matches.
 let LANG = detectInitialLang();
@@ -7424,6 +7425,9 @@ function applyLanguage() {
   $('ui-footer-note-desc').textContent = t('footer_note_desc');
   $('ui-footer-last-update').textContent = t('last_updated') + ': ' + LAST_UPDATED;
   $('ui-src-elo-date').textContent = LAST_UPDATED;
+  // FIFA has its own update cadence (post-match) so it gets its own date.
+  const _fifaDateEl = document.getElementById('ui-src-fifa-date');
+  if (_fifaDateEl) _fifaDateEl.textContent = FIFA_LAST_UPDATED;
   $('ui-src-opta-label').textContent = t('src_opta_label');
   $('ui-src-elo-label').textContent = t('src_elo_label');
   $('ui-src-elo-freq').textContent = t('src_elo_freq');
@@ -7456,8 +7460,18 @@ async function loadTeams() {
       throw new Error('Invalid teams.json structure');
     }
     TEAMS = data.teams;
+    // Read dates from metadata. generatedAt is an ISO timestamp; take the date portion.
+    if (data.metadata) {
+      if (data.metadata.generatedAt) {
+        LAST_UPDATED = data.metadata.generatedAt.slice(0, 10); // YYYY-MM-DD
+      }
+      if (data.metadata.fifaLastUpdated) {
+        FIFA_LAST_UPDATED = data.metadata.fifaLastUpdated;
+      }
+    }
+    // Backward-compat: respect old top-level lastUpdated if present
     if (data.lastUpdated) LAST_UPDATED = data.lastUpdated;
-    console.log('Loaded ' + TEAMS.length + ' teams from teams.json (updated: ' + LAST_UPDATED + ')');
+    console.log('Loaded ' + TEAMS.length + ' teams from teams.json (Elo: ' + LAST_UPDATED + ', FIFA: ' + FIFA_LAST_UPDATED + ')');
   } catch (err) {
     console.warn('Failed to load teams.json, using inline fallback:', err);
     TEAMS = TEAMS_FALLBACK;
