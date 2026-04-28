@@ -57,7 +57,10 @@ const WC2026_TEAMS = [
 (async () => {
   const startTime = Date.now();
   console.log('Launching browser...');
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({
+    headless: 'new',
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  });
 
   let scheduleId, confirmed, matchWindow;
   try {
