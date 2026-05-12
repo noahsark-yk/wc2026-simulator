@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-11",
+  "lastUpdated": "2026-05-12",
   "source": "Auto-generated from eloratings.net",
   "teams": [
     {
@@ -77,7 +77,7 @@
       "g": "B",
       "f": "ca",
       "atk": {
-        "s": 0.77,
+        "s": 0.78,
         "w": 1.8
       },
       "def": {
@@ -260,7 +260,7 @@
     {
       "c": "TUR",
       "opta": 78.2,
-      "elo": 1903,
+      "elo": 1902,
       "g": "D",
       "f": "tr",
       "atk": {
@@ -549,7 +549,7 @@
     {
       "c": "FRA",
       "opta": 96.8,
-      "elo": 2082,
+      "elo": 2081,
       "g": "I",
       "f": "fr",
       "atk": {
@@ -820,11 +820,11 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-05-11T06:02:36.558Z",
+    "generatedAt": "2026-05-12T05:42:31.091Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
-    "fifaLastUpdated": "2026-05-11",
+    "fifaLastUpdated": "2026-05-12",
     "fifaTeamCount": 48,
     "methodology": {
       "primaryPeriodStart": "2022-01-01",

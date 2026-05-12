@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-11T05:55:58.908Z",
+  "fetchedAt": "2026-05-12T05:35:54.944Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -15,7 +15,7 @@
     },
     "FRA": {
       "name": "France",
-      "elo": 2082
+      "elo": 2081
     },
     "ENG": {
       "name": "England",
@@ -59,7 +59,7 @@
     },
     "TUR": {
       "name": "Turkey",
-      "elo": 1903
+      "elo": 1902
     },
     "URU": {
       "name": "Uruguay",
