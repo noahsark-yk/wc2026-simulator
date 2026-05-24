@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-23T05:43:50.082Z",
+  "fetchedAt": "2026-05-24T06:05:11.901Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -14089,6 +14089,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-05-22",
+          "isHome": true,
+          "opponentName": "Ghana",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-03-31",
           "isHome": false,
           "opponentName": "Belgium",
@@ -25981,6 +25989,14 @@
       "code": "GHA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-05-22",
+          "isHome": false,
+          "opponentName": "Mexico",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-03-30",
           "isHome": false,

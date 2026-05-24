@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-23T05:37:11.294Z",
+  "fetchedAt": "2026-05-24T05:58:36.344Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -79,7 +79,7 @@
     },
     "MEX": {
       "name": "Mexico",
-      "elo": 1858
+      "elo": 1860
     },
     "PAR": {
       "name": "Paraguay",
@@ -187,7 +187,7 @@
     },
     "GHA": {
       "name": "Ghana",
-      "elo": 1505
+      "elo": 1503
     },
     "CUW": {
       "name": "Curaçao",
