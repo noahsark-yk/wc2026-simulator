@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-26",
+  "lastUpdated": "2026-05-27",
   "source": "Auto-generated from eloratings.net",
   "teams": [
     {
@@ -158,16 +158,16 @@
     {
       "c": "MAR",
       "opta": 82.3,
-      "elo": 1821,
+      "elo": 1822,
       "g": "C",
       "f": "ma",
       "atk": {
         "s": 1.15,
-        "w": 2.07
+        "w": 2.16
       },
       "def": {
         "s": 1.12,
-        "w": 0.4
+        "w": 0.39
       },
       "fifaR": 8,
       "fifaP": 1755.87
@@ -231,7 +231,7 @@
       "f": "py",
       "atk": {
         "s": 1.11,
-        "w": 1.29
+        "w": 1.3
       },
       "def": {
         "s": 1.25,
@@ -303,7 +303,7 @@
       },
       "def": {
         "s": 1.25,
-        "w": 1.07
+        "w": 1.06
       },
       "fifaR": 82,
       "fifaP": 1294.65
@@ -540,7 +540,7 @@
         "w": 1.62
       },
       "def": {
-        "s": 1.01,
+        "s": 1.02,
         "w": 0.71
       },
       "fifaR": 17,
@@ -676,7 +676,7 @@
         "w": 1.72
       },
       "def": {
-        "s": 1.19,
+        "s": 1.2,
         "w": 0.96
       },
       "fifaR": 63,
@@ -758,7 +758,7 @@
       "f": "gb-eng",
       "atk": {
         "s": 1.2,
-        "w": 2.35
+        "w": 2.36
       },
       "def": {
         "s": 1.34,
@@ -792,10 +792,10 @@
       "f": "gh",
       "atk": {
         "s": 0.92,
-        "w": 1.68
+        "w": 1.69
       },
       "def": {
-        "s": 1.96,
+        "s": 1.95,
         "w": 0.91
       },
       "fifaR": 74,
@@ -820,11 +820,11 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-05-26T06:10:24.392Z",
+    "generatedAt": "2026-05-27T06:24:15.699Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
-    "fifaLastUpdated": "2026-05-26",
+    "fifaLastUpdated": "2026-05-27",
     "fifaTeamCount": 48,
     "methodology": {
       "primaryPeriodStart": "2022-01-01",
@@ -836,7 +836,7 @@
       "shrinkK": 5,
       "globalMeans": {
         "atkS": 1.302,
-        "atkW": 2.032,
+        "atkW": 2.035,
         "defS": 1.339,
         "defW": 0.75
       }

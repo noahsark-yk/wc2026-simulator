@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-26T06:10:17.876Z",
+  "fetchedAt": "2026-05-27T06:24:09.311Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -22075,6 +22075,14 @@
       "code": "MAR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-05-26",
+          "isHome": true,
+          "opponentName": "Burundi",
+          "ourScore": 5,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-03-31",
           "isHome": true,
