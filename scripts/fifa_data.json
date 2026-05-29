@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-28",
+  "lastUpdated": "2026-05-29",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260119",
   "sourceConfirmedDate": null,
@@ -101,13 +101,13 @@
       "rank": 27,
       "points": 1580.67
     },
-    "ALG": {
-      "rank": 28,
-      "points": 1564.26
-    },
     "EGY": {
+      "rank": 28,
+      "points": 1565.56
+    },
+    "ALG": {
       "rank": 29,
-      "points": 1563.24
+      "points": 1564.26
     },
     "CAN": {
       "rank": 30,
@@ -155,7 +155,7 @@
     },
     "QAT": {
       "rank": 55,
-      "points": 1452.57
+      "points": 1452.37
     },
     "IRQ": {
       "rank": 57,
