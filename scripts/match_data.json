@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-29T06:17:06.571Z",
+  "fetchedAt": "2026-05-30T05:51:40.703Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -7140,6 +7140,14 @@
       "code": "BIH",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-05-29",
+          "isHome": true,
+          "opponentName": "North Macedonia",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-03-31",
           "isHome": true,
@@ -17699,6 +17707,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-05-29",
+          "isHome": true,
+          "opponentName": "Gambia",
+          "ourScore": 3,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-03-31",
           "isHome": false,
           "opponentName": "Costa Rica",
@@ -20718,6 +20734,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-05-29",
+          "isHome": true,
+          "opponentName": "Andorra",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-03-31",
           "isHome": true,
           "opponentName": "Bolivia",
@@ -21332,6 +21356,14 @@
       "code": "QAT",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-05-28",
+          "isHome": false,
+          "opponentName": "Ireland",
+          "ourScore": 0,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2025-12-07",
           "isHome": true,
@@ -24128,6 +24160,14 @@
       "code": "EGY",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-05-28",
+          "isHome": true,
+          "opponentName": "Russia",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-03-31",
           "isHome": false,
@@ -27035,6 +27075,14 @@
       "code": "RSA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-05-29",
+          "isHome": true,
+          "opponentName": "Nicaragua",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-03-31",
           "isHome": true,

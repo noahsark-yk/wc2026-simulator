@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-29T06:10:09.849Z",
+  "fetchedAt": "2026-05-30T05:44:50.200Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -107,7 +107,7 @@
     },
     "IRN": {
       "name": "Iran",
-      "elo": 1760
+      "elo": 1764
     },
     "KOR": {
       "name": "South Korea",
@@ -137,13 +137,13 @@
       "name": "Sweden",
       "elo": 1719
     },
+    "EGY": {
+      "name": "Egypt",
+      "elo": 1699
+    },
     "JOR": {
       "name": "Jordan",
       "elo": 1690
-    },
-    "EGY": {
-      "name": "Egypt",
-      "elo": 1689
     },
     "CIV": {
       "name": "Ivory Coast",
@@ -159,11 +159,11 @@
     },
     "IRQ": {
       "name": "Iraq",
-      "elo": 1607
+      "elo": 1608
     },
     "BIH": {
       "name": "Bosnia/Herzeg",
-      "elo": 1594
+      "elo": 1591
     },
     "NZL": {
       "name": "New Zealand",
@@ -183,7 +183,7 @@
     },
     "RSA": {
       "name": "South Africa",
-      "elo": 1524
+      "elo": 1517
     },
     "GHA": {
       "name": "Ghana",
@@ -195,7 +195,7 @@
     },
     "QAT": {
       "name": "Qatar",
-      "elo": 1425
+      "elo": 1423
     }
   }
 }
