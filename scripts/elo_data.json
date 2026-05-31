@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-30T05:44:50.200Z",
+  "fetchedAt": "2026-05-31T06:14:42.888Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -103,7 +103,7 @@
     },
     "SCO": {
       "name": "Scotland",
-      "elo": 1767
+      "elo": 1770
     },
     "IRN": {
       "name": "Iran",
@@ -191,7 +191,7 @@
     },
     "CUW": {
       "name": "Curaçao",
-      "elo": 1436
+      "elo": 1433
     },
     "QAT": {
       "name": "Qatar",

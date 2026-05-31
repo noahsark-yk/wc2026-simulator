@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-30T05:51:40.703Z",
+  "fetchedAt": "2026-05-31T06:21:33.038Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -7635,6 +7635,14 @@
       "code": "SCO",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-05-30",
+          "isHome": true,
+          "opponentName": "Curaçao",
+          "ourScore": 4,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-03-31",
           "isHome": false,
@@ -15686,6 +15694,14 @@
       "code": "CUW",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-05-30",
+          "isHome": false,
+          "opponentName": "Scotland",
+          "ourScore": 1,
+          "oppScore": 4,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-03-31",
           "isHome": false,
