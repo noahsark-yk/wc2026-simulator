@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-31T06:14:42.888Z",
+  "fetchedAt": "2026-06-01T06:51:42.229Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -23,7 +23,7 @@
     },
     "BRA": {
       "name": "Brazil",
-      "elo": 1984
+      "elo": 1988
     },
     "POR": {
       "name": "Portugal",
@@ -39,7 +39,7 @@
     },
     "ECU": {
       "name": "Ecuador",
-      "elo": 1933
+      "elo": 1935
     },
     "CRO": {
       "name": "Croatia",
@@ -47,7 +47,7 @@
     },
     "GER": {
       "name": "Germany",
-      "elo": 1923
+      "elo": 1925
     },
     "NOR": {
       "name": "Norway",
@@ -55,31 +55,31 @@
     },
     "JPN": {
       "name": "Japan",
-      "elo": 1904
+      "elo": 1906
     },
     "TUR": {
       "name": "Turkey",
       "elo": 1902
     },
+    "SUI": {
+      "name": "Switzerland",
+      "elo": 1894
+    },
     "URU": {
       "name": "Uruguay",
       "elo": 1892
     },
-    "SUI": {
-      "name": "Switzerland",
-      "elo": 1889
-    },
-    "SEN": {
-      "name": "Senegal",
-      "elo": 1878
+    "MEX": {
+      "name": "Mexico",
+      "elo": 1868
     },
     "BEL": {
       "name": "Belgium",
       "elo": 1867
     },
-    "MEX": {
-      "name": "Mexico",
-      "elo": 1860
+    "SEN": {
+      "name": "Senegal",
+      "elo": 1866
     },
     "PAR": {
       "name": "Paraguay",
@@ -99,7 +99,7 @@
     },
     "AUS": {
       "name": "Australia",
-      "elo": 1783
+      "elo": 1775
     },
     "SCO": {
       "name": "Scotland",
@@ -111,27 +111,27 @@
     },
     "KOR": {
       "name": "South Korea",
-      "elo": 1752
+      "elo": 1756
     },
     "ALG": {
       "name": "Algeria",
       "elo": 1743
     },
+    "CZE": {
+      "name": "Czechia",
+      "elo": 1733
+    },
+    "USA": {
+      "name": "United States",
+      "elo": 1733
+    },
     "PAN": {
       "name": "Panama",
-      "elo": 1737
+      "elo": 1733
     },
     "UZB": {
       "name": "Uzbekistan",
       "elo": 1727
-    },
-    "CZE": {
-      "name": "Czechia",
-      "elo": 1726
-    },
-    "USA": {
-      "name": "United States",
-      "elo": 1721
     },
     "SWE": {
       "name": "Sweden",
@@ -143,7 +143,7 @@
     },
     "JOR": {
       "name": "Jordan",
-      "elo": 1690
+      "elo": 1685
     },
     "CIV": {
       "name": "Ivory Coast",
@@ -169,13 +169,13 @@
       "name": "New Zealand",
       "elo": 1585
     },
-    "KSA": {
-      "name": "Saudi Arabia",
-      "elo": 1568
-    },
     "CPV": {
       "name": "Cape Verde",
-      "elo": 1549
+      "elo": 1576
+    },
+    "KSA": {
+      "name": "Saudi Arabia",
+      "elo": 1566
     },
     "HAI": {
       "name": "Haiti",

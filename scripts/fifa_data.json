@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-31",
+  "lastUpdated": "2026-06-01",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260119",
   "sourceConfirmedDate": null,
@@ -27,7 +27,7 @@
     },
     "BRA": {
       "rank": 6,
-      "points": 1761.16
+      "points": 1762.66
     },
     "NED": {
       "rank": 7,
@@ -43,7 +43,7 @@
     },
     "GER": {
       "rank": 10,
-      "points": 1730.37
+      "points": 1731.3
     },
     "CRO": {
       "rank": 11,
@@ -55,7 +55,7 @@
     },
     "SEN": {
       "rank": 14,
-      "points": 1688.99
+      "points": 1686.41
     },
     "MEX": {
       "rank": 15,
@@ -63,7 +63,7 @@
     },
     "USA": {
       "rank": 16,
-      "points": 1673.13
+      "points": 1675.7
     },
     "URU": {
       "rank": 17,
@@ -71,11 +71,11 @@
     },
     "JPN": {
       "rank": 18,
-      "points": 1660.43
+      "points": 1661.58
     },
     "SUI": {
       "rank": 19,
-      "points": 1649.4
+      "points": 1650.75
     },
     "IRN": {
       "rank": 21,
@@ -119,7 +119,7 @@
     },
     "PAN": {
       "rank": 33,
-      "points": 1540.64
+      "points": 1539.14
     },
     "CIV": {
       "rank": 34,
@@ -135,7 +135,7 @@
     },
     "CZE": {
       "rank": 41,
-      "points": 1501.38
+      "points": 1503.04
     },
     "SCO": {
       "rank": 43,
@@ -163,7 +163,7 @@
     },
     "RSA": {
       "rank": 60,
-      "points": 1429.73
+      "points": 1428.38
     },
     "KSA": {
       "rank": 61,
@@ -171,7 +171,7 @@
     },
     "JOR": {
       "rank": 63,
-      "points": 1391.45
+      "points": 1390.1
     },
     "BIH": {
       "rank": 65,
@@ -179,7 +179,7 @@
     },
     "CPV": {
       "rank": 69,
-      "points": 1366.13
+      "points": 1369.29
     },
     "GHA": {
       "rank": 74,

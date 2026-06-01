@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-31T06:21:33.038Z",
+  "fetchedAt": "2026-06-01T06:58:09.773Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -3124,6 +3124,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-05-31",
+          "isHome": true,
+          "opponentName": "Finland",
+          "ourScore": 4,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-03-30",
           "isHome": true,
           "opponentName": "Ghana",
@@ -4329,6 +4337,14 @@
       "code": "SUI",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-05-31",
+          "isHome": true,
+          "opponentName": "Jordan",
+          "ourScore": 4,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-03-31",
           "isHome": false,
@@ -6086,6 +6102,14 @@
       "code": "CZE",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-05-31",
+          "isHome": true,
+          "opponentName": "Kosovo",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-03-31",
           "isHome": true,
@@ -9936,6 +9960,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-05-31",
+          "isHome": true,
+          "opponentName": "Panama",
+          "ourScore": 6,
+          "oppScore": 2,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-03-31",
           "isHome": true,
           "opponentName": "Croatia",
@@ -11621,6 +11653,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-05-30",
+          "isHome": true,
+          "opponentName": "Saudi Arabia",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-03-31",
           "isHome": false,
           "opponentName": "Netherlands",
@@ -12706,6 +12746,14 @@
       "code": "USA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-05-31",
+          "isHome": true,
+          "opponentName": "Senegal",
+          "ourScore": 3,
+          "oppScore": 2,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-03-31",
           "isHome": true,
@@ -14105,6 +14153,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-05-30",
+          "isHome": true,
+          "opponentName": "Australia",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-05-22",
           "isHome": true,
           "opponentName": "Ghana",
@@ -14943,6 +14999,14 @@
       "code": "PAN",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-05-31",
+          "isHome": false,
+          "opponentName": "Brazil",
+          "ourScore": 2,
+          "oppScore": 6,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-03-31",
           "isHome": false,
@@ -16517,6 +16581,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-05-31",
+          "isHome": true,
+          "opponentName": "Iceland",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-03-31",
           "isHome": false,
           "opponentName": "England",
@@ -17123,6 +17195,14 @@
       "code": "KOR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-05-30",
+          "isHome": true,
+          "opponentName": "Trinidad and Tobago",
+          "ourScore": 5,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-03-31",
           "isHome": false,
@@ -18282,6 +18362,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-05-30",
+          "isHome": false,
+          "opponentName": "Ecuador",
+          "ourScore": 1,
+          "oppScore": 2,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-03-31",
           "isHome": false,
           "opponentName": "Serbia",
@@ -19000,6 +19088,14 @@
       "code": "AUS",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-05-30",
+          "isHome": false,
+          "opponentName": "Mexico",
+          "ourScore": 0,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-03-31",
           "isHome": true,
@@ -20062,6 +20158,14 @@
       "code": "JOR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-05-31",
+          "isHome": false,
+          "opponentName": "Switzerland",
+          "ourScore": 1,
+          "oppScore": 4,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-03-31",
           "isHome": true,
@@ -22834,6 +22938,14 @@
       "code": "SEN",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-05-31",
+          "isHome": false,
+          "opponentName": "United States",
+          "ourScore": 2,
+          "oppScore": 3,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-03-31",
           "isHome": true,
@@ -26588,6 +26700,14 @@
       "code": "CPV",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-05-31",
+          "isHome": true,
+          "opponentName": "Serbia",
+          "ourScore": 3,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-03-30",
           "isHome": true,
