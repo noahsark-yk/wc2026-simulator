@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-01",
+  "lastUpdated": "2026-06-02",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260119",
   "sourceConfirmedDate": null,
@@ -51,7 +51,7 @@
     },
     "COL": {
       "rank": 13,
-      "points": 1693.09
+      "points": 1695.99
     },
     "SEN": {
       "rank": 14,
@@ -83,15 +83,15 @@
     },
     "TUR": {
       "rank": 22,
-      "points": 1599.04
-    },
-    "ECU": {
-      "rank": 23,
-      "points": 1596.48
+      "points": 1601.99
     },
     "AUT": {
+      "rank": 23,
+      "points": 1597.4
+    },
+    "ECU": {
       "rank": 24,
-      "points": 1593.45
+      "points": 1596.48
     },
     "KOR": {
       "rank": 25,
@@ -111,11 +111,11 @@
     },
     "CAN": {
       "rank": 30,
-      "points": 1556.48
+      "points": 1560.62
     },
     "NOR": {
       "rank": 31,
-      "points": 1550.94
+      "points": 1555.6
     },
     "PAN": {
       "rank": 33,
@@ -127,7 +127,7 @@
     },
     "SWE": {
       "rank": 38,
-      "points": 1514.77
+      "points": 1510.11
     },
     "PAR": {
       "rank": 40,
@@ -142,8 +142,8 @@
       "points": 1499.92
     },
     "TUN": {
-      "rank": 44,
-      "points": 1483.05
+      "rank": 45,
+      "points": 1479.1
     },
     "COD": {
       "rank": 46,
@@ -151,7 +151,7 @@
     },
     "UZB": {
       "rank": 50,
-      "points": 1465.34
+      "points": 1461.21
     },
     "QAT": {
       "rank": 55,
@@ -178,7 +178,7 @@
       "points": 1385.77
     },
     "CPV": {
-      "rank": 69,
+      "rank": 68,
       "points": 1369.29
     },
     "GHA": {

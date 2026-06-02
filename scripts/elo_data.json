@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-01T06:51:42.229Z",
+  "fetchedAt": "2026-06-02T06:38:47.647Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -31,7 +31,7 @@
     },
     "COL": {
       "name": "Colombia",
-      "elo": 1975
+      "elo": 1977
     },
     "NED": {
       "name": "Netherlands",
@@ -51,7 +51,7 @@
     },
     "NOR": {
       "name": "Norway",
-      "elo": 1912
+      "elo": 1917
     },
     "JPN": {
       "name": "Japan",
@@ -59,7 +59,7 @@
     },
     "TUR": {
       "name": "Turkey",
-      "elo": 1902
+      "elo": 1905
     },
     "SUI": {
       "name": "Switzerland",
@@ -87,7 +87,7 @@
     },
     "AUT": {
       "name": "Austria",
-      "elo": 1827
+      "elo": 1830
     },
     "MAR": {
       "name": "Morocco",
@@ -135,7 +135,7 @@
     },
     "SWE": {
       "name": "Sweden",
-      "elo": 1719
+      "elo": 1714
     },
     "EGY": {
       "name": "Egypt",
@@ -155,7 +155,7 @@
     },
     "TUN": {
       "name": "Tunisia",
-      "elo": 1636
+      "elo": 1633
     },
     "IRQ": {
       "name": "Iraq",
