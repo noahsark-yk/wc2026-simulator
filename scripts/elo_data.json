@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-02T06:38:47.647Z",
+  "fetchedAt": "2026-06-03T06:49:29.260Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -41,10 +41,6 @@
       "name": "Ecuador",
       "elo": 1935
     },
-    "CRO": {
-      "name": "Croatia",
-      "elo": 1930
-    },
     "GER": {
       "name": "Germany",
       "elo": 1925
@@ -53,13 +49,17 @@
       "name": "Norway",
       "elo": 1917
     },
-    "JPN": {
-      "name": "Japan",
-      "elo": 1906
+    "CRO": {
+      "name": "Croatia",
+      "elo": 1908
     },
     "TUR": {
       "name": "Turkey",
-      "elo": 1905
+      "elo": 1906
+    },
+    "JPN": {
+      "name": "Japan",
+      "elo": 1906
     },
     "SUI": {
       "name": "Switzerland",
@@ -69,21 +69,21 @@
       "name": "Uruguay",
       "elo": 1892
     },
-    "MEX": {
-      "name": "Mexico",
-      "elo": 1868
-    },
     "BEL": {
       "name": "Belgium",
+      "elo": 1888
+    },
+    "MEX": {
+      "name": "Mexico",
       "elo": 1867
     },
     "SEN": {
       "name": "Senegal",
-      "elo": 1866
+      "elo": 1867
     },
     "PAR": {
       "name": "Paraguay",
-      "elo": 1833
+      "elo": 1832
     },
     "AUT": {
       "name": "Austria",
@@ -91,15 +91,15 @@
     },
     "MAR": {
       "name": "Morocco",
-      "elo": 1822
+      "elo": 1824
     },
     "CAN": {
       "name": "Canada",
-      "elo": 1784
+      "elo": 1793
     },
     "AUS": {
       "name": "Australia",
-      "elo": 1775
+      "elo": 1774
     },
     "SCO": {
       "name": "Scotland",
@@ -131,7 +131,7 @@
     },
     "UZB": {
       "name": "Uzbekistan",
-      "elo": 1727
+      "elo": 1718
     },
     "SWE": {
       "name": "Sweden",
@@ -183,11 +183,11 @@
     },
     "RSA": {
       "name": "South Africa",
-      "elo": 1517
+      "elo": 1518
     },
     "GHA": {
       "name": "Ghana",
-      "elo": 1503
+      "elo": 1510
     },
     "CUW": {
       "name": "Curaçao",

@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-02T06:45:49.452Z",
+  "fetchedAt": "2026-06-03T06:56:03.872Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -3731,6 +3731,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-02",
+          "isHome": true,
+          "opponentName": "Belgium",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-03-31",
           "isHome": false,
           "opponentName": "Brazil",
@@ -4944,6 +4952,14 @@
       "code": "BEL",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-02",
+          "isHome": false,
+          "opponentName": "Croatia",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-03-31",
           "isHome": true,
@@ -13554,6 +13570,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-01",
+          "isHome": true,
+          "opponentName": "Uzbekistan",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-03-31",
           "isHome": true,
           "opponentName": "Tunisia",
@@ -19616,6 +19640,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-01",
+          "isHome": false,
+          "opponentName": "Canada",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-03-30",
           "isHome": true,
           "opponentName": "Venezuela",
@@ -22267,6 +22299,14 @@
       "code": "MAR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-02",
+          "isHome": true,
+          "opponentName": "Madagascar",
+          "ourScore": 4,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-05-26",
           "isHome": true,
@@ -26213,6 +26253,14 @@
       "code": "GHA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-02",
+          "isHome": false,
+          "opponentName": "Wales",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-05-22",
           "isHome": false,

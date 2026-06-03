@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-02",
+  "lastUpdated": "2026-06-03",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260119",
   "sourceConfirmedDate": null,
@@ -35,11 +35,11 @@
     },
     "MAR": {
       "rank": 8,
-      "points": 1755.87
+      "points": 1756.94
     },
     "BEL": {
       "rank": 9,
-      "points": 1734.71
+      "points": 1739.55
     },
     "GER": {
       "rank": 10,
@@ -47,7 +47,7 @@
     },
     "CRO": {
       "rank": 11,
-      "points": 1717.07
+      "points": 1712.24
     },
     "COL": {
       "rank": 13,
@@ -182,20 +182,20 @@
       "points": 1369.29
     },
     "GHA": {
-      "rank": 74,
-      "points": 1345.23
-    },
-    "CUW": {
-      "rank": 82,
-      "points": 1293.08
+      "rank": 73,
+      "points": 1346.88
     },
     "HAI": {
+      "rank": 82,
+      "points": 1296.61
+    },
+    "CUW": {
       "rank": 83,
-      "points": 1291.71
+      "points": 1293.08
     },
     "NZL": {
       "rank": 85,
-      "points": 1281.57
+      "points": 1276.66
     }
   }
 }
