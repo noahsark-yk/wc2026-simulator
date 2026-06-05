@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-03T06:49:29.260Z",
+  "fetchedAt": "2026-06-05T06:18:55.457Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -7,7 +7,7 @@
   "teams": {
     "ESP": {
       "name": "Spain",
-      "elo": 2165
+      "elo": 2155
     },
     "ARG": {
       "name": "Argentina",
@@ -15,7 +15,7 @@
     },
     "FRA": {
       "name": "France",
-      "elo": 2081
+      "elo": 2062
     },
     "ENG": {
       "name": "England",
@@ -35,7 +35,7 @@
     },
     "NED": {
       "name": "Netherlands",
-      "elo": 1961
+      "elo": 1944
     },
     "ECU": {
       "name": "Ecuador",
@@ -101,32 +101,32 @@
       "name": "Australia",
       "elo": 1774
     },
+    "IRN": {
+      "name": "Iran",
+      "elo": 1772
+    },
     "SCO": {
       "name": "Scotland",
       "elo": 1770
     },
-    "IRN": {
-      "name": "Iran",
-      "elo": 1764
+    "ALG": {
+      "name": "Algeria",
+      "elo": 1760
     },
     "KOR": {
       "name": "South Korea",
-      "elo": 1756
-    },
-    "ALG": {
-      "name": "Algeria",
-      "elo": 1743
+      "elo": 1758
     },
     "CZE": {
       "name": "Czechia",
-      "elo": 1733
-    },
-    "USA": {
-      "name": "United States",
-      "elo": 1733
+      "elo": 1740
     },
     "PAN": {
       "name": "Panama",
+      "elo": 1734
+    },
+    "USA": {
+      "name": "United States",
       "elo": 1733
     },
     "UZB": {
@@ -135,23 +135,23 @@
     },
     "SWE": {
       "name": "Sweden",
-      "elo": 1714
+      "elo": 1712
     },
     "EGY": {
       "name": "Egypt",
       "elo": 1699
     },
+    "CIV": {
+      "name": "Ivory Coast",
+      "elo": 1695
+    },
     "JOR": {
       "name": "Jordan",
       "elo": 1685
     },
-    "CIV": {
-      "name": "Ivory Coast",
-      "elo": 1676
-    },
     "COD": {
       "name": "DR Congo",
-      "elo": 1655
+      "elo": 1661
     },
     "TUN": {
       "name": "Tunisia",
@@ -159,15 +159,11 @@
     },
     "IRQ": {
       "name": "Iraq",
-      "elo": 1608
+      "elo": 1618
     },
     "BIH": {
       "name": "Bosnia/Herzeg",
       "elo": 1591
-    },
-    "NZL": {
-      "name": "New Zealand",
-      "elo": 1585
     },
     "CPV": {
       "name": "Cape Verde",
@@ -177,9 +173,13 @@
       "name": "Saudi Arabia",
       "elo": 1566
     },
+    "NZL": {
+      "name": "New Zealand",
+      "elo": 1563
+    },
     "HAI": {
       "name": "Haiti",
-      "elo": 1532
+      "elo": 1554
     },
     "RSA": {
       "name": "South Africa",

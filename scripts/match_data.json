@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-03T06:56:03.872Z",
+  "fetchedAt": "2026-06-05T06:24:55.726Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -8,6 +8,14 @@
       "code": "ESP",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-04",
+          "isHome": true,
+          "opponentName": "Iraq",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-03-31",
           "isHome": true,
@@ -639,6 +647,14 @@
       "code": "FRA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-04",
+          "isHome": true,
+          "opponentName": "Ivory Coast",
+          "ourScore": 1,
+          "oppScore": 2,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-03-29",
           "isHome": true,
@@ -2516,6 +2532,14 @@
       "code": "NED",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-03",
+          "isHome": true,
+          "opponentName": "Algeria",
+          "ourScore": 0,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-03-31",
           "isHome": true,
@@ -6127,6 +6151,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-04",
+          "isHome": true,
+          "opponentName": "Guatemala",
+          "ourScore": 3,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-05-31",
           "isHome": true,
           "opponentName": "Kosovo",
@@ -8833,6 +8865,14 @@
       "code": "SWE",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-04",
+          "isHome": true,
+          "opponentName": "Greece",
+          "ourScore": 2,
+          "oppScore": 2,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-06-01",
           "isHome": false,
@@ -15064,6 +15104,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-03",
+          "isHome": true,
+          "opponentName": "Dominican Republic",
+          "ourScore": 4,
+          "oppScore": 2,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-05-31",
           "isHome": false,
           "opponentName": "Brazil",
@@ -16230,6 +16278,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-02",
+          "isHome": true,
+          "opponentName": "New Zealand",
+          "ourScore": 4,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-03-31",
           "isHome": true,
           "opponentName": "Iceland",
@@ -17260,6 +17316,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-03",
+          "isHome": true,
+          "opponentName": "El Salvador",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-05-30",
           "isHome": true,
           "opponentName": "Trinidad and Tobago",
@@ -17866,6 +17930,14 @@
       "code": "IRN",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-04",
+          "isHome": true,
+          "opponentName": "Mali",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-05-29",
           "isHome": true,
@@ -19146,7 +19218,9 @@
           "tournament": "Friendly"
         }
       ],
-      "sourceUrl": "https://www.eloratings.net/Saudi_Arabia"
+      "sourceUrl": "https://www.eloratings.net/Saudi_Arabia",
+      "staleFromPrior": true,
+      "freshFetchError": "navigation failed"
     },
     "AUS": {
       "code": "AUS",
@@ -19633,7 +19707,9 @@
           "tournament": "World Cup &amp; As Cup q"
         }
       ],
-      "sourceUrl": "https://www.eloratings.net/Australia"
+      "sourceUrl": "https://www.eloratings.net/Australia",
+      "staleFromPrior": true,
+      "freshFetchError": "navigation failed"
     },
     "UZB": {
       "code": "UZB",
@@ -20224,7 +20300,9 @@
           "tournament": "Friendly"
         }
       ],
-      "sourceUrl": "https://www.eloratings.net/Uzbekistan"
+      "sourceUrl": "https://www.eloratings.net/Uzbekistan",
+      "staleFromPrior": true,
+      "freshFetchError": "navigation failed"
     },
     "JOR": {
       "code": "JOR",
@@ -20919,7 +20997,9 @@
           "tournament": "Friendly"
         }
       ],
-      "sourceUrl": "https://www.eloratings.net/Jordan"
+      "sourceUrl": "https://www.eloratings.net/Jordan",
+      "staleFromPrior": true,
+      "freshFetchError": "navigation failed"
     },
     "IRQ": {
       "code": "IRQ",
@@ -21542,7 +21622,9 @@
           "tournament": "Friendly"
         }
       ],
-      "sourceUrl": "https://www.eloratings.net/Iraq"
+      "sourceUrl": "https://www.eloratings.net/Iraq",
+      "staleFromPrior": true,
+      "freshFetchError": "navigation failed"
     },
     "QAT": {
       "code": "QAT",
@@ -25016,6 +25098,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-03",
+          "isHome": false,
+          "opponentName": "Netherlands",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-03-31",
           "isHome": true,
           "opponentName": "Uruguay",
@@ -25686,6 +25776,14 @@
       "code": "CIV",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-04",
+          "isHome": false,
+          "opponentName": "France",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-03-31",
           "isHome": true,
@@ -27995,6 +28093,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-03",
+          "isHome": false,
+          "opponentName": "Denmark",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-03-31",
           "isHome": true,
           "opponentName": "Jamaica",
@@ -28521,6 +28627,14 @@
       "code": "NZL",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-02",
+          "isHome": false,
+          "opponentName": "Haiti",
+          "ourScore": 0,
+          "oppScore": 4,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-03-30",
           "isHome": true,
