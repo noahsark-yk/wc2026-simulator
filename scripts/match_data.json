@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-05T06:24:55.726Z",
+  "fetchedAt": "2026-06-06T05:58:03.044Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -12340,6 +12340,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-05",
+          "isHome": true,
+          "opponentName": "Nicaragua",
+          "ourScore": 4,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-03-31",
           "isHome": false,
           "opponentName": "Morocco",
@@ -14256,6 +14264,14 @@
       "code": "MEX",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-04",
+          "isHome": true,
+          "opponentName": "Serbia",
+          "ourScore": 5,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-05-30",
           "isHome": true,
@@ -19218,9 +19234,7 @@
           "tournament": "Friendly"
         }
       ],
-      "sourceUrl": "https://www.eloratings.net/Saudi_Arabia",
-      "staleFromPrior": true,
-      "freshFetchError": "navigation failed"
+      "sourceUrl": "https://www.eloratings.net/Saudi_Arabia"
     },
     "AUS": {
       "code": "AUS",
@@ -19707,9 +19721,7 @@
           "tournament": "World Cup &amp; As Cup q"
         }
       ],
-      "sourceUrl": "https://www.eloratings.net/Australia",
-      "staleFromPrior": true,
-      "freshFetchError": "navigation failed"
+      "sourceUrl": "https://www.eloratings.net/Australia"
     },
     "UZB": {
       "code": "UZB",
@@ -20300,9 +20312,7 @@
           "tournament": "Friendly"
         }
       ],
-      "sourceUrl": "https://www.eloratings.net/Uzbekistan",
-      "staleFromPrior": true,
-      "freshFetchError": "navigation failed"
+      "sourceUrl": "https://www.eloratings.net/Uzbekistan"
     },
     "JOR": {
       "code": "JOR",
@@ -20997,14 +21007,20 @@
           "tournament": "Friendly"
         }
       ],
-      "sourceUrl": "https://www.eloratings.net/Jordan",
-      "staleFromPrior": true,
-      "freshFetchError": "navigation failed"
+      "sourceUrl": "https://www.eloratings.net/Jordan"
     },
     "IRQ": {
       "code": "IRQ",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-04",
+          "isHome": false,
+          "opponentName": "Spain",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-05-29",
           "isHome": true,
@@ -21622,9 +21638,7 @@
           "tournament": "Friendly"
         }
       ],
-      "sourceUrl": "https://www.eloratings.net/Iraq",
-      "staleFromPrior": true,
-      "freshFetchError": "navigation failed"
+      "sourceUrl": "https://www.eloratings.net/Iraq"
     },
     "QAT": {
       "code": "QAT",

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-05",
+  "lastUpdated": "2026-06-06",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260119",
   "sourceConfirmedDate": null,
@@ -111,7 +111,7 @@
     },
     "CAN": {
       "rank": 30,
-      "points": 1560.62
+      "points": 1559.48
     },
     "NOR": {
       "rank": 31,
@@ -135,7 +135,7 @@
     },
     "PAR": {
       "rank": 40,
-      "points": 1503.5
+      "points": 1505.35
     },
     "SCO": {
       "rank": 43,
@@ -167,7 +167,7 @@
     },
     "KSA": {
       "rank": 61,
-      "points": 1419.73
+      "points": 1421.54
     },
     "JOR": {
       "rank": 63,
@@ -186,8 +186,8 @@
       "points": 1346.88
     },
     "HAI": {
-      "rank": 81,
-      "points": 1296.61
+      "rank": 82,
+      "points": 1293.1
     },
     "CUW": {
       "rank": 83,

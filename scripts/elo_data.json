@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-05T06:18:55.457Z",
+  "fetchedAt": "2026-06-06T05:51:37.980Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -75,7 +75,7 @@
     },
     "MEX": {
       "name": "Mexico",
-      "elo": 1867
+      "elo": 1875
     },
     "SEN": {
       "name": "Senegal",
@@ -83,7 +83,7 @@
     },
     "PAR": {
       "name": "Paraguay",
-      "elo": 1832
+      "elo": 1833
     },
     "AUT": {
       "name": "Austria",
