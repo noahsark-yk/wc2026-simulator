@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-07T06:27:12.308Z",
+  "fetchedAt": "2026-06-08T06:46:34.891Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -3779,6 +3779,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-07",
+          "isHome": true,
+          "opponentName": "Slovenia",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-06-02",
           "isHome": true,
           "opponentName": "Belgium",
@@ -6773,6 +6781,14 @@
       "code": "NOR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-07",
+          "isHome": false,
+          "opponentName": "Morocco",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-06-01",
           "isHome": true,
@@ -10687,6 +10703,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-07",
+          "isHome": true,
+          "opponentName": "Jordan",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-06-01",
           "isHome": true,
           "opponentName": "Costa Rica",
@@ -11828,6 +11852,14 @@
       "code": "ECU",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-07",
+          "isHome": true,
+          "opponentName": "Guatemala",
+          "ourScore": 3,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-05-30",
           "isHome": true,
@@ -20455,6 +20487,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-07",
+          "isHome": false,
+          "opponentName": "Colombia",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-05-31",
           "isHome": false,
           "opponentName": "Switzerland",
@@ -22539,6 +22579,14 @@
       "code": "MAR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-07",
+          "isHome": true,
+          "opponentName": "Norway",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-06-02",
           "isHome": true,

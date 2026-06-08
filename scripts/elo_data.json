@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-07T06:20:39.702Z",
+  "fetchedAt": "2026-06-08T06:39:42.064Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -31,7 +31,7 @@
     },
     "COL": {
       "name": "Colombia",
-      "elo": 1977
+      "elo": 1982
     },
     "NED": {
       "name": "Netherlands",
@@ -39,7 +39,7 @@
     },
     "ECU": {
       "name": "Ecuador",
-      "elo": 1935
+      "elo": 1938
     },
     "GER": {
       "name": "Germany",
@@ -47,15 +47,15 @@
     },
     "NOR": {
       "name": "Norway",
-      "elo": 1917
+      "elo": 1914
+    },
+    "CRO": {
+      "name": "Croatia",
+      "elo": 1911
     },
     "TUR": {
       "name": "Turkey",
       "elo": 1911
-    },
-    "CRO": {
-      "name": "Croatia",
-      "elo": 1908
     },
     "JPN": {
       "name": "Japan",
@@ -91,7 +91,7 @@
     },
     "MAR": {
       "name": "Morocco",
-      "elo": 1824
+      "elo": 1827
     },
     "CAN": {
       "name": "Canada",
@@ -147,7 +147,7 @@
     },
     "JOR": {
       "name": "Jordan",
-      "elo": 1685
+      "elo": 1680
     },
     "COD": {
       "name": "DR Congo",
