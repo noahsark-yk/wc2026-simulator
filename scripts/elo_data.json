@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-08T06:39:42.064Z",
+  "fetchedAt": "2026-06-10T06:20:17.462Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -7,7 +7,7 @@
   "teams": {
     "ESP": {
       "name": "Spain",
-      "elo": 2155
+      "elo": 2157
     },
     "ARG": {
       "name": "Argentina",
@@ -15,7 +15,7 @@
     },
     "FRA": {
       "name": "France",
-      "elo": 2062
+      "elo": 2063
     },
     "ENG": {
       "name": "England",
@@ -35,7 +35,7 @@
     },
     "NED": {
       "name": "Netherlands",
-      "elo": 1944
+      "elo": 1948
     },
     "ECU": {
       "name": "Ecuador",
@@ -51,7 +51,7 @@
     },
     "CRO": {
       "name": "Croatia",
-      "elo": 1911
+      "elo": 1912
     },
     "TUR": {
       "name": "Turkey",
@@ -63,7 +63,7 @@
     },
     "BEL": {
       "name": "Belgium",
-      "elo": 1893
+      "elo": 1894
     },
     "URU": {
       "name": "Uruguay",
@@ -79,11 +79,11 @@
     },
     "SEN": {
       "name": "Senegal",
-      "elo": 1867
+      "elo": 1860
     },
     "PAR": {
       "name": "Paraguay",
-      "elo": 1833
+      "elo": 1834
     },
     "AUT": {
       "name": "Austria",
@@ -131,7 +131,7 @@
     },
     "UZB": {
       "name": "Uzbekistan",
-      "elo": 1718
+      "elo": 1714
     },
     "SWE": {
       "name": "Sweden",
@@ -151,7 +151,7 @@
     },
     "COD": {
       "name": "DR Congo",
-      "elo": 1661
+      "elo": 1652
     },
     "TUN": {
       "name": "Tunisia",
@@ -171,7 +171,7 @@
     },
     "KSA": {
       "name": "Saudi Arabia",
-      "elo": 1569
+      "elo": 1576
     },
     "NZL": {
       "name": "New Zealand",
@@ -183,7 +183,7 @@
     },
     "RSA": {
       "name": "South Africa",
-      "elo": 1528
+      "elo": 1517
     },
     "GHA": {
       "name": "Ghana",

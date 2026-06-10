@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-08T06:46:34.891Z",
+  "fetchedAt": "2026-06-10T06:26:39.768Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -8,6 +8,14 @@
       "code": "ESP",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-08",
+          "isHome": true,
+          "opponentName": "Peru",
+          "ourScore": 3,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-06-04",
           "isHome": true,
@@ -647,6 +655,14 @@
       "code": "FRA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-08",
+          "isHome": true,
+          "opponentName": "Northern Ireland",
+          "ourScore": 3,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-06-04",
           "isHome": true,
@@ -2548,6 +2564,14 @@
       "code": "NED",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-08",
+          "isHome": true,
+          "opponentName": "Uzbekistan",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-06-03",
           "isHome": true,
@@ -18666,6 +18690,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-09",
+          "isHome": true,
+          "opponentName": "Senegal",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-06-05",
           "isHome": true,
           "opponentName": "Puerto Rico",
@@ -19895,6 +19927,14 @@
       "code": "UZB",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-08",
+          "isHome": false,
+          "opponentName": "Netherlands",
+          "ourScore": 1,
+          "oppScore": 2,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-06-01",
           "isHome": false,
@@ -23306,6 +23346,14 @@
       "code": "SEN",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-09",
+          "isHome": false,
+          "opponentName": "Saudi Arabia",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-05-31",
           "isHome": false,
@@ -27637,10 +27685,10 @@
       "matches": [
         {
           "date": "2026-06-06",
-          "isHome": true,
+          "isHome": false,
           "opponentName": "Jamaica",
           "ourScore": 1,
-          "oppScore": 0,
+          "oppScore": 1,
           "tournament": "Friendly"
         },
         {
@@ -28330,6 +28378,14 @@
       "code": "COD",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-09",
+          "isHome": false,
+          "opponentName": "Chile",
+          "ourScore": 1,
+          "oppScore": 2,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-06-03",
           "isHome": false,
