@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-10T06:20:17.462Z",
+  "fetchedAt": "2026-06-11T06:45:31.035Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -11,7 +11,7 @@
     },
     "ARG": {
       "name": "Argentina",
-      "elo": 2114
+      "elo": 2115
     },
     "FRA": {
       "name": "France",
@@ -19,7 +19,7 @@
     },
     "ENG": {
       "name": "England",
-      "elo": 2021
+      "elo": 2024
     },
     "BRA": {
       "name": "Brazil",
@@ -27,7 +27,7 @@
     },
     "POR": {
       "name": "Portugal",
-      "elo": 1986
+      "elo": 1989
     },
     "COL": {
       "name": "Colombia",
@@ -105,13 +105,13 @@
       "name": "Australia",
       "elo": 1777
     },
+    "ALG": {
+      "name": "Algeria",
+      "elo": 1772
+    },
     "IRN": {
       "name": "Iran",
       "elo": 1772
-    },
-    "ALG": {
-      "name": "Algeria",
-      "elo": 1760
     },
     "KOR": {
       "name": "South Korea",
@@ -159,7 +159,7 @@
     },
     "IRQ": {
       "name": "Iraq",
-      "elo": 1618
+      "elo": 1607
     },
     "BIH": {
       "name": "Bosnia/Herzeg",

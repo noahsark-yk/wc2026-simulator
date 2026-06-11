@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-10T06:26:39.768Z",
+  "fetchedAt": "2026-06-11T06:52:27.560Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -1295,6 +1295,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-10",
+          "isHome": true,
+          "opponentName": "Costa Rica",
+          "ourScore": 3,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-06-06",
           "isHome": true,
           "opponentName": "New Zealand",
@@ -1941,6 +1949,14 @@
       "code": "POR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-10",
+          "isHome": true,
+          "opponentName": "Nigeria",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-06-06",
           "isHome": true,
@@ -9560,6 +9576,14 @@
       "code": "ARG",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-09",
+          "isHome": true,
+          "opponentName": "Iceland",
+          "ourScore": 3,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-06-06",
           "isHome": true,
@@ -21230,6 +21254,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-09",
+          "isHome": false,
+          "opponentName": "Venezuela",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-06-04",
           "isHome": false,
           "opponentName": "Spain",
@@ -25367,6 +25399,14 @@
       "code": "ALG",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-10",
+          "isHome": true,
+          "opponentName": "Bolivia",
+          "ourScore": 4,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-06-03",
           "isHome": false,
