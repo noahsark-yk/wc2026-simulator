@@ -237,7 +237,14 @@ function computeRawAtkDef(allMatches, eloByCode, refDate) {
     flags.push(`strong_overall_fallback(n_eff=${strongAtk.nEff.toFixed(1)})`);
     atkS = overallAtk.value;
     defS = overallDef.value;
-    nStrong = overallAtk.nEff;
+    // v4.1 fix: keep the TRUE stratum n_eff for shrinkage, not the overall
+    // sample size. The fallback value is a biased estimator of the stratum
+    // (it is mostly weak-opponent games), so its uncertainty is that of the
+    // thin stratum, not of the 80+ overall games. Carrying overall nEff let
+    // e.g. Algeria's qualifier blowouts (overall atk ≈ 2.1 vs mostly weak
+    // sides) flow into atk.s nearly unshrunk — and rank them #1 the moment
+    // ORIGINAL mode let atk/def decide outcomes.
+    nStrong = strongAtk.nEff;
   }
   
   // Weak stratum
@@ -252,7 +259,9 @@ function computeRawAtkDef(allMatches, eloByCode, refDate) {
     flags.push(`weak_overall_fallback(n_eff=${weakAtk.nEff.toFixed(1)})`);
     atkW = overallAtk.value;
     defW = overallDef.value;
-    nWeak = overallAtk.nEff;
+    // v4.1 fix: same as the strong stratum — shrink with the TRUE stratum
+    // n_eff so a fallback-filled value gets pulled hard toward the global.
+    nWeak = weakAtk.nEff;
   }
   
   if (strongPeriod === '2020+') flags.push('strong_extended_to_2020');
