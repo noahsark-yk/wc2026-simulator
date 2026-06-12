@@ -266,11 +266,34 @@ function computeRawAtkDef(allMatches, eloByCode, refDate) {
   
   if (strongPeriod === '2020+') flags.push('strong_extended_to_2020');
   if (weakPeriod === '2020+') flags.push('weak_extended_to_2020');
-  
+
+  // v4.2: weak-stratum points-per-game (win-through efficiency).
+  // Captures what goal-average atk/def structurally cannot: dropped points
+  // against weaker sides. A 0-0 slip is invisible to λ (no goals either way)
+  // but costs 2 points; a 7-0 rout inflates λ but earns the same 3 points
+  // as a 1-0. PPG counts results the way the table does. Weak stratum only:
+  // drawing with a STRONG side is not a slip, and strong samples are too
+  // thin for most non-European sides (the very problem v4.1 fixed).
+  const toPts = (m) => ({ ...m, pts: m.ourScore > m.oppScore ? 3 : m.ourScore === m.oppScore ? 1 : 0 });
+  const weakPpg = weightedAvg(weakUsed.map(toPts), 'pts', refDate);
+  let ppgW, nPpg;
+  if (weakPpg.nEff >= FALLBACK_THRESHOLD) {
+    ppgW = weakPpg.value;
+    nPpg = weakPpg.nEff;
+  } else {
+    // v4.1 philosophy: fall back to overall PPG, but shrink with the TRUE
+    // thin n_eff so the prior dominates.
+    const overallPpg = weightedAvg(matches2020.map(toPts), 'pts', refDate);
+    flags.push(`ppg_overall_fallback(n_eff=${weakPpg.nEff.toFixed(1)})`);
+    ppgW = overallPpg.value;
+    nPpg = weakPpg.nEff;
+  }
+
   return {
     atk: { s: atkS, w: atkW },
     def: { s: defS, w: defW },
-    nEff: { strong: nStrong, weak: nWeak },
+    ppg: { w: ppgW },
+    nEff: { strong: nStrong, weak: nWeak, ppg: nPpg },
     sample: {
       strongPhys: strongUsed.length,
       weakPhys: weakUsed.length,
@@ -290,6 +313,7 @@ function computeGlobalMeans(rawResults) {
     atkW: mean(valid(rawResults.map(r => r.atk.w))),
     defS: mean(valid(rawResults.map(r => r.def.s))),
     defW: mean(valid(rawResults.map(r => r.def.w))),
+    ppgW: mean(valid(rawResults.map(r => r.ppg && r.ppg.w))), // v4.2
   };
 }
 
@@ -449,6 +473,8 @@ function main() {
     const atkW = shrunk(raw.atk.w, raw.nEff.weak, GLOBAL.atkW, SHRINK_K);
     const defS = shrunk(raw.def.s, raw.nEff.strong, GLOBAL.defS, SHRINK_K);
     const defW = shrunk(raw.def.w, raw.nEff.weak, GLOBAL.defW, SHRINK_K);
+    // v4.2: weak-stratum PPG (win-through efficiency), same shrinkage scheme
+    const ppgW = shrunk(raw.ppg.w, raw.nEff.ppg, GLOBAL.ppgW, SHRINK_K);
     
     const newElo = eloByCode[code] != null ? eloByCode[code] : team.elo;
     const fifaInfo = fifaByCode[code];
@@ -459,6 +485,7 @@ function main() {
       f: TLA_TO_ISO2[code] || team.f || '',
       atk: { s: +atkS.toFixed(2), w: +atkW.toFixed(2) },
       def: { s: +defS.toFixed(2), w: +defW.toFixed(2) },
+      ppgW: +ppgW.toFixed(2), // v4.2: weak-stratum points per game (3/1/0, time-decayed, shrunk)
       ...(fifaInfo ? { fifaR: fifaInfo.rank, fifaP: fifaInfo.points } : {})
     };
     updatedTeams.push(updated);
