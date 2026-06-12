@@ -184,6 +184,9 @@ body {
   color: var(--text-tertiary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  /* never crush the label into a one-char-per-line strip (5 mode buttons) */
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 select, .pill-btn {
   padding: 7px 12px;
@@ -1012,9 +1015,12 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
   overflow: hidden;
   background: var(--bg-card);
 }
+/* 9 columns no longer fit a phone: let the table scroll sideways and keep
+   the country-name column readable instead of letting the grid crush it. */
+#ratings-table { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .ratings-row {
   display: grid;
-  grid-template-columns: 24px 22px 1fr 28px 52px 52px 52px 52px 52px;
+  grid-template-columns: 24px 22px minmax(110px, 1fr) 28px 52px 52px 52px 52px 52px;
   align-items: center;
   gap: 8px;
   padding: 6px 10px;
@@ -1062,11 +1068,14 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 }
 @media (max-width: 420px) {
   .ratings-row {
-    grid-template-columns: 20px 20px 1fr 24px 40px 40px 40px 40px 40px;
+    grid-template-columns: 20px 20px minmax(96px, 1fr) 24px 44px 44px 44px 44px 54px;
     gap: 5px;
     padding: 5px 8px;
     font-size: 11px;
   }
+  /* 5 mode buttons: tighter padding, and let the toggle wrap under its label */
+  .mode-toggle button { padding: 5px 8px; font-size: 11px; }
+  .control-group { flex-wrap: wrap; }
 }
 
 /* v2.15: Live feed — shown during Run 100k computation. */
