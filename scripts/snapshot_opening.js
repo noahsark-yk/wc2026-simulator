@@ -1,6 +1,6 @@
 // Opening-day prediction snapshot.
 //
-// Runs the live.html worker 4 times (elo / opta / fifa / original), 100k
+// Runs the live page (index.html) worker over all modes, 100k each,
 // Monte Carlo each, with NO real results locked — i.e. the pure
 // pre-tournament prediction implied by teams_frozen.json (opening-day
 // inputs x current builder). Saves per-team stage-reach COUNTS to
@@ -18,7 +18,7 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
 
-const URL = 'http://localhost:8123/live.html';
+const URL = 'http://localhost:8123/index.html';
 const OUT = path.join(__dirname, '..', 'data', 'predictions_opening.json');
 const RUNS = 100000;
 // v2.18: 'power' (rating-driven, our fuel) joined; 'original' is Matchup in the UI.

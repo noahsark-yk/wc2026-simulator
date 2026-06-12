@@ -17,7 +17,7 @@ const puppeteer = require('puppeteer');
   const page = await browser.newPage();
   const errors = [];
   page.on('pageerror', err => errors.push(err.message));
-  await page.goto('http://localhost:8123/index.html', { waitUntil: 'networkidle2', timeout: 60000 });
+  await page.goto('http://localhost:8123/classic.html', { waitUntil: 'networkidle2', timeout: 60000 });
   await new Promise(r => setTimeout(r, 2500));
 
   await page.click('#rating-toggle button[data-mode="original"]');

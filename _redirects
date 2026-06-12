@@ -1,0 +1,4 @@
+# The live page moved to the site root on 2026-06-13 (it IS the site during
+# the tournament). Keep the old shared links alive.
+/live / 301
+/live.html / 301

@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
-<title>World Cup 2026 Matchup Simulator</title>
+<title>World Cup 2026 Live Simulator — Real Results + Monte Carlo</title>
 
 <!-- SEO -->
-<meta name="description" content="48 nations, 100,000 Monte Carlo sims, 5 rating lenses: Elo/Opta/FIFA plus our own Power &amp; Matchup. Build your own World Cup 2026 prediction.">
+<meta name="description" content="Live World Cup 2026 simulator: real match results locked in as they finish, the remaining games simulated 100,000 times. Ratings frozen at kickoff.">
 
 <!-- Open Graph (Facebook, LINE, Discord, Slack, etc.) -->
-<meta property="og:title" content="World Cup 2026 Matchup Simulator">
-<meta property="og:description" content="48 nations, 100,000 Monte Carlo sims, 5 rating lenses: Elo/Opta/FIFA plus our own Power &amp; Matchup. Build your own World Cup 2026 prediction.">
+<meta property="og:title" content="World Cup 2026 Live Simulator — Real Results + Monte Carlo">
+<meta property="og:description" content="Real match results locked in as they finish, the remaining games simulated 100,000 times. Ratings frozen at kickoff.">
 <meta property="og:image" content="https://noahsark-wc2026.pages.dev/ogp.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -31,8 +31,8 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="World Cup 2026 Matchup Simulator">
-<meta name="twitter:description" content="48 nations, 100,000 Monte Carlo sims, Elo/Opta/FIFA ratings. Build your own World Cup 2026 prediction.">
+<meta name="twitter:title" content="World Cup 2026 Live Simulator — Real Results + Monte Carlo">
+<meta name="twitter:description" content="Real match results locked in as they finish, the remaining games simulated 100,000 times. Ratings frozen at kickoff.">
 <meta name="twitter:image" content="https://noahsark-wc2026.pages.dev/ogp.png">
 <meta name="twitter:site" content="@noahsark_yk">
 <meta name="twitter:creator" content="@noahsark_yk">
@@ -2306,12 +2306,27 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
   .mhbr-half-grid .fi { width: 0.9em; margin-right: 1px; }
 }
 
-/* Link to the live (real results) page */
-.live-page-link { margin-left: 10px; padding: 2px 8px; border-radius: 6px;
-  background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.4);
-  color: inherit; text-decoration: none; font-size: 12px; font-weight: 600;
-  white-space: nowrap; }
-.live-page-link:hover { background: rgba(34,197,94,0.3); }
+/* ============ LIVE (this page only — served at the site root) ============ */
+.live-bar { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center;
+  margin: 10px 0 2px; padding: 8px 12px; border-radius: 8px;
+  background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.35);
+  font-size: 12.5px; }
+.live-bar-item { display: inline-flex; align-items: center; gap: 4px; }
+.live-bar-dim { opacity: 0.65; }
+.live-classic-link { margin-left: auto; text-decoration: underline; cursor: pointer;
+  color: inherit; opacity: 0.8; }
+.live-dot { width: 8px; height: 8px; border-radius: 50%; background: #ef4444;
+  display: inline-block; margin-right: 4px; animation: livePulse 1.2s ease-in-out infinite; }
+@keyframes livePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+.live-now-match { margin-right: 10px; }
+.live-clock { opacity: 0.65; font-size: 11px; }
+#live-new-banner { position: sticky; top: 0; z-index: 50; margin: 6px 0;
+  padding: 9px 12px; border-radius: 8px; background: #16a34a; color: #fff;
+  font-weight: 600; text-align: center; cursor: pointer; font-size: 13px; }
+.gs-match-row.is-real .gs-score { color: #16a34a; font-weight: 700; }
+.real-check { color: #16a34a; font-weight: 700; margin-right: 3px; font-size: 0.9em; }
+[class*="br-"].is-real { border-left: 3px solid #16a34a; }
+.match-row.is-real .match-score { color: #16a34a; font-weight: 700; }
 
 </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css">
@@ -2324,7 +2339,6 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
       <div class="header-sub">
         <span class="badge" id="ui-badge-live">LIVE</span>
         <span id="ui-subtitle">48 Nations · Official FIFA Bracket</span>
-        <a href="live.html" class="live-page-link" title="Live: real results + simulated remainder">⚽ LIVE ▶</a>
       </div>
     </div>
     <div class="controls-bar">
@@ -2334,6 +2348,16 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
       </div>
     </div>
   </header>
+
+  <!-- LIVE: real-results status bar + new-results banner -->
+  <div class="live-bar" id="live-status-bar">
+    <span class="live-bar-item" id="live-played"></span>
+    <span class="live-bar-item live-bar-dim" id="live-checked"></span>
+    <span class="live-bar-item" id="live-now"></span>
+    <span class="live-bar-item live-bar-dim" id="live-frozen-note"></span>
+    <a class="live-bar-item live-classic-link" id="live-to-classic" href="classic.html"></a>
+  </div>
+  <div id="live-new-banner" style="display:none" onclick="this.style.display='none'; renderOnce();"></div>
 
   <div class="toolbar">
     <div class="control-group">
@@ -2542,8 +2566,13 @@ const GROUPS = 'ABCDEFGHIJKL'.split('');
 // ============ UI TRANSLATIONS ============
 const T = {
   ja: {
-    title: 'W杯2026 対戦シミュレーター',
-    subtitle: '48カ国 · FIFA公式ブラケット準拠',
+    title: 'W杯2026 ライブシミュレーター',
+    subtitle: '実結果を反映 · 残り試合をシミュレート',
+    live_played: '反映済み {n} / {total} 試合',
+    live_checked: '最終確認',
+    live_new_results: '新しい試合結果を反映しました ── タップして再計算',
+    live_to_classic: '通常版（開幕前予測）→',
+    live_frozen_note: 'レーティングは開幕時点（6/11）で凍結',
     badge: 'LIVE',
     label_rating: 'レーティング',
     label_home: 'ホーム優位',
@@ -2594,10 +2623,10 @@ const T = {
     seeding_body: '<p><strong>テニス方式のシード</strong>が初導入。ランキング上位4カ国(スペイン/アルゼンチン/フランス/イングランド)はドロー時点で別ブラケット半分に配置済み。<strong>全員がグループ1位通過した場合のみ、4カ国は準決勝まで対戦しない</strong>。</p><p>ただし誰かが2位や3位で通過すると、この保証は崩れる。シミュレーションでは約<strong>28%</strong>のケースで4カ国全員1位通過 → 綺麗な分離が実現。残り72%では少なくとも1カ国が早めに同じ半分に流れる。</p><p>この仕組みは<strong>グループ配置 + FIFA公式ブラケットマッピング</strong>から自動的に働くもので、本シミュレーターでは正確に再現されている。</p>',
     section_champion_path: '{country}優勝試行のみの内訳',
     champion_path_meta: '{wins}回 ({pct}%) の優勝試行を集計',
-    champion_path_note: '{country}が優勝した試行だけを抽出した条件付き分析。通過順位、各ラウンドの相手傾向、相手の平均Elo、勝ち抜き5試合のユニークさが見えます。',
+    champion_path_note: '{country}が優勝した試行だけを抽出した条件付き分析。通過順位、各ラウンドの相手傾向、相手の平均レーティング、勝ち抜き5試合のユニークさが見えます。',
     cp_group_finish: '通過順位の内訳',
     cp_per_stage_opponents: 'ラウンド別 対戦相手 TOP 5',
-    cp_mean_elo: '平均相手Elo {elo}',
+    cp_mean_elo: '平均相手{rating} {elo}',
     cp_unique_paths: '5連戦の対戦相手の組み合わせは {total} 回の優勝試行中 <strong>{unique} 通り</strong>。最頻ルートは <strong>{topPath}</strong>({topCount}回)。ほぼすべてが異なる組み合わせで、これは特定のブラケット引きに依存せず優勝が起きていることを示します。',
     cp_unique_paths_all_distinct: '5連戦の対戦相手の組み合わせは {total} 回の優勝試行すべてが<strong>異なる組み合わせ({unique} 通り)</strong>。特定のブラケット引きに依存せず優勝が起きていることを示します。',
     section_probability: '{country}の到達確率',
@@ -2669,8 +2698,13 @@ const T = {
     share_x: 'Xでシェア',
   },
   en: {
-    title: 'World Cup 2026 Matchup Simulator',
-    subtitle: '48 Nations · Official FIFA Bracket',
+    title: 'World Cup 2026 Live Simulator',
+    subtitle: 'Real results locked in · Rest simulated',
+    live_played: '{n} / {total} matches applied',
+    live_checked: 'Last checked',
+    live_new_results: 'New results are in — tap to re-simulate',
+    live_to_classic: 'Classic version (pre-tournament) →',
+    live_frozen_note: 'Ratings frozen at kickoff (Jun 11)',
     badge: 'LIVE',
     label_rating: 'Rating',
     label_home: 'Home Adv.',
@@ -2721,10 +2755,10 @@ const T = {
     seeding_body: '<p>For the first time, FIFA uses a <strong>tennis-style seeding</strong>: the top 4 ranked nations (Spain, Argentina, France, England) are placed in opposite halves of the bracket at the draw. <strong>If all four win their groups, they cannot meet until the semifinal.</strong></p><p>If any of them finishes 2nd or 3rd, the separation breaks. This simulator shows the top 4 all win their group about <strong>28%</strong> of the time — in the remaining 72%, at least one seed slips into the other half.</p><p>The effect emerges from group placement + the FIFA official bracket mapping and is faithfully reproduced here.</p>',
     section_champion_path: 'Breakdown of {country} winning trials',
     champion_path_meta: '{wins} winning trials ({pct}%)',
-    champion_path_note: 'Conditional analysis limited to runs where {country} actually won. Shows group-stage finish, per-round opponent tendencies, average opponent Elo, and how varied the 5-match paths are.',
+    champion_path_note: 'Conditional analysis limited to runs where {country} actually won. Shows group-stage finish, per-round opponent tendencies, average opponent rating, and how varied the 5-match paths are.',
     cp_group_finish: 'Group finish in winning runs',
     cp_per_stage_opponents: 'Opponent top 5 by round',
-    cp_mean_elo: 'Mean opp. Elo {elo}',
+    cp_mean_elo: 'Mean opp. {rating} {elo}',
     cp_unique_paths: 'The 5-opponent sequence appears in <strong>{unique} distinct combinations</strong> across {total} winning trials. Most common: <strong>{topPath}</strong> ({topCount}x). Almost every path is different, showing that winning isn&#39;t tied to any particular bracket draw.',
     cp_unique_paths_all_distinct: 'All {total} winning trials have <strong>distinct 5-opponent sequences ({unique} combinations)</strong>. Winning isn&#39;t tied to any particular bracket draw.',
     section_probability: '{country} Advancement Probabilities',
@@ -2796,8 +2830,13 @@ const T = {
     share_x: 'Share on X',
   },
   es: {
-    title: 'Simulador de Enfrentamientos del Mundial 2026',
-    subtitle: '48 selecciones · Cuadro oficial FIFA',
+    title: 'Simulador en Vivo del Mundial 2026',
+    subtitle: 'Resultados reales fijados · El resto simulado',
+    live_played: '{n} / {total} partidos aplicados',
+    live_checked: 'Última comprobación',
+    live_new_results: 'Hay nuevos resultados — toca para recalcular',
+    live_to_classic: 'Versión clásica (pretorneo) →',
+    live_frozen_note: 'Clasificaciones congeladas al inicio (11 jun)',
     badge: 'EN VIVO',
     label_rating: 'Rating',
     label_home: 'V. local',
@@ -2848,10 +2887,10 @@ const T = {
     seeding_body: '<p>Por primera vez, FIFA usa una <strong>siembra tipo tenis</strong>: los 4 mejores (España, Argentina, Francia, Inglaterra) van en mitades opuestas del cuadro. <strong>Si los cuatro ganan su grupo, no se cruzan hasta semifinales.</strong></p><p>Si alguno termina 2º o 3º, la separación se rompe. Los cuatro ganan su grupo aprox. el <strong>28%</strong> de las simulaciones; en el 72% restante, al menos uno acaba en la otra mitad.</p><p>El efecto surge de la distribución en grupos y el cuadro oficial FIFA, reproducido fielmente aquí.</p>',
     section_champion_path: 'Desglose de simulaciones con título de {country}',
     champion_path_meta: '{wins} campeonatos ({pct}%)',
-    champion_path_note: 'Análisis condicional limitado a las simulaciones donde {country} ganó. Muestra posición en grupo, rivales por ronda, Elo medio y variedad de caminos.',
+    champion_path_note: 'Análisis condicional limitado a las simulaciones donde {country} ganó. Muestra posición en grupo, rivales por ronda, rating medio y variedad de caminos.',
     cp_group_finish: 'Posición en grupo (campeonatos)',
     cp_per_stage_opponents: 'Top 5 rivales por ronda',
-    cp_mean_elo: 'Elo medio rival {elo}',
+    cp_mean_elo: '{rating} medio rival {elo}',
     cp_unique_paths: 'La secuencia de 5 rivales aparece en <strong>{unique} combinaciones distintas</strong> de {total} campeonatos. Más frecuente: <strong>{topPath}</strong> ({topCount}x). Casi todas son diferentes, lo que indica que ganar no depende de un sorteo concreto.',
     cp_unique_paths_all_distinct: 'Los {total} campeonatos tienen <strong>secuencias de 5 rivales únicas ({unique} combinaciones)</strong>. Ganar no depende de un sorteo concreto.',
     section_probability: 'Probabilidades de {country}',
@@ -2923,8 +2962,13 @@ const T = {
     share_x: 'Compartir en X',
   },
   pt: {
-    title: 'Simulador de Confrontos da Copa do Mundo 2026',
-    subtitle: '48 seleções · Chave oficial FIFA',
+    title: 'Simulador ao Vivo da Copa do Mundo 2026',
+    subtitle: 'Resultados reais fixados · O resto simulado',
+    live_played: '{n} / {total} jogos aplicados',
+    live_checked: 'Última verificação',
+    live_new_results: 'Novos resultados — toque para recalcular',
+    live_to_classic: 'Versão clássica (pré-torneio) →',
+    live_frozen_note: 'Ratings congelados na abertura (11 jun)',
     badge: 'AO VIVO',
     label_rating: 'Rating',
     label_home: 'Mandante',
@@ -2975,10 +3019,10 @@ const T = {
     seeding_body: '<p>Pela primeira vez, a FIFA usa um <strong>sistema estilo tênis</strong>: os 4 primeiros (Espanha, Argentina, França, Inglaterra) ficam em metades opostas do chaveamento. <strong>Se todos vencerem seu grupo, só se encontram nas semifinais.</strong></p><p>Se algum ficar em 2º ou 3º, a separação cai. Os quatro vencem o grupo em cerca de <strong>28%</strong> das simulações; nos 72% restantes, pelo menos um escorrega para a outra metade.</p><p>O efeito vem da distribuição em grupos + chaveamento oficial FIFA, reproduzido fielmente aqui.</p>',
     section_champion_path: 'Recorte das simulações em que {country} foi campeão',
     champion_path_meta: '{wins} títulos ({pct}%)',
-    champion_path_note: 'Análise condicional restrita às simulações em que {country} venceu. Mostra classificação no grupo, adversários por rodada, Elo médio e variedade dos caminhos.',
+    champion_path_note: 'Análise condicional restrita às simulações em que {country} venceu. Mostra classificação no grupo, adversários por rodada, rating médio e variedade dos caminhos.',
     cp_group_finish: 'Classificação no grupo (títulos)',
     cp_per_stage_opponents: 'Top 5 adversários por rodada',
-    cp_mean_elo: 'Elo médio adversário {elo}',
+    cp_mean_elo: '{rating} médio adversário {elo}',
     cp_unique_paths: 'A sequência de 5 adversários aparece em <strong>{unique} combinações distintas</strong> em {total} títulos. Mais frequente: <strong>{topPath}</strong> ({topCount}x). Quase todas são diferentes, o que indica que vencer não depende de um sorteio específico.',
     cp_unique_paths_all_distinct: 'Os {total} títulos têm <strong>sequências de 5 adversários únicas ({unique} combinações)</strong>. Vencer não depende de um sorteio específico.',
     section_probability: 'Probabilidades de {country}',
@@ -3050,8 +3094,13 @@ const T = {
     share_x: 'Compartilhar no X',
   },
   fr: {
-    title: 'Simulateur de Confrontations Coupe du Monde 2026',
-    subtitle: '48 nations · Tableau officiel FIFA',
+    title: 'Simulateur en Direct Coupe du Monde 2026',
+    subtitle: 'Résultats réels intégrés · La suite simulée',
+    live_played: '{n} / {total} matchs intégrés',
+    live_checked: 'Dernière vérification',
+    live_new_results: 'Nouveaux résultats — touchez pour recalculer',
+    live_to_classic: 'Version classique (avant tournoi) →',
+    live_frozen_note: 'Classements figés au 11 juin (ouverture)',
     badge: 'EN DIRECT',
     label_rating: 'Classement',
     label_home: 'Dom.',
@@ -3102,10 +3151,10 @@ const T = {
     seeding_body: '<p>Pour la première fois, la FIFA utilise un <strong>système à la tennis</strong> : les 4 meilleures nations (Espagne, Argentine, France, Angleterre) sont placées dans des moitiés opposées du tableau. <strong>Si les quatre remportent leur groupe, elles ne peuvent se rencontrer avant les demi-finales.</strong></p><p>Si l&#39;une d&#39;elles termine 2e ou 3e, la séparation s&#39;effondre. Les quatre gagnent leur groupe dans environ <strong>28%</strong> des simulations ; dans les 72% restants, au moins une tête de série glisse dans l&#39;autre moitié.</p><p>Cet effet découle de la répartition en groupes et du tableau officiel FIFA, fidèlement reproduit ici.</p>',
     section_champion_path: 'Ventilation des simulations où {country} gagne',
     champion_path_meta: '{wins} victoires ({pct}%)',
-    champion_path_note: 'Analyse conditionnelle limitée aux simulations où {country} a gagné. Montre le classement en groupe, les adversaires par tour, l&#39;Elo moyen et la variété des parcours.',
+    champion_path_note: 'Analyse conditionnelle limitée aux simulations où {country} a gagné. Montre le classement en groupe, les adversaires par tour, le rating moyen et la variété des parcours.',
     cp_group_finish: 'Classement en groupe (titres)',
     cp_per_stage_opponents: 'Top 5 adversaires par tour',
-    cp_mean_elo: 'Elo moyen adv. {elo}',
+    cp_mean_elo: '{rating} moyen adv. {elo}',
     cp_unique_paths: 'La séquence de 5 adversaires apparaît en <strong>{unique} combinaisons distinctes</strong> sur {total} titres. Plus fréquente : <strong>{topPath}</strong> ({topCount}x). Presque toutes sont différentes, ce qui montre que gagner ne dépend pas d&#39;un tirage particulier.',
     cp_unique_paths_all_distinct: 'Les {total} titres ont des <strong>séquences de 5 adversaires uniques ({unique} combinaisons)</strong>. Gagner ne dépend pas d&#39;un tirage particulier.',
     section_probability: 'Probabilités de {country}',
@@ -3177,8 +3226,13 @@ const T = {
     share_x: 'Partager sur X',
   },
   de: {
-    title: 'WM 2026 Begegnungssimulator',
-    subtitle: '48 Nationen · Offizielle FIFA-Tabelle',
+    title: 'WM 2026 Live-Simulator',
+    subtitle: 'Echte Ergebnisse fixiert · Rest simuliert',
+    live_played: '{n} / {total} Spiele übernommen',
+    live_checked: 'Zuletzt geprüft',
+    live_new_results: 'Neue Ergebnisse — tippen zum Neuberechnen',
+    live_to_classic: 'Klassische Version (vor Turnierstart) →',
+    live_frozen_note: 'Ratings eingefroren zum Auftakt (11. Juni)',
     badge: 'LIVE',
     label_rating: 'Rating',
     label_home: 'Heimvorteil',
@@ -3229,10 +3283,10 @@ const T = {
     seeding_body: '<p>Zum ersten Mal verwendet die FIFA ein <strong>tennisähnliches Setzsystem</strong>: die Top-4 (Spanien, Argentinien, Frankreich, England) werden in gegenüberliegende Tableauhälften gesetzt. <strong>Gewinnen alle vier ihre Gruppe, treffen sie frühestens im Halbfinale aufeinander.</strong></p><p>Wird einer 2. oder 3., bricht die Trennung. In etwa <strong>28%</strong> der Simulationen gewinnen alle vier ihre Gruppe; in den restlichen 72% rutscht mindestens einer in die andere Hälfte.</p><p>Der Effekt ergibt sich aus Gruppenverteilung + FIFA-Tableau und wird hier getreu nachgebildet.</p>',
     section_champion_path: 'Aufschlüsselung von {country}-Titelläufen',
     champion_path_meta: '{wins} Titel ({pct}%)',
-    champion_path_note: 'Bedingte Analyse, nur für Läufe, in denen {country} den Titel gewann. Zeigt Gruppenplatzierung, Gegner pro Runde, mittleres Elo und Pfadvielfalt.',
+    champion_path_note: 'Bedingte Analyse, nur für Läufe, in denen {country} den Titel gewann. Zeigt Gruppenplatzierung, Gegner pro Runde, mittleres Rating und Pfadvielfalt.',
     cp_group_finish: 'Gruppenplatzierung (Titel)',
     cp_per_stage_opponents: 'Top-5-Gegner pro Runde',
-    cp_mean_elo: 'Ø Gegner-Elo {elo}',
+    cp_mean_elo: 'Ø Gegner-{rating} {elo}',
     cp_unique_paths: 'Die 5-Gegner-Sequenz erscheint in <strong>{unique} verschiedenen Kombinationen</strong> bei {total} Titeln. Häufigste: <strong>{topPath}</strong> ({topCount}x). Fast alle sind unterschiedlich, was zeigt: der Titel hängt nicht von einer bestimmten Auslosung ab.',
     cp_unique_paths_all_distinct: 'Alle {total} Titel haben <strong>einzigartige 5-Gegner-Sequenzen ({unique} Kombinationen)</strong>. Der Titel hängt nicht von einer bestimmten Auslosung ab.',
     section_probability: '{country} Aufstiegswahrscheinlichkeiten',
@@ -3304,8 +3358,13 @@ const T = {
     share_x: 'Auf X teilen',
   },
   it: {
-    title: 'Simulatore Sfide Mondiale 2026',
-    subtitle: '48 nazioni · Tabellone ufficiale FIFA',
+    title: 'Simulatore Live Mondiale 2026',
+    subtitle: 'Risultati reali fissati · Il resto simulato',
+    live_played: '{n} / {total} partite applicate',
+    live_checked: 'Ultimo controllo',
+    live_new_results: 'Nuovi risultati — tocca per ricalcolare',
+    live_to_classic: 'Versione classica (pre-torneo) →',
+    live_frozen_note: 'Rating congelati al via (11 giu)',
     badge: 'LIVE',
     label_rating: 'Rating',
     label_home: 'Casa',
@@ -3356,10 +3415,10 @@ const T = {
     seeding_body: '<p>Per la prima volta, la FIFA usa un <strong>sistema stile tennis</strong>: le prime 4 (Spagna, Argentina, Francia, Inghilterra) sono in metà opposte del tabellone. <strong>Se tutte vincono il girone, non possono incontrarsi prima delle semifinali.</strong></p><p>Se una finisce 2ª o 3ª, la separazione salta. Le quattro vincono il girone in circa il <strong>28%</strong> delle simulazioni; nel restante 72% almeno una scivola nell&#39;altra metà.</p><p>L&#39;effetto emerge da distribuzione nei gironi + tabellone ufficiale FIFA, qui riprodotto fedelmente.</p>',
     section_champion_path: 'Analisi delle simulazioni con {country} campione',
     champion_path_meta: '{wins} titoli ({pct}%)',
-    champion_path_note: 'Analisi condizionale limitata alle simulazioni in cui {country} ha vinto. Mostra classifica nel girone, avversari per turno, Elo medio e varietà dei percorsi.',
+    champion_path_note: 'Analisi condizionale limitata alle simulazioni in cui {country} ha vinto. Mostra classifica nel girone, avversari per turno, rating medio e varietà dei percorsi.',
     cp_group_finish: 'Posizione nel girone (titoli)',
     cp_per_stage_opponents: 'Top 5 avversari per turno',
-    cp_mean_elo: 'Elo medio avv. {elo}',
+    cp_mean_elo: '{rating} medio avv. {elo}',
     cp_unique_paths: 'La sequenza di 5 avversari appare in <strong>{unique} combinazioni distinte</strong> su {total} titoli. Più frequente: <strong>{topPath}</strong> ({topCount}x). Quasi tutte sono diverse, indicando che vincere non dipende da un sorteggio particolare.',
     cp_unique_paths_all_distinct: 'Tutti i {total} titoli hanno <strong>sequenze di 5 avversari uniche ({unique} combinazioni)</strong>. Vincere non dipende da un sorteggio particolare.',
     section_probability: 'Probabilità di {country}',
@@ -3431,8 +3490,13 @@ const T = {
     share_x: 'Condividi su X',
   },
   ko: {
-    title: '2026 월드컵 대진 시뮬레이터',
-    subtitle: '48개국 · FIFA 공식 대진표',
+    title: '2026 월드컵 라이브 시뮬레이터',
+    subtitle: '실제 결과 반영 · 남은 경기 시뮬레이션',
+    live_played: '{n} / {total} 경기 반영됨',
+    live_checked: '마지막 확인',
+    live_new_results: '새 경기 결과 반영 — 탭하여 다시 계산',
+    live_to_classic: '일반판(개막 전 예측) →',
+    live_frozen_note: '레이팅은 개막 시점(6/11) 고정',
     badge: 'LIVE',
     label_rating: '레이팅',
     label_home: '홈 이점',
@@ -3483,10 +3547,10 @@ const T = {
     seeding_body: '<p>처음으로 FIFA는 <strong>테니스 방식 시드</strong>를 도입했습니다. 랭킹 상위 4개국(스페인/아르헨티나/프랑스/잉글랜드)이 대진표의 반대쪽 절반에 배치됩니다. <strong>4팀 모두 조 1위로 통과할 경우에만 4강까지 서로 만나지 않습니다.</strong></p><p>누군가 2위나 3위로 통과하면 이 보장은 무너집니다. 시뮬레이션에서 4팀 모두 조 1위 통과는 약 <strong>28%</strong>이며, 나머지 72%에서는 최소 한 팀이 반대쪽 절반으로 미끄러집니다.</p><p>이 효과는 조 배치 + FIFA 공식 대진표에서 자동으로 발생하며, 본 시뮬레이터에서 정확히 재현됩니다.</p>',
     section_champion_path: '{country} 우승 시나리오 분석',
     champion_path_meta: '우승 {wins}회 ({pct}%)',
-    champion_path_note: '{country}가 우승한 시나리오만 조건부로 분석합니다. 조 성적, 라운드별 상대, 평균 상대 Elo, 5연전 경로의 다양성을 확인할 수 있습니다.',
+    champion_path_note: '{country}가 우승한 시나리오만 조건부로 분석합니다. 조 성적, 라운드별 상대, 평균 상대 레이팅, 5연전 경로의 다양성을 확인할 수 있습니다.',
     cp_group_finish: '조 통과 순위(우승 시)',
     cp_per_stage_opponents: '라운드별 상대 TOP 5',
-    cp_mean_elo: '평균 상대 Elo {elo}',
+    cp_mean_elo: '평균 상대 {rating} {elo}',
     cp_unique_paths: '5연전 상대 조합은 {total}회 우승 중 <strong>{unique}가지 서로 다른 조합</strong>으로 나타납니다. 최빈 경로: <strong>{topPath}</strong>({topCount}회). 거의 모두 다른 조합으로, 우승이 특정 대진 추첨에 의존하지 않음을 보여줍니다.',
     cp_unique_paths_all_distinct: '{total}회 우승 전부가 <strong>서로 다른 5연전 조합({unique}가지)</strong>입니다. 우승이 특정 대진 추첨에 의존하지 않음을 보여줍니다.',
     section_probability: '{country} 진출 확률',
@@ -3558,8 +3622,13 @@ const T = {
     share_x: 'X에 공유',
   },
   zh: {
-    title: '2026世界杯对阵模拟器',
-    subtitle: '48支球队 · FIFA官方赛程',
+    title: '2026世界杯实时模拟器',
+    subtitle: '锁定真实赛果 · 模拟剩余比赛',
+    live_played: '已应用 {n} / {total} 场比赛',
+    live_checked: '最后检查',
+    live_new_results: '有新赛果 — 点按重新计算',
+    live_to_classic: '经典版（赛前预测）→',
+    live_frozen_note: '积分评级冻结于开幕时（6月11日）',
     badge: '实时',
     label_rating: '评分',
     label_home: '主场优势',
@@ -3610,10 +3679,10 @@ const T = {
     seeding_body: '<p>FIFA首次采用<strong>网球式种子系统</strong>:排名前4(西班牙/阿根廷/法国/英格兰)在抽签时被分配到对阵图的相对半区。<strong>只有当4队都以小组第一出线时,才能保证在半决赛前互不相遇。</strong></p><p>任何一队以第2或第3出线,此保证即失效。模拟显示4队均列小组第一约占<strong>28%</strong>;其余72%中至少有1队滑向另一半区。</p><p>此效果来自小组分配 + FIFA官方对阵图,本模拟器忠实还原。</p>',
     section_champion_path: '{country}夺冠场景分析',
     champion_path_meta: '{wins}次夺冠 ({pct}%)',
-    champion_path_note: '仅对{country}夺冠的场景进行条件分析。展示小组排名、各轮对手倾向、平均对手Elo,以及5连战路径的多样性。',
+    champion_path_note: '仅对{country}夺冠的场景进行条件分析。展示小组排名、各轮对手倾向、平均对手评分,以及5连战路径的多样性。',
     cp_group_finish: '小组通过位置(夺冠)',
     cp_per_stage_opponents: '各轮对手TOP 5',
-    cp_mean_elo: '平均对手Elo {elo}',
+    cp_mean_elo: '平均对手{rating} {elo}',
     cp_unique_paths: '5连战对手组合在{total}次夺冠中出现<strong>{unique}种不同组合</strong>。最频繁:<strong>{topPath}</strong>({topCount}次)。几乎全部为不同组合,表明夺冠并不依赖特定的对阵抽签。',
     cp_unique_paths_all_distinct: '全部{total}次夺冠的<strong>5连战组合均为独特({unique}种)</strong>。夺冠并不依赖特定的对阵抽签。',
     section_probability: '{country}晋级概率',
@@ -3685,8 +3754,13 @@ const T = {
     share_x: '分享到X',
   },
   ar: {
-    title: 'محاكي مواجهات كأس العالم 2026',
-    subtitle: '48 دولة · قوس FIFA الرسمي',
+    title: 'محاكي كأس العالم 2026 المباشر',
+    subtitle: 'النتائج الحقيقية مثبتة · والباقي محاكاة',
+    live_played: 'تم تطبيق {n} / {total} مباراة',
+    live_checked: 'آخر فحص',
+    live_new_results: 'نتائج جديدة — انقر لإعادة الحساب',
+    live_to_classic: 'النسخة الكلاسيكية (قبل البطولة) ←',
+    live_frozen_note: 'التصنيفات مجمدة عند الافتتاح (11 يونيو)',
     badge: 'مباشر',
     label_rating: 'التصنيف',
     label_home: 'ميزة الأرض',
@@ -3737,10 +3811,10 @@ const T = {
     seeding_body: '<p>لأول مرة، تستخدم FIFA <strong>نظام تصنيف بأسلوب التنس</strong>: توضع أفضل 4 منتخبات (إسبانيا/الأرجنتين/فرنسا/إنجلترا) في نصفَي الشبكة المتقابلَين. <strong>إذا تصدرت الأربع مجموعاتها، فلن تتقابل قبل نصف النهائي.</strong></p><p>إذا تأهّل أحدها في المركز 2 أو 3، ينهار الفصل. تُظهر المحاكاة أن الأربع يتصدرن مجموعاتهن في حوالي <strong>28%</strong> من الحالات؛ وفي 72% الباقية، ينزلق مصنَّف واحد على الأقل إلى النصف الآخر.</p><p>يَنتج هذا التأثير عن توزيع المجموعات + شبكة FIFA الرسمية، ويُعاد إنتاجه هنا بدقة.</p>',
     section_champion_path: 'تحليل سيناريوهات فوز {country}',
     champion_path_meta: '{wins} بطولة ({pct}%)',
-    champion_path_note: 'تحليل مشروط مقصور على السيناريوهات التي فاز فيها {country}. يعرض الترتيب في المجموعة، المنافسين في كل جولة، متوسط تصنيف Elo، وتنوع المسارات.',
+    champion_path_note: 'تحليل مشروط مقصور على السيناريوهات التي فاز فيها {country}. يعرض الترتيب في المجموعة، المنافسين في كل جولة، متوسط التصنيف، وتنوع المسارات.',
     cp_group_finish: 'الترتيب في المجموعة (البطولات)',
     cp_per_stage_opponents: 'أفضل 5 منافسين لكل جولة',
-    cp_mean_elo: 'متوسط Elo المنافس {elo}',
+    cp_mean_elo: 'متوسط {rating} المنافس {elo}',
     cp_unique_paths: 'ظهر تسلسل الخصوم الخمسة في <strong>{unique} تركيبة مختلفة</strong> من أصل {total} بطولة. الأكثر تكراراً: <strong>{topPath}</strong> ({topCount}x). شبه كلها مختلفة، مما يدل على أن الفوز لا يرتبط بقرعة معينة.',
     cp_unique_paths_all_distinct: 'جميع البطولات الـ{total} لها <strong>تسلسلات خصوم فريدة ({unique} تركيبة)</strong>. الفوز لا يرتبط بقرعة معينة.',
     section_probability: 'احتمالات {country}',
@@ -4008,6 +4082,11 @@ const fmtRating = (r) => RATING_MODE === 'elo' ? Math.round(r).toString() : r.to
 // Elo-scale projection the engine runs on; show the 50±25 card value instead.
 const displayRating = (team) => RATING_MODE === 'power' && typeof team.power === 'number'
   ? team.power.toFixed(1) : fmtRating(rating(team));
+// Human name of the selected rating system (UI labels, captions).
+const ratingDisplayName = () => RATING_MODE === 'opta' ? 'Opta'
+  : RATING_MODE === 'fifa' ? 'FIFA'
+  : RATING_MODE === 'power' ? 'Power'
+  : RATING_MODE === 'original' ? 'Matchup' : 'Elo';
 
 // 95% Wilson score confidence interval for a binomial proportion.
 // n = observed count, N = total trials. Returns symmetric half-width in percentage-points.
@@ -4248,8 +4327,17 @@ function drawProb(absDiff) {
 }
 
 function simMatch(t1, t2, allowDraw, stage) {
+  // LIVE: finished real-world matches are locked — return the actual outcome.
+  // (KO records always carry a winner via PK; if data is ever degenerate we
+  // fall through to simulation rather than invent a coin-flip here.)
+  const _real = lookupRealResult(t1.c, t2.c, stage);
+  if (_real && (_real.winnerC || allowDraw)) {
+    if (_real.winnerC === null) return null;
+    return _real.winnerC === t1.c ? t1 : t2;
+  }
   // ORIGINAL (v2.17): outcome comes from the sampled score itself — no
-  // rating-based win probability, no draw table, no KO pullback.
+  // rating-based win probability, no draw table, no KO pullback. (Real
+  // results above still take precedence in every mode.)
   if (RATING_MODE === 'original') {
     return generateScoreOriginal(t1, t2, stage).winner;
   }
@@ -4506,6 +4594,21 @@ function generateScore(t1, t2, stage) {
 // For KO: if s1 === s2 after regulation, escalate to AET, then PK if still tied.
 // For GS: any outcome is acceptable (draws included).
 function simMatchDetailed(t1, t2, stage) {
+  // LIVE: finished real-world matches return their actual score, flagged
+  // real:true so renderers can mark them as played (not simulated).
+  const _real = lookupRealResult(t1.c, t2.c, stage);
+  if (_real && (_real.winnerC || stage === 'gs')) {
+    const flip = _real.c1 !== t1.c;
+    const score = {
+      s1: flip ? _real.s2 : _real.s1,
+      s2: flip ? _real.s1 : _real.s2,
+      aet: !!_real.aet, pk: !!_real.pk,
+      pkS1: flip ? _real.pkS2 : _real.pkS1,
+      pkS2: flip ? _real.pkS1 : _real.pkS2
+    };
+    const winner = _real.winnerC === null ? null : (_real.winnerC === t1.c ? t1 : t2);
+    return { t1, t2, winner, score, real: true };
+  }
   if (RATING_MODE === 'original') return generateScoreOriginal(t1, t2, stage);
   return generateScoreNative(t1, t2, stage);
 }
@@ -5051,13 +5154,22 @@ function simGroup(teams) {
   for (let i = 0; i < teams.length; i++) {
     for (let j = i+1; j < teams.length; j++) {
       const w = simMatch(teams[i], teams[j], true, 'gs');
+      // LIVE: for locked real matches use the ACTUAL goal difference as the
+      // pseudo-GD tiebreak contribution, so fast-path standings agree with
+      // reality (the rating-weighted synthetic margin is for simulated games).
+      const _real = lookupRealResult(teams[i].c, teams[j].c, 'gs');
       if (!w) {
         pts[teams[i].c] += 1; pts[teams[j].c] += 1;
       } else {
         const l = w === teams[i] ? teams[j] : teams[i];
         pts[w.c] += 3;
-        const rDiff = (RATING_MODE === 'opta' || RATING_MODE === 'original') ? (rating(w) - rating(l)) / 20 : (rating(w) - rating(l)) / 150;
-        const d = Math.max(0.5, rDiff + Math.random());
+        let d;
+        if (_real) {
+          d = Math.abs(_real.s1 - _real.s2);
+        } else {
+          const rDiff = (RATING_MODE === 'opta' || RATING_MODE === 'original') ? (rating(w) - rating(l)) / 20 : (rating(w) - rating(l)) / 150;
+          d = Math.max(0.5, rDiff + Math.random());
+        }
         sc[w.c] += d; sc[l.c] -= d;
       }
     }
@@ -5479,6 +5591,13 @@ function pickModalR32Pairs(r32Pairs) {
 // cluster on fewer scores while B's spread across many.
 // Returns { t1, t2, score, winner, modalScorePct }.
 function sampleModalMatch(t1, t2, stage, N) {
+  // LIVE: a locked real-world match needs no resampling — every draw returns
+  // the same locked result, so the mode IS the real result. Return it
+  // directly (flagged real:true by simMatchDetailed) and skip N samples.
+  const _real = lookupRealResult(t1.c, t2.c, stage);
+  if (_real && (_real.winnerC || stage === 'gs')) {
+    return simMatchDetailed(t1, t2, stage);
+  }
   // Separate score tallies per winner so we can pick modal within the winning
   // team's own distribution. This is the key fix for "stronger team wins 55%
   // overall but underdog's 1-0 is the single most frequent score".
@@ -5554,6 +5673,7 @@ function sampleModalMatch(t1, t2, stage, N) {
   }
   // winPct: how often the modal winner actually won the resamples — shown in
   // the bracket so a 52% coin-toss and a 90% formality stop looking identical.
+  // (Locked real results return early above and carry no winPct: they are facts.)
   return { t1, t2, score, winner, winPct: winnerCount / N, modalScorePct: modalN / N };
 }
 
@@ -5619,7 +5739,8 @@ function buildModalGroupStage(collected, totalN) {
         } else {
           s1 = 1; s2 = 1;
         }
-        matches.push({ t1: standings[i], t2: standings[j], score: { s1, s2 } });
+        matches.push({ t1: standings[i], t2: standings[j], score: { s1, s2 },
+          real: !!lookupRealResult(standings[i].c, standings[j].c, 'gs') }); // LIVE: ✓ mark on locked games
         const a1 = statAcc[standings[i].c], a2 = statAcc[standings[j].c];
         a1.P++; a2.P++;
         a1.GF += s1; a1.GA += s2;
@@ -5876,8 +5997,8 @@ function renderMatchKO(num, match, showNum = true) {
   const c1 = w === match.t1 ? 'winner' : 'loser';
   const c2 = w === match.t2 ? 'winner' : 'loser';
   const numStr = showNum ? `<span class="match-num">#${num}</span>` : '';
-  const scoreStr = s ? `<span class="match-score">${formatScore(s)}</span>` : '';
-  return `<div class="match-row ${hasFocus ? 'has-focus' : ''}">${numStr}<div class="match-teams"><span class="match-team ${c1}">${nmf(match.t1.c)}</span>${scoreStr}<span class="match-team ${c2} right">${nmf(match.t2.c)}</span></div></div>`;
+  const scoreStr = s ? `<span class="match-score">${match.real ? '<span class="real-check" title="Played">✓</span>' : ''}${formatScore(s)}</span>` : '';
+  return `<div class="match-row ${hasFocus ? 'has-focus' : ''}${match.real ? ' is-real' : ''}">${numStr}<div class="match-teams"><span class="match-team ${c1}">${nmf(match.t1.c)}</span>${scoreStr}<span class="match-team ${c2} right">${nmf(match.t2.c)}</span></div></div>`;
 }
 
 // Render group standings table
@@ -5888,9 +6009,9 @@ function renderGroupTable(groupLetter, standings, matches) {
     const s1 = m.score.s1, s2 = m.score.s2;
     const c1 = s1 > s2 ? 'winner' : (s1 === s2 ? '' : 'loser');
     const c2 = s2 > s1 ? 'winner' : (s1 === s2 ? '' : 'loser');
-    return `<div class="gs-match-row ${hasFocus ? 'has-focus' : ''}">
+    return `<div class="gs-match-row ${hasFocus ? 'has-focus' : ''}${m.real ? ' is-real' : ''}">
       <span class="gs-team-l ${c1}">${nmf(m.t1.c)}</span>
-      <span class="gs-score">${s1}-${s2}</span>
+      <span class="gs-score">${m.real ? '<span class="real-check" title="Played">✓</span>' : ''}${s1}-${s2}</span>
       <span class="gs-team-r ${c2}">${nmf(m.t2.c)}</span>
     </div>`;
   }).join('');
@@ -5938,8 +6059,8 @@ function renderBracketCell(num, match, cls) {
   const c2 = w === match.t2 ? 'winner' : 'loser';
   const s = match.score;
   const wp = match.winPct != null ? `<span class="br-winpct">${Math.round(match.winPct * 100)}%</span>` : '';
-  return `<div class="${cls} ${hasFocus ? 'br-focus' : ''} ${focusWon ? 'br-focus-won' : ''}">
-    <div class="br-match-num">#${num}${wp}</div>
+  return `<div class="${cls} ${hasFocus ? 'br-focus' : ''} ${focusWon ? 'br-focus-won' : ''}${match.real ? ' is-real' : ''}">
+    <div class="br-match-num">${match.real ? '<span class="real-check" title="Played">✓</span>' : ''}#${num}${wp}</div>
     <div class="br-team ${c1}"><span>${nmf(match.t1.c)}</span><span class="br-score">${s ? s.s1 : ''}</span></div>
     <div class="br-team ${c2}"><span>${nmf(match.t2.c)}</span><span class="br-score">${s ? s.s2 : ''}</span></div>
     ${s && (s.aet || s.pk) ? `<div class="br-extra">${s.pk ? `(${s.pkS1}-${s.pkS2} PK)` : 'AET'}</div>` : ''}
@@ -6474,7 +6595,7 @@ function renderStats(counts, groupPos, champs, N, opponents, championPath, stage
     if (hasData) {
       // Settings caption: opponent distribution depends on Rating Mode and Home ADV.
       // Making these dependencies visible so users know the current conditions.
-      const ratingLabel = RATING_MODE === 'opta' ? 'Opta' : RATING_MODE === 'fifa' ? 'FIFA' : 'Elo';
+      const ratingLabel = ratingDisplayName();
       const homeLabel = HOME_ADVANTAGE_ON ? 'ON' : 'OFF';
       const settingsCaption = `${t('label_rating')}: ${ratingLabel} · ${t('label_home')}: ${homeLabel}`;
       html += `<div class="section-head"><h2>${t('section_opponents', {country: focusName})}</h2><span class="meta">${t('opponents_meta') || ''} · ${settingsCaption}</span></div>`;
@@ -6644,7 +6765,7 @@ function renderChampionPath(cp, N) {
     const opps = cp.opp[st] || {};
     const entries = Object.entries(opps).sort((a, b) => b[1] - a[1]);
     if (entries.length === 0) continue;
-    const meanElo = cp.eloCount[st] > 0 ? Math.round(cp.eloSum[st] / cp.eloCount[st]) : '—';
+    const meanElo = cp.eloCount[st] > 0 ? fmtRating(cp.eloSum[st] / cp.eloCount[st]) : '—';
     // v2.15: FOCUS match AET/PK rate at this stage, among winning trials
     const aetN = cp.aet ? (cp.aet[st] || 0) : 0;
     const pkN  = cp.pk  ? (cp.pk[st]  || 0) : 0;
@@ -6652,7 +6773,7 @@ function renderChampionPath(cp, N) {
     const pkPct  = cp.totalWins > 0 ? (pkN  / cp.totalWins * 100).toFixed(1) : '0';
     html += `<div class="cp-stage">`;
     html += `<div class="cp-stage-head"><span class="cp-stage-name">${stageLabels[st]}</span>`;
-    html += `<span class="cp-stage-elo">${t('cp_mean_elo', { elo: meanElo })}</span></div>`;
+    html += `<span class="cp-stage-elo">${t('cp_mean_elo', { rating: ratingDisplayName(), elo: meanElo })}</span></div>`;
     // Small AET/PK badge row under the head, only when non-zero rates
     if (aetN > 0 || pkN > 0) {
       html += `<div class="cp-stage-flags">`;
@@ -6727,7 +6848,7 @@ function updateProgress(pct, label, eta) {
 
 function hideProgress() { $('progress').classList.remove('show'); }
 
-function accumulate(sim, counts, groupPos, champs, opponents, championPath, stageStats) {
+function accumulate(sim, counts, groupPos, champs, opponents, championPath, stageStats, teamStages) {
   counts[focusResult(sim)]++;
   const gp = focusGroupPosition(sim);
   groupPos[gp] = (groupPos[gp] || 0) + 1;
@@ -6767,7 +6888,10 @@ function accumulate(sim, counts, groupPos, champs, opponents, championPath, stag
       championPath.opp[st][code] = (championPath.opp[st][code] || 0) + 1;
       const team = getTeam(code);
       if (team) {
-        championPath.eloSum[st] = (championPath.eloSum[st] || 0) + rating(team);
+        // Card value, not engine value: in Power mode rating() is the Elo-scale
+        // projection, but the breakdown should read in the mode's own units.
+        championPath.eloSum[st] = (championPath.eloSum[st] || 0) +
+          ((RATING_MODE === 'power' && typeof team.power === 'number') ? team.power : rating(team));
         championPath.eloCount[st] = (championPath.eloCount[st] || 0) + 1;
       }
       path.push(code);
@@ -6803,6 +6927,28 @@ function accumulate(sim, counts, groupPos, champs, opponents, championPath, stag
     tally('sf',  sim.M[102]);
     tally('3rd', sim.M['3rd']);
     tally('f',   sim.M['final']);
+  }
+  // Stage-reach tally for ALL 48 teams (not just FOCUS). counts/groupPos only
+  // cover the focus team, so without this a full-bracket snapshot would need
+  // 48 separate runs. Optional: only the worker's big runs pass it (run1000
+  // and the modal path leave it undefined). Used by the opening-predictions
+  // snapshot and the opening-vs-now delta view.
+  if (teamStages && sim.M) {
+    const reach = (match, key) => {
+      if (!match) return;
+      const rec = (cc) => {
+        (teamStages[cc] || (teamStages[cc] = { r32:0, r16:0, qf:0, sf:0, f:0, w:0, third:0 }))[key]++;
+      };
+      rec(match.t1.c); rec(match.t2.c);
+    };
+    for (let n = 73; n <= 88; n++)  reach(sim.M[n], 'r32');
+    for (let n = 89; n <= 96; n++)  reach(sim.M[n], 'r16');
+    for (let n = 97; n <= 100; n++) reach(sim.M[n], 'qf');
+    reach(sim.M[101], 'sf');
+    reach(sim.M[102], 'sf');
+    reach(sim.M['final'], 'f');
+    teamStages[sim.M['final'].winner.c].w++;       // initialised by reach('f') above
+    if (sim.M['3rd']) teamStages[sim.M['3rd'].winner.c].third++; // initialised by reach('sf')
   }
 }
 
@@ -6877,7 +7023,8 @@ function buildWorkerCode() {
   // When adding a new pure function that should run in the worker, add it to
   // SHARED_FNS below.
   const SHARED_FNS = [
-    flagHtml, // fix: worker live-feed snapshot (serializeFocusMatch) calls this; it was missing from SHARED_FNS, so the worker died on its first live snapshot and Run 100k silently fell back to the main thread
+    lookupRealResult, // LIVE: the real-result hook must travel with simMatch
+    flagHtml, // fix: worker live-feed snapshot (serializeFocusMatch) calls this; it was missing, killing the worker on its first snapshot
     homeBonusMultiplier, homeBonus, drawProb, simMatch,
     poissonRand, footballRand, bivariatePoissonRand,
     strongFactor, pickLayer, computeLambdas,
@@ -6900,6 +7047,7 @@ function buildWorkerCode() {
     let RATING_MODE = 'elo';
     let HOME_ADVANTAGE_ON = true;
     let FOCUS = 'JPN';
+    let REAL_RESULTS = {}; // LIVE: locked real-world results (from main)
 
     // Constants used by the shared functions
     const HOME_TEAMS = new Set(['USA', 'CAN', 'MEX']);
@@ -6934,6 +7082,7 @@ function buildWorkerCode() {
         RATING_MODE = msg.ratingMode;
         HOME_ADVANTAGE_ON = msg.homeAdvOn;
         FOCUS = msg.focus;
+        REAL_RESULTS = msg.realResults || {};
         const N = msg.n;
         const BATCH = msg.batch || 200;
         const LIVE_EVERY = msg.liveEvery || 400; // ms between live snapshots
@@ -6944,6 +7093,7 @@ function buildWorkerCode() {
         const opponents = newOpponentsStore();
         const championPath = newChampionPath();
         const stageStats = newStageStats();
+        const teamStages = {}; // per-team stage-reach tally (all 48 teams)
 
         let done = 0;
         let lastLiveSend = 0;
@@ -6981,7 +7131,7 @@ function buildWorkerCode() {
           let lastSim = null;
           for (let i = done; i < end; i++) {
             const sim = simulateDetailed();
-            accumulate(sim, counts, groupPos, champs, opponents, championPath, stageStats);
+            accumulate(sim, counts, groupPos, champs, opponents, championPath, stageStats, teamStages);
             lastSim = sim;
           }
           done = end;
@@ -6994,7 +7144,7 @@ function buildWorkerCode() {
           }
           self.postMessage(payload);
         }
-        self.postMessage({ type: 'done', counts, groupPos, champs, opponents, championPath, stageStats, N });
+        self.postMessage({ type: 'done', counts, groupPos, champs, opponents, championPath, stageStats, teamStages, N });
       }
     };
   `;
@@ -7246,6 +7396,7 @@ function run100000() {
     ratingMode: RATING_MODE,
     homeAdvOn: HOME_ADVANTAGE_ON,
     focus: FOCUS,
+    realResults: REAL_RESULTS,
     n: N,
     batch: BATCH,
     liveEvery: LIVE_EVERY
@@ -7785,6 +7936,14 @@ function applyLanguage() {
   $('ui-src-bracket-label').textContent = t('src_bracket_label');
   $('ui-src-bracket-desc').textContent = t('src_bracket_desc');
   $('lang-label').textContent = 'Language';
+  // LIVE: localized strings for the live status bar / banner / links.
+  const _lnb = document.getElementById('live-new-banner');
+  if (_lnb) _lnb.textContent = t('live_new_results');
+  const _ltc = document.getElementById('live-to-classic');
+  if (_ltc) _ltc.textContent = t('live_to_classic');
+  const _lfn = document.getElementById('live-frozen-note');
+  if (_lfn) _lfn.textContent = t('live_frozen_note');
+  updateLiveStatusBar();
   document.title = t('title');
   populateFocusSelect();
   renderGroups(null);
@@ -7796,11 +7955,198 @@ function applyLanguage() {
   }
 }
 
+// ============ LIVE RESULTS (this page only — served at the site root) ============
+// Real match results from ESPN's public scoreboard API (site.api.espn.com,
+// CORS: *). Finished matches are locked into EVERY simulation path via the
+// lookupRealResult() hook inside simMatch / simMatchDetailed / simGroup —
+// on the main thread AND in the worker (the worker is assembled from these
+// same function definitions via toString(), so the hook travels for free;
+// only REAL_RESULTS itself must be handed over in the 'run' postMessage).
+//
+// Ratings stay FROZEN at the opening-day snapshot (teams_frozen.json,
+// repo commit af23118 = 2026-06-11 06:52 UTC): the page answers "given what
+// we believed at kickoff of match 1, what do the remaining games look like
+// now that reality has pinned down these results."
+
+const WC_DATES_RANGE = '20260611-20260719';
+// Group stage runs through Jun 27 (latest kickoffs spill past midnight UTC,
+// finishing by ~04:00 UTC Jun 28). R32 kicks off Jun 28 afternoon UTC.
+// 10:00 UTC on Jun 28 cleanly separates the two. Re-verify when R32
+// fixtures appear on ESPN (see docs/2026-06-12_live-version_datasource.md).
+const KO_THRESHOLD_MS = Date.UTC(2026, 5, 28, 10, 0, 0);
+const TOTAL_REAL_MATCHES = 104;
+
+let REAL_RESULTS = {};    // realKey -> {c1,c2,s1,s2,winnerC,aet,pk,pkS1,pkS2,date}
+let LIVE_MATCHES = [];    // in-progress matches for the status bar
+let REAL_COUNT = 0;
+let LAST_CHECKED = null;
+let UNMAPPED_TEAMS = [];
+
+// ESPN abbreviation -> internal code overrides. ESPN follows FIFA codes
+// for national sides; all 16 codes observed through matchday 2 matched
+// 1:1. Anything unmapped is console.warn'd and skipped (never guessed).
+const ESPN_ALIAS = {};
+
+function espnToCode(abbr) {
+  if (!abbr) return null;
+  const code = ESPN_ALIAS[abbr] || abbr;
+  return TEAMS.some(t => t.c === code) ? code : null;
+}
+
+// Key format must stay in sync with lookupRealResult() below (the latter
+// inlines it so it can ship to the worker as one self-contained function).
+function realKey(c1, c2, isKO) {
+  return (isKO ? 'KO|' : 'GS|') + [c1, c2].slice().sort().join('|');
+}
+
+// THE hook. Called from simMatch / simMatchDetailed / simGroup with the
+// two team codes and the stage ('gs' or a KO stage name). Self-contained
+// on purpose: it is shipped to the worker via SHARED_FNS.
+function lookupRealResult(c1, c2, stage) {
+  if (typeof REAL_RESULTS === 'undefined' || !REAL_RESULTS) return null;
+  const key = (stage !== 'gs' ? 'KO|' : 'GS|') + [c1, c2].slice().sort().join('|');
+  return REAL_RESULTS[key] || null;
+}
+
+function ingestEspnEvents(events) {
+  let added = 0;
+  const lives = [];
+  (events || []).forEach(ev => {
+    const comp = ev.competitions && ev.competitions[0];
+    if (!comp || !comp.competitors || comp.competitors.length < 2) return;
+    const st0 = ev.status && ev.status.type;
+    // Skip not-yet-played fixtures BEFORE team resolution: future KO slots
+    // come back with placeholder "teams" ("2A", "RD16 W3", ...) that would
+    // otherwise spam the unmapped warning.
+    if (!st0 || (!st0.completed && st0.state !== 'in')) return;
+    const home = comp.competitors.find(x => x.homeAway === 'home') || comp.competitors[0];
+    const away = comp.competitors.find(x => x.homeAway === 'away') || comp.competitors[1];
+    const cHome = espnToCode(home.team && home.team.abbreviation);
+    const cAway = espnToCode(away.team && away.team.abbreviation);
+    if (!cHome || !cAway) {
+      [home, away].forEach(x => {
+        const ab = x.team && x.team.abbreviation;
+        if (ab && !espnToCode(ab) && UNMAPPED_TEAMS.indexOf(ab) === -1) {
+          UNMAPPED_TEAMS.push(ab);
+          console.warn('[live] unmapped ESPN team:', ab, x.team && x.team.displayName);
+        }
+      });
+      return;
+    }
+    const st = ev.status && ev.status.type;
+    if (!st) return;
+    const isKO = Date.parse(ev.date) >= KO_THRESHOLD_MS;
+    const s1 = parseInt(home.score, 10), s2 = parseInt(away.score, 10);
+    if (st.completed) {
+      // PK shootout: ESPN exposes shootoutScore per competitor on deciders.
+      const pk1 = parseInt(home.shootoutScore, 10);
+      const pk2 = parseInt(away.shootoutScore, 10);
+      const hasPK = !isNaN(pk1) && !isNaN(pk2) && (pk1 > 0 || pk2 > 0);
+      // AET: plain FT is status id 28 / STATUS_FULL_TIME; a completed KO
+      // game reported under any other final type went to extra time.
+      const aet = isKO && (hasPK || /AET|EXTRA|PEN/i.test(st.name || '') || String(st.id) !== '28');
+      let winnerC = null;
+      if (s1 > s2) winnerC = cHome;
+      else if (s2 > s1) winnerC = cAway;
+      else if (hasPK) winnerC = pk1 > pk2 ? cHome : cAway;
+      const key = realKey(cHome, cAway, isKO);
+      if (!REAL_RESULTS[key]) added++;
+      REAL_RESULTS[key] = {
+        c1: cHome, c2: cAway,
+        s1: isNaN(s1) ? 0 : s1, s2: isNaN(s2) ? 0 : s2,
+        winnerC, aet: !!aet, pk: !!hasPK,
+        pkS1: hasPK ? pk1 : 0, pkS2: hasPK ? pk2 : 0,
+        date: ev.date
+      };
+    } else if (st.state === 'in') {
+      lives.push({
+        c1: cHome, c2: cAway,
+        s1: isNaN(s1) ? 0 : s1, s2: isNaN(s2) ? 0 : s2,
+        clock: (st.shortDetail || ev.status.displayClock || '')
+      });
+    }
+  });
+  LIVE_MATCHES = lives;
+  REAL_COUNT = Object.keys(REAL_RESULTS).length;
+  return added;
+}
+
+async function fetchEspn(dates, bust) {
+  const url = 'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates='
+    + dates + '&limit=400' + (bust ? '&_=' + Date.now() : '');
+  const res = await fetch(url);
+  if (!res.ok) throw new Error('ESPN HTTP ' + res.status);
+  const data = await res.json();
+  return data.events || [];
+}
+
+function _yyyymmddUTC(d) {
+  return d.getUTCFullYear()
+    + String(d.getUTCMonth() + 1).padStart(2, '0')
+    + String(d.getUTCDate()).padStart(2, '0');
+}
+
+// Whole-tournament range first (CDN-cached responses are fine for past
+// days), then yesterday..tomorrow with a cache-buster — observed: the
+// range query can lag a live match by several minutes, the single-day
+// query is fresh. Fresh ingest runs last so it wins on overlap.
+async function fetchRealResults() {
+  let added = 0;
+  try {
+    added += ingestEspnEvents(await fetchEspn(WC_DATES_RANGE, false));
+  } catch (e) { console.warn('[live] range fetch failed:', e); }
+  try {
+    const now = Date.now();
+    const span = _yyyymmddUTC(new Date(now - 86400000)) + '-' + _yyyymmddUTC(new Date(now + 86400000));
+    added += ingestEspnEvents(await fetchEspn(span, true));
+  } catch (e) { console.warn('[live] fresh fetch failed:', e); }
+  LAST_CHECKED = new Date();
+  updateLiveStatusBar();
+  return added;
+}
+
+function updateLiveStatusBar() {
+  const played = document.getElementById('live-played');
+  const checked = document.getElementById('live-checked');
+  const liveEl = document.getElementById('live-now');
+  if (played) played.textContent = t('live_played').replace('{n}', REAL_COUNT).replace('{total}', TOTAL_REAL_MATCHES);
+  if (checked) checked.textContent = LAST_CHECKED
+    ? t('live_checked') + ' ' + LAST_CHECKED.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    : '';
+  if (liveEl) {
+    liveEl.innerHTML = LIVE_MATCHES.map(m =>
+      '<span class="live-now-match"><span class="live-dot"></span>'
+      + nmf(m.c1) + ' <b>' + m.s1 + '-' + m.s2 + '</b> ' + nmf(m.c2)
+      + (m.clock ? ' <span class="live-clock">' + m.clock + '</span>' : '')
+      + '</span>'
+    ).join('');
+  }
+}
+
+let _livePollTimer = null;
+function startLivePolling() {
+  if (_livePollTimer) return;
+  _livePollTimer = setInterval(async () => {
+    try {
+      const added = await fetchRealResults();
+      if (added > 0) showNewResultsBanner();
+    } catch (e) { /* keep polling */ }
+  }, 60000);
+}
+
+function showNewResultsBanner() {
+  const b = document.getElementById('live-new-banner');
+  if (!b) return;
+  b.style.display = 'block';
+}
+
 // ============ INIT ============
-// Load teams from teams.json (with fallback)
+// Load teams from teams_frozen.json — the opening-day snapshot. The live
+// page must NOT read the daily-updated teams.json: ratings are frozen so
+// every probability is conditional on the same pre-tournament beliefs.
 async function loadTeams() {
   try {
-    const res = await fetch('teams.json', { cache: 'no-cache' });
+    const res = await fetch('teams_frozen.json', { cache: 'no-cache' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
     if (!data || !Array.isArray(data.teams) || data.teams.length === 0) {
@@ -7830,9 +8176,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   computeCustomRatings();
   // detectInitialFocus ran before TEAMS existed; drop bad ?focus= / stale saves.
   if (!TEAMS.some(tm => tm.c === FOCUS)) FOCUS = 'JPN';
+  // LIVE: pull real results before the first render, then poll every 60s.
+  await fetchRealResults();
   populateLanguageSelect();
   populateFocusSelect();
   applyLanguage();
+  startLivePolling();
+  // LIVE: open directly on the hybrid bracket — real scores locked in,
+  // remaining games simulated once. (Same as pressing "Simulate Once".)
+  renderOnce();
 
   $('lang-select').addEventListener('change', (e) => {
     LANG = e.target.value;

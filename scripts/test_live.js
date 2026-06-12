@@ -1,4 +1,4 @@
-// live.html smoke test (local only, not part of the site).
+// Live-page (index.html, site root) smoke test (local only, not part of the site).
 // Verifies: page loads clean, real results are fetched and locked into
 // every sim path (main + worker), frozen ratings are used, UI marks real
 // matches. Run: node scripts/test_live.js  (needs `python -m http.server
@@ -13,7 +13,7 @@ const puppeteer = require('puppeteer');
   page.on('console', msg => { if (msg.type() === 'error') errors.push(msg.text()); });
   page.on('pageerror', err => errors.push('PAGEERROR: ' + err.message));
 
-  await page.goto('http://localhost:8123/live.html', { waitUntil: 'networkidle2', timeout: 60000 });
+  await page.goto('http://localhost:8123/index.html', { waitUntil: 'networkidle2', timeout: 60000 });
   await new Promise(r => setTimeout(r, 4000));
 
   // 1) Status: teams loaded from frozen snapshot, ESPN results ingested.

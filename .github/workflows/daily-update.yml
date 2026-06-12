@@ -87,7 +87,8 @@ jobs:
           mkdir -p _deploy
           cp index.html _deploy/
           cp teams.json _deploy/
-          cp live.html _deploy/
+          cp classic.html _deploy/
+          cp _redirects _deploy/
           cp teams_frozen.json _deploy/
           cp -r data _deploy/
       
