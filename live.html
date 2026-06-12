@@ -5441,6 +5441,13 @@ function pickModalR32Pairs(r32Pairs) {
 // cluster on fewer scores while B's spread across many.
 // Returns { t1, t2, score, winner, modalScorePct }.
 function sampleModalMatch(t1, t2, stage, N) {
+  // LIVE: a locked real-world match needs no resampling — every draw returns
+  // the same locked result, so the mode IS the real result. Return it
+  // directly (flagged real:true by simMatchDetailed) and skip N samples.
+  const _real = lookupRealResult(t1.c, t2.c, stage);
+  if (_real && (_real.winnerC || stage === 'gs')) {
+    return simMatchDetailed(t1, t2, stage);
+  }
   // Separate score tallies per winner so we can pick modal within the winning
   // team's own distribution. This is the key fix for "stronger team wins 55%
   // overall but underdog's 1-0 is the single most frequent score".
@@ -5579,7 +5586,8 @@ function buildModalGroupStage(collected, totalN) {
         } else {
           s1 = 1; s2 = 1;
         }
-        matches.push({ t1: standings[i], t2: standings[j], score: { s1, s2 } });
+        matches.push({ t1: standings[i], t2: standings[j], score: { s1, s2 },
+          real: !!lookupRealResult(standings[i].c, standings[j].c, 'gs') }); // LIVE: ✓ mark on locked games
         const a1 = statAcc[standings[i].c], a2 = statAcc[standings[j].c];
         a1.P++; a2.P++;
         a1.GF += s1; a1.GA += s2;
