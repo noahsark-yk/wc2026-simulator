@@ -1014,7 +1014,7 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 }
 .ratings-row {
   display: grid;
-  grid-template-columns: 24px 22px 1fr 28px 52px 52px 52px;
+  grid-template-columns: 24px 22px 1fr 28px 52px 52px 52px 52px;
   align-items: center;
   gap: 8px;
   padding: 6px 10px;
@@ -1051,18 +1051,18 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
   text-align: center;
   font-weight: 500;
 }
-.ratings-row .r-elo, .ratings-row .r-opta, .ratings-row .r-fifa {
+.ratings-row .r-elo, .ratings-row .r-opta, .ratings-row .r-fifa, .ratings-row .r-orig {
   text-align: right;
   font-variant-numeric: tabular-nums;
   color: var(--text-secondary);
 }
-.ratings-row .r-elo.active, .ratings-row .r-opta.active, .ratings-row .r-fifa.active {
+.ratings-row .r-elo.active, .ratings-row .r-opta.active, .ratings-row .r-fifa.active, .ratings-row .r-orig.active {
   color: var(--focus);
   font-weight: 600;
 }
 @media (max-width: 420px) {
   .ratings-row {
-    grid-template-columns: 20px 20px 1fr 24px 44px 44px 44px;
+    grid-template-columns: 20px 20px 1fr 24px 44px 44px 44px 44px;
     gap: 5px;
     padding: 5px 8px;
     font-size: 11px;
@@ -2298,6 +2298,7 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
         <button data-mode="elo" class="active" aria-pressed="true">Elo</button>
         <button data-mode="opta" aria-pressed="false">Opta</button>
         <button data-mode="fifa" aria-pressed="false">FIFA</button>
+        <button data-mode="original" aria-pressed="false">Original</button>
       </div>
     </div>
     <div class="control-group">
@@ -2365,6 +2366,7 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
           <div class="source-item"><strong id="ui-src-elo-label">Elo Rating</strong>: <a href="https://www.eloratings.net/" target="_blank" rel="noopener" class="footer-link">eloratings.net</a> <span class="source-date">(<span id="ui-src-elo-date">2026-04-25</span>, <span id="ui-src-elo-freq">daily updated</span>)</span></div>
           <div class="source-item"><strong id="ui-src-fifa-label">FIFA Ranking</strong>: <a href="https://inside.fifa.com/fifa-world-ranking/men" target="_blank" rel="noopener" class="footer-link">inside.fifa.com</a> <span class="source-date">(<span id="ui-src-fifa-date">2026-04-25</span>, <span id="ui-src-fifa-freq">daily updated</span>)</span></div>
           <div class="source-item"><strong id="ui-src-atkdef-label">Atk/Def values</strong>: <span id="ui-src-atkdef-desc">Computed from <a href="https://www.eloratings.net/" target="_blank" rel="noopener" class="footer-link">eloratings.net</a> match histories since 2022</span></div>
+          <div class="source-item"><strong id="ui-src-original-label">Original Power</strong>: <span id="ui-src-original-desc">Composite index from the Atk/Def values alone; in Original mode the sampled score itself decides the winner — no external rating touches the outcome</span></div>
           <div class="source-item"><strong id="ui-src-bracket-label">Bracket</strong>: <span id="ui-src-bracket-desc">FIFA World Cup 2026 official format (48 teams, 12 groups)</span></div>
         </div>
       </div>
@@ -2519,7 +2521,9 @@ const T = {
     stage_sf: '準決勝',
     stage_f: '決勝',
     ratings_summary: 'レーティング一覧を表示する',
-    ratings_note: '※ Elo は clubElo、Opta は Opta Power Rankings、FIFA は FIFA 公式ライブランキングの値です。現在選択中のレーティングでソート、注目国はハイライト。',
+    ratings_note: '※ Elo は clubElo、Opta は Opta Power Rankings、FIFA は FIFA 公式ライブランキングの値です。Original は外部レーティングを使わず、2022年以降の実試合から導出した攻守（atk/def）値だけで算出した独自指標。現在選択中のレーティングでソート、注目国はハイライト。',
+    src_original_label: 'Original Power',
+    src_original_desc: '攻守（Atk/Def）値のみから算出した独自指標。Original モードでは試合のスコアそのものが勝敗を決め、外部レーティングは結果に一切関与しない',
     ratings_col_country: '国',
     ratings_col_group: '組',
     modal_phase2_status: '最頻試合のスコアを確定中…',
@@ -2642,7 +2646,9 @@ const T = {
     stage_sf: 'Semi-final',
     stage_f: 'Final',
     ratings_summary: 'Show all team ratings',
-    ratings_note: 'Note: Elo from clubElo, Opta from Opta Power Rankings, FIFA from the official FIFA live ranking. Sorted by the currently selected rating; the focus country is highlighted.',
+    ratings_note: 'Note: Elo from clubElo, Opta from Opta Power Rankings, FIFA from the official FIFA live ranking. Original is our own index computed solely from atk/def values derived from real matches since 2022 — no external rating involved. Sorted by the currently selected rating; the focus country is highlighted.',
+    src_original_label: 'Original Power',
+    src_original_desc: 'Composite index from the Atk/Def values alone; in Original mode the sampled score itself decides the winner — no external rating touches the outcome',
     ratings_col_country: 'Country',
     ratings_col_group: 'Grp',
     modal_phase2_status: 'Finalizing the most likely scores for each bracket match…',
@@ -2765,7 +2771,9 @@ const T = {
     stage_sf: 'Semis',
     stage_f: 'Final',
     ratings_summary: 'Ver todas las valoraciones',
-    ratings_note: 'Nota: Elo de clubElo, Opta de Opta Power Rankings, FIFA del ranking oficial en vivo de la FIFA. Ordenado según el ranking seleccionado; el país destacado aparece resaltado.',
+    ratings_note: 'Nota: Elo de clubElo, Opta de Opta Power Rankings, FIFA del ranking oficial en vivo de la FIFA. Original es un índice propio calculado únicamente con los valores atk/def derivados de partidos reales desde 2022. Ordenado según el ranking seleccionado; el país destacado aparece resaltado.',
+    src_original_label: 'Original Power',
+    src_original_desc: 'Índice compuesto calculado solo con los valores Atk/Def; en el modo Original el propio marcador simulado decide al ganador, sin que intervenga ningún ranking externo',
     ratings_col_country: 'País',
     ratings_col_group: 'Grp',
     modal_phase2_status: 'Finalizando los marcadores más probables de cada partido del cuadro…',
@@ -2888,7 +2896,9 @@ const T = {
     stage_sf: 'Semis',
     stage_f: 'Final',
     ratings_summary: 'Ver todas as avaliações',
-    ratings_note: 'Obs.: Elo do clubElo, Opta do Opta Power Rankings, FIFA do ranking oficial ao vivo da FIFA. Ordenado pelo ranking selecionado; o país em destaque aparece realçado.',
+    ratings_note: 'Obs.: Elo do clubElo, Opta do Opta Power Rankings, FIFA do ranking oficial ao vivo da FIFA. Original é um índice próprio calculado apenas com os valores atk/def derivados de jogos reais desde 2022. Ordenado pelo ranking selecionado; o país em destaque aparece realçado.',
+    src_original_label: 'Original Power',
+    src_original_desc: 'Índice composto calculado apenas com os valores Atk/Def; no modo Original o próprio placar simulado decide o vencedor, sem nenhum ranking externo no resultado',
     ratings_col_country: 'País',
     ratings_col_group: 'Grp',
     modal_phase2_status: 'Finalizando os placares mais prováveis de cada partida do chaveamento…',
@@ -3011,7 +3021,9 @@ const T = {
     stage_sf: 'Demis',
     stage_f: 'Finale',
     ratings_summary: 'Voir toutes les notes',
-    ratings_note: 'Note : Elo issu de clubElo, Opta issu d’Opta Power Rankings, FIFA issu du classement officiel en direct de la FIFA. Trié selon le classement sélectionné ; le pays mis en avant est surligné.',
+    ratings_note: 'Note : Elo issu de clubElo, Opta issu d’Opta Power Rankings, FIFA issu du classement officiel en direct de la FIFA. Original est un indice maison calculé uniquement à partir des valeurs atk/def issues de matchs réels depuis 2022. Trié selon le classement sélectionné ; le pays mis en avant est surligné.',
+    src_original_label: 'Original Power',
+    src_original_desc: 'Indice composite calculé uniquement à partir des valeurs Atk/Def ; en mode Original, le score simulé décide lui-même du vainqueur, sans aucun classement externe',
     ratings_col_country: 'Pays',
     ratings_col_group: 'Gr',
     modal_phase2_status: 'Finalisation des scores les plus probables pour chaque match du tableau…',
@@ -3134,7 +3146,9 @@ const T = {
     stage_sf: 'Halbfinale',
     stage_f: 'Finale',
     ratings_summary: 'Alle Ratings anzeigen',
-    ratings_note: 'Hinweis: Elo aus clubElo, Opta aus Opta Power Rankings, FIFA aus der offiziellen Live-Rangliste der FIFA. Sortiert nach dem aktuell ausgewählten Rating; das Fokusland ist hervorgehoben.',
+    ratings_note: 'Hinweis: Elo aus clubElo, Opta aus Opta Power Rankings, FIFA aus der offiziellen Live-Rangliste der FIFA. Original ist ein eigener Index, der ausschließlich aus den atk/def-Werten realer Spiele seit 2022 berechnet wird. Sortiert nach dem aktuell ausgewählten Rating; das Fokusland ist hervorgehoben.',
+    src_original_label: 'Original Power',
+    src_original_desc: 'Kompositindex allein aus den Atk/Def-Werten; im Original-Modus entscheidet der simulierte Spielstand selbst über den Sieger — kein externes Rating beeinflusst das Ergebnis',
     ratings_col_country: 'Land',
     ratings_col_group: 'Gr',
     modal_phase2_status: 'Wahrscheinlichste Ergebnisse für jedes Spiel werden ermittelt…',
@@ -3257,7 +3271,9 @@ const T = {
     stage_sf: 'Semifinali',
     stage_f: 'Finale',
     ratings_summary: 'Mostra tutte le valutazioni',
-    ratings_note: 'Nota: Elo da clubElo, Opta da Opta Power Rankings, FIFA dal ranking ufficiale in tempo reale della FIFA. Ordinato per il ranking selezionato; il paese evidenziato è in risalto.',
+    ratings_note: 'Nota: Elo da clubElo, Opta da Opta Power Rankings, FIFA dal ranking ufficiale in tempo reale della FIFA. Original è un indice proprietario calcolato esclusivamente dai valori atk/def derivati da partite reali dal 2022. Ordinato per il ranking selezionato; il paese evidenziato è in risalto.',
+    src_original_label: 'Original Power',
+    src_original_desc: 'Indice composito calcolato solo dai valori Atk/Def; in modalità Original è il punteggio simulato stesso a decidere il vincitore, senza alcun ranking esterno',
     ratings_col_country: 'Paese',
     ratings_col_group: 'Gr',
     modal_phase2_status: 'Finalizzazione dei risultati più probabili per ogni partita del tabellone…',
@@ -3380,7 +3396,9 @@ const T = {
     stage_sf: '준결승',
     stage_f: '결승',
     ratings_summary: '모든 레이팅 보기',
-    ratings_note: '※ Elo는 clubElo, Opta는 Opta Power Rankings, FIFA는 FIFA 공식 라이브 랭킹 기준입니다. 현재 선택한 레이팅 기준 정렬, 주목국은 강조 표시됩니다.',
+    ratings_note: '※ Elo는 clubElo, Opta는 Opta Power Rankings, FIFA는 FIFA 공식 라이브 랭킹 기준입니다. Original은 외부 레이팅 없이 2022년 이후 실제 경기에서 도출한 공수(atk/def) 값만으로 산출한 자체 지표입니다. 현재 선택한 레이팅 기준 정렬, 주목국은 강조 표시됩니다.',
+    src_original_label: 'Original Power',
+    src_original_desc: '공수(Atk/Def) 값만으로 산출한 종합 지표. Original 모드에서는 시뮬레이션된 스코어 자체가 승패를 결정하며 외부 레이팅은 결과에 관여하지 않음',
     ratings_col_country: '국가',
     ratings_col_group: '조',
     modal_phase2_status: '각 대진 경기의 가장 가능성 높은 스코어 확정 중…',
@@ -3503,7 +3521,9 @@ const T = {
     stage_sf: '半决赛',
     stage_f: '决赛',
     ratings_summary: '查看所有评分',
-    ratings_note: '※ Elo 基于 clubElo,Opta 基于 Opta Power Rankings,FIFA 来自 FIFA 官方实时排名。按当前选中的评分排序,关注国家高亮显示。',
+    ratings_note: '※ Elo 基于 clubElo,Opta 基于 Opta Power Rankings,FIFA 来自 FIFA 官方实时排名。Original 是仅基于2022年以来真实比赛得出的攻防（atk/def）数值计算的自有指标,不使用任何外部排名。按当前选中的评分排序,关注国家高亮显示。',
+    src_original_label: 'Original Power',
+    src_original_desc: '仅由攻防（Atk/Def）数值计算的综合指标;在 Original 模式下,模拟比分本身决定胜负,外部排名完全不参与结果',
     ratings_col_country: '国家',
     ratings_col_group: '组',
     modal_phase2_status: '正在确定对阵图各场比赛最可能的比分…',
@@ -3626,7 +3646,9 @@ const T = {
     stage_sf: 'نصف النهائي',
     stage_f: 'النهائي',
     ratings_summary: 'عرض جميع التقييمات',
-    ratings_note: 'ملاحظة: Elo مأخوذ من clubElo، وOpta من Opta Power Rankings، وFIFA من التصنيف الرسمي المباشر لـ FIFA. مرتبة حسب التصنيف المختار حاليًا؛ الدولة المحددة مظللة.',
+    ratings_note: 'ملاحظة: Elo مأخوذ من clubElo، وOpta من Opta Power Rankings، وFIFA من التصنيف الرسمي المباشر لـ FIFA. أما Original فهو مؤشر خاص يُحسب فقط من قيم الهجوم/الدفاع المستمدة من مباريات حقيقية منذ 2022. مرتبة حسب التصنيف المختار حاليًا؛ الدولة المحددة مظللة.',
+    src_original_label: 'Original Power',
+    src_original_desc: 'مؤشر مركّب من قيم الهجوم/الدفاع وحدها؛ في وضع Original النتيجة المحاكاة نفسها تحدد الفائز دون أي تصنيف خارجي',
     ratings_col_country: 'البلد',
     ratings_col_group: 'مج',
     modal_phase2_status: 'جاري تحديد النتائج الأكثر احتمالاً لكل مباراة في الشبكة…',
@@ -3783,8 +3805,32 @@ const nmf = (code) => {
 const rating = (team) => {
   if (RATING_MODE === 'opta') return team.opta;
   if (RATING_MODE === 'fifa') return (typeof team.fifaP === 'number') ? team.fifaP : team.elo;
+  if (RATING_MODE === 'original') return (typeof team.orig === 'number') ? team.orig : 50;
   return team.elo;
 };
+
+// ============ ORIGINAL POWER (v2.17) ============
+// Composite strength index derived ONLY from the stratified atk/def values
+// (≈4,000 real matches since 2022). Display rating, sort key and pseudo-GD
+// tiebreak scale of the ORIGINAL mode. Values are clamped exactly like
+// computeLambdas does, so the index reflects what the simulation actually
+// uses (raw layer averages would let qualifier blowout stats dominate).
+// z-scored across the 48 finalists → 50 ± 25, clamped to [0, 100].
+function computeOriginalRatings() {
+  if (!TEAMS || !TEAMS.length) return;
+  const eff = TEAMS.map(t => {
+    const atk = typeof t.atk === 'number' ? t.atk : (t.atk.s + t.atk.w) / 2;
+    const def = typeof t.def === 'number' ? t.def : (t.def.s + t.def.w) / 2;
+    const atkC = Math.max(1.0, Math.min(2.2, atk));
+    const defC = Math.max(0.7, Math.min(1.4, def));
+    return atkC / LEAGUE_AVG_ATK - defC / LEAGUE_AVG_DEF;
+  });
+  const mean = eff.reduce((a, b) => a + b, 0) / eff.length;
+  const sd = Math.sqrt(eff.reduce((a, b) => a + (b - mean) * (b - mean), 0) / eff.length) || 1;
+  TEAMS.forEach((t, i) => {
+    t.orig = Math.round(Math.max(0, Math.min(100, 50 + 25 * ((eff[i] - mean) / sd))) * 10) / 10;
+  });
+}
 
 // === Flag rendering helpers (added by migrate_flags.js) ===
 // Convert team.f (ISO2 code like "jp", "br", "gb-eng") into a flag-icons HTML span.
@@ -4045,6 +4091,11 @@ function drawProb(absDiff) {
 }
 
 function simMatch(t1, t2, allowDraw, stage) {
+  // ORIGINAL (v2.17): outcome comes from the sampled score itself — no
+  // rating-based win probability, no draw table, no KO pullback.
+  if (RATING_MODE === 'original') {
+    return generateScoreOriginal(t1, t2, stage).winner;
+  }
   const r1 = rating(t1), r2 = rating(t2);
   const diff = r1 - r2 + homeBonus(t1, t2, stage);
   // Opta scale: divide by 28; Elo scale: divide by 400 (standard)
@@ -4161,7 +4212,14 @@ function computeLambdas(t1, t2, stage) {
   const isGS = (stage === 'gs');
   const base = isGS ? BASE_GOALS_GS : BASE_GOALS_KO;
   const halfBase = base / 2;
-  const r1 = rating(t1), r2 = rating(t2);
+  // ORIGINAL (v2.17): layer selection stays on the ELO scale regardless of
+  // mode — the stratified atk/def layers were BUILT by classifying opponents
+  // with Elo (strong ≈ 1700-1900+ band), so the lookup must use the same
+  // yardstick. Elo's only role in ORIGINAL is this context label; it never
+  // touches outcomes.
+  const isOriginalMode = RATING_MODE === 'original';
+  const r1 = isOriginalMode ? t1.elo : rating(t1);
+  const r2 = isOriginalMode ? t2.elo : rating(t2);
   // Stratified atk/def: t1.atk is selected based on t2's strength (how strong is my opponent)
   // t1.def is likewise selected based on t2's strength (how strong is who I'm defending against)
   const atk1Raw = pickLayer(t1.atk, r2);
@@ -4178,17 +4236,31 @@ function computeLambdas(t1, t2, stage) {
   // The atk/def values are stratified by opponent strength (selected via smoothstep above).
   let l1 = halfBase * (atk1 / LEAGUE_AVG_ATK) * (def2 / LEAGUE_AVG_DEF);
   let l2 = halfBase * (atk2 / LEAGUE_AVG_ATK) * (def1 / LEAGUE_AVG_DEF);
-  // Rating-based adjustment: stronger team gets boost, weaker gets suppression
-  // v2.3: softened factor (0.75〜1.25) because stratified atk/def already encodes strength gap.
-  // Previous 0.55〜1.45 was double-counting the rating effect and caused elite-vs-elite blowouts.
-  // v2.7: home advantage added to rating diff for the ratingP1 computation as well
-  const divisor = RATING_MODE === 'opta' ? 28 : RATING_MODE === 'fifa' ? 300 : 400;
-  const ratingDiff = (r1 - r2) + homeBonus(t1, t2, stage);
-  const ratingP1 = 1 / (1 + Math.pow(10, -ratingDiff / divisor));
-  const ratingFactor1 = 0.75 + 0.5 * ratingP1;
-  const ratingFactor2 = 0.75 + 0.5 * (1 - ratingP1);
-  l1 *= ratingFactor1;
-  l2 *= ratingFactor2;
+  if (isOriginalMode) {
+    // ORIGINAL: no rating-based λ factor. The stratified atk/def already
+    // encode strength, and in this mode the sampled score IS the outcome —
+    // a rating nudge here would smuggle Elo back into the result.
+    // Home advantage enters as a direct λ multiplier (×1.10 ≈ Elo +70,
+    // decided 2026-05-07; stage-aware via homeBonusMultiplier).
+    if (HOME_ADVANTAGE_ON) {
+      const hm1 = HOME_TEAMS.has(t1.c) ? homeBonusMultiplier(t1.c, stage) : 0;
+      const hm2 = HOME_TEAMS.has(t2.c) ? homeBonusMultiplier(t2.c, stage) : 0;
+      l1 *= 1 + 0.10 * hm1;
+      l2 *= 1 + 0.10 * hm2;
+    }
+  } else {
+    // Rating-based adjustment: stronger team gets boost, weaker gets suppression
+    // v2.3: softened factor (0.75〜1.25) because stratified atk/def already encodes strength gap.
+    // Previous 0.55〜1.45 was double-counting the rating effect and caused elite-vs-elite blowouts.
+    // v2.7: home advantage added to rating diff for the ratingP1 computation as well
+    const divisor = RATING_MODE === 'opta' ? 28 : RATING_MODE === 'fifa' ? 300 : 400;
+    const ratingDiff = (r1 - r2) + homeBonus(t1, t2, stage);
+    const ratingP1 = 1 / (1 + Math.pow(10, -ratingDiff / divisor));
+    const ratingFactor1 = 0.75 + 0.5 * ratingP1;
+    const ratingFactor2 = 0.75 + 0.5 * (1 - ratingP1);
+    l1 *= ratingFactor1;
+    l2 *= ratingFactor2;
+  }
   // Clamp individual λ (v2.3)
   l1 = Math.max(0.15, Math.min(2.8, l1));
   l2 = Math.max(0.15, Math.min(2.8, l2));
@@ -4271,6 +4343,7 @@ function generateScore(t1, t2, stage) {
 // For KO: if s1 === s2 after regulation, escalate to AET, then PK if still tied.
 // For GS: any outcome is acceptable (draws included).
 function simMatchDetailed(t1, t2, stage) {
+  if (RATING_MODE === 'original') return generateScoreOriginal(t1, t2, stage);
   return generateScoreNative(t1, t2, stage);
 }
 
@@ -4535,6 +4608,89 @@ function generateScoreNative(t1, t2, stage) {
   return { t1, t2, winner: finalWinner, score };
 }
 
+// ============ ORIGINAL MODE MATCH (v2.17) ============
+// The sampled score IS the outcome. No intended winner, no draw table, no
+// KO pullback — the bivariate Poisson over the stratified atk/def λs decides
+// everything. Extra time happens exactly when regulation ends level (no
+// probabilistic AET rewrite), PK when ET ends level too. PK conversion is a
+// flat 0.73 (real-WC base rate) with no rating edge: in ORIGINAL, ratings
+// don't exist at the outcome layer.
+// Two named compromises, both driven by atk/def-derived λ only (never by an
+// external rating): a weaker λ0 (see below) and a λ-edge-proportional tie
+// mitigation. Both exist because raw Poisson sampling over-produces level
+// scores relative to the real WC (2018+2022, N=96 calibration set). The
+// rating modes' 1-0→2-0 upgrade is deliberately NOT applied here — it
+// corrected an artifact of their tied→winner+1 path, which ORIGINAL lacks.
+function generateScoreOriginal(t1, t2, stage) {
+  const [l1, l2] = computeLambdas(t1, t2, stage);
+  const isGS = (stage === 'gs');
+  const score = { s1: 0, s2: 0, aet: false, pk: false, pkS1: 0, pkS2: 0 };
+  // λ0 (goal correlation): 0.20 × min(λ), NOT the 0.40 the rating modes use.
+  // Named compromise #1: 0.40 was calibrated for score *flavor* under a
+  // predetermined winner; letting it also decide outcomes pushed the GS draw
+  // rate to ~34% (real WC: 20-25%). Measured ladder: 0.40 → 33.9% draws,
+  // 0.12 → 22.1% but loser-0 inflated to 65% (less shared scoring), 0.20 =
+  // balance point. Current figures: scripts/test_original.js.
+  const [s1Raw, s2Raw] = bivariatePoissonRand(l1, l2, Math.min(l1, l2) * 0.20);
+  let s1 = s1Raw, s2 = s2Raw;
+
+  // Named compromise #2: λ-edge-proportional tie mitigation. When a sample
+  // comes out level, the λ-favored side gets +1 with probability equal to the
+  // normalized λ edge. The edge comes from atk/def alone — no external rating
+  // sneaks into the outcome — and even matchups keep their natural draws.
+  if (s1 === s2) {
+    const edge = Math.abs(l1 - l2) / Math.max(0.1, l1 + l2);
+    if (Math.random() < edge) {
+      if (l1 > l2) s1 += 1; else s2 += 1;
+    }
+  }
+
+  // Weak shape calibration, ORIGINAL-tuned (applied after tie mitigation so
+  // it reshapes those freshly-created 1-0s too). Raw sampling leaves 1-0 and
+  // margin-1 above the real-WC shape; these mild upgrades (much weaker than
+  // the rating modes' 52%/20%) pull both toward it. Winner-neutral.
+  if (s1 !== s2) {
+    const hiS = Math.max(s1, s2), loS = Math.min(s1, s2), oneLeads = s1 > s2;
+    if (hiS === 1 && loS === 0 && Math.random() < 0.20) {
+      if (oneLeads) s1 = 2; else s2 = 2;
+    } else if (hiS === 2 && loS === 1 && Math.random() < 0.15) {
+      if (oneLeads) { s1 = 3; s2 = 2; } else { s2 = 3; s1 = 2; }
+    }
+  }
+
+  if (isGS || s1 !== s2) {
+    score.s1 = s1; score.s2 = s2;
+    const winner = s1 > s2 ? t1 : s2 > s1 ? t2 : null;
+    return { t1, t2, winner, score };
+  }
+
+  // KO, regulation level → extra time (λ × 0.15 per side, fatigue-reduced).
+  score.aet = true;
+  score.s1 = s1; score.s2 = s2;
+  const et1 = footballRand(l1 * 0.15);
+  const et2 = footballRand(l2 * 0.15);
+  score.s1 += et1; score.s2 += et2;
+  if (et1 !== et2) {
+    return { t1, t2, winner: score.s1 > score.s2 ? t1 : t2, score };
+  }
+
+  // ET level too → penalty shootout, flat conversion.
+  score.pk = true;
+  let pk1 = 0, pk2 = 0;
+  for (let k = 1; k <= 5; k++) {
+    if (Math.random() < 0.73) pk1++;
+    if (Math.random() < 0.73) pk2++;
+  }
+  while (pk1 === pk2) {
+    if (Math.random() < 0.73) pk1++;
+    if (Math.random() < 0.73) pk2++;
+  }
+  score.pkS1 = pk1; score.pkS2 = pk2;
+  const winner = pk1 > pk2 ? t1 : t2;
+  score.pkWinner = winner;
+  return { t1, t2, winner, score };
+}
+
 // Generate a match score consistent with a predetermined outcome.
 // The outcome (winnerTeam: t1 | t2 | null) is decided upstream by rating.
 // atk/def shape the flavor of the score (high-scoring vs defensive match) without
@@ -4737,7 +4893,7 @@ function simGroup(teams) {
       } else {
         const l = w === teams[i] ? teams[j] : teams[i];
         pts[w.c] += 3;
-        const rDiff = RATING_MODE === 'opta' ? (rating(w) - rating(l)) / 20 : RATING_MODE === 'fifa' ? (rating(w) - rating(l)) / 150 : (rating(w) - rating(l)) / 150;
+        const rDiff = (RATING_MODE === 'opta' || RATING_MODE === 'original') ? (rating(w) - rating(l)) / 20 : (rating(w) - rating(l)) / 150;
         const d = Math.max(0.5, rDiff + Math.random());
         sc[w.c] += d; sc[l.c] -= d;
       }
@@ -6559,6 +6715,7 @@ function buildWorkerCode() {
     poissonRand, footballRand, bivariatePoissonRand,
     strongFactor, pickLayer, computeLambdas,
     computeEpsilonShift, generateScoreForOutcome, generateScoreNative,
+    generateScoreOriginal, // v2.17: ORIGINAL mode (score decides the outcome)
     simMatchDetailed, simGroupDetailed, simGroup,
     assignThirds, simulate, simulateDetailed,
     focusResult, focusGroupPosition, focusOpponents,
@@ -6581,6 +6738,7 @@ function buildWorkerCode() {
     const HOME_TEAMS = new Set(['USA', 'CAN', 'MEX']);
     const HOME_BONUS_ELO = 70;
     const HOME_BONUS_OPTA = 3.5;
+    const HOME_BONUS_FIFA = 60; // fix: was missing — FIFA-mode worker died (ReferenceError in homeBonus) and silently fell back to the main thread
     const EPSILON_BASE_T1 = 0.20;
     const EPSILON_SPREAD_T1 = 0.20;
     const EPSILON_BASE_T2 = 0.40;
@@ -6593,7 +6751,7 @@ function buildWorkerCode() {
     const BASE_GOALS_KO = 2.55;
 
     // Helpers that are method-style in main (const foo = ...) — redefined here
-    const rating = (team) => RATING_MODE === 'opta' ? team.opta : RATING_MODE === 'fifa' ? (typeof team.fifaP === 'number' ? team.fifaP : team.elo) : team.elo;
+    const rating = (team) => RATING_MODE === 'opta' ? team.opta : RATING_MODE === 'fifa' ? (typeof team.fifaP === 'number' ? team.fifaP : team.elo) : RATING_MODE === 'original' ? (typeof team.orig === 'number' ? team.orig : 50) : team.elo;
     const getGroup = (g) => TEAMS.filter(x => x.g === g);
     const getTeam = (code) => TEAMS.find(t => t.c === code);
 
@@ -7379,6 +7537,7 @@ function renderRatingsTable() {
   html += `<span class="r-elo ${RATING_MODE === 'elo' ? 'active' : ''}">Elo</span>`;
   html += `<span class="r-opta ${RATING_MODE === 'opta' ? 'active' : ''}">Opta</span>`;
   html += `<span class="r-fifa ${RATING_MODE === 'fifa' ? 'active' : ''}">FIFA</span>`;
+  html += `<span class="r-orig ${RATING_MODE === 'original' ? 'active' : ''}">Orig</span>`;
   html += `</div>`;
   sorted.forEach((team, i) => {
     const focusCls = team.c === FOCUS ? ' focus' : '';
@@ -7393,6 +7552,7 @@ function renderRatingsTable() {
     const _optaTitle = _optaEst ? ' title="' + (t('opta_estimated_tooltip') || 'Estimated value (Opta does not publish a power rating for this team).') + '"' : '';
     html += `<span class="${_optaCls}"${_optaTitle}>${team.opta.toFixed(1)}</span>`;
     html += `<span class="r-fifa ${RATING_MODE === 'fifa' ? 'active' : ''}">${typeof team.fifaP === 'number' ? team.fifaP.toFixed(1) : '—'}</span>`;
+    html += `<span class="r-orig ${RATING_MODE === 'original' ? 'active' : ''}">${typeof team.orig === 'number' ? team.orig.toFixed(1) : '—'}</span>`;
     html += `</div>`;
   });
   body.innerHTML = html;
@@ -7444,6 +7604,10 @@ function applyLanguage() {
   $('ui-src-fifa-freq').textContent = t('src_fifa_freq');
   $('ui-src-atkdef-label').textContent = t('src_atkdef_label');
   $('ui-src-atkdef-desc').innerHTML = t('src_atkdef_desc').replace('eloratings.net', '<a href="https://www.eloratings.net/" target="_blank" rel="noopener" class="footer-link">eloratings.net</a>');
+  const _origL = document.getElementById('ui-src-original-label');
+  if (_origL) _origL.textContent = t('src_original_label');
+  const _origD = document.getElementById('ui-src-original-desc');
+  if (_origD) _origD.textContent = t('src_original_desc');
   $('ui-src-bracket-label').textContent = t('src_bracket_label');
   $('ui-src-bracket-desc').textContent = t('src_bracket_desc');
   $('lang-label').textContent = 'Language';
@@ -7489,6 +7653,7 @@ async function loadTeams() {
 
 document.addEventListener('DOMContentLoaded', async () => {
   await loadTeams();
+  computeOriginalRatings();
   populateLanguageSelect();
   populateFocusSelect();
   applyLanguage();
