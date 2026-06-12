@@ -2228,6 +2228,12 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
   margin-bottom: 4px;
   letter-spacing: -0.02em;
 }
+/* Modal-tournament win rate (right-aligned in the match meta line) */
+.br-winpct {
+  float: right;
+  color: var(--text-tertiary);
+  font-weight: 600;
+}
 .br-team {
   display: flex;
   align-items: center;
@@ -2614,7 +2620,7 @@ const T = {
     modal_section_title: '最頻トーナメント表',
     modal_section_meta: '最頻シミュレーション',
     modal_caveat: 'この決勝カード({pair})は、{pct}%の試行で出現した組み合わせです。「最頻」といっても絶対確率は低く、特にブラケット全体が完全にこの通り進行する確率はさらに低くなります(推定 0.1% 未満)。あくまで「最もよく起こる 1 つのシナリオ」としてご覧ください。',
-    modal_section_note: '各R32対戦カードを{n1}回のシミュレーションで集計して最頻を決定、続いて各試合を{n2}回ずつ戦わせて最頻スコアと勝者を算出し、勝ち上がり式にブラケットを構築しています。',
+    modal_section_note: '各R32対戦カードを{n1}回のシミュレーションで集計して最頻を決定、続いて各試合を{n2}回ずつ戦わせて最頻スコアと勝者を算出し、勝ち上がり式にブラケットを構築しています。各試合の % は、その再計算で勝者が勝った割合（勝率）です。',
     modal_loading: '最頻トーナメントを計算中...',
     section_top20: '優勝確率ランキング',
     section_all_ranking: '優勝確率ランキング',
@@ -2741,7 +2747,7 @@ const T = {
     modal_section_title: 'Most Frequent Tournament',
     modal_section_meta: 'Modal simulation',
     modal_caveat: 'This final pairing ({pair}) occurred in {pct}% of trials. "Most frequent" doesn\'t mean "likely" — the probability that the entire bracket plays out exactly as shown is much lower still (estimated under 0.1%). Treat this as the single most common scenario, not a prediction.',
-    modal_section_note: 'R32 matchups are determined by finding the modal pair over {n1} simulations. Each match is then resampled {n2} times to find its modal score + winner, with winners advancing through the bracket.',
+    modal_section_note: 'R32 matchups are determined by finding the modal pair over {n1} simulations. Each match is then resampled {n2} times to find its modal score + winner, with winners advancing through the bracket. The % on each match is the winner\'s share of those resamples.',
     modal_loading: 'Computing most frequent tournament...',
     section_top20: 'Championship Probability Ranking',
     section_all_ranking: 'Championship Probability Ranking',
@@ -2868,7 +2874,7 @@ const T = {
     modal_section_title: 'Torneo más frecuente',
     modal_section_meta: 'Simulación modal',
     modal_caveat: 'Esta final ({pair}) apareció en el {pct}% de las simulaciones. "Más frecuente" no significa "probable": la probabilidad de que todo el cuadro se desarrolle exactamente así es aún menor (estimada en menos del 0,1%).',
-    modal_section_note: 'Los cruces de dieciseisavos se determinan por el par modal en {n1} simulaciones. Cada partido se remuestrea {n2} veces para hallar marcador y ganador modales, avanzando por el cuadro.',
+    modal_section_note: 'Los cruces de dieciseisavos se determinan por el par modal en {n1} simulaciones. Cada partido se remuestrea {n2} veces para hallar marcador y ganador modales, avanzando por el cuadro. El % de cada partido es la proporción de victorias del ganador en esos remuestreos.',
     modal_loading: 'Calculando el torneo más frecuente...',
     section_top20: 'Ranking de probabilidad de ganar',
     section_all_ranking: 'Ranking de probabilidad de ganar',
@@ -2995,7 +3001,7 @@ const T = {
     modal_section_title: 'Torneio mais frequente',
     modal_section_meta: 'Simulação modal',
     modal_caveat: 'Esta final ({pair}) apareceu em {pct}% das simulações. "Mais frequente" não significa "provável" — a probabilidade de todo o chaveamento se desenrolar exatamente assim é ainda menor (estimada em menos de 0,1%).',
-    modal_section_note: 'Os confrontos das oitavas são determinados pelo par modal em {n1} simulações. Cada partida é re-simulada {n2} vezes para encontrar placar e vencedor modais, avançando no chaveamento.',
+    modal_section_note: 'Os confrontos das oitavas são determinados pelo par modal em {n1} simulações. Cada partida é re-simulada {n2} vezes para encontrar placar e vencedor modais, avançando no chaveamento. O % em cada partida é a fração de vitórias do vencedor nessas re-simulações.',
     modal_loading: 'Calculando o torneio mais frequente...',
     section_top20: 'Ranking de probabilidade de campeonato',
     section_all_ranking: 'Ranking de probabilidade de campeonato',
@@ -3122,7 +3128,7 @@ const T = {
     modal_section_title: 'Tournoi le plus fréquent',
     modal_section_meta: 'Simulation modale',
     modal_caveat: 'Cette finale ({pair}) est apparue dans {pct}% des simulations. "Le plus fréquent" ne veut pas dire "probable" — la probabilité que tout le tableau se déroule exactement ainsi est encore plus faible (estimée à moins de 0,1%).',
-    modal_section_note: 'Les huitièmes sont déterminés par la paire modale sur {n1} simulations. Chaque match est ré-échantillonné {n2} fois pour trouver le score et le vainqueur modaux.',
+    modal_section_note: 'Les huitièmes sont déterminés par la paire modale sur {n1} simulations. Chaque match est ré-échantillonné {n2} fois pour trouver le score et le vainqueur modaux. Le % de chaque match est la part de victoires du vainqueur sur ces rééchantillonnages.',
     modal_loading: 'Calcul du tournoi le plus fréquent...',
     section_top20: 'Classement des probabilités de titre',
     section_all_ranking: 'Classement des probabilités de titre',
@@ -3249,7 +3255,7 @@ const T = {
     modal_section_title: 'Häufigstes Turnier',
     modal_section_meta: 'Modale Simulation',
     modal_caveat: 'Dieses Finale ({pair}) trat in {pct}% der Simulationen auf. "Am häufigsten" heißt nicht "wahrscheinlich" — die Wahrscheinlichkeit, dass das gesamte Turnier genau so verläuft, ist noch deutlich geringer (geschätzt unter 0,1%).',
-    modal_section_note: 'Die Achtelfinale-Paarungen werden durch die häufigste Paarung in {n1} Simulationen bestimmt. Jedes Spiel wird dann {n2}-mal neu simuliert für das häufigste Ergebnis und den Sieger.',
+    modal_section_note: 'Die Achtelfinale-Paarungen werden durch die häufigste Paarung in {n1} Simulationen bestimmt. Jedes Spiel wird dann {n2}-mal neu simuliert für das häufigste Ergebnis und den Sieger. Die %-Angabe je Spiel ist der Sieganteil des Siegers in diesen Simulationen.',
     modal_loading: 'Berechne das häufigste Turnier...',
     section_top20: 'Meisterschaftswahrscheinlichkeit Ranking',
     section_all_ranking: 'Meisterschaftswahrscheinlichkeit Ranking',
@@ -3376,7 +3382,7 @@ const T = {
     modal_section_title: 'Torneo più frequente',
     modal_section_meta: 'Simulazione modale',
     modal_caveat: 'Questa finale ({pair}) è apparsa nel {pct}% delle simulazioni. "Più frequente" non significa "probabile" — la probabilità che l\'intero tabellone si svolga esattamente così è ancora minore (stimata sotto lo 0,1%).',
-    modal_section_note: 'Gli accoppiamenti dei sedicesimi sono determinati dalla coppia modale in {n1} simulazioni. Ogni partita viene ricampionata {n2} volte per trovare punteggio e vincitore modali.',
+    modal_section_note: 'Gli accoppiamenti dei sedicesimi sono determinati dalla coppia modale in {n1} simulazioni. Ogni partita viene ricampionata {n2} volte per trovare punteggio e vincitore modali. La % su ogni partita è la quota di vittorie del vincitore in quei ricampionamenti.',
     modal_loading: 'Calcolo del torneo più frequente...',
     section_top20: 'Classifica probabilità di vittoria',
     section_all_ranking: 'Classifica probabilità di vittoria',
@@ -3503,7 +3509,7 @@ const T = {
     modal_section_title: '최빈 토너먼트',
     modal_section_meta: '최빈 시뮬레이션',
     modal_caveat: '이 결승 대진({pair})은 전체 시뮬레이션의 {pct}%에서 나타났습니다. "최빈"은 "가능성이 높다"를 의미하지 않습니다 — 대진표 전체가 이대로 진행될 확률은 더 낮습니다(추정 0.1% 미만).',
-    modal_section_note: 'R32 대진은 {n1}회 시뮬레이션에서 최빈 대진으로 결정되며, 각 경기는 {n2}회씩 재샘플링하여 최빈 스코어와 승자를 산출합니다.',
+    modal_section_note: 'R32 대진은 {n1}회 시뮬레이션에서 최빈 대진으로 결정되며, 각 경기는 {n2}회씩 재샘플링하여 최빈 스코어와 승자를 산출합니다. 각 경기의 %는 그 재샘플링에서 승자가 이긴 비율입니다.',
     modal_loading: '최빈 토너먼트 계산 중...',
     section_top20: '우승 확률 순위',
     section_all_ranking: '우승 확률 순위',
@@ -3630,7 +3636,7 @@ const T = {
     modal_section_title: '最频繁锦标赛',
     modal_section_meta: '最频繁模拟',
     modal_caveat: '此决赛对阵({pair})在{pct}%的模拟中出现。"最频繁"并不意味着"很可能"——整个对阵完全按此进行的概率更低(估计低于0.1%)。',
-    modal_section_note: '通过{n1}次模拟找到R32的最频繁对阵,然后每场比赛重新采样{n2}次以找出最频繁的比分和获胜者。',
+    modal_section_note: '通过{n1}次模拟找到R32的最频繁对阵,然后每场比赛重新采样{n2}次以找出最频繁的比分和获胜者。每场比赛的%是获胜者在重新采样中的获胜比例。',
     modal_loading: '正在计算最频繁锦标赛...',
     section_top20: '夺冠概率排名',
     section_all_ranking: '夺冠概率排名',
@@ -3757,7 +3763,7 @@ const T = {
     modal_section_title: 'البطولة الأكثر تكراراً',
     modal_section_meta: 'محاكاة الأكثر تكراراً',
     modal_caveat: 'ظهرت مباراة النهائي هذه ({pair}) في {pct}% من المحاكاة. "الأكثر تكراراً" لا تعني "محتملة" — احتمال سير البطولة بأكملها بهذه الطريقة أقل بكثير (تقدير أقل من 0.1%).',
-    modal_section_note: 'يتم تحديد مواجهات دور الـ32 من خلال الزوج الأكثر تكراراً في {n1} محاكاة، ثم إعادة محاكاة كل مباراة {n2} مرة للعثور على النتيجة والفائز الأكثر تكراراً.',
+    modal_section_note: 'يتم تحديد مواجهات دور الـ32 من خلال الزوج الأكثر تكراراً في {n1} محاكاة، ثم إعادة محاكاة كل مباراة {n2} مرة للعثور على النتيجة والفائز الأكثر تكراراً. النسبة المئوية في كل مباراة هي حصة الفائز من تلك المحاكاات.',
     modal_loading: 'يتم حساب البطولة الأكثر تكراراً...',
     section_top20: 'ترتيب احتمالية الفوز',
     section_all_ranking: 'ترتيب احتمالية الفوز',
@@ -4379,8 +4385,14 @@ function computeLambdas(t1, t2, stage) {
   const def2Raw = pickLayer(t2.def, r1);
   // Clamp atk/def to dampen outliers (priors from confederation-specific data)
   // Tightened in v2.2: stratified data + confederation mix pushed goals/match up by ~30%
-  const atk1 = Math.max(1.0, Math.min(2.2, atk1Raw));
-  const atk2 = Math.max(1.0, Math.min(2.2, atk2Raw));
+  // v2.20: atk floor 1.0 → 0.7 (symmetric with def). The 1.0 floor silently
+  // inflated genuinely weak attacks: 11 entrants have atk.s < 1.0 (KSA 0.73,
+  // CAN 0.74, ECU 0.77…) and the boost flipped coin-toss KO ties in the
+  // score-driven Matchup mode — ECU's modal win over BRA was a 51.6% edge
+  // that existed only because 0.77 was read as 1.0. Sub-0.7 outliers are
+  // still capped; the builder's shrinkage (v4.1) tames sampling noise upstream.
+  const atk1 = Math.max(0.7, Math.min(2.2, atk1Raw));
+  const atk2 = Math.max(0.7, Math.min(2.2, atk2Raw));
   const def1 = Math.max(0.7, Math.min(1.4, def1Raw));
   const def2 = Math.max(0.7, Math.min(1.4, def2Raw));
   // Stratified Poisson: λ = base/2 × (atk_own / avg_atk) × (def_opp / avg_def)
@@ -5540,7 +5552,9 @@ function sampleModalMatch(t1, t2, stage, N) {
       score.aet = true;
     }
   }
-  return { t1, t2, score, winner, modalScorePct: modalN / N };
+  // winPct: how often the modal winner actually won the resamples — shown in
+  // the bracket so a 52% coin-toss and a 90% formality stop looking identical.
+  return { t1, t2, score, winner, winPct: winnerCount / N, modalScorePct: modalN / N };
 }
 
 // Pick modal code from { code: count }
@@ -5923,8 +5937,9 @@ function renderBracketCell(num, match, cls) {
   const c1 = w === match.t1 ? 'winner' : 'loser';
   const c2 = w === match.t2 ? 'winner' : 'loser';
   const s = match.score;
+  const wp = match.winPct != null ? `<span class="br-winpct">${Math.round(match.winPct * 100)}%</span>` : '';
   return `<div class="${cls} ${hasFocus ? 'br-focus' : ''} ${focusWon ? 'br-focus-won' : ''}">
-    <div class="br-match-num">#${num}</div>
+    <div class="br-match-num">#${num}${wp}</div>
     <div class="br-team ${c1}"><span>${nmf(match.t1.c)}</span><span class="br-score">${s ? s.s1 : ''}</span></div>
     <div class="br-team ${c2}"><span>${nmf(match.t2.c)}</span><span class="br-score">${s ? s.s2 : ''}</span></div>
     ${s && (s.aet || s.pk) ? `<div class="br-extra">${s.pk ? `(${s.pkS1}-${s.pkS2} PK)` : 'AET'}</div>` : ''}
@@ -6017,8 +6032,9 @@ function renderBracketCellCompact(num, match) {
   const c1 = w === match.t1 ? 'winner' : 'loser';
   const c2 = w === match.t2 ? 'winner' : 'loser';
   const s = match.score;
+  const wp = match.winPct != null ? `<span class="br-winpct">${Math.round(match.winPct * 100)}%</span>` : '';
   return `<div class="mhbr-match ${hasFocus ? 'br-focus' : ''} ${focusWon ? 'br-focus-won' : ''}">
-    <div class="mhbr-match-num">#${num}</div>
+    <div class="mhbr-match-num">#${num}${wp}</div>
     <div class="mhbr-team ${c1}"><span class="mhbr-name">${nmf(match.t1.c)}</span><span class="mhbr-score">${s ? s.s1 : ''}</span></div>
     <div class="mhbr-team ${c2}"><span class="mhbr-name">${nmf(match.t2.c)}</span><span class="mhbr-score">${s ? s.s2 : ''}</span></div>
     ${s && s.pk ? `<div class="mhbr-extra">(${s.pkS1}-${s.pkS2} PK)</div>` : s && s.aet ? `<div class="mhbr-extra">AET</div>` : ''}
