@@ -6699,7 +6699,7 @@ function updateProgress(pct, label, eta) {
 
 function hideProgress() { $('progress').classList.remove('show'); }
 
-function accumulate(sim, counts, groupPos, champs, opponents, championPath, stageStats) {
+function accumulate(sim, counts, groupPos, champs, opponents, championPath, stageStats, teamStages) {
   counts[focusResult(sim)]++;
   const gp = focusGroupPosition(sim);
   groupPos[gp] = (groupPos[gp] || 0) + 1;
@@ -6775,6 +6775,28 @@ function accumulate(sim, counts, groupPos, champs, opponents, championPath, stag
     tally('sf',  sim.M[102]);
     tally('3rd', sim.M['3rd']);
     tally('f',   sim.M['final']);
+  }
+  // Stage-reach tally for ALL 48 teams (not just FOCUS). counts/groupPos only
+  // cover the focus team, so without this a full-bracket snapshot would need
+  // 48 separate runs. Optional: only the worker's big runs pass it (run1000
+  // and the modal path leave it undefined). Used by the opening-predictions
+  // snapshot and the opening-vs-now delta view.
+  if (teamStages && sim.M) {
+    const reach = (match, key) => {
+      if (!match) return;
+      const rec = (cc) => {
+        (teamStages[cc] || (teamStages[cc] = { r32:0, r16:0, qf:0, sf:0, f:0, w:0, third:0 }))[key]++;
+      };
+      rec(match.t1.c); rec(match.t2.c);
+    };
+    for (let n = 73; n <= 88; n++)  reach(sim.M[n], 'r32');
+    for (let n = 89; n <= 96; n++)  reach(sim.M[n], 'r16');
+    for (let n = 97; n <= 100; n++) reach(sim.M[n], 'qf');
+    reach(sim.M[101], 'sf');
+    reach(sim.M[102], 'sf');
+    reach(sim.M['final'], 'f');
+    teamStages[sim.M['final'].winner.c].w++;       // initialised by reach('f') above
+    if (sim.M['3rd']) teamStages[sim.M['3rd'].winner.c].third++; // initialised by reach('sf')
   }
 }
 
@@ -6919,6 +6941,7 @@ function buildWorkerCode() {
         const opponents = newOpponentsStore();
         const championPath = newChampionPath();
         const stageStats = newStageStats();
+        const teamStages = {}; // per-team stage-reach tally (all 48 teams)
 
         let done = 0;
         let lastLiveSend = 0;
@@ -6956,7 +6979,7 @@ function buildWorkerCode() {
           let lastSim = null;
           for (let i = done; i < end; i++) {
             const sim = simulateDetailed();
-            accumulate(sim, counts, groupPos, champs, opponents, championPath, stageStats);
+            accumulate(sim, counts, groupPos, champs, opponents, championPath, stageStats, teamStages);
             lastSim = sim;
           }
           done = end;
@@ -6969,7 +6992,7 @@ function buildWorkerCode() {
           }
           self.postMessage(payload);
         }
-        self.postMessage({ type: 'done', counts, groupPos, champs, opponents, championPath, stageStats, N });
+        self.postMessage({ type: 'done', counts, groupPos, champs, opponents, championPath, stageStats, teamStages, N });
       }
     };
   `;

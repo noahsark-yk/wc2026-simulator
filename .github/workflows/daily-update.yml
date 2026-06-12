@@ -89,6 +89,7 @@ jobs:
           cp teams.json _deploy/
           cp live.html _deploy/
           cp teams_frozen.json _deploy/
+          cp -r data _deploy/
       
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
