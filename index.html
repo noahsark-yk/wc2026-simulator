@@ -1015,17 +1015,41 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
   overflow: hidden;
   background: var(--bg-card);
 }
-/* 9 columns no longer fit a phone: let the table scroll sideways and keep
-   the country-name column readable instead of letting the grid crush it. */
+/* 9 columns don't fit a phone. The table scrolls sideways; the row is a flex
+   strip (NOT grid — a grid cell is its own containing block, so sticky would
+   have no room to move) and rank/flag/name stick to the left edge while the
+   numeric columns slide underneath. */
 #ratings-table { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .ratings-row {
-  display: grid;
-  grid-template-columns: 24px 22px minmax(110px, 1fr) 28px 52px 52px 52px 52px 52px;
+  display: flex;
   align-items: center;
   gap: 8px;
   padding: 6px 10px;
   border-bottom: 1px solid var(--border);
   font-size: 12px;
+  min-width: max-content;
+}
+.ratings-row > span { flex: 0 0 auto; }
+.ratings-row .r-rank { width: 24px; }
+.ratings-row .r-flag { width: 22px; }
+.ratings-row .r-name { flex: 1 1 auto; min-width: 110px; }
+.ratings-row .r-group { width: 28px; }
+.ratings-row .r-elo, .ratings-row .r-opta, .ratings-row .r-fifa, .ratings-row .r-power { width: 52px; }
+.ratings-row .r-match { width: 58px; }
+/* Frozen left columns: solid backgrounds so the sliding numbers disappear
+   beneath them; the focus row recreates its translucent highlight on top of
+   the card colour so the stuck cells match the rest of the row. */
+.ratings-row .r-rank, .ratings-row .r-flag, .ratings-row .r-name {
+  position: sticky;
+  z-index: 1;
+  background: var(--bg-card);
+}
+.ratings-row .r-rank { left: 0; }
+.ratings-row .r-flag { left: 32px; }  /* 24px col + 8px gap */
+.ratings-row .r-name { left: 62px; }  /* 32 + 22px col + 8px gap */
+.ratings-row.head .r-rank, .ratings-row.head .r-flag, .ratings-row.head .r-name { background: var(--bg-tertiary); }
+.ratings-row.focus .r-rank, .ratings-row.focus .r-flag, .ratings-row.focus .r-name {
+  background: linear-gradient(rgba(245, 158, 11, 0.10), rgba(245, 158, 11, 0.10)), var(--bg-card);
 }
 .ratings-row:last-child { border-bottom: none; }
 .ratings-row.head {
@@ -1068,11 +1092,16 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 }
 @media (max-width: 420px) {
   .ratings-row {
-    grid-template-columns: 20px 20px minmax(96px, 1fr) 24px 44px 44px 44px 44px 54px;
     gap: 5px;
     padding: 5px 8px;
     font-size: 11px;
   }
+  .ratings-row .r-rank { width: 20px; }
+  .ratings-row .r-flag { width: 20px; left: 25px; }  /* 20px col + 5px gap */
+  .ratings-row .r-name { min-width: 96px; left: 45px; }  /* 25 + 20 + 5 gap */
+  .ratings-row .r-group { width: 24px; }
+  .ratings-row .r-elo, .ratings-row .r-opta, .ratings-row .r-fifa, .ratings-row .r-power { width: 44px; }
+  .ratings-row .r-match { width: 54px; }
   /* 5 mode buttons: tighter padding, and let the toggle wrap under its label */
   .mode-toggle button { padding: 5px 8px; font-size: 11px; }
   .control-group { flex-wrap: wrap; }
@@ -3789,8 +3818,46 @@ let FIFA_LAST_UPDATED = '2026-04-25'; // FIFA date, overridden by teams.json met
 // v2.16.6: LANG is initialized via auto-detection (URL param > localStorage > browser).
 // See detectInitialLang() defined just below. Falls back to 'en' if nothing matches.
 let LANG = detectInitialLang();
-let RATING_MODE = 'elo'; // 'elo' | 'opta' | 'fifa'
-let FOCUS = 'JPN';
+let RATING_MODE = 'elo'; // 'elo' | 'opta' | 'fifa' | 'power' | 'original' (=Matchup)
+let FOCUS = detectInitialFocus();
+
+// v2.19: The default focus team follows the visitor, mirroring detectInitialLang's
+// priority: ?focus=XXX URL parameter > saved localStorage choice > browser-locale
+// REGION subtag (es-AR → ARG) > primary language where it maps to one entrant
+// (ja → JPN; bare 'en' goes to the host USA) > JPN (the author's home, and the
+// behaviour every visitor saw before v2.19). Validated against TEAMS after load.
+function detectInitialFocus() {
+  // ISO 3166-1 alpha-2 region → entrant code, all 48 teams.
+  const REGION_TEAM = {
+    mx:'MEX', za:'RSA', kr:'KOR', cz:'CZE', ca:'CAN', ba:'BIH', qa:'QAT', ch:'SUI',
+    br:'BRA', ma:'MAR', ht:'HAI', us:'USA', py:'PAR', au:'AUS', tr:'TUR', de:'GER',
+    cw:'CUW', ci:'CIV', ec:'ECU', nl:'NED', jp:'JPN', se:'SWE', tn:'TUN', be:'BEL',
+    eg:'EGY', ir:'IRN', nz:'NZL', es:'ESP', cv:'CPV', sa:'KSA', uy:'URU', fr:'FRA',
+    sn:'SEN', iq:'IRQ', no:'NOR', ar:'ARG', dz:'ALG', at:'AUT', jo:'JOR', pt:'POR',
+    cd:'COD', uz:'UZB', co:'COL', gb:'ENG', hr:'CRO', gh:'GHA', pa:'PAN'
+  };
+  // Language-only fallback, used when the locale has no region subtag. Only
+  // languages that point at (close to) one entrant; ambiguous ones (ar, it…)
+  // fall through. Bare 'en' → host nation.
+  const LANG_TEAM = {
+    ja:'JPN', ko:'KOR', sv:'SWE', cs:'CZE', hr:'CRO', tr:'TUR', fa:'IRN', uz:'UZB',
+    nl:'NED', no:'NOR', nb:'NOR', nn:'NOR', de:'GER', pt:'POR', es:'ESP', fr:'FRA', en:'USA'
+  };
+  try {
+    const p = new URLSearchParams(location.search).get('focus');
+    if (p && /^[A-Za-z]{3}$/.test(p)) return p.toUpperCase();
+  } catch (e) { /* ignore */ }
+  try {
+    const saved = localStorage.getItem('userFocus');
+    if (saved && /^[A-Z]{3}$/.test(saved)) return saved;
+  } catch (e) { /* localStorage may be blocked in private mode etc. */ }
+  const loc = (navigator.language || navigator.userLanguage || '').toLowerCase();
+  const parts = loc.split('-');
+  const region = parts.find((s, i) => i > 0 && s.length === 2); // zh-hans-cn → cn
+  if (region && REGION_TEAM[region]) return REGION_TEAM[region];
+  if (LANG_TEAM[parts[0]]) return LANG_TEAM[parts[0]];
+  return 'JPN';
+}
 
 // v2.16.6: Determine the user's preferred language at startup.
 // Priority: ?lang=xx URL parameter > saved localStorage choice > navigator.language > 'en'.
@@ -7555,6 +7622,7 @@ function populateFocusSelect() {
       btn.addEventListener('click', () => {
         if (FOCUS === team.c) { closeFocusGrid(); return; }
         FOCUS = team.c;
+        try { localStorage.setItem('userFocus', FOCUS); } catch (err) { /* ignore */ }
         updateFocusToggle();
         closeFocusGrid();
         renderRatingsTable();
@@ -7744,6 +7812,8 @@ async function loadTeams() {
 document.addEventListener('DOMContentLoaded', async () => {
   await loadTeams();
   computeCustomRatings();
+  // detectInitialFocus ran before TEAMS existed; drop bad ?focus= / stale saves.
+  if (!TEAMS.some(tm => tm.c === FOCUS)) FOCUS = 'JPN';
   populateLanguageSelect();
   populateFocusSelect();
   applyLanguage();
