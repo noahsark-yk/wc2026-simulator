@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-11T06:45:31.035Z",
+  "fetchedAt": "2026-06-12T06:37:35.944Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -75,7 +75,7 @@
     },
     "MEX": {
       "name": "Mexico",
-      "elo": 1875
+      "elo": 1881
     },
     "SEN": {
       "name": "Senegal",
@@ -183,7 +183,7 @@
     },
     "RSA": {
       "name": "South Africa",
-      "elo": 1517
+      "elo": 1511
     },
     "GHA": {
       "name": "Ghana",

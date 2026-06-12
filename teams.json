@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-06-11",
+  "lastUpdated": "2026-06-12",
   "source": "Auto-generated from eloratings.net",
   "teams": [
     {
       "c": "MEX",
       "opta": 77.2,
-      "elo": 1875,
+      "elo": 1881,
       "g": "A",
       "f": "mx",
       "atk": {
@@ -14,27 +14,27 @@
       },
       "def": {
         "s": 1.51,
-        "w": 0.59
+        "w": 0.57
       },
-      "fifaR": 14,
-      "fifaP": 1687.48
+      "fifaR": 13,
+      "fifaP": 1700.98
     },
     {
       "c": "RSA",
       "opta": 64.8,
-      "elo": 1517,
+      "elo": 1511,
       "g": "A",
       "f": "za",
       "atk": {
-        "s": 1.37,
+        "s": 1.33,
         "w": 1.49
       },
       "def": {
-        "s": 0.89,
+        "s": 0.92,
         "w": 0.79
       },
-      "fifaR": 60,
-      "fifaP": 1428.38
+      "fifaR": 61,
+      "fifaP": 1414.88
     },
     {
       "c": "KOR",
@@ -51,7 +51,7 @@
         "w": 0.66
       },
       "fifaR": 25,
-      "fifaP": 1591.63
+      "fifaP": 1587.55
     },
     {
       "c": "CZE",
@@ -67,8 +67,8 @@
         "s": 1.74,
         "w": 0.86
       },
-      "fifaR": 40,
-      "fifaP": 1505.74
+      "fifaR": 38,
+      "fifaP": 1509.82
     },
     {
       "c": "CAN",
@@ -390,7 +390,7 @@
         "s": 2.07,
         "w": 1.1
       },
-      "fifaR": 38,
+      "fifaR": 39,
       "fifaP": 1509.79
     },
     {
@@ -456,7 +456,7 @@
       },
       "def": {
         "s": 0.89,
-        "w": 0.76
+        "w": 0.75
       },
       "fifaR": 20,
       "fifaP": 1619.58
@@ -526,7 +526,7 @@
         "s": 1.28,
         "w": 0.97
       },
-      "fifaR": 61,
+      "fifaR": 60,
       "fifaP": 1423.88
     },
     {
@@ -693,7 +693,7 @@
         "w": 2.58
       },
       "def": {
-        "s": 1.15,
+        "s": 1.16,
         "w": 0.83
       },
       "fifaR": 5,
@@ -710,7 +710,7 @@
         "w": 1.44
       },
       "def": {
-        "s": 1.36,
+        "s": 1.37,
         "w": 0.54
       },
       "fifaR": 46,
@@ -747,7 +747,7 @@
         "s": 1.35,
         "w": 0.62
       },
-      "fifaR": 13,
+      "fifaR": 14,
       "fifaP": 1698.35
     },
     {
@@ -820,11 +820,11 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-06-11T06:52:32.776Z",
+    "generatedAt": "2026-06-12T06:44:14.397Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
-    "fifaLastUpdated": "2026-06-11",
+    "fifaLastUpdated": "2026-06-12",
     "fifaTeamCount": 48,
     "methodology": {
       "primaryPeriodStart": "2022-01-01",
@@ -835,9 +835,9 @@
       "halfLifeDays": 540,
       "shrinkK": 5,
       "globalMeans": {
-        "atkS": 1.212,
+        "atkS": 1.211,
         "atkW": 2.046,
-        "defS": 1.458,
+        "defS": 1.459,
         "defW": 0.755
       }
     }

@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-11T06:52:27.560Z",
+  "fetchedAt": "2026-06-12T06:44:07.909Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -14441,6 +14441,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-11",
+          "isHome": true,
+          "opponentName": "South Africa",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-04",
           "isHome": true,
           "opponentName": "Serbia",
@@ -27723,6 +27731,14 @@
       "code": "RSA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-11",
+          "isHome": false,
+          "opponentName": "Mexico",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-06",
           "isHome": false,

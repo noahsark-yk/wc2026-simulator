@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-06-11",
+  "lastUpdated": "2026-06-12",
   "source": "inside.fifa.com (live)",
-  "sourceScheduleId": "FRS_Male_Football_20260119",
+  "sourceScheduleId": "FRS_Male_Football_20260401",
   "sourceConfirmedDate": null,
   "teamCount": 48,
   "teams": {
@@ -49,13 +49,13 @@
       "rank": 11,
       "points": 1714.87
     },
-    "COL": {
-      "rank": 13,
-      "points": 1698.35
-    },
     "MEX": {
+      "rank": 13,
+      "points": 1700.98
+    },
+    "COL": {
       "rank": 14,
-      "points": 1687.48
+      "points": 1698.35
     },
     "SEN": {
       "rank": 15,
@@ -95,7 +95,7 @@
     },
     "KOR": {
       "rank": 25,
-      "points": 1591.63
+      "points": 1587.55
     },
     "AUS": {
       "rank": 27,
@@ -125,13 +125,13 @@
       "rank": 34,
       "points": 1539.16
     },
-    "SWE": {
-      "rank": 38,
-      "points": 1509.79
-    },
     "CZE": {
-      "rank": 40,
-      "points": 1505.74
+      "rank": 38,
+      "points": 1509.82
+    },
+    "SWE": {
+      "rank": 39,
+      "points": 1509.79
     },
     "PAR": {
       "rank": 41,
@@ -161,13 +161,13 @@
       "rank": 57,
       "points": 1446.28
     },
-    "RSA": {
-      "rank": 60,
-      "points": 1428.38
-    },
     "KSA": {
-      "rank": 61,
+      "rank": 60,
       "points": 1423.88
+    },
+    "RSA": {
+      "rank": 61,
+      "points": 1414.88
     },
     "JOR": {
       "rank": 63,
