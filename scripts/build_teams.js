@@ -324,6 +324,59 @@ function shrunk(observed, n, global, K) {
   return (observed * n + global * K) / (n + K);
 }
 
+// === v4.3: opponent-adjusted goal indices (continuous Elo adjustment) ===
+// Pool ALL 48 finalists' matches (2022+) into opponent-Elo bins and compute
+// the pool-average GF/GA per bin ("what an average finalist does against
+// that opponent level"). Each team's match GF/GA is then expressed as a
+// ratio to its bin expectation; the time-decayed mean of those ratios is
+// the team's opponent-adjusted attack/defense index (1.0 = average
+// finalist, attack >1 better, defense <1 better).
+// Why: the two-layer split is too coarse for the DISPLAY rating. "Weak"
+// spans Elo ~1200-1799; African sides' weak pool averages ~1520 vs ~1630
+// for European sides, so a flat layer average hands the former a quality
+// discount (Algeria: layer-based index looked elite, ratio-based = 1.00 /
+// 1.00, a perfectly average finalist). Used by ORIGINAL Power only — the
+// simulation λs keep the stratified atk/def.
+const ADJ_BIN_EDGES = [1400, 1500, 1600, 1700, 1800, 1900];
+function adjBinIdx(elo) {
+  let i = 0;
+  for (const b of ADJ_BIN_EDGES) if (elo >= b) i++;
+  return i; // 0..6
+}
+function computeAdjustedIndices(matchData, eloByCode, refDate) {
+  const pool = Array.from({ length: 7 }, () => ({ gf: 0, ga: 0, n: 0 }));
+  for (const r of Object.values(matchData.results || {})) {
+    if (!r || !r.ok || !r.matches) continue;
+    for (const m of r.matches) {
+      if (m.date < PRIMARY_PERIOD_START) continue;
+      const p = pool[adjBinIdx(getOpponentElo(m.opponentName, eloByCode))];
+      p.gf += m.ourScore; p.ga += m.oppScore; p.n++;
+    }
+  }
+  const exp = pool.map(p => ({ gf: p.n ? p.gf / p.n : 1.4, ga: p.n ? p.ga / p.n : 1.0 }));
+  const out = {};
+  for (const [code, r] of Object.entries(matchData.results || {})) {
+    if (!r || !r.ok || !r.matches) continue;
+    const ms = r.matches.filter(m => m.date >= PRIMARY_PERIOD_START);
+    if (!ms.length) continue;
+    let aSum = 0, dSum = 0, w = 0;
+    for (const m of ms) {
+      const e = exp[adjBinIdx(getOpponentElo(m.opponentName, eloByCode))];
+      const wt = timeWeight(daysBetween(refDate, m.date));
+      aSum += wt * (m.ourScore / Math.max(0.3, e.gf));
+      dSum += wt * (m.oppScore / Math.max(0.3, e.ga));
+      w += wt;
+    }
+    // Shrink toward 1.0 — the pool average by construction.
+    const nEff = w;
+    out[code] = {
+      adjA: +(((aSum / w) * nEff + 1.0 * SHRINK_K) / (nEff + SHRINK_K)).toFixed(2),
+      adjD: +(((dSum / w) * nEff + 1.0 * SHRINK_K) / (nEff + SHRINK_K)).toFixed(2)
+    };
+  }
+  return out;
+}
+
 // === v4: Sanity checks ===
 function runSanityChecks(updatedTeams, prevTeams, totalMatches) {
   const errors = [];
@@ -436,6 +489,9 @@ function main() {
     rawByCode[code] = computeRawAtkDef(matchResult.matches, eloByCode, refDate);
   }
   
+  // v4.3: opponent-adjusted indices (for ORIGINAL Power display rating)
+  const ADJ = computeAdjustedIndices(matchData, eloByCode, refDate);
+
   // === Compute GLOBAL means from raw values ===
   const rawArray = Object.values(rawByCode);
   const GLOBAL = computeGlobalMeans(rawArray);
@@ -486,6 +542,7 @@ function main() {
       atk: { s: +atkS.toFixed(2), w: +atkW.toFixed(2) },
       def: { s: +defS.toFixed(2), w: +defW.toFixed(2) },
       ppgW: +ppgW.toFixed(2), // v4.2: weak-stratum points per game (3/1/0, time-decayed, shrunk)
+      ...(ADJ[code] ? { adjA: ADJ[code].adjA, adjD: ADJ[code].adjD } : {}), // v4.3: opponent-adjusted goal indices
       ...(fifaInfo ? { fifaR: fifaInfo.rank, fifaP: fifaInfo.points } : {})
     };
     updatedTeams.push(updated);
