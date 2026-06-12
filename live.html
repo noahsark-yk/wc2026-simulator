@@ -2552,7 +2552,7 @@ const T = {
     ratings_summary: 'レーティング一覧を表示する',
     ratings_note: '※ Elo は clubElo、Opta は Opta Power Rankings、FIFA は FIFA 公式ライブランキングの値です。Original は2022年以降の実試合の得失点効率（相手のレベルで調整済み）と勝点獲得効率から算出した独自指標。現在選択中のレーティングでソート、注目国はハイライト。',
     src_original_label: 'Original Power',
-    src_original_desc: '相手のレベルで調整した得失点効率と勝点獲得効率（取りこぼしを反映）から算出した独自指標。Original モードでは試合のスコアそのものが勝敗を決め、外部レーティングは結果に一切関与しない',
+    src_original_desc: '相手のレベルで調整した得失点効率と勝点獲得効率（期待勝点との比）から算出した独自指標。Original モードでは試合のスコアそのものが勝敗を決め、外部レーティングは結果に一切関与しない',
     ratings_col_country: '国',
     ratings_col_group: '組',
     modal_phase2_status: '最頻試合のスコアを確定中…',
@@ -2682,7 +2682,7 @@ const T = {
     ratings_summary: 'Show all team ratings',
     ratings_note: 'Note: Elo from clubElo, Opta from Opta Power Rankings, FIFA from the official FIFA live ranking. Original is our own index computed from opponent-adjusted scoring efficiency and points-per-game of real matches since 2022. Sorted by the currently selected rating; the focus country is highlighted.',
     src_original_label: 'Original Power',
-    src_original_desc: 'Composite index of opponent-adjusted scoring efficiency plus win-through efficiency (points per game vs weaker sides); in Original mode the sampled score itself decides the winner — no external rating touches the outcome',
+    src_original_desc: 'Composite index of opponent-adjusted scoring efficiency plus win-points efficiency (points earned vs expectation); in Original mode the sampled score itself decides the winner — no external rating touches the outcome',
     ratings_col_country: 'Country',
     ratings_col_group: 'Grp',
     modal_phase2_status: 'Finalizing the most likely scores for each bracket match…',
@@ -2812,7 +2812,7 @@ const T = {
     ratings_summary: 'Ver todas las valoraciones',
     ratings_note: 'Nota: Elo de clubElo, Opta de Opta Power Rankings, FIFA del ranking oficial en vivo de la FIFA. Original es un índice propio calculado a partir de la eficiencia goleadora ajustada al rival y los puntos por partido de partidos reales desde 2022. Ordenado según el ranking seleccionado; el país destacado aparece resaltado.',
     src_original_label: 'Original Power',
-    src_original_desc: 'Índice compuesto de eficiencia goleadora ajustada al rival más eficiencia de puntos (puntos por partido ante rivales menores); en el modo Original el propio marcador simulado decide al ganador, sin que intervenga ningún ranking externo',
+    src_original_desc: 'Índice compuesto de eficiencia goleadora ajustada al rival más eficiencia de puntos (puntos ganados frente a lo esperado); en el modo Original el propio marcador simulado decide al ganador, sin que intervenga ningún ranking externo',
     ratings_col_country: 'País',
     ratings_col_group: 'Grp',
     modal_phase2_status: 'Finalizando los marcadores más probables de cada partido del cuadro…',
@@ -2942,7 +2942,7 @@ const T = {
     ratings_summary: 'Ver todas as avaliações',
     ratings_note: 'Obs.: Elo do clubElo, Opta do Opta Power Rankings, FIFA do ranking oficial ao vivo da FIFA. Original é um índice próprio calculado a partir da eficiência de gols ajustada ao adversário e dos pontos por jogo de jogos reais desde 2022. Ordenado pelo ranking selecionado; o país em destaque aparece realçado.',
     src_original_label: 'Original Power',
-    src_original_desc: 'Índice composto de eficiência de gols ajustada ao adversário mais eficiência de pontos (pontos por jogo contra rivais mais fracos); no modo Original o próprio placar simulado decide o vencedor, sem nenhum ranking externo no resultado',
+    src_original_desc: 'Índice composto de eficiência de gols ajustada ao adversário mais eficiência de pontos (pontos ganhos frente ao esperado); no modo Original o próprio placar simulado decide o vencedor, sem nenhum ranking externo no resultado',
     ratings_col_country: 'País',
     ratings_col_group: 'Grp',
     modal_phase2_status: 'Finalizando os placares mais prováveis de cada partida do chaveamento…',
@@ -3072,7 +3072,7 @@ const T = {
     ratings_summary: 'Voir toutes les notes',
     ratings_note: 'Note : Elo issu de clubElo, Opta issu d’Opta Power Rankings, FIFA issu du classement officiel en direct de la FIFA. Original est un indice maison calculé à partir de l’efficacité aux buts ajustée à l’adversaire et des points par match de matchs réels depuis 2022. Trié selon le classement sélectionné ; le pays mis en avant est surligné.',
     src_original_label: 'Original Power',
-    src_original_desc: 'Indice composite d’efficacité aux buts ajustée à l’adversaire et d’efficacité aux points (points par match contre des adversaires plus faibles) ; en mode Original, le score simulé décide lui-même du vainqueur, sans aucun classement externe',
+    src_original_desc: 'Indice composite d’efficacité aux buts ajustée à l’adversaire et d’efficacité aux points (points gagnés par rapport à l’attendu) ; en mode Original, le score simulé décide lui-même du vainqueur, sans aucun classement externe',
     ratings_col_country: 'Pays',
     ratings_col_group: 'Gr',
     modal_phase2_status: 'Finalisation des scores les plus probables pour chaque match du tableau…',
@@ -3202,7 +3202,7 @@ const T = {
     ratings_summary: 'Alle Ratings anzeigen',
     ratings_note: 'Hinweis: Elo aus clubElo, Opta aus Opta Power Rankings, FIFA aus der offiziellen Live-Rangliste der FIFA. Original ist ein eigener Index aus gegnerbereinigter Toreffizienz und Punkten pro Spiel realer Spiele seit 2022. Sortiert nach dem aktuell ausgewählten Rating; das Fokusland ist hervorgehoben.',
     src_original_label: 'Original Power',
-    src_original_desc: 'Kompositindex aus gegnerbereinigter Toreffizienz plus Punkteeffizienz (Punkte pro Spiel gegen schwächere Gegner); im Original-Modus entscheidet der simulierte Spielstand selbst über den Sieger — kein externes Rating beeinflusst das Ergebnis',
+    src_original_desc: 'Kompositindex aus gegnerbereinigter Toreffizienz plus Punkteeffizienz (Punkte im Verhältnis zur Erwartung); im Original-Modus entscheidet der simulierte Spielstand selbst über den Sieger — kein externes Rating beeinflusst das Ergebnis',
     ratings_col_country: 'Land',
     ratings_col_group: 'Gr',
     modal_phase2_status: 'Wahrscheinlichste Ergebnisse für jedes Spiel werden ermittelt…',
@@ -3332,7 +3332,7 @@ const T = {
     ratings_summary: 'Mostra tutte le valutazioni',
     ratings_note: 'Nota: Elo da clubElo, Opta da Opta Power Rankings, FIFA dal ranking ufficiale in tempo reale della FIFA. Original è un indice proprietario calcolato dall’efficienza realizzativa aggiustata per l’avversario e dai punti a partita di partite reali dal 2022. Ordinato per il ranking selezionato; il paese evidenziato è in risalto.',
     src_original_label: 'Original Power',
-    src_original_desc: 'Indice composito di efficienza realizzativa aggiustata per l’avversario più efficienza punti (punti a partita contro avversari più deboli); in modalità Original è il punteggio simulato stesso a decidere il vincitore, senza alcun ranking esterno',
+    src_original_desc: 'Indice composito di efficienza realizzativa aggiustata per l’avversario più efficienza punti (punti conquistati rispetto all’atteso); in modalità Original è il punteggio simulato stesso a decidere il vincitore, senza alcun ranking esterno',
     ratings_col_country: 'Paese',
     ratings_col_group: 'Gr',
     modal_phase2_status: 'Finalizzazione dei risultati più probabili per ogni partita del tabellone…',
@@ -3462,7 +3462,7 @@ const T = {
     ratings_summary: '모든 레이팅 보기',
     ratings_note: '※ Elo는 clubElo, Opta는 Opta Power Rankings, FIFA는 FIFA 공식 라이브 랭킹 기준입니다. Original은 2022년 이후 실제 경기의 상대 수준 보정 득실 효율과 승점 획득 효율로 산출한 자체 지표입니다. 현재 선택한 레이팅 기준 정렬, 주목국은 강조 표시됩니다.',
     src_original_label: 'Original Power',
-    src_original_desc: '상대 수준으로 보정한 득실 효율과 승점 획득 효율(승점 손실 반영)로 산출한 종합 지표. Original 모드에서는 시뮬레이션된 스코어 자체가 승패를 결정하며 외부 레이팅은 결과에 관여하지 않음',
+    src_original_desc: '상대 수준으로 보정한 득실 효율과 승점 획득 효율(기대 승점 대비)로 산출한 종합 지표. Original 모드에서는 시뮬레이션된 스코어 자체가 승패를 결정하며 외부 레이팅은 결과에 관여하지 않음',
     ratings_col_country: '국가',
     ratings_col_group: '조',
     modal_phase2_status: '각 대진 경기의 가장 가능성 높은 스코어 확정 중…',
@@ -3592,7 +3592,7 @@ const T = {
     ratings_summary: '查看所有评分',
     ratings_note: '※ Elo 基于 clubElo,Opta 基于 Opta Power Rankings,FIFA 来自 FIFA 官方实时排名。Original 是基于2022年以来真实比赛的对手水平调整后得失球效率与场均积分效率计算的自有指标。按当前选中的评分排序,关注国家高亮显示。',
     src_original_label: 'Original Power',
-    src_original_desc: '由对手水平调整后的得失球效率与场均积分效率（反映丢分）计算的综合指标;在 Original 模式下,模拟比分本身决定胜负,外部排名完全不参与结果',
+    src_original_desc: '由对手水平调整后的得失球效率与积分效率（相对期望胜点）计算的综合指标;在 Original 模式下,模拟比分本身决定胜负,外部排名完全不参与结果',
     ratings_col_country: '国家',
     ratings_col_group: '组',
     modal_phase2_status: '正在确定对阵图各场比赛最可能的比分…',
@@ -3722,7 +3722,7 @@ const T = {
     ratings_summary: 'عرض جميع التقييمات',
     ratings_note: 'ملاحظة: Elo مأخوذ من clubElo، وOpta من Opta Power Rankings، وFIFA من التصنيف الرسمي المباشر لـ FIFA. أما Original فهو مؤشر خاص يُحسب من كفاءة الأهداف المعدّلة حسب مستوى الخصم والنقاط لكل مباراة من مباريات حقيقية منذ 2022. مرتبة حسب التصنيف المختار حاليًا؛ الدولة المحددة مظللة.',
     src_original_label: 'Original Power',
-    src_original_desc: 'مؤشر مركّب من كفاءة الأهداف المعدّلة حسب مستوى الخصم مع كفاءة النقاط (النقاط لكل مباراة ضد الخصوم الأضعف)؛ في وضع Original النتيجة المحاكاة نفسها تحدد الفائز دون أي تصنيف خارجي',
+    src_original_desc: 'مؤشر مركّب من كفاءة الأهداف المعدّلة حسب مستوى الخصم مع كفاءة النقاط (النقاط مقارنة بالمتوقع)؛ في وضع Original النتيجة المحاكاة نفسها تحدد الفائز دون أي تصنيف خارجي',
     ratings_col_country: 'البلد',
     ratings_col_group: 'مج',
     modal_phase2_status: 'جاري تحديد النتائج الأكثر احتمالاً لكل مباراة في الشبكة…',
@@ -3915,9 +3915,15 @@ function computeOriginalRatings() {
     const defC = Math.max(0.7, Math.min(1.4, def));
     return atkC / LEAGUE_AVG_ATK - defC / LEAGUE_AVG_DEF;
   }));
-  // Missing ppgW (old teams.json) degrades gracefully: z=0 for everyone →
-  // ranking falls back to pure goal efficiency.
-  const zPpg = std(TEAMS.map(t => (typeof t.ppgW === 'number') ? t.ppgW : null));
+  // v4.4: win-points efficiency = actual / expected points for the opponent
+  // level, ALL matches — supersedes the weak-only PPG. Draws and wins against
+  // elite sides now count as the achievements they are (France's 0-0 POR,
+  // 0-0 NED, 3-3 ARG in the 2022 final were invisible to weak-only PPG),
+  // while dropped points vs weak sides stay penalized. Falls back to ppgW
+  // (older teams.json), then to goal efficiency alone.
+  const zPpg = std(TEAMS.map(t =>
+    (typeof t.wpe === 'number') ? t.wpe :
+    (typeof t.ppgW === 'number') ? t.ppgW : null));
   const zComb = std(zEff.map((v, i) => 0.5 * v + 0.5 * zPpg[i]));
   TEAMS.forEach((t, i) => {
     t.orig = Math.round(Math.max(0, Math.min(100, 50 + 25 * zComb[i])) * 10) / 10;

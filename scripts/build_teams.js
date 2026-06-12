@@ -267,33 +267,14 @@ function computeRawAtkDef(allMatches, eloByCode, refDate) {
   if (strongPeriod === '2020+') flags.push('strong_extended_to_2020');
   if (weakPeriod === '2020+') flags.push('weak_extended_to_2020');
 
-  // v4.2: weak-stratum points-per-game (win-through efficiency).
-  // Captures what goal-average atk/def structurally cannot: dropped points
-  // against weaker sides. A 0-0 slip is invisible to λ (no goals either way)
-  // but costs 2 points; a 7-0 rout inflates λ but earns the same 3 points
-  // as a 1-0. PPG counts results the way the table does. Weak stratum only:
-  // drawing with a STRONG side is not a slip, and strong samples are too
-  // thin for most non-European sides (the very problem v4.1 fixed).
-  const toPts = (m) => ({ ...m, pts: m.ourScore > m.oppScore ? 3 : m.ourScore === m.oppScore ? 1 : 0 });
-  const weakPpg = weightedAvg(weakUsed.map(toPts), 'pts', refDate);
-  let ppgW, nPpg;
-  if (weakPpg.nEff >= FALLBACK_THRESHOLD) {
-    ppgW = weakPpg.value;
-    nPpg = weakPpg.nEff;
-  } else {
-    // v4.1 philosophy: fall back to overall PPG, but shrink with the TRUE
-    // thin n_eff so the prior dominates.
-    const overallPpg = weightedAvg(matches2020.map(toPts), 'pts', refDate);
-    flags.push(`ppg_overall_fallback(n_eff=${weakPpg.nEff.toFixed(1)})`);
-    ppgW = overallPpg.value;
-    nPpg = weakPpg.nEff;
-  }
+  // (v4.2's weak-only PPG lived here; superseded in v4.4 by the win-points
+  // efficiency inside computeAdjustedIndices — all matches, expected-points
+  // ratio — which also credits draws/wins against elite sides.)
 
   return {
     atk: { s: atkS, w: atkW },
     def: { s: defS, w: defW },
-    ppg: { w: ppgW },
-    nEff: { strong: nStrong, weak: nWeak, ppg: nPpg },
+    nEff: { strong: nStrong, weak: nWeak },
     sample: {
       strongPhys: strongUsed.length,
       weakPhys: weakUsed.length,
@@ -313,7 +294,6 @@ function computeGlobalMeans(rawResults) {
     atkW: mean(valid(rawResults.map(r => r.atk.w))),
     defS: mean(valid(rawResults.map(r => r.def.s))),
     defW: mean(valid(rawResults.map(r => r.def.w))),
-    ppgW: mean(valid(rawResults.map(r => r.ppg && r.ppg.w))), // v4.2
   };
 }
 
@@ -344,34 +324,46 @@ function adjBinIdx(elo) {
   return i; // 0..6
 }
 function computeAdjustedIndices(matchData, eloByCode, refDate) {
-  const pool = Array.from({ length: 7 }, () => ({ gf: 0, ga: 0, n: 0 }));
+  const matchPts = (m) => m.ourScore > m.oppScore ? 3 : m.ourScore === m.oppScore ? 1 : 0;
+  const pool = Array.from({ length: 7 }, () => ({ gf: 0, ga: 0, p: 0, n: 0 }));
   for (const r of Object.values(matchData.results || {})) {
     if (!r || !r.ok || !r.matches) continue;
     for (const m of r.matches) {
       if (m.date < PRIMARY_PERIOD_START) continue;
       const p = pool[adjBinIdx(getOpponentElo(m.opponentName, eloByCode))];
-      p.gf += m.ourScore; p.ga += m.oppScore; p.n++;
+      p.gf += m.ourScore; p.ga += m.oppScore; p.p += matchPts(m); p.n++;
     }
   }
-  const exp = pool.map(p => ({ gf: p.n ? p.gf / p.n : 1.4, ga: p.n ? p.ga / p.n : 1.0 }));
+  const exp = pool.map(p => ({
+    gf: p.n ? p.gf / p.n : 1.4,
+    ga: p.n ? p.ga / p.n : 1.0,
+    p: p.n ? p.p / p.n : 1.4
+  }));
   const out = {};
   for (const [code, r] of Object.entries(matchData.results || {})) {
     if (!r || !r.ok || !r.matches) continue;
     const ms = r.matches.filter(m => m.date >= PRIMARY_PERIOD_START);
     if (!ms.length) continue;
-    let aSum = 0, dSum = 0, w = 0;
+    let aSum = 0, dSum = 0, pSum = 0, w = 0;
     for (const m of ms) {
       const e = exp[adjBinIdx(getOpponentElo(m.opponentName, eloByCode))];
       const wt = timeWeight(daysBetween(refDate, m.date));
       aSum += wt * (m.ourScore / Math.max(0.3, e.gf));
       dSum += wt * (m.oppScore / Math.max(0.3, e.ga));
+      // v4.4: win-points efficiency — actual points vs what an average
+      // finalist takes from that opponent level, ALL matches. Supersedes the
+      // weak-only PPG: a 0-0 with Portugal or a 3-3 with Argentina is an
+      // achievement (expected ~1.1-1.3 pts, earned 1), not a non-event, while
+      // a 0-0 with Sudan stays the dropped 2 points it is.
+      pSum += wt * (matchPts(m) / Math.max(0.2, e.p));
       w += wt;
     }
     // Shrink toward 1.0 — the pool average by construction.
     const nEff = w;
     out[code] = {
       adjA: +(((aSum / w) * nEff + 1.0 * SHRINK_K) / (nEff + SHRINK_K)).toFixed(2),
-      adjD: +(((dSum / w) * nEff + 1.0 * SHRINK_K) / (nEff + SHRINK_K)).toFixed(2)
+      adjD: +(((dSum / w) * nEff + 1.0 * SHRINK_K) / (nEff + SHRINK_K)).toFixed(2),
+      wpe: +(((pSum / w) * nEff + 1.0 * SHRINK_K) / (nEff + SHRINK_K)).toFixed(2)
     };
   }
   return out;
@@ -524,13 +516,14 @@ function main() {
       continue;
     }
     
+    // v4.4: drop the superseded weak-only PPG field if inherited from an
+    // older teams.json (clients prefer wpe and only fall back to ppgW).
+    delete team.ppgW;
     // Shrink each of 4 values toward its corresponding GLOBAL mean
     const atkS = shrunk(raw.atk.s, raw.nEff.strong, GLOBAL.atkS, SHRINK_K);
     const atkW = shrunk(raw.atk.w, raw.nEff.weak, GLOBAL.atkW, SHRINK_K);
     const defS = shrunk(raw.def.s, raw.nEff.strong, GLOBAL.defS, SHRINK_K);
     const defW = shrunk(raw.def.w, raw.nEff.weak, GLOBAL.defW, SHRINK_K);
-    // v4.2: weak-stratum PPG (win-through efficiency), same shrinkage scheme
-    const ppgW = shrunk(raw.ppg.w, raw.nEff.ppg, GLOBAL.ppgW, SHRINK_K);
     
     const newElo = eloByCode[code] != null ? eloByCode[code] : team.elo;
     const fifaInfo = fifaByCode[code];
@@ -541,8 +534,7 @@ function main() {
       f: TLA_TO_ISO2[code] || team.f || '',
       atk: { s: +atkS.toFixed(2), w: +atkW.toFixed(2) },
       def: { s: +defS.toFixed(2), w: +defW.toFixed(2) },
-      ppgW: +ppgW.toFixed(2), // v4.2: weak-stratum points per game (3/1/0, time-decayed, shrunk)
-      ...(ADJ[code] ? { adjA: ADJ[code].adjA, adjD: ADJ[code].adjD } : {}), // v4.3: opponent-adjusted goal indices
+      ...(ADJ[code] ? { adjA: ADJ[code].adjA, adjD: ADJ[code].adjD, wpe: ADJ[code].wpe } : {}), // v4.3/v4.4: opponent-adjusted goal + win-points indices
       ...(fifaInfo ? { fifaR: fifaInfo.rank, fifaP: fifaInfo.points } : {})
     };
     updatedTeams.push(updated);

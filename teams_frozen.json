@@ -1,11 +1,11 @@
 {
   "lastUpdated": "2026-06-11",
-  "source": "Frozen at kickoff: 2026-06-11 inputs (eloratings.net + football-ranking.com), rebuilt with builder v4.3 (fallback-shrinkage fix + weak-stratum PPG + opponent-adjusted indices)",
+  "source": "Frozen at kickoff: 2026-06-11 inputs, rebuilt with builder v4.4 (opponent-adjusted goal + win-points indices)",
   "teams": [
     {
       "c": "MEX",
       "opta": 77.2,
-      "elo": 1875,
+      "elo": 1881,
       "g": "A",
       "f": "mx",
       "atk": {
@@ -14,33 +14,33 @@
       },
       "def": {
         "s": 1.51,
-        "w": 0.59
+        "w": 0.57
       },
-      "fifaR": 14,
-      "fifaP": 1687.48,
-      "ppgW": 2.31,
+      "fifaR": 13,
+      "fifaP": 1700.98,
       "adjA": 0.92,
-      "adjD": 0.81
+      "adjD": 0.79,
+      "wpe": 1.07
     },
     {
       "c": "RSA",
       "opta": 64.8,
-      "elo": 1517,
+      "elo": 1511,
       "g": "A",
       "f": "za",
       "atk": {
-        "s": 1.24,
+        "s": 1.25,
         "w": 1.49
       },
       "def": {
-        "s": 1.35,
+        "s": 1.28,
         "w": 0.79
       },
-      "fifaR": 60,
-      "fifaP": 1428.38,
-      "ppgW": 1.73,
-      "adjA": 0.74,
-      "adjD": 1.1
+      "fifaR": 61,
+      "fifaP": 1414.88,
+      "adjA": 0.71,
+      "adjD": 1.12,
+      "wpe": 0.78
     },
     {
       "c": "KOR",
@@ -57,10 +57,10 @@
         "w": 0.66
       },
       "fifaR": 25,
-      "fifaP": 1591.63,
-      "ppgW": 2.27,
+      "fifaP": 1587.55,
       "adjA": 0.99,
-      "adjD": 0.94
+      "adjD": 0.94,
+      "wpe": 1
     },
     {
       "c": "CZE",
@@ -76,11 +76,11 @@
         "s": 1.74,
         "w": 0.86
       },
-      "fifaR": 40,
-      "fifaP": 1505.74,
-      "ppgW": 2.15,
+      "fifaR": 38,
+      "fifaP": 1509.82,
       "adjA": 0.96,
-      "adjD": 1.28
+      "adjD": 1.28,
+      "wpe": 0.92
     },
     {
       "c": "CAN",
@@ -98,9 +98,9 @@
       },
       "fifaR": 30,
       "fifaP": 1559.48,
-      "ppgW": 2.07,
       "adjA": 0.83,
-      "adjD": 0.87
+      "adjD": 0.87,
+      "wpe": 0.95
     },
     {
       "c": "BIH",
@@ -113,14 +113,14 @@
         "w": 1.69
       },
       "def": {
-        "s": 1.99,
+        "s": 2,
         "w": 0.94
       },
       "fifaR": 64,
       "fifaP": 1387.22,
-      "ppgW": 1.74,
       "adjA": 0.78,
-      "adjD": 1.37
+      "adjD": 1.37,
+      "wpe": 0.71
     },
     {
       "c": "QAT",
@@ -138,9 +138,9 @@
       },
       "fifaR": 56,
       "fifaP": 1450.31,
-      "ppgW": 1.4,
       "adjA": 0.68,
-      "adjD": 1.71
+      "adjD": 1.71,
+      "wpe": 0.67
     },
     {
       "c": "SUI",
@@ -158,9 +158,9 @@
       },
       "fifaR": 19,
       "fifaP": 1650.06,
-      "ppgW": 2.03,
-      "adjA": 1.19,
-      "adjD": 1.02
+      "adjA": 1.2,
+      "adjD": 1.02,
+      "wpe": 1
     },
     {
       "c": "BRA",
@@ -178,9 +178,9 @@
       },
       "fifaR": 6,
       "fifaP": 1765.86,
-      "ppgW": 2.18,
       "adjA": 1.38,
-      "adjD": 0.85
+      "adjD": 0.85,
+      "wpe": 1.25
     },
     {
       "c": "MAR",
@@ -198,9 +198,9 @@
       },
       "fifaR": 7,
       "fifaP": 1755.1,
-      "ppgW": 2.54,
       "adjA": 1.04,
-      "adjD": 0.52
+      "adjD": 0.52,
+      "wpe": 1.18
     },
     {
       "c": "HAI",
@@ -218,9 +218,9 @@
       },
       "fifaR": 83,
       "fifaP": 1293.1,
-      "ppgW": 1.79,
       "adjA": 1.02,
-      "adjD": 1.5
+      "adjD": 1.51,
+      "wpe": 0.8
     },
     {
       "c": "SCO",
@@ -238,9 +238,9 @@
       },
       "fifaR": 42,
       "fifaP": 1503.34,
-      "ppgW": 1.91,
       "adjA": 1.02,
-      "adjD": 1.17
+      "adjD": 1.17,
+      "wpe": 0.9
     },
     {
       "c": "USA",
@@ -258,9 +258,9 @@
       },
       "fifaR": 17,
       "fifaP": 1671.23,
-      "ppgW": 2.01,
       "adjA": 1.11,
-      "adjD": 1.14
+      "adjD": 1.14,
+      "wpe": 0.95
     },
     {
       "c": "PAR",
@@ -278,9 +278,9 @@
       },
       "fifaR": 41,
       "fifaP": 1505.35,
-      "ppgW": 1.82,
       "adjA": 0.79,
-      "adjD": 0.86
+      "adjD": 0.86,
+      "wpe": 0.96
     },
     {
       "c": "AUS",
@@ -298,9 +298,9 @@
       },
       "fifaR": 27,
       "fifaP": 1579.34,
-      "ppgW": 2.22,
       "adjA": 0.91,
-      "adjD": 0.83
+      "adjD": 0.83,
+      "wpe": 0.98
     },
     {
       "c": "TUR",
@@ -318,9 +318,9 @@
       },
       "fifaR": 22,
       "fifaP": 1605.73,
-      "ppgW": 2.42,
       "adjA": 1.19,
-      "adjD": 1.14
+      "adjD": 1.14,
+      "wpe": 1.14
     },
     {
       "c": "GER",
@@ -338,9 +338,9 @@
       },
       "fifaR": 10,
       "fifaP": 1735.77,
-      "ppgW": 2.41,
       "adjA": 1.46,
-      "adjD": 0.91
+      "adjD": 0.91,
+      "wpe": 1.25
     },
     {
       "c": "CUW",
@@ -358,9 +358,9 @@
       },
       "fifaR": 82,
       "fifaP": 1294.77,
-      "ppgW": 1.6,
       "adjA": 0.93,
-      "adjD": 1.55
+      "adjD": 1.55,
+      "wpe": 0.73
     },
     {
       "c": "CIV",
@@ -378,9 +378,9 @@
       },
       "fifaR": 33,
       "fifaP": 1540.87,
-      "ppgW": 2.09,
       "adjA": 0.97,
-      "adjD": 0.84
+      "adjD": 0.84,
+      "wpe": 1.07
     },
     {
       "c": "ECU",
@@ -398,9 +398,9 @@
       },
       "fifaR": 23,
       "fifaP": 1598.52,
-      "ppgW": 2.2,
       "adjA": 0.71,
-      "adjD": 0.61
+      "adjD": 0.61,
+      "wpe": 1.04
     },
     {
       "c": "NED",
@@ -418,9 +418,9 @@
       },
       "fifaR": 8,
       "fifaP": 1753.57,
-      "ppgW": 2.34,
       "adjA": 1.36,
-      "adjD": 0.85
+      "adjD": 0.85,
+      "wpe": 1.16
     },
     {
       "c": "JPN",
@@ -438,9 +438,9 @@
       },
       "fifaR": 18,
       "fifaP": 1661.58,
-      "ppgW": 2.37,
       "adjA": 1.32,
-      "adjD": 0.66
+      "adjD": 0.66,
+      "wpe": 1.27
     },
     {
       "c": "SWE",
@@ -456,11 +456,11 @@
         "s": 2.07,
         "w": 1.1
       },
-      "fifaR": 38,
+      "fifaR": 39,
       "fifaP": 1509.79,
-      "ppgW": 2,
       "adjA": 1.1,
-      "adjD": 1.45
+      "adjD": 1.45,
+      "wpe": 0.85
     },
     {
       "c": "TUN",
@@ -478,9 +478,9 @@
       },
       "fifaR": 45,
       "fifaP": 1476.41,
-      "ppgW": 1.97,
       "adjA": 0.74,
-      "adjD": 1
+      "adjD": 1,
+      "wpe": 0.85
     },
     {
       "c": "BEL",
@@ -498,9 +498,9 @@
       },
       "fifaR": 9,
       "fifaP": 1742.24,
-      "ppgW": 2.19,
       "adjA": 1.33,
-      "adjD": 0.84
+      "adjD": 0.84,
+      "wpe": 1.09
     },
     {
       "c": "EGY",
@@ -518,9 +518,9 @@
       },
       "fifaR": 29,
       "fifaP": 1562.37,
-      "ppgW": 2.1,
       "adjA": 0.78,
-      "adjD": 0.88
+      "adjD": 0.88,
+      "wpe": 0.94
     },
     {
       "c": "IRN",
@@ -534,13 +534,13 @@
       },
       "def": {
         "s": 1.36,
-        "w": 0.76
+        "w": 0.75
       },
       "fifaR": 20,
       "fifaP": 1619.58,
-      "ppgW": 2.09,
       "adjA": 1.04,
-      "adjD": 1.04
+      "adjD": 1.04,
+      "wpe": 1
     },
     {
       "c": "NZL",
@@ -558,9 +558,9 @@
       },
       "fifaR": 85,
       "fifaP": 1275.58,
-      "ppgW": 1.65,
       "adjA": 0.97,
-      "adjD": 1.14
+      "adjD": 1.14,
+      "wpe": 0.71
     },
     {
       "c": "ESP",
@@ -578,9 +578,9 @@
       },
       "fifaR": 2,
       "fifaP": 1874.71,
-      "ppgW": 2.4,
       "adjA": 1.69,
-      "adjD": 0.7
+      "adjD": 0.7,
+      "wpe": 1.51
     },
     {
       "c": "CPV",
@@ -598,9 +598,9 @@
       },
       "fifaR": 67,
       "fifaP": 1371.11,
-      "ppgW": 1.81,
       "adjA": 0.82,
-      "adjD": 1.09
+      "adjD": 1.09,
+      "wpe": 0.86
     },
     {
       "c": "KSA",
@@ -616,11 +616,11 @@
         "s": 1.28,
         "w": 0.97
       },
-      "fifaR": 61,
+      "fifaR": 60,
       "fifaP": 1423.88,
-      "ppgW": 1.7,
       "adjA": 0.63,
-      "adjD": 1.22
+      "adjD": 1.22,
+      "wpe": 0.74
     },
     {
       "c": "URU",
@@ -638,9 +638,9 @@
       },
       "fifaR": 16,
       "fifaP": 1673.07,
-      "ppgW": 1.94,
       "adjA": 0.86,
-      "adjD": 0.72
+      "adjD": 0.72,
+      "wpe": 1.02
     },
     {
       "c": "FRA",
@@ -658,9 +658,9 @@
       },
       "fifaR": 3,
       "fifaP": 1870.7,
-      "ppgW": 2.24,
       "adjA": 1.39,
-      "adjD": 0.86
+      "adjD": 0.86,
+      "wpe": 1.37
     },
     {
       "c": "SEN",
@@ -678,9 +678,9 @@
       },
       "fifaR": 15,
       "fifaP": 1684.07,
-      "ppgW": 2.29,
       "adjA": 1.07,
-      "adjD": 0.66
+      "adjD": 0.66,
+      "wpe": 1.15
     },
     {
       "c": "IRQ",
@@ -693,14 +693,14 @@
         "w": 1.41
       },
       "def": {
-        "s": 1.31,
+        "s": 1.32,
         "w": 0.89
       },
       "fifaR": 57,
       "fifaP": 1446.28,
-      "ppgW": 1.88,
       "adjA": 0.67,
-      "adjD": 1.17
+      "adjD": 1.17,
+      "wpe": 0.85
     },
     {
       "c": "NOR",
@@ -718,9 +718,9 @@
       },
       "fifaR": 31,
       "fifaP": 1557.44,
-      "ppgW": 2.33,
       "adjA": 1.35,
-      "adjD": 0.98
+      "adjD": 0.98,
+      "wpe": 1.11
     },
     {
       "c": "ARG",
@@ -738,9 +738,9 @@
       },
       "fifaR": 1,
       "fifaP": 1877.27,
-      "ppgW": 2.7,
       "adjA": 1.28,
-      "adjD": 0.49
+      "adjD": 0.49,
+      "wpe": 1.42
     },
     {
       "c": "ALG",
@@ -758,9 +758,9 @@
       },
       "fifaR": 28,
       "fifaP": 1571.03,
-      "ppgW": 2.28,
       "adjA": 1.05,
-      "adjD": 0.89
+      "adjD": 0.89,
+      "wpe": 1.11
     },
     {
       "c": "AUT",
@@ -778,9 +778,9 @@
       },
       "fifaR": 24,
       "fifaP": 1597.4,
-      "ppgW": 2.29,
       "adjA": 1.19,
-      "adjD": 0.82
+      "adjD": 0.82,
+      "wpe": 1.14
     },
     {
       "c": "JOR",
@@ -798,9 +798,9 @@
       },
       "fifaR": 63,
       "fifaP": 1387.74,
-      "ppgW": 1.76,
       "adjA": 0.86,
-      "adjD": 1.35
+      "adjD": 1.35,
+      "wpe": 0.75
     },
     {
       "c": "POR",
@@ -813,14 +813,14 @@
         "w": 2.58
       },
       "def": {
-        "s": 1.15,
+        "s": 1.16,
         "w": 0.83
       },
       "fifaR": 5,
       "fifaP": 1767.85,
-      "ppgW": 2.38,
       "adjA": 1.44,
-      "adjD": 0.86
+      "adjD": 0.86,
+      "wpe": 1.32
     },
     {
       "c": "COD",
@@ -833,14 +833,14 @@
         "w": 1.44
       },
       "def": {
-        "s": 1.36,
+        "s": 1.37,
         "w": 0.54
       },
       "fifaR": 46,
       "fifaP": 1474.43,
-      "ppgW": 2.06,
       "adjA": 0.72,
-      "adjD": 0.77
+      "adjD": 0.77,
+      "wpe": 0.92
     },
     {
       "c": "UZB",
@@ -858,9 +858,9 @@
       },
       "fifaR": 50,
       "fifaP": 1458.73,
-      "ppgW": 2.06,
       "adjA": 0.83,
-      "adjD": 0.99
+      "adjD": 0.99,
+      "wpe": 0.91
     },
     {
       "c": "COL",
@@ -876,11 +876,11 @@
         "s": 1.35,
         "w": 0.62
       },
-      "fifaR": 13,
+      "fifaR": 14,
       "fifaP": 1698.35,
-      "ppgW": 2.34,
       "adjA": 1.29,
-      "adjD": 0.81
+      "adjD": 0.81,
+      "wpe": 1.23
     },
     {
       "c": "ENG",
@@ -898,9 +898,9 @@
       },
       "fifaR": 4,
       "fifaP": 1828.02,
-      "ppgW": 2.51,
       "adjA": 1.21,
-      "adjD": 0.56
+      "adjD": 0.56,
+      "wpe": 1.19
     },
     {
       "c": "CRO",
@@ -918,9 +918,9 @@
       },
       "fifaR": 11,
       "fifaP": 1714.87,
-      "ppgW": 2.34,
       "adjA": 1.08,
-      "adjD": 0.93
+      "adjD": 0.93,
+      "wpe": 1.14
     },
     {
       "c": "GHA",
@@ -938,9 +938,9 @@
       },
       "fifaR": 73,
       "fifaP": 1346.88,
-      "ppgW": 1.65,
       "adjA": 0.7,
-      "adjD": 1.43
+      "adjD": 1.43,
+      "wpe": 0.63
     },
     {
       "c": "PAN",
@@ -958,17 +958,17 @@
       },
       "fifaR": 34,
       "fifaP": 1539.16,
-      "ppgW": 2.03,
       "adjA": 0.83,
-      "adjD": 1.58
+      "adjD": 1.58,
+      "wpe": 0.79
     }
   ],
   "metadata": {
-    "generatedAt": "2026-06-12T09:04:04.558Z",
+    "generatedAt": "2026-06-12T10:35:03.991Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
-    "fifaLastUpdated": "2026-06-11",
+    "fifaLastUpdated": "2026-06-12",
     "fifaTeamCount": 48,
     "methodology": {
       "primaryPeriodStart": "2022-01-01",
@@ -979,9 +979,9 @@
       "halfLifeDays": 540,
       "shrinkK": 5,
       "globalMeans": {
-        "atkS": 1.212,
+        "atkS": 1.211,
         "atkW": 2.046,
-        "defS": 1.458,
+        "defS": 1.459,
         "defW": 0.755
       }
     }
