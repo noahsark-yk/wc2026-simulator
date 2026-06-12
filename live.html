@@ -1014,7 +1014,7 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 }
 .ratings-row {
   display: grid;
-  grid-template-columns: 24px 22px 1fr 28px 52px 52px 52px 52px;
+  grid-template-columns: 24px 22px 1fr 28px 52px 52px 52px 52px 52px;
   align-items: center;
   gap: 8px;
   padding: 6px 10px;
@@ -1051,18 +1051,18 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
   text-align: center;
   font-weight: 500;
 }
-.ratings-row .r-elo, .ratings-row .r-opta, .ratings-row .r-fifa, .ratings-row .r-orig {
+.ratings-row .r-elo, .ratings-row .r-opta, .ratings-row .r-fifa, .ratings-row .r-power, .ratings-row .r-match {
   text-align: right;
   font-variant-numeric: tabular-nums;
   color: var(--text-secondary);
 }
-.ratings-row .r-elo.active, .ratings-row .r-opta.active, .ratings-row .r-fifa.active, .ratings-row .r-orig.active {
+.ratings-row .r-elo.active, .ratings-row .r-opta.active, .ratings-row .r-fifa.active, .ratings-row .r-power.active, .ratings-row .r-match.active {
   color: var(--focus);
   font-weight: 600;
 }
 @media (max-width: 420px) {
   .ratings-row {
-    grid-template-columns: 20px 20px 1fr 24px 44px 44px 44px 44px;
+    grid-template-columns: 20px 20px 1fr 24px 40px 40px 40px 40px 40px;
     gap: 5px;
     padding: 5px 8px;
     font-size: 11px;
@@ -2322,7 +2322,8 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
         <button data-mode="elo" class="active" aria-pressed="true">Elo</button>
         <button data-mode="opta" aria-pressed="false">Opta</button>
         <button data-mode="fifa" aria-pressed="false">FIFA</button>
-        <button data-mode="original" aria-pressed="false">Original</button>
+        <button data-mode="power" aria-pressed="false">Power</button>
+        <button data-mode="original" aria-pressed="false">Matchup</button>
       </div>
     </div>
     <div class="control-group">
@@ -2390,7 +2391,8 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
           <div class="source-item"><strong id="ui-src-elo-label">Elo Rating</strong>: <a href="https://www.eloratings.net/" target="_blank" rel="noopener" class="footer-link">eloratings.net</a> <span class="source-date">(<span id="ui-src-elo-date">2026-04-25</span>, <span id="ui-src-elo-freq">daily updated</span>)</span></div>
           <div class="source-item"><strong id="ui-src-fifa-label">FIFA Ranking</strong>: <a href="https://inside.fifa.com/fifa-world-ranking/men" target="_blank" rel="noopener" class="footer-link">inside.fifa.com</a> <span class="source-date">(<span id="ui-src-fifa-date">2026-04-25</span>, <span id="ui-src-fifa-freq">daily updated</span>)</span></div>
           <div class="source-item"><strong id="ui-src-atkdef-label">Atk/Def values</strong>: <span id="ui-src-atkdef-desc">Computed from <a href="https://www.eloratings.net/" target="_blank" rel="noopener" class="footer-link">eloratings.net</a> match histories since 2022</span></div>
-          <div class="source-item"><strong id="ui-src-original-label">Original Power</strong>: <span id="ui-src-original-desc">Composite index from the Atk/Def values alone; in Original mode the sampled score itself decides the winner — no external rating touches the outcome</span></div>
+          <div class="source-item"><strong id="ui-src-power-label">Power Rating</strong>: <span id="ui-src-power-desc">Opponent-adjusted goal efficiency (50%) + win-points efficiency vs expectation (50%), from the same match histories; Power mode converts rating gaps into win odds with the exact same machinery as Elo mode — same engine, our fuel</span></div>
+          <div class="source-item"><strong id="ui-src-matchup-label">Matchup Data</strong>: <span id="ui-src-matchup-desc">Stratified attack/defence rates (scoring vs strong and weak opponents separately); in Matchup mode the simulation samples a score from these rates and the score itself decides the winner — no ranking touches the outcome</span></div>
           <div class="source-item"><strong id="ui-src-bracket-label">Bracket</strong>: <span id="ui-src-bracket-desc">FIFA World Cup 2026 official format (48 teams, 12 groups)</span></div>
         </div>
       </div>
@@ -2550,9 +2552,11 @@ const T = {
     stage_sf: '準決勝',
     stage_f: '決勝',
     ratings_summary: 'レーティング一覧を表示する',
-    ratings_note: '※ Elo は clubElo、Opta は Opta Power Rankings、FIFA は FIFA 公式ライブランキングの値です。Original は2022年以降の実試合の得失点効率（相手のレベルで調整済み）と勝点獲得効率から算出した独自指標。現在選択中のレーティングでソート、注目国はハイライト。',
-    src_original_label: 'Original Power',
-    src_original_desc: '相手のレベルで調整した得失点効率と勝点獲得効率（期待勝点との比）から算出した独自指標。Original モードでは試合のスコアそのものが勝敗を決め、外部レーティングは結果に一切関与しない',
+    ratings_note: '※ Elo は clubElo、Opta は Opta Power Rankings、FIFA は FIFA 公式ライブランキングの値です。Power と Matchup は2022年以降の実試合約4,000件による独自指標：Power ＝攻守効率（相手レベル調整済み）50%＋期待勝点比50%の総合値で、Power モードはこの差から勝率を計算します。Matchup ＝その攻守効率のみの要約で、Matchup モードはランキングを使わず相手レベル別の実得点データからスコアを直接生成します。選択中のレーティングでソート、注目国はハイライト。',
+    src_power_label: 'Power Rating',
+    src_power_desc: '相手レベル調整済みの攻守効率（50%）と期待勝点比（50%）を合成した独自総合指標。Power モードはこのレーティング差を Elo モードと全く同じ仕組みで勝率に変換する ── エンジンは同じ、燃料はうちの実試合データ',
+    src_matchup_label: 'Matchup Data',
+    src_matchup_desc: '相手レベル別（強豪/弱小）の実得点・失点レート。Matchup モードはこのレートからスコアをサンプリングし、スコアそのものが勝敗を決める ── ランキングは結果に一切関与しない。Matchup 列はこのレートの要約値',
     ratings_col_country: '国',
     ratings_col_group: '組',
     modal_phase2_status: '最頻試合のスコアを確定中…',
@@ -2629,7 +2633,7 @@ const T = {
     footer_data: 'データソース',
     footer_method: '計算方法',
     footer_note: '注記',
-    footer_method_desc: '試合の勝敗は選択中のレーティング(Elo/Opta/FIFA)で決定。得点分布と同勝ち点時のGDタイブレークは対戦相手強度別(強豪/弱小)のatk/defレイヤーで生成。3位抜けはFIFA公式の495シナリオ対応表に従う。開催国(米国・カナダ・メキシコ)には+70 Eloのホームアドバンテージを適用(UIでON/OFF切替可能)。',
+    footer_method_desc: 'シミュレーションには2つのエンジンがあります。レーティング駆動モード(Elo/Opta/FIFA/Power)はレーティング差をロジスティック式で勝率に変換して勝敗を決め、スコアは相手強度別(強豪/弱小)のatk/defレイヤーで生成。スコア駆動モード(Matchup)は逆で、相手レベル別の実得点データから二変量ポアソンでスコアを生成し、そのスコア自体が勝敗を決めます(ランキング不使用)。3位抜けはFIFA公式の495シナリオ対応表に従う。開催国(米国・カナダ・メキシコ)には+70 Elo相当のホームアドバンテージを適用(UIでON/OFF切替可能)。',
     footer_note_desc: 'Germany、Ecuador、Côte d\'Ivoire、BosniaのOpta値はOpta世界順位からの推定値。本シミュレーターは娯楽・分析目的で、実際の結果を予測するものではありません。',
     last_updated: '最終更新',
     unit_matches: '試合',
@@ -2680,9 +2684,11 @@ const T = {
     stage_sf: 'Semi-final',
     stage_f: 'Final',
     ratings_summary: 'Show all team ratings',
-    ratings_note: 'Note: Elo from clubElo, Opta from Opta Power Rankings, FIFA from the official FIFA live ranking. Original is our own index computed from opponent-adjusted scoring efficiency and points-per-game of real matches since 2022. Sorted by the currently selected rating; the focus country is highlighted.',
-    src_original_label: 'Original Power',
-    src_original_desc: 'Composite index of opponent-adjusted scoring efficiency plus win-points efficiency (points earned vs expectation); in Original mode the sampled score itself decides the winner — no external rating touches the outcome',
+    ratings_note: 'Note: Elo from clubElo, Opta from Opta Power Rankings, FIFA from the official FIFA live ranking. Power and Matchup are our own indices from ≈4,000 real matches since 2022: Power = opponent-adjusted goal efficiency (50%) + points earned vs expectation (50%), and Power mode converts that gap into win odds; Matchup summarizes the goal efficiencies alone, and Matchup mode skips rankings entirely — it samples scores directly from per-opponent-level data. Sorted by the currently selected rating; the focus country is highlighted.',
+    src_power_label: 'Power Rating',
+    src_power_desc: 'Opponent-adjusted goal efficiency (50%) + win-points efficiency vs expectation (50%); Power mode converts rating gaps into win odds with the exact same machinery as Elo mode — same engine, our fuel',
+    src_matchup_label: 'Matchup Data',
+    src_matchup_desc: 'Stratified scoring/conceding rates vs strong and weak opponents; in Matchup mode the simulation samples a score from these rates and the score itself decides the winner — no ranking touches the outcome. The Matchup column is a summary of those rates',
     ratings_col_country: 'Country',
     ratings_col_group: 'Grp',
     modal_phase2_status: 'Finalizing the most likely scores for each bracket match…',
@@ -2759,7 +2765,7 @@ const T = {
     footer_data: 'DATA SOURCES',
     footer_method: 'METHODOLOGY',
     footer_note: 'NOTES',
-    footer_method_desc: 'Match outcomes determined by the selected rating (Elo/Opta/FIFA). Score distribution and goal-difference tiebreakers for equal-point groups are generated from stratified atk/def layers (strong vs weak opponents). Third-place qualification follows FIFA\'s official 495-scenario matrix. Host nations (USA/CAN/MEX) receive a +70 Elo home advantage bonus, toggleable in the UI.',
+    footer_method_desc: 'Two engines drive the simulations. Rating-driven modes (Elo/Opta/FIFA/Power) convert the rating gap into win odds via a logistic formula; the score is then generated from stratified atk/def layers (strong vs weak opponents). The score-driven mode (Matchup) inverts this: it samples a bivariate-Poisson score from per-opponent-level scoring data, and the score itself decides the winner — no ranking involved. Third-place qualification follows FIFA\'s official 495-scenario matrix. Host nations (USA/CAN/MEX) receive a +70 Elo home advantage bonus, toggleable in the UI.',
     footer_note_desc: 'Germany, Ecuador, Côte d\'Ivoire, and Bosnia Opta values are estimates based on Opta world rank. Simulator is for entertainment/analysis purposes only and does not predict actual results.',
     last_updated: 'Last updated',
     unit_matches: 'matches',
@@ -2810,9 +2816,11 @@ const T = {
     stage_sf: 'Semis',
     stage_f: 'Final',
     ratings_summary: 'Ver todas las valoraciones',
-    ratings_note: 'Nota: Elo de clubElo, Opta de Opta Power Rankings, FIFA del ranking oficial en vivo de la FIFA. Original es un índice propio calculado a partir de la eficiencia goleadora ajustada al rival y los puntos por partido de partidos reales desde 2022. Ordenado según el ranking seleccionado; el país destacado aparece resaltado.',
-    src_original_label: 'Original Power',
-    src_original_desc: 'Índice compuesto de eficiencia goleadora ajustada al rival más eficiencia de puntos (puntos ganados frente a lo esperado); en el modo Original el propio marcador simulado decide al ganador, sin que intervenga ningún ranking externo',
+    ratings_note: 'Nota: Elo de clubElo, Opta de Opta Power Rankings, FIFA del ranking oficial en vivo de la FIFA. Power y Matchup son índices propios basados en ≈4.000 partidos reales desde 2022: Power = eficiencia goleadora ajustada al rival (50%) + puntos ganados frente a lo esperado (50%), y el modo Power convierte esa diferencia en probabilidades de victoria; Matchup resume solo las eficiencias goleadoras, y el modo Matchup no usa rankings — muestrea los marcadores directamente de los datos por nivel de rival. Ordenado según el ranking seleccionado; el país destacado aparece resaltado.',
+    src_power_label: 'Power Rating',
+    src_power_desc: 'Eficiencia goleadora ajustada al rival (50%) + eficiencia de puntos frente a lo esperado (50%); el modo Power convierte las diferencias de rating en probabilidades de victoria con exactamente la misma maquinaria del modo Elo — mismo motor, nuestro combustible',
+    src_matchup_label: 'Matchup Data',
+    src_matchup_desc: 'Tasas estratificadas de goles a favor y en contra frente a rivales fuertes y débiles; en el modo Matchup la simulación muestrea un marcador de estas tasas y el propio marcador decide al ganador — ningún ranking toca el resultado. La columna Matchup es un resumen de esas tasas',
     ratings_col_country: 'País',
     ratings_col_group: 'Grp',
     modal_phase2_status: 'Finalizando los marcadores más probables de cada partido del cuadro…',
@@ -2889,7 +2897,7 @@ const T = {
     footer_data: 'FUENTES DE DATOS',
     footer_method: 'METODOLOGÍA',
     footer_note: 'NOTAS',
-    footer_method_desc: 'Los resultados de los partidos se determinan por el ranking seleccionado (Elo/Opta/FIFA). La distribución de goles y los desempates por diferencia de goles en grupos empatados se generan mediante capas atk/def estratificadas por fuerza del oponente (fuerte/débil). La clasificación de los mejores terceros sigue la matriz oficial de 495 escenarios de FIFA. Los países anfitriones (EE.UU./CAN/MEX) reciben una bonificación de ventaja local de +70 Elo, activable en la interfaz.',
+    footer_method_desc: 'Dos motores impulsan las simulaciones. Los modos basados en rating (Elo/Opta/FIFA/Power) convierten la diferencia de rating en probabilidades de victoria mediante una fórmula logística; el marcador se genera luego con capas atk/def estratificadas por fuerza del oponente (fuerte/débil). El modo basado en marcador (Matchup) invierte esto: muestrea un marcador de Poisson bivariada a partir de los datos de goles por nivel de rival, y el propio marcador decide al ganador — sin ranking. La clasificación de los mejores terceros sigue la matriz oficial de 495 escenarios de FIFA. Los países anfitriones (EE.UU./CAN/MEX) reciben una bonificación de ventaja local de +70 Elo, activable en la interfaz.',
     footer_note_desc: 'Los valores Opta de Alemania, Ecuador, Costa de Marfil y Bosnia son estimaciones basadas en su ranking mundial Opta. El simulador es solo para fines de entretenimiento/análisis y no predice resultados reales.',
     last_updated: 'Última actualización',
     unit_matches: 'partidos',
@@ -2940,9 +2948,11 @@ const T = {
     stage_sf: 'Semis',
     stage_f: 'Final',
     ratings_summary: 'Ver todas as avaliações',
-    ratings_note: 'Obs.: Elo do clubElo, Opta do Opta Power Rankings, FIFA do ranking oficial ao vivo da FIFA. Original é um índice próprio calculado a partir da eficiência de gols ajustada ao adversário e dos pontos por jogo de jogos reais desde 2022. Ordenado pelo ranking selecionado; o país em destaque aparece realçado.',
-    src_original_label: 'Original Power',
-    src_original_desc: 'Índice composto de eficiência de gols ajustada ao adversário mais eficiência de pontos (pontos ganhos frente ao esperado); no modo Original o próprio placar simulado decide o vencedor, sem nenhum ranking externo no resultado',
+    ratings_note: 'Obs.: Elo do clubElo, Opta do Opta Power Rankings, FIFA do ranking oficial ao vivo da FIFA. Power e Matchup são índices próprios baseados em ≈4.000 jogos reais desde 2022: Power = eficiência de gols ajustada ao adversário (50%) + pontos ganhos frente ao esperado (50%), e o modo Power converte essa diferença em probabilidades de vitória; Matchup resume apenas as eficiências de gols, e o modo Matchup dispensa rankings — amostra os placares diretamente dos dados por nível de adversário. Ordenado pelo ranking selecionado; o país em destaque aparece realçado.',
+    src_power_label: 'Power Rating',
+    src_power_desc: 'Eficiência de gols ajustada ao adversário (50%) + eficiência de pontos frente ao esperado (50%); o modo Power converte diferenças de rating em probabilidades de vitória com exatamente a mesma maquinaria do modo Elo — mesmo motor, nosso combustível',
+    src_matchup_label: 'Matchup Data',
+    src_matchup_desc: 'Taxas estratificadas de gols marcados e sofridos contra adversários fortes e fracos; no modo Matchup a simulação amostra um placar dessas taxas e o próprio placar decide o vencedor — nenhum ranking toca o resultado. A coluna Matchup é um resumo dessas taxas',
     ratings_col_country: 'País',
     ratings_col_group: 'Grp',
     modal_phase2_status: 'Finalizando os placares mais prováveis de cada partida do chaveamento…',
@@ -3019,7 +3029,7 @@ const T = {
     footer_data: 'FONTES DE DADOS',
     footer_method: 'METODOLOGIA',
     footer_note: 'NOTAS',
-    footer_method_desc: 'Os resultados das partidas são determinados pelo ranking selecionado (Elo/Opta/FIFA). A distribuição de gols e os desempates por saldo de gols em grupos empatados são gerados por camadas atk/def estratificadas por força do adversário (forte/fraco). A classificação dos melhores terceiros segue a matriz oficial de 495 cenários da FIFA. Os países-sede (EUA/CAN/MEX) recebem um bônus de vantagem de mando de +70 Elo, ativável na interface.',
+    footer_method_desc: 'Dois motores movem as simulações. Os modos baseados em rating (Elo/Opta/FIFA/Power) convertem a diferença de rating em probabilidades de vitória por uma fórmula logística; o placar é então gerado por camadas atk/def estratificadas por força do adversário (forte/fraco). O modo baseado em placar (Matchup) inverte isso: amostra um placar de Poisson bivariada dos dados de gols por nível de adversário, e o próprio placar decide o vencedor — sem ranking. A classificação dos melhores terceiros segue a matriz oficial de 495 cenários da FIFA. Os países-sede (EUA/CAN/MEX) recebem um bônus de vantagem de mando de +70 Elo, ativável na interface.',
     footer_note_desc: 'Os valores Opta de Alemanha, Equador, Costa do Marfim e Bósnia são estimativas baseadas no ranking mundial Opta. O simulador é apenas para fins de entretenimento/análise e não prevê resultados reais.',
     last_updated: 'Última atualização',
     unit_matches: 'partidas',
@@ -3070,9 +3080,11 @@ const T = {
     stage_sf: 'Demis',
     stage_f: 'Finale',
     ratings_summary: 'Voir toutes les notes',
-    ratings_note: 'Note : Elo issu de clubElo, Opta issu d’Opta Power Rankings, FIFA issu du classement officiel en direct de la FIFA. Original est un indice maison calculé à partir de l’efficacité aux buts ajustée à l’adversaire et des points par match de matchs réels depuis 2022. Trié selon le classement sélectionné ; le pays mis en avant est surligné.',
-    src_original_label: 'Original Power',
-    src_original_desc: 'Indice composite d’efficacité aux buts ajustée à l’adversaire et d’efficacité aux points (points gagnés par rapport à l’attendu) ; en mode Original, le score simulé décide lui-même du vainqueur, sans aucun classement externe',
+    ratings_note: 'Note : Elo issu de clubElo, Opta issu d’Opta Power Rankings, FIFA issu du classement officiel en direct de la FIFA. Power et Matchup sont des indices maison issus de ≈4 000 matchs réels depuis 2022 : Power = efficacité aux buts ajustée à l’adversaire (50 %) + points gagnés par rapport à l’attendu (50 %), et le mode Power convertit cet écart en probabilités de victoire ; Matchup résume les seules efficacités aux buts, et le mode Matchup se passe de tout classement — il échantillonne les scores directement dans les données par niveau d’adversaire. Trié selon le classement sélectionné ; le pays mis en avant est surligné.',
+    src_power_label: 'Power Rating',
+    src_power_desc: 'Efficacité aux buts ajustée à l’adversaire (50 %) + efficacité aux points par rapport à l’attendu (50 %) ; le mode Power convertit les écarts de rating en probabilités de victoire avec exactement la même machinerie que le mode Elo — même moteur, notre carburant',
+    src_matchup_label: 'Matchup Data',
+    src_matchup_desc: 'Taux stratifiés de buts marqués et encaissés face aux adversaires forts et faibles ; en mode Matchup, la simulation échantillonne un score à partir de ces taux et le score lui-même décide du vainqueur — aucun classement ne touche au résultat. La colonne Matchup est un résumé de ces taux',
     ratings_col_country: 'Pays',
     ratings_col_group: 'Gr',
     modal_phase2_status: 'Finalisation des scores les plus probables pour chaque match du tableau…',
@@ -3149,7 +3161,7 @@ const T = {
     footer_data: 'SOURCES DES DONNÉES',
     footer_method: 'MÉTHODOLOGIE',
     footer_note: 'NOTES',
-    footer_method_desc: 'Les résultats des matchs sont déterminés par le classement sélectionné (Elo/Opta/FIFA). La distribution des buts et les départages par différence de buts dans les groupes à égalité de points sont générés via des couches atk/def stratifiées selon la force de l\'adversaire (fort/faible). La qualification des meilleurs troisièmes suit la matrice officielle FIFA à 495 scénarios. Les pays hôtes (USA/CAN/MEX) bénéficient d\'un bonus d\'avantage à domicile de +70 Elo, activable dans l\'interface.',
+    footer_method_desc: 'Deux moteurs animent les simulations. Les modes pilotés par le rating (Elo/Opta/FIFA/Power) convertissent l\'écart de rating en probabilités de victoire via une formule logistique ; le score est ensuite généré par des couches atk/def stratifiées selon la force de l\'adversaire (fort/faible). Le mode piloté par le score (Matchup) inverse cela : il échantillonne un score de Poisson bivariée à partir des données de buts par niveau d\'adversaire, et le score lui-même décide du vainqueur — sans aucun classement. La qualification des meilleurs troisièmes suit la matrice officielle FIFA à 495 scénarios. Les pays hôtes (USA/CAN/MEX) bénéficient d\'un bonus d\'avantage à domicile de +70 Elo, activable dans l\'interface.',
     footer_note_desc: 'Les valeurs Opta de l\'Allemagne, l\'Équateur, la Côte d\'Ivoire et la Bosnie sont des estimations basées sur leur rang mondial Opta. Le simulateur est uniquement à des fins de divertissement/analyse et ne prédit pas les résultats réels.',
     last_updated: 'Dernière mise à jour',
     unit_matches: 'matchs',
@@ -3200,9 +3212,11 @@ const T = {
     stage_sf: 'Halbfinale',
     stage_f: 'Finale',
     ratings_summary: 'Alle Ratings anzeigen',
-    ratings_note: 'Hinweis: Elo aus clubElo, Opta aus Opta Power Rankings, FIFA aus der offiziellen Live-Rangliste der FIFA. Original ist ein eigener Index aus gegnerbereinigter Toreffizienz und Punkten pro Spiel realer Spiele seit 2022. Sortiert nach dem aktuell ausgewählten Rating; das Fokusland ist hervorgehoben.',
-    src_original_label: 'Original Power',
-    src_original_desc: 'Kompositindex aus gegnerbereinigter Toreffizienz plus Punkteeffizienz (Punkte im Verhältnis zur Erwartung); im Original-Modus entscheidet der simulierte Spielstand selbst über den Sieger — kein externes Rating beeinflusst das Ergebnis',
+    ratings_note: 'Hinweis: Elo aus clubElo, Opta aus Opta Power Rankings, FIFA aus der offiziellen Live-Rangliste der FIFA. Power und Matchup sind eigene Indizes aus ≈4.000 realen Spielen seit 2022: Power = gegnerbereinigte Toreffizienz (50%) + Punkte im Verhältnis zur Erwartung (50%), und der Power-Modus wandelt diese Differenz in Siegwahrscheinlichkeiten um; Matchup fasst allein die Toreffizienzen zusammen, und der Matchup-Modus verzichtet ganz auf Rankings — er zieht die Spielstände direkt aus den Daten je Gegnerniveau. Sortiert nach dem aktuell ausgewählten Rating; das Fokusland ist hervorgehoben.',
+    src_power_label: 'Power Rating',
+    src_power_desc: 'Gegnerbereinigte Toreffizienz (50%) + Punkteeffizienz im Verhältnis zur Erwartung (50%); der Power-Modus wandelt Rating-Differenzen mit exakt derselben Maschinerie wie der Elo-Modus in Siegwahrscheinlichkeiten um — gleicher Motor, unser Treibstoff',
+    src_matchup_label: 'Matchup Data',
+    src_matchup_desc: 'Stratifizierte Tor- und Gegentorraten gegen starke und schwache Gegner; im Matchup-Modus zieht die Simulation einen Spielstand aus diesen Raten und der Spielstand selbst entscheidet über den Sieger — kein Ranking beeinflusst das Ergebnis. Die Matchup-Spalte ist eine Zusammenfassung dieser Raten',
     ratings_col_country: 'Land',
     ratings_col_group: 'Gr',
     modal_phase2_status: 'Wahrscheinlichste Ergebnisse für jedes Spiel werden ermittelt…',
@@ -3279,7 +3293,7 @@ const T = {
     footer_data: 'DATENQUELLEN',
     footer_method: 'METHODIK',
     footer_note: 'ANMERKUNGEN',
-    footer_method_desc: 'Spielergebnisse werden durch das ausgewählte Rating (Elo/Opta/FIFA) bestimmt. Torverteilung und Tordifferenz-Tiebreak bei Punktgleichheit werden über nach Gegnerstärke stratifizierte atk/def-Ebenen (stark/schwach) erzeugt. Die Qualifikation der besten Dritten folgt der offiziellen FIFA-Matrix mit 495 Szenarien. Gastgeberländer (USA/CAN/MEX) erhalten einen Heimvorteil-Bonus von +70 Elo, über die UI ein-/ausschaltbar.',
+    footer_method_desc: 'Zwei Engines treiben die Simulationen an. Rating-getriebene Modi (Elo/Opta/FIFA/Power) wandeln die Rating-Differenz über eine logistische Formel in Siegwahrscheinlichkeiten um; der Spielstand wird anschließend über nach Gegnerstärke stratifizierte atk/def-Ebenen (stark/schwach) erzeugt. Der score-getriebene Modus (Matchup) kehrt dies um: Er zieht einen bivariaten Poisson-Spielstand aus den Tordaten je Gegnerniveau, und der Spielstand selbst entscheidet über den Sieger — ganz ohne Ranking. Die Qualifikation der besten Dritten folgt der offiziellen FIFA-Matrix mit 495 Szenarien. Gastgeberländer (USA/CAN/MEX) erhalten einen Heimvorteil-Bonus von +70 Elo, über die UI ein-/ausschaltbar.',
     footer_note_desc: 'Die Opta-Werte für Deutschland, Ecuador, Elfenbeinküste und Bosnien sind Schätzungen basierend auf dem Opta-Weltrang. Der Simulator dient nur zu Unterhaltungs-/Analysezwecken und sagt keine tatsächlichen Ergebnisse voraus.',
     last_updated: 'Zuletzt aktualisiert',
     unit_matches: 'Spiele',
@@ -3330,9 +3344,11 @@ const T = {
     stage_sf: 'Semifinali',
     stage_f: 'Finale',
     ratings_summary: 'Mostra tutte le valutazioni',
-    ratings_note: 'Nota: Elo da clubElo, Opta da Opta Power Rankings, FIFA dal ranking ufficiale in tempo reale della FIFA. Original è un indice proprietario calcolato dall’efficienza realizzativa aggiustata per l’avversario e dai punti a partita di partite reali dal 2022. Ordinato per il ranking selezionato; il paese evidenziato è in risalto.',
-    src_original_label: 'Original Power',
-    src_original_desc: 'Indice composito di efficienza realizzativa aggiustata per l’avversario più efficienza punti (punti conquistati rispetto all’atteso); in modalità Original è il punteggio simulato stesso a decidere il vincitore, senza alcun ranking esterno',
+    ratings_note: 'Nota: Elo da clubElo, Opta da Opta Power Rankings, FIFA dal ranking ufficiale in tempo reale della FIFA. Power e Matchup sono indici proprietari basati su ≈4.000 partite reali dal 2022: Power = efficienza realizzativa aggiustata per l’avversario (50%) + punti conquistati rispetto all’atteso (50%), e la modalità Power converte quel divario in probabilità di vittoria; Matchup riassume le sole efficienze realizzative, e la modalità Matchup non usa ranking — campiona i punteggi direttamente dai dati per livello di avversario. Ordinato per il ranking selezionato; il paese evidenziato è in risalto.',
+    src_power_label: 'Power Rating',
+    src_power_desc: 'Efficienza realizzativa aggiustata per l’avversario (50%) + efficienza punti rispetto all’atteso (50%); la modalità Power converte i divari di rating in probabilità di vittoria con esattamente lo stesso meccanismo della modalità Elo — stesso motore, il nostro carburante',
+    src_matchup_label: 'Matchup Data',
+    src_matchup_desc: 'Tassi stratificati di gol fatti e subiti contro avversari forti e deboli; in modalità Matchup la simulazione campiona un punteggio da questi tassi e il punteggio stesso decide il vincitore — nessun ranking tocca il risultato. La colonna Matchup è un riassunto di questi tassi',
     ratings_col_country: 'Paese',
     ratings_col_group: 'Gr',
     modal_phase2_status: 'Finalizzazione dei risultati più probabili per ogni partita del tabellone…',
@@ -3409,7 +3425,7 @@ const T = {
     footer_data: 'FONTI DATI',
     footer_method: 'METODOLOGIA',
     footer_note: 'NOTE',
-    footer_method_desc: 'I risultati delle partite sono determinati dal ranking selezionato (Elo/Opta/FIFA). La distribuzione dei gol e gli spareggi per differenza reti nei gruppi a pari punti sono generati tramite livelli atk/def stratificati per forza dell\'avversario (forte/debole). La qualificazione delle migliori terze segue la matrice ufficiale FIFA a 495 scenari. I paesi ospitanti (USA/CAN/MEX) ricevono un bonus di vantaggio casalingo di +70 Elo, attivabile nell\'interfaccia.',
+    footer_method_desc: 'Due motori guidano le simulazioni. Le modalità basate sul rating (Elo/Opta/FIFA/Power) convertono il divario di rating in probabilità di vittoria tramite una formula logistica; il punteggio è poi generato da livelli atk/def stratificati per forza dell\'avversario (forte/debole). La modalità basata sul punteggio (Matchup) inverte lo schema: campiona un punteggio di Poisson bivariata dai dati realizzativi per livello di avversario, e il punteggio stesso decide il vincitore — senza alcun ranking. La qualificazione delle migliori terze segue la matrice ufficiale FIFA a 495 scenari. I paesi ospitanti (USA/CAN/MEX) ricevono un bonus di vantaggio casalingo di +70 Elo, attivabile nell\'interfaccia.',
     footer_note_desc: 'I valori Opta di Germania, Ecuador, Costa d\'Avorio e Bosnia sono stime basate sul loro ranking mondiale Opta. Il simulatore è solo a scopo di intrattenimento/analisi e non prevede risultati reali.',
     last_updated: 'Ultimo aggiornamento',
     unit_matches: 'partite',
@@ -3460,9 +3476,11 @@ const T = {
     stage_sf: '준결승',
     stage_f: '결승',
     ratings_summary: '모든 레이팅 보기',
-    ratings_note: '※ Elo는 clubElo, Opta는 Opta Power Rankings, FIFA는 FIFA 공식 라이브 랭킹 기준입니다. Original은 2022년 이후 실제 경기의 상대 수준 보정 득실 효율과 승점 획득 효율로 산출한 자체 지표입니다. 현재 선택한 레이팅 기준 정렬, 주목국은 강조 표시됩니다.',
-    src_original_label: 'Original Power',
-    src_original_desc: '상대 수준으로 보정한 득실 효율과 승점 획득 효율(기대 승점 대비)로 산출한 종합 지표. Original 모드에서는 시뮬레이션된 스코어 자체가 승패를 결정하며 외부 레이팅은 결과에 관여하지 않음',
+    ratings_note: '※ Elo는 clubElo, Opta는 Opta Power Rankings, FIFA는 FIFA 공식 라이브 랭킹 기준입니다. Power와 Matchup은 2022년 이후 실제 경기 약 4,000건으로 만든 자체 지표입니다: Power = 상대 수준 보정 득실 효율(50%) + 기대 승점 대비 획득률(50%)이며, Power 모드는 이 차이를 승률로 변환합니다. Matchup은 득실 효율만의 요약이며, Matchup 모드는 랭킹을 쓰지 않고 상대 수준별 실제 득점 데이터에서 스코어를 직접 생성합니다. 현재 선택한 레이팅 기준 정렬, 주목국은 강조 표시됩니다.',
+    src_power_label: 'Power Rating',
+    src_power_desc: '상대 수준 보정 득실 효율(50%)과 기대 승점 대비 획득률(50%)을 합성한 자체 종합 지표. Power 모드는 이 레이팅 차이를 Elo 모드와 완전히 같은 방식으로 승률로 변환 — 엔진은 같고 연료는 자체 실전 데이터',
+    src_matchup_label: 'Matchup Data',
+    src_matchup_desc: '상대 수준별(강팀/약팀) 실제 득점·실점 비율. Matchup 모드는 이 비율에서 스코어를 샘플링하고 그 스코어 자체가 승패를 결정 — 랭킹은 결과에 전혀 관여하지 않음. Matchup 열은 이 비율의 요약값',
     ratings_col_country: '국가',
     ratings_col_group: '조',
     modal_phase2_status: '각 대진 경기의 가장 가능성 높은 스코어 확정 중…',
@@ -3539,7 +3557,7 @@ const T = {
     footer_data: '데이터 출처',
     footer_method: '방법론',
     footer_note: '참고',
-    footer_method_desc: '경기 결과는 선택한 레이팅(Elo/Opta/FIFA)으로 결정. 득점 분포와 승점 동률 시 골득실 타이브레이크는 상대 강도별(강팀/약팀)로 계층화된 atk/def 레이어로 생성. 3위 진출은 FIFA 공식 495가지 시나리오 매트릭스를 따름. 개최국(미국·캐나다·멕시코)에는 +70 Elo의 홈 이점 보너스가 적용됩니다(UI에서 ON/OFF 전환 가능).',
+    footer_method_desc: '시뮬레이션에는 두 가지 엔진이 있습니다. 레이팅 구동 모드(Elo/Opta/FIFA/Power)는 레이팅 차이를 로지스틱 식으로 승률로 변환해 승패를 정하고, 스코어는 상대 강도별(강팀/약팀) atk/def 레이어로 생성합니다. 스코어 구동 모드(Matchup)는 반대로 상대 수준별 실제 득점 데이터에서 이변량 포아송으로 스코어를 생성하며, 그 스코어 자체가 승패를 결정합니다(랭킹 미사용). 3위 진출은 FIFA 공식 495가지 시나리오 매트릭스를 따름. 개최국(미국·캐나다·멕시코)에는 +70 Elo의 홈 이점 보너스가 적용됩니다(UI에서 ON/OFF 전환 가능).',
     footer_note_desc: '독일, 에콰도르, 코트디부아르, 보스니아의 Opta 값은 Opta 세계 순위 기반 추정치. 이 시뮬레이터는 오락·분석 목적이며 실제 결과를 예측하지 않음.',
     last_updated: '최종 업데이트',
     unit_matches: '경기',
@@ -3590,9 +3608,11 @@ const T = {
     stage_sf: '半决赛',
     stage_f: '决赛',
     ratings_summary: '查看所有评分',
-    ratings_note: '※ Elo 基于 clubElo,Opta 基于 Opta Power Rankings,FIFA 来自 FIFA 官方实时排名。Original 是基于2022年以来真实比赛的对手水平调整后得失球效率与场均积分效率计算的自有指标。按当前选中的评分排序,关注国家高亮显示。',
-    src_original_label: 'Original Power',
-    src_original_desc: '由对手水平调整后的得失球效率与积分效率（相对期望胜点）计算的综合指标;在 Original 模式下,模拟比分本身决定胜负,外部排名完全不参与结果',
+    ratings_note: '※ Elo 基于 clubElo,Opta 基于 Opta Power Rankings,FIFA 来自 FIFA 官方实时排名。Power 与 Matchup 是基于2022年以来约4,000场真实比赛的自有指标:Power = 对手水平调整后的得失球效率(50%)+相对期望的积分效率(50%),Power 模式将该差距转换为胜率;Matchup 仅汇总得失球效率,Matchup 模式完全不用排名——直接从分对手水平的真实进球数据中抽样比分。按当前选中的评分排序,关注国家高亮显示。',
+    src_power_label: 'Power Rating',
+    src_power_desc: '对手水平调整后的得失球效率(50%)与相对期望的积分效率(50%)合成的自有综合指标;Power 模式用与 Elo 模式完全相同的机制将评分差距转换为胜率——引擎相同,燃料是我们的真实比赛数据',
+    src_matchup_label: 'Matchup Data',
+    src_matchup_desc: '分对手水平(强队/弱队)的真实进失球率;在 Matchup 模式下,模拟从这些比率中抽样比分,比分本身决定胜负——排名完全不参与结果。Matchup 列是这些比率的汇总值',
     ratings_col_country: '国家',
     ratings_col_group: '组',
     modal_phase2_status: '正在确定对阵图各场比赛最可能的比分…',
@@ -3669,7 +3689,7 @@ const T = {
     footer_data: '数据来源',
     footer_method: '计算方法',
     footer_note: '备注',
-    footer_method_desc: '比赛胜负由所选评分(Elo/Opta/FIFA)决定。得分分布与小组同分时的净胜球排序通过按对手强度分层(强队/弱队)的atk/def层生成。小组第三出线遵循FIFA官方的495场景矩阵。东道主(美国·加拿大·墨西哥)获得+70 Elo的主场优势加成(UI可切换开启/关闭)。',
+    footer_method_desc: '模拟由两种引擎驱动。评分驱动模式(Elo/Opta/FIFA/Power)用逻辑斯蒂公式将评分差距转换为胜率决定胜负,比分再由按对手强度分层(强队/弱队)的atk/def层生成。比分驱动模式(Matchup)则相反:从分对手水平的进球数据中按二元泊松抽样比分,比分本身决定胜负(不使用排名)。小组第三出线遵循FIFA官方的495场景矩阵。东道主(美国·加拿大·墨西哥)获得+70 Elo的主场优势加成(UI可切换开启/关闭)。',
     footer_note_desc: '德国、厄瓜多尔、科特迪瓦、波黑的Opta值为基于Opta世界排名的估计值。本模拟器仅供娱乐/分析用途,不预测实际结果。',
     last_updated: '最后更新',
     unit_matches: '场',
@@ -3720,9 +3740,11 @@ const T = {
     stage_sf: 'نصف النهائي',
     stage_f: 'النهائي',
     ratings_summary: 'عرض جميع التقييمات',
-    ratings_note: 'ملاحظة: Elo مأخوذ من clubElo، وOpta من Opta Power Rankings، وFIFA من التصنيف الرسمي المباشر لـ FIFA. أما Original فهو مؤشر خاص يُحسب من كفاءة الأهداف المعدّلة حسب مستوى الخصم والنقاط لكل مباراة من مباريات حقيقية منذ 2022. مرتبة حسب التصنيف المختار حاليًا؛ الدولة المحددة مظللة.',
-    src_original_label: 'Original Power',
-    src_original_desc: 'مؤشر مركّب من كفاءة الأهداف المعدّلة حسب مستوى الخصم مع كفاءة النقاط (النقاط مقارنة بالمتوقع)؛ في وضع Original النتيجة المحاكاة نفسها تحدد الفائز دون أي تصنيف خارجي',
+    ratings_note: 'ملاحظة: Elo مأخوذ من clubElo، وOpta من Opta Power Rankings، وFIFA من التصنيف الرسمي المباشر لـ FIFA. أما Power وMatchup فهما مؤشران خاصان من ≈4,000 مباراة حقيقية منذ 2022: Power = كفاءة الأهداف المعدّلة حسب مستوى الخصم (50%) + النقاط مقارنة بالمتوقع (50%)، ووضع Power يحوّل هذا الفارق إلى احتمالات فوز؛ بينما يلخّص Matchup كفاءات الأهداف وحدها، ووضع Matchup لا يستخدم أي تصنيف — بل يستخرج النتائج مباشرة من بيانات الأهداف حسب مستوى الخصم. مرتبة حسب التصنيف المختار حاليًا؛ الدولة المحددة مظللة.',
+    src_power_label: 'Power Rating',
+    src_power_desc: 'كفاءة الأهداف المعدّلة حسب مستوى الخصم (50%) + كفاءة النقاط مقارنة بالمتوقع (50%)؛ وضع Power يحوّل فوارق التصنيف إلى احتمالات فوز بنفس آلية وضع Elo تمامًا — المحرك نفسه ووقودنا نحن',
+    src_matchup_label: 'Matchup Data',
+    src_matchup_desc: 'معدلات الأهداف المسجلة والمستقبلة مقسمة حسب قوة الخصم (قوي/ضعيف)؛ في وضع Matchup تستخرج المحاكاة نتيجة من هذه المعدلات والنتيجة نفسها تحدد الفائز — لا يمس أي تصنيف النتيجة. عمود Matchup هو ملخص لهذه المعدلات',
     ratings_col_country: 'البلد',
     ratings_col_group: 'مج',
     modal_phase2_status: 'جاري تحديد النتائج الأكثر احتمالاً لكل مباراة في الشبكة…',
@@ -3799,7 +3821,7 @@ const T = {
     footer_data: 'مصادر البيانات',
     footer_method: 'المنهجية',
     footer_note: 'ملاحظات',
-    footer_method_desc: 'نتائج المباريات تُحدد بواسطة التصنيف المختار (Elo/Opta/FIFA). توزيع الأهداف وكسر التعادل بفارق الأهداف في المجموعات المتساوية يتم توليدهما عبر طبقات atk/def مقسمة حسب قوة الخصم (قوي/ضعيف). تأهل أفضل ثالث يتبع مصفوفة FIFA الرسمية ذات 495 سيناريو. تتلقى الدول المضيفة (الولايات المتحدة/كندا/المكسيك) مكافأة ميزة أرضية قدرها +70 إلو، قابلة للتبديل في الواجهة.',
+    footer_method_desc: 'محركان يقودان المحاكاة. الأوضاع القائمة على التصنيف (Elo/Opta/FIFA/Power) تحوّل فارق التصنيف إلى احتمالات فوز عبر معادلة لوجستية؛ ثم تُولَّد النتيجة عبر طبقات atk/def مقسمة حسب قوة الخصم (قوي/ضعيف). أما الوضع القائم على النتيجة (Matchup) فيعكس ذلك: يستخرج نتيجة بواسون ثنائية المتغير من بيانات الأهداف حسب مستوى الخصم، والنتيجة نفسها تحدد الفائز — دون أي تصنيف. تأهل أفضل ثالث يتبع مصفوفة FIFA الرسمية ذات 495 سيناريو. تتلقى الدول المضيفة (الولايات المتحدة/كندا/المكسيك) مكافأة ميزة أرضية قدرها +70 إلو، قابلة للتبديل في الواجهة.',
     footer_note_desc: 'قيم Opta لألمانيا وإكوادور وساحل العاج والبوسنة هي تقديرات بناءً على الترتيب العالمي لـ Opta. المحاكي لأغراض الترفيه/التحليل فقط ولا يتنبأ بالنتائج الفعلية.',
     last_updated: 'آخر تحديث',
     unit_matches: 'مباريات',
@@ -3879,23 +3901,39 @@ const nmf = (code) => {
 const rating = (team) => {
   if (RATING_MODE === 'opta') return team.opta;
   if (RATING_MODE === 'fifa') return (typeof team.fifaP === 'number') ? team.fifaP : team.elo;
-  if (RATING_MODE === 'original') return (typeof team.orig === 'number') ? team.orig : 50;
+  // mode id 'original' = "Matchup" in the UI (id kept for URL/storage compat)
+  if (RATING_MODE === 'original') return (typeof team.matchup === 'number') ? team.matchup : 50;
+  if (RATING_MODE === 'power') return (typeof team.powerElo === 'number') ? team.powerElo : team.elo;
   return team.elo;
 };
 
-// ============ ORIGINAL POWER (v2.17, blend v4.3) ============
-// Composite strength index from real-match data only (≈4,000 games since
-// 2022): 50% opponent-adjusted goal efficiency + 50% win-through efficiency
-// (weak-stratum PPG). Two lessons are baked in, both surfaced by "Algeria
-// looks too strong" scrutiny: (1) PPG exists because goal averages ignore
-// dropped points — a 0-0 vs a weak side is invisible to λ but costs 2
-// points; (2) the goal half uses the builder's CONTINUOUS opponent-Elo
-// adjustment (adjA/adjD, 1.0 = average finalist) instead of the flat
-// two-layer composite, because "weak" spans Elo ~1200-1799 and African
-// qualifier pools average ~110 Elo below European ones — a flat layer
-// average gifts qualifier-heavy sides a quality discount.
-// Each signal is z-scored, blended 50/50, re-standardized → 50 ± 25.
-function computeOriginalRatings() {
+// ============ CUSTOM RATINGS: POWER & MATCHUP (v2.18) ============
+// Two in-house ratings built from the same real-match dataset (≈4,000 games
+// since 2022), feeding two prediction philosophies that deliberately coexist:
+//
+//   Power   = z(adjA−adjD)×50% + z(wpe)×50%, scaled 50±25.
+//             Rating-DRIVEN mode: the engine converts Power gaps into win
+//             odds with the exact Elo machinery (t.powerElo is the Elo-scale
+//             projection: mean/sd of the 48 entrants' Elo, so divisor 400,
+//             draw thresholds 75/150 and home +70 carry over unchanged —
+//             same machine, same sensitivity, our fuel).
+//   Matchup = z(adjA−adjD) only, scaled 50±25.
+//             Score-DRIVEN mode (mode id 'original' kept for compat): the
+//             simulation samples scores from the stratified atk/def data
+//             and the score IS the outcome. The ranking column is a plain
+//             summary of those efficiencies — the engine never reads it.
+//
+// History: v4.2-v4.4 ("Algeria looks too strong" ×3, then "France looks too
+// low") taught us (1) goal averages ignore dropped points — a 0-0 vs a weak
+// side is invisible to λ but costs 2 points; (2) opponent quality must be
+// adjusted continuously (adjA/adjD, 1.0 = average finalist), because "weak"
+// spans Elo ~1200-1799; (3) points vs ELITE sides count too (wpe = actual /
+// expected points across ALL opponent bands — France's 0-0 POR, 0-0 NED,
+// 3-3 ARG were invisible to weak-only PPG). The 2026-06-12 split resolved
+// the remaining twist: one number (orig) was wpe-blended while the simulation
+// ignored wpe, so the card and the engine disagreed. Now each mode's card
+// matches its engine.
+function computeCustomRatings() {
   if (!TEAMS || !TEAMS.length) return;
   const std = (arr) => {
     const xs = arr.filter(v => v != null && Number.isFinite(v));
@@ -3925,8 +3963,17 @@ function computeOriginalRatings() {
     (typeof t.wpe === 'number') ? t.wpe :
     (typeof t.ppgW === 'number') ? t.ppgW : null));
   const zComb = std(zEff.map((v, i) => 0.5 * v + 0.5 * zPpg[i]));
+  // Elo-scale projection stats for the Power engine (mean/sd of all entrants)
+  const elos = TEAMS.map(t => t.elo).filter(Number.isFinite);
+  const eloMean = elos.reduce((a, b) => a + b, 0) / elos.length;
+  const eloSd = Math.sqrt(elos.reduce((a, b) => a + (b - eloMean) * (b - eloMean), 0) / elos.length) || 1;
+  const card = (z) => Math.round(Math.max(0, Math.min(100, 50 + 25 * z)) * 10) / 10;
   TEAMS.forEach((t, i) => {
-    t.orig = Math.round(Math.max(0, Math.min(100, 50 + 25 * zComb[i])) * 10) / 10;
+    t.matchup = card(zEff[i]);
+    t.power = card(zComb[i]);
+    // Projected from the displayed card value (not raw z) so the engine and
+    // the card can never disagree — the whole point of the v2.18 split.
+    t.powerElo = Math.round(eloMean + (t.power - 50) / 25 * eloSd);
   });
 }
 
@@ -3949,6 +3996,10 @@ function flagHtmlByCode(code) {
 const getTeam = (code) => TEAMS.find(x => x.c === code);
 const getGroup = (g) => TEAMS.filter(x => x.g === g);
 const fmtRating = (r) => RATING_MODE === 'elo' ? Math.round(r).toString() : r.toFixed(1);
+// What humans see next to a team name. In Power mode rating() returns the
+// Elo-scale projection the engine runs on; show the 50±25 card value instead.
+const displayRating = (team) => RATING_MODE === 'power' && typeof team.power === 'number'
+  ? team.power.toFixed(1) : fmtRating(rating(team));
 
 // 95% Wilson score confidence interval for a binomial proportion.
 // n = observed count, N = total trials. Returns symmetric half-width in percentage-points.
@@ -5812,7 +5863,7 @@ function renderGroups(sim) {
       const focus = team.c === FOCUS ? 'focus' : '';
       let cls = `pos-${idx+1}`;
       if (sim && idx === 2 && sim.top8Groups.includes(g)) cls += ' advanced';
-      return `<div class="group-team ${focus} ${cls}"><span class="team-name">${nmf(team.c)}</span><span class="rating">${fmtRating(rating(team))}</span></div>`;
+      return `<div class="group-team ${focus} ${cls}"><span class="team-name">${nmf(team.c)}</span><span class="rating">${displayRating(team)}</span></div>`;
     }).join('')}</div>`;
   }).join('');
 }
@@ -6914,7 +6965,7 @@ function buildWorkerCode() {
     const BASE_GOALS_KO = 2.55;
 
     // Helpers that are method-style in main (const foo = ...) — redefined here
-    const rating = (team) => RATING_MODE === 'opta' ? team.opta : RATING_MODE === 'fifa' ? (typeof team.fifaP === 'number' ? team.fifaP : team.elo) : RATING_MODE === 'original' ? (typeof team.orig === 'number' ? team.orig : 50) : team.elo;
+    const rating = (team) => RATING_MODE === 'opta' ? team.opta : RATING_MODE === 'fifa' ? (typeof team.fifaP === 'number' ? team.fifaP : team.elo) : RATING_MODE === 'original' ? (typeof team.matchup === 'number' ? team.matchup : 50) : RATING_MODE === 'power' ? (typeof team.powerElo === 'number' ? team.powerElo : team.elo) : team.elo;
     const getGroup = (g) => TEAMS.filter(x => x.g === g);
     const getTeam = (code) => TEAMS.find(t => t.c === code);
 
@@ -7632,7 +7683,7 @@ function populateFocusSelect() {
       btn.appendChild(nameSpan);
       const ratingSpan = document.createElement('span');
       ratingSpan.className = 'focus-grid-button-rating';
-      ratingSpan.textContent = fmtRating(rating(team));
+      ratingSpan.textContent = displayRating(team);
       btn.appendChild(ratingSpan);
       btn.addEventListener('click', () => {
         if (FOCUS === team.c) { closeFocusGrid(); return; }
@@ -7657,7 +7708,7 @@ function updateFocusToggle() {
   const team = TEAMS.find(t => t.c === FOCUS);
   if (!team) { textEl.textContent = '—'; flagEl.className = 'focus-toggle-flag'; return; }
   flagEl.className = 'focus-toggle-flag fi fi-' + (team.f || '');
-  textEl.textContent = nm(team.c) + ' (' + fmtRating(rating(team)) + ')';
+  textEl.textContent = nm(team.c) + ' (' + displayRating(team) + ')';
 }
 
 function openFocusGrid() {
@@ -7703,7 +7754,8 @@ function renderRatingsTable() {
   html += `<span class="r-elo ${RATING_MODE === 'elo' ? 'active' : ''}">Elo</span>`;
   html += `<span class="r-opta ${RATING_MODE === 'opta' ? 'active' : ''}">Opta</span>`;
   html += `<span class="r-fifa ${RATING_MODE === 'fifa' ? 'active' : ''}">FIFA</span>`;
-  html += `<span class="r-orig ${RATING_MODE === 'original' ? 'active' : ''}">Orig</span>`;
+  html += `<span class="r-power ${RATING_MODE === 'power' ? 'active' : ''}">Power</span>`;
+  html += `<span class="r-match ${RATING_MODE === 'original' ? 'active' : ''}">Matchup</span>`;
   html += `</div>`;
   sorted.forEach((team, i) => {
     const focusCls = team.c === FOCUS ? ' focus' : '';
@@ -7718,7 +7770,8 @@ function renderRatingsTable() {
     const _optaTitle = _optaEst ? ' title="' + (t('opta_estimated_tooltip') || 'Estimated value (Opta does not publish a power rating for this team).') + '"' : '';
     html += `<span class="${_optaCls}"${_optaTitle}>${team.opta.toFixed(1)}</span>`;
     html += `<span class="r-fifa ${RATING_MODE === 'fifa' ? 'active' : ''}">${typeof team.fifaP === 'number' ? team.fifaP.toFixed(1) : '—'}</span>`;
-    html += `<span class="r-orig ${RATING_MODE === 'original' ? 'active' : ''}">${typeof team.orig === 'number' ? team.orig.toFixed(1) : '—'}</span>`;
+    html += `<span class="r-power ${RATING_MODE === 'power' ? 'active' : ''}">${typeof team.power === 'number' ? team.power.toFixed(1) : '—'}</span>`;
+    html += `<span class="r-match ${RATING_MODE === 'original' ? 'active' : ''}">${typeof team.matchup === 'number' ? team.matchup.toFixed(1) : '—'}</span>`;
     html += `</div>`;
   });
   body.innerHTML = html;
@@ -7770,10 +7823,14 @@ function applyLanguage() {
   $('ui-src-fifa-freq').textContent = t('src_fifa_freq');
   $('ui-src-atkdef-label').textContent = t('src_atkdef_label');
   $('ui-src-atkdef-desc').innerHTML = t('src_atkdef_desc').replace('eloratings.net', '<a href="https://www.eloratings.net/" target="_blank" rel="noopener" class="footer-link">eloratings.net</a>');
-  const _origL = document.getElementById('ui-src-original-label');
-  if (_origL) _origL.textContent = t('src_original_label');
-  const _origD = document.getElementById('ui-src-original-desc');
-  if (_origD) _origD.textContent = t('src_original_desc');
+  const _powL = document.getElementById('ui-src-power-label');
+  if (_powL) _powL.textContent = t('src_power_label');
+  const _powD = document.getElementById('ui-src-power-desc');
+  if (_powD) _powD.textContent = t('src_power_desc');
+  const _muL = document.getElementById('ui-src-matchup-label');
+  if (_muL) _muL.textContent = t('src_matchup_label');
+  const _muD = document.getElementById('ui-src-matchup-desc');
+  if (_muD) _muD.textContent = t('src_matchup_desc');
   $('ui-src-bracket-label').textContent = t('src_bracket_label');
   $('ui-src-bracket-desc').textContent = t('src_bracket_desc');
   $('lang-label').textContent = 'Language';
@@ -8014,7 +8071,7 @@ async function loadTeams() {
 
 document.addEventListener('DOMContentLoaded', async () => {
   await loadTeams();
-  computeOriginalRatings();
+  computeCustomRatings();
   // LIVE: pull real results before the first render, then poll every 60s.
   await fetchRealResults();
   populateLanguageSelect();

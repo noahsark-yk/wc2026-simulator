@@ -1,6 +1,14 @@
-// ORIGINAL mode validation: calibration targets from real WC 2018+2022 GS
-// (N=96): 1-0 = 22.9% of matches, loser-0 = 56.2% of decisive, margin-1 =
-// 45.8%, draws 20-25%, avg goals ~2.2-2.4. KO: AET ~25-30%, PK ~16-19%.
+// Custom-modes validation (v2.18: Power & Matchup).
+//
+// Matchup (mode id 'original'): score-driven engine. Calibration targets from
+// real WC 2018+2022 GS (N=96): 1-0 = 22.9% of matches, loser-0 = 56.2% of
+// decisive, margin-1 = 45.8%, draws 20-25%, avg goals ~2.2-2.4.
+// KO: AET ~25-30%, PK ~16-19%.
+//
+// Power: rating-driven engine on the Elo machinery (t.powerElo projection).
+// Its GS distribution must match the Elo-mode calibration family — if it
+// drifts, the Elo-scale projection is broken.
+//
 // Run: python -m http.server 8123 (repo root), then node scripts/test_original.js
 const puppeteer = require('puppeteer');
 
@@ -17,14 +25,15 @@ const puppeteer = require('puppeteer');
 
   const basic = await page.evaluate(() => ({
     mode: RATING_MODE,
-    origTop6: [...TEAMS].sort((a, b) => b.orig - a.orig).slice(0, 6).map(t => t.c + ':' + t.orig),
-    origBottom3: [...TEAMS].sort((a, b) => a.orig - b.orig).slice(0, 3).map(t => t.c + ':' + t.orig),
-    jpn: TEAMS.find(t => t.c === 'JPN').orig
+    matchupTop6: [...TEAMS].sort((a, b) => b.matchup - a.matchup).slice(0, 6).map(t => t.c + ':' + t.matchup),
+    powerTop6: [...TEAMS].sort((a, b) => b.power - a.power).slice(0, 6).map(t => t.c + ':' + t.power),
+    powerEloRange: (() => { const pe = TEAMS.map(t => t.powerElo); return Math.min(...pe) + '..' + Math.max(...pe); })(),
+    jpn: (t => ({ matchup: t.matchup, power: t.power, powerElo: t.powerElo }))(TEAMS.find(t => t.c === 'JPN'))
   }));
   console.log('BASIC: ' + JSON.stringify(basic));
 
   // 300 detailed tournaments = 21,600 GS + ~9,600 KO matches
-  const dist = await page.evaluate(() => {
+  const distFn = () => {
     let n = 0, oneZero = 0, loserZero = 0, margin1 = 0, draws = 0, goals = 0;
     let koN = 0, aet = 0, pk = 0;
     for (let i = 0; i < 300; i++) {
@@ -52,6 +61,7 @@ const puppeteer = require('puppeteer');
     }
     const dec = n - draws;
     return {
+      mode: RATING_MODE,
       gsMatches: n,
       avgGoals: +(goals / n).toFixed(2),
       drawPct: +(draws / n * 100).toFixed(1),
@@ -63,12 +73,16 @@ const puppeteer = require('puppeteer');
       aetPct: +(aet / koN * 100).toFixed(1),
       pkPct: +(pk / koN * 100).toFixed(1)
     };
-  });
-  console.log('GS/KO DIST: ' + JSON.stringify(dist));
+  };
+  console.log('MATCHUP DIST: ' + JSON.stringify(await page.evaluate(distFn)));
 
-  // Worker 20k per mode: champion distribution across all four lenses
+  await page.click('#rating-toggle button[data-mode="power"]');
+  await new Promise(r => setTimeout(r, 400));
+  console.log('POWER DIST (expect Elo-family calibration): ' + JSON.stringify(await page.evaluate(distFn)));
+
+  // Worker 20k per mode: champion distribution across all five lenses
   const champs = await page.evaluate(() => new Promise(resolve => {
-    const modes = ['elo', 'opta', 'fifa', 'original'];
+    const modes = ['elo', 'opta', 'fifa', 'power', 'original'];
     const out = {};
     function run(mode) {
       return new Promise(res => {

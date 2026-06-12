@@ -21,7 +21,8 @@ const path = require('path');
 const URL = 'http://localhost:8123/live.html';
 const OUT = path.join(__dirname, '..', 'data', 'predictions_opening.json');
 const RUNS = 100000;
-const MODES = ['elo', 'opta', 'fifa', 'original'];
+// v2.18: 'power' (rating-driven, our fuel) joined; 'original' is Matchup in the UI.
+const MODES = ['elo', 'opta', 'fifa', 'power', 'original'];
 
 (async () => {
   const browser = await puppeteer.launch({ headless: 'new' });
