@@ -27,3 +27,4 @@ build/
 
 # Puppeteer cache (sometimes outside node_modules)
 .cache/
+live_test.png
