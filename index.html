@@ -2317,6 +2317,9 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 .live-next-match { display: inline-flex; align-items: center; gap: 4px; margin-right: 6px; }
 .live-next-d { opacity: 0.65; }
 .live-next-label { font-weight: 600; }
+.ranking-delta { font-size: 0.72em; opacity: 0.85; margin-left: 5px; font-weight: 600; }
+.rd-up { color: #4ade80; }
+.rd-down { color: #f87171; }
 .live-classic-link { margin-left: auto; text-decoration: underline; cursor: pointer;
   color: inherit; opacity: 0.8; }
 .live-dot { width: 8px; height: 8px; border-radius: 50%; background: #ef4444;
@@ -2580,6 +2583,7 @@ const T = {
     live_ratings_note: 'レーティングは毎日更新（大会の結果も反映）',
     live_next: '次の試合 ▶',
     live_next_draw: '引分',
+    ranking_delta_legend: '矢印＝開幕前予測との比較',
     badge: 'LIVE',
     label_rating: 'レーティング',
     label_home: 'ホーム優位',
@@ -2714,6 +2718,7 @@ const T = {
     live_ratings_note: 'Ratings update daily with tournament results',
     live_next: 'Next ▶',
     live_next_draw: 'draw',
+    ranking_delta_legend: 'arrows: vs opening-day odds',
     badge: 'LIVE',
     label_rating: 'Rating',
     label_home: 'Home Adv.',
@@ -2848,6 +2853,7 @@ const T = {
     live_ratings_note: 'Clasificaciones actualizadas a diario con los resultados del torneo',
     live_next: 'Próximo ▶',
     live_next_draw: 'empate',
+    ranking_delta_legend: 'flechas: vs pronóstico inaugural',
     badge: 'EN VIVO',
     label_rating: 'Rating',
     label_home: 'V. local',
@@ -2982,6 +2988,7 @@ const T = {
     live_ratings_note: 'Ratings atualizados diariamente com os resultados do torneio',
     live_next: 'Próximo ▶',
     live_next_draw: 'empate',
+    ranking_delta_legend: 'setas: vs previsão de abertura',
     badge: 'AO VIVO',
     label_rating: 'Rating',
     label_home: 'Mandante',
@@ -3116,6 +3123,7 @@ const T = {
     live_ratings_note: 'Classements mis à jour chaque jour avec les résultats du tournoi',
     live_next: 'Prochain ▶',
     live_next_draw: 'nul',
+    ranking_delta_legend: 'flèches : vs prévision initiale',
     badge: 'EN DIRECT',
     label_rating: 'Classement',
     label_home: 'Dom.',
@@ -3250,6 +3258,7 @@ const T = {
     live_ratings_note: 'Ratings täglich mit den Turnierergebnissen aktualisiert',
     live_next: 'Nächstes Spiel ▶',
     live_next_draw: 'Remis',
+    ranking_delta_legend: 'Pfeile: vs. Eröffnungsprognose',
     badge: 'LIVE',
     label_rating: 'Rating',
     label_home: 'Heimvorteil',
@@ -3384,6 +3393,7 @@ const T = {
     live_ratings_note: 'Rating aggiornati ogni giorno con i risultati del torneo',
     live_next: 'Prossima ▶',
     live_next_draw: 'pareggio',
+    ranking_delta_legend: 'frecce: vs pronostico iniziale',
     badge: 'LIVE',
     label_rating: 'Rating',
     label_home: 'Casa',
@@ -3518,6 +3528,7 @@ const T = {
     live_ratings_note: '레이팅은 매일 업데이트(대회 결과 반영)',
     live_next: '다음 경기 ▶',
     live_next_draw: '무승부',
+    ranking_delta_legend: '화살표=개막 전 예측 대비',
     badge: 'LIVE',
     label_rating: '레이팅',
     label_home: '홈 이점',
@@ -3652,6 +3663,7 @@ const T = {
     live_ratings_note: '积分评级每日更新（含本届赛果）',
     live_next: '下一场 ▶',
     live_next_draw: '平局',
+    ranking_delta_legend: '箭头=与开幕前预测对比',
     badge: '实时',
     label_rating: '评分',
     label_home: '主场优势',
@@ -3786,6 +3798,7 @@ const T = {
     live_ratings_note: 'التصنيفات تُحدَّث يومياً بنتائج البطولة',
     live_next: 'التالية ◀',
     live_next_draw: 'تعادل',
+    ranking_delta_legend: 'الأسهم: مقارنة بتوقعات الافتتاح',
     badge: 'مباشر',
     label_rating: 'التصنيف',
     label_home: 'ميزة الأرض',
@@ -6726,13 +6739,29 @@ function renderStats(counts, groupPos, champs, N, opponents, championPath, stage
     return [team.c, wins];
   }).sort((a,b) => b[1]-a[1] || rating(getTeam(b[0])) - rating(getTeam(a[0])));
 
-  html += `<div class="section-head"><h2>${t('section_all_ranking') || t('section_top20')}</h2><span class="meta">${t('ranking_meta') || '48 teams'}</span></div><div class="ranking-list">`;
+  const showDeltas = !!(OPENING_PREDICTIONS && N >= 10000 && OPENING_PREDICTIONS.modes[RATING_MODE]);
+  html += `<div class="section-head"><h2>${t('section_all_ranking') || t('section_top20')}</h2><span class="meta">${t('ranking_meta') || '48 teams'}${showDeltas ? ' · ' + t('ranking_delta_legend') : ''}</span></div><div class="ranking-list">`;
   allRanking.forEach(([c, n], i) => {
     const pct = (n/div).toFixed(dec);
     const ci = ciPP(n, N); // use true sample size N, not div
     const cls = c === FOCUS ? 'highlight' : '';
     const zeroCls = n === 0 ? 'ranking-zero' : '';
-    html += `<div class="ranking-row ${cls} ${zeroCls}"><span class="ranking-rank">${i+1}</span><span class="ranking-name">${nmf(c)}</span><span class="ranking-pct">${pct}%${ci ? `<span class="ranking-ci">${ci}</span>` : ''}</span><span class="ranking-count">${n.toLocaleString()}</span></div>`;
+    // improvement #5: how the tournament moved this team's title odds.
+    // Marker = direction + the OPENING value (today's value is right there);
+    // |delta| < 0.3pp stays blank — that's sampling-noise territory even at
+    // 100k (and the reason run-1000 never shows markers: N gate above).
+    let delta = '';
+    if (showDeltas) {
+      const o = OPENING_PREDICTIONS.modes[RATING_MODE][c];
+      if (o) {
+        const oPct = 100 * o.w / OPENING_PREDICTIONS.N;
+        const d = (100 * n / N) - oPct;
+        if (Math.abs(d) >= 0.3) {
+          delta = `<span class="ranking-delta ${d > 0 ? 'rd-up' : 'rd-down'}">${d > 0 ? '↑' : '↓'}${oPct.toFixed(1)}%</span>`;
+        }
+      }
+    }
+    html += `<div class="ranking-row ${cls} ${zeroCls}"><span class="ranking-rank">${i+1}</span><span class="ranking-name">${nmf(c)}</span><span class="ranking-pct">${pct}%${delta}${ci ? `<span class="ranking-ci">${ci}</span>` : ''}</span><span class="ranking-count">${n.toLocaleString()}</span></div>`;
   });
   html += `</div>`;
 
@@ -8236,6 +8265,17 @@ function showNewResultsBanner() {
 }
 
 // ============ INIT ============
+// improvement #5: opening-day baseline for the "how has the tournament
+// changed the odds" delta markers in the 48-team ranking. Soft dependency:
+// if the fetch fails the ranking simply renders without deltas.
+let OPENING_PREDICTIONS = null;
+function loadOpeningPredictions() {
+  fetch('data/predictions_opening.json', { cache: 'no-cache' })
+    .then(r => (r.ok ? r.json() : null))
+    .then(j => { if (j && j.modes && j.N) OPENING_PREDICTIONS = j; })
+    .catch(() => {});
+}
+
 // Load teams from the daily-updated teams.json — the same file the classic
 // page reads. v2.21 (2026-06-13) lifted the opening-day freeze: the
 // pre-tournament predictions are preserved in data/predictions_opening.json,
@@ -8270,6 +8310,7 @@ async function loadTeams() {
 
 document.addEventListener('DOMContentLoaded', async () => {
   await loadTeams();
+  loadOpeningPredictions();
   computeCustomRatings();
   // detectInitialFocus ran before TEAMS existed; drop bad ?focus= / stale saves.
   if (!TEAMS.some(tm => tm.c === FOCUS)) FOCUS = 'JPN';
