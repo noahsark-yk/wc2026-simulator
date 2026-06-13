@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-12",
+  "lastUpdated": "2026-06-13",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260401",
   "sourceConfirmedDate": null,
@@ -57,17 +57,17 @@
       "rank": 14,
       "points": 1698.35
     },
-    "SEN": {
+    "USA": {
       "rank": 15,
+      "points": 1688.53
+    },
+    "SEN": {
+      "rank": 16,
       "points": 1684.07
     },
     "URU": {
-      "rank": 16,
-      "points": 1673.07
-    },
-    "USA": {
       "rank": 17,
-      "points": 1671.23
+      "points": 1673.07
     },
     "JPN": {
       "rank": 18,
@@ -81,21 +81,21 @@
       "rank": 20,
       "points": 1619.58
     },
-    "TUR": {
+    "KOR": {
       "rank": 22,
+      "points": 1612.55
+    },
+    "TUR": {
+      "rank": 23,
       "points": 1605.73
     },
     "ECU": {
-      "rank": 23,
+      "rank": 24,
       "points": 1598.52
     },
     "AUT": {
-      "rank": 24,
-      "points": 1597.4
-    },
-    "KOR": {
       "rank": 25,
-      "points": 1587.55
+      "points": 1597.4
     },
     "AUS": {
       "rank": 27,
@@ -109,13 +109,13 @@
       "rank": 29,
       "points": 1562.37
     },
-    "CAN": {
-      "rank": 30,
-      "points": 1559.48
-    },
     "NOR": {
-      "rank": 31,
+      "rank": 30,
       "points": 1557.44
+    },
+    "CAN": {
+      "rank": 31,
+      "points": 1551.5
     },
     "CIV": {
       "rank": 33,
@@ -125,21 +125,21 @@
       "rank": 34,
       "points": 1539.16
     },
-    "CZE": {
-      "rank": 38,
-      "points": 1509.82
-    },
     "SWE": {
-      "rank": 39,
+      "rank": 38,
       "points": 1509.79
     },
-    "PAR": {
-      "rank": 41,
-      "points": 1505.35
-    },
     "SCO": {
-      "rank": 42,
+      "rank": 40,
       "points": 1503.34
+    },
+    "PAR": {
+      "rank": 42,
+      "points": 1488.05
+    },
+    "CZE": {
+      "rank": 43,
+      "points": 1484.82
     },
     "TUN": {
       "rank": 45,
@@ -169,13 +169,13 @@
       "rank": 61,
       "points": 1414.88
     },
-    "JOR": {
-      "rank": 63,
-      "points": 1387.74
-    },
     "BIH": {
+      "rank": 63,
+      "points": 1395.19
+    },
+    "JOR": {
       "rank": 64,
-      "points": 1387.22
+      "points": 1387.74
     },
     "CPV": {
       "rank": 67,

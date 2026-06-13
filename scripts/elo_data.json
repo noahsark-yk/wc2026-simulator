@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-12T06:37:35.944Z",
+  "fetchedAt": "2026-06-13T06:13:19.184Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -93,9 +93,9 @@
       "name": "Morocco",
       "elo": 1827
     },
-    "CAN": {
-      "name": "Canada",
-      "elo": 1788
+    "KOR": {
+      "name": "South Korea",
+      "elo": 1786
     },
     "SCO": {
       "name": "Scotland",
@@ -113,13 +113,9 @@
       "name": "Iran",
       "elo": 1772
     },
-    "KOR": {
-      "name": "South Korea",
-      "elo": 1758
-    },
-    "CZE": {
-      "name": "Czechia",
-      "elo": 1740
+    "CAN": {
+      "name": "Canada",
+      "elo": 1767
     },
     "PAN": {
       "name": "Panama",
@@ -132,6 +128,10 @@
     "UZB": {
       "name": "Uzbekistan",
       "elo": 1714
+    },
+    "CZE": {
+      "name": "Czechia",
+      "elo": 1712
     },
     "SWE": {
       "name": "Sweden",
@@ -157,13 +157,13 @@
       "name": "Tunisia",
       "elo": 1628
     },
+    "BIH": {
+      "name": "Bosnia/Herzeg",
+      "elo": 1616
+    },
     "IRQ": {
       "name": "Iraq",
       "elo": 1607
-    },
-    "BIH": {
-      "name": "Bosnia/Herzeg",
-      "elo": 1595
     },
     "CPV": {
       "name": "Cape Verde",

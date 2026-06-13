@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-12T06:44:07.909Z",
+  "fetchedAt": "2026-06-13T06:19:48.327Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -6239,6 +6239,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-11",
+          "isHome": false,
+          "opponentName": "South Korea",
+          "ourScore": 1,
+          "oppScore": 2,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-04",
           "isHome": true,
           "opponentName": "Guatemala",
@@ -7324,6 +7332,14 @@
       "code": "BIH",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-12",
+          "isHome": false,
+          "opponentName": "Canada",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-06",
           "isHome": true,
@@ -13786,6 +13802,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-12",
+          "isHome": true,
+          "opponentName": "Bosnia and Herzegovina",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-05",
           "isHome": true,
           "opponentName": "Ireland",
@@ -17539,6 +17563,14 @@
       "code": "KOR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-11",
+          "isHome": true,
+          "opponentName": "Czechia",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-03",
           "isHome": true,
