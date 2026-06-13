@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-13T06:19:48.327Z",
+  "fetchedAt": "2026-06-13T15:33:13.382Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -12516,6 +12516,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-12",
+          "isHome": false,
+          "opponentName": "United States",
+          "ourScore": 1,
+          "oppScore": 4,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-05",
           "isHome": true,
           "opponentName": "Nicaragua",
@@ -13026,6 +13034,14 @@
       "code": "USA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-12",
+          "isHome": true,
+          "opponentName": "Paraguay",
+          "ourScore": 4,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-06",
           "isHome": true,

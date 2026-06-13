@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-13T06:13:19.184Z",
+  "fetchedAt": "2026-06-13T15:26:47.801Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -81,10 +81,6 @@
       "name": "Senegal",
       "elo": 1860
     },
-    "PAR": {
-      "name": "Paraguay",
-      "elo": 1834
-    },
     "AUT": {
       "name": "Austria",
       "elo": 1830
@@ -100,6 +96,14 @@
     "SCO": {
       "name": "Scotland",
       "elo": 1782
+    },
+    "PAR": {
+      "name": "Paraguay",
+      "elo": 1780
+    },
+    "USA": {
+      "name": "United States",
+      "elo": 1780
     },
     "AUS": {
       "name": "Australia",
@@ -120,10 +124,6 @@
     "PAN": {
       "name": "Panama",
       "elo": 1730
-    },
-    "USA": {
-      "name": "United States",
-      "elo": 1726
     },
     "UZB": {
       "name": "Uzbekistan",
