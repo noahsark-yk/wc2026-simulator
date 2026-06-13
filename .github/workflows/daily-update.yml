@@ -2,11 +2,16 @@ name: Daily Update
 
 # Triggers:
 #   - Daily at 02:00 UTC (= 11:00 JST), after most matches finish
+#   - Daily at 14:00 UTC (= 23:00 JST): eloratings.net lags hours behind
+#     the late North-American finishes (observed 2026-06-12: zero Elo
+#     movement at the 02:00 run the morning after the opener), so a
+#     second run catches what the morning one missed
 #   - On push to main (so manual edits to index.html etc. deploy immediately)
 #   - Manual trigger from GitHub web UI for testing
 on:
   schedule:
     - cron: '0 2 * * *'
+    - cron: '0 14 * * *'
   push:
     branches: [main]
     # Skip auto-runs on Bot's own commits to avoid loops
