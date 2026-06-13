@@ -4545,7 +4545,11 @@ function simMatchDetailed(t1, t2, stage) {
 // rating-based winner. This keeps close games (1-2, 2-1, 1-0) appearing at natural
 // frequency while still respecting rating differences on average.
 function generateScoreNative(t1, t2, stage) {
-  const [l1, l2] = computeLambdas(t1, t2, stage);
+  // v2.22: 2% global goal trim (part of the GS shape recalibration — the
+  // family had drifted to 2.58 goals/match vs the real 2.2-2.4 band; see
+  // the redistribution block before the KO section).
+  let [l1, l2] = computeLambdas(t1, t2, stage);
+  l1 *= 0.98; l2 *= 0.98;
   const isGS = (stage === 'gs');
   const score = { s1: 0, s2: 0, aet: false, pk: false, pkS1: 0, pkS2: 0 };
 
@@ -4600,12 +4604,14 @@ function generateScoreNative(t1, t2, stage) {
   // Step 4: reconcile with intended outcome using MINIMAL adjustment
   let finalWinner = intendedWinner;
   if (intendedWinner === null) {
-    // GS draw: sample a single score value from avg-λ and use for both sides.
-    // Using min(s1, s2) would over-concentrate draws at 0-0.
-    // Instead sample fresh from average λ, which naturally gives ~37% 0-0, 37% 1-1, 26% 2-2+
-    // (matching real WC draw distribution).
+    // GS draw: sample a single score value and use it for both sides
+    // (min(s1, s2) would over-concentrate draws at 0-0).
+    // v2.22: shrink the sampling λ. The old avg-λ draws averaged ~2.6
+    // goals vs ~1.7 in real WC draws (0-0 ≈35%, 1-1 ≈45%, 2-2+ ≈20%);
+    // 0.55×avg lands on the real mix and pays for part of the goals the
+    // redistribution block adds to decided matches.
     const avgL = (l1_biased + l2_biased) / 2;
-    const drawScore = poissonRand(avgL);
+    const drawScore = poissonRand(avgL * 0.55);
     score.s1 = drawScore;
     score.s2 = drawScore;
     return { t1, t2, winner: null, score };
@@ -4626,17 +4632,11 @@ function generateScoreNative(t1, t2, stage) {
     if (winScore === 1 && losScore === 0) {
       // Poisson under-predicts 2-0 wins (real WC 1-0 22.9%, 2-0 17.7%).
       // Probabilistically upgrade 1-0 to 2-0 to match real-data shape.
-      if (Math.random() < 0.52) {
+      // (v2.22: 0.52 -> 0.58 — the recalibration's smaller knobs push 1-0
+      // supply up, this pulls the displayed 1-0 share back to ~23%.)
+      if (Math.random() < 0.58) {
         if (winnerIs1) score.s1 = 2;
         else score.s2 = 2;
-      }
-    } else if (winScore === 2 && losScore === 1) {
-      // Independent Poisson under-predicts high-score close games (4-3, 5-4).
-      // Probabilistically upgrade 2-1 to 3-2, preserving Margin 1 while
-      // better matching the tail of real WC close-game distribution.
-      if (Math.random() < 0.20) {
-        if (winnerIs1) { score.s1 = 3; score.s2 = 2; }
-        else { score.s2 = 3; score.s1 = 2; }
       }
     }
   } else if (wScore === lScore) {
@@ -4705,6 +4705,33 @@ function generateScoreNative(t1, t2, stage) {
     }
     score.s1 = s1;
     score.s2 = s2;
+  }
+
+  // v2.22: GS shape redistribution (2026-06-13). The asymmetric rating
+  // bias (step 2) starves the loser's λ, so "beaten but scoring" games
+  // (3-1, 4-2 — 27% of real decided WC group matches) almost never came
+  // out of the sampler (8%), while shutouts piled up (loser-0 ~70% vs the
+  // real 56.2%). Move the surplus shutout/2-1 mass into 3-1 and trim the
+  // blowout tail. 4-0→3-1 is goal-neutral; the added goals elsewhere are
+  // paid for by the draw shrink and the 0.98 λ trim above. The winner
+  // NEVER changes, so tournament probabilities are untouched (scores are
+  // presentation in the rating-driven modes). Measured after (400
+  // tournaments, elo): draws 20.3 / 1-0 23.9 / loser-0 54.3 / margin-1
+  // 46.3 / mean goals 2.51 — vs drifted 19.7/23.5/70.3/50.7/2.58. Known
+  // residual, disclosed: goals sit ~0.1 above the 2.2-2.4 real band.
+  if (isGS && score.s1 !== score.s2) {
+    const hiS = Math.max(score.s1, score.s2), loS = Math.min(score.s1, score.s2);
+    const wIs1 = score.s1 > score.s2;
+    const setHL = (h, l) => { if (wIs1) { score.s1 = h; score.s2 = l; } else { score.s1 = l; score.s2 = h; } };
+    const rq = Math.random();
+    if (hiS === 4 && loS === 0) { if (rq < 0.60) setHL(3, 1); }
+    else if (hiS === 3 && loS === 0) { if (rq < 0.32) setHL(3, 1); }
+    else if (hiS === 2 && loS === 0) { if (rq < 0.42) setHL(3, 1); }
+    // (not in FIFA mode: its flatter probability scale already under-
+    // produces margin-1 — draining 2-1 pushed it to 41% vs the real 45.8.)
+    else if (hiS === 2 && loS === 1) { if (RATING_MODE !== 'fifa' && rq < 0.28) setHL(3, 1); }
+    else if (hiS >= 4 && loS >= 1) { if (rq < 0.50) setHL(hiS - 1, loS); }
+    else if (hiS >= 5 && loS === 0) { if (rq < 0.50) setHL(hiS - 1, 0); }
   }
 
   // KO: probabilistically trigger AET/PK to match real WC rates.
