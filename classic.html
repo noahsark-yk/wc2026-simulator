@@ -5465,6 +5465,8 @@ function collectR32Pairs(N, onProgress) {
   // groupMatchScoresByTuple[g][tupleKey]["A-B"] -> { "s1-s2": count }
   const groupMatchScoresByTuple = {};
   const thirdAdv = {}; // set-of-groups-joined-by-comma -> count
+  const champs = {};         // champion tally (Worker live-feed ranking)
+  const finalPairings = {};  // "A-B" -> count (modal final-pairing disclosure)
   for (let n = 73; n <= 88; n++) r32Pairs[n] = {};
   GROUPS.forEach(g => {
     groupStandingsTuples[g] = {};
@@ -5476,6 +5478,14 @@ function collectR32Pairs(N, onProgress) {
     const end = Math.min(done + BATCH, N);
     for (let i = done; i < end; i++) {
       const sim = simulateDetailed();
+      // Champion + final-pairing tally (live feed + disclosure; mirrors the
+      // hand-written Phase 1 that still lives in the fallback path).
+      const _fm = sim.M.final;
+      if (_fm) {
+        champs[_fm.winner.c] = (champs[_fm.winner.c] || 0) + 1;
+        const [_fa, _fb] = [_fm.t1.c, _fm.t2.c].sort();
+        finalPairings[_fa + '-' + _fb] = (finalPairings[_fa + '-' + _fb] || 0) + 1;
+      }
       // R32 pairs
       for (let n = 73; n <= 88; n++) {
         const m = sim.M[n];
@@ -5505,9 +5515,9 @@ function collectR32Pairs(N, onProgress) {
       thirdAdv[tAdv] = (thirdAdv[tAdv] || 0) + 1;
     }
     done = end;
-    if (onProgress) onProgress(done, N);
+    if (onProgress) onProgress(done, N, champs);
   }
-  return { r32Pairs, groupStandingsTuples, groupMatchScoresByTuple, thirdAdv };
+  return { r32Pairs, groupStandingsTuples, groupMatchScoresByTuple, thirdAdv, champs, finalPairings };
 }
 
 // For each slot's pair tally, pick the modal pair. Return a map slot->{t1,t2,count,total}.
@@ -5758,14 +5768,22 @@ function buildModalKO(gs, modalR32, onProgress) {
 // All work is synchronous — callers wrap in setTimeout chains for UI progress.
 function computeModalTournament(N, onProgress) {
   const phase1Target = N || MODAL_R32_SAMPLES;
-  const collected = collectR32Pairs(phase1Target, (done, total) => {
-    if (onProgress) onProgress('phase1', done, total);
+  const collected = collectR32Pairs(phase1Target, (done, total, champs) => {
+    if (onProgress) onProgress('phase1', done, total, champs);
   });
   const gs = buildModalGroupStage(collected, phase1Target);
   const modalR32 = pickModalR32Pairs(collected.r32Pairs);
   const M = buildModalKO(gs, modalR32, (done, total) => {
     if (onProgress) onProgress('phase2', done, total);
   });
+  // Modal final-pairing frequency (how often this exact pair of finalists
+  // appeared in Phase 1 — the honest "absolute probability" hint).
+  let modalFinalPairPct = null;
+  const _fmatch = M['final'];
+  if (_fmatch && collected.finalPairings) {
+    const [_fa, _fb] = [_fmatch.t1.c, _fmatch.t2.c].sort();
+    modalFinalPairPct = (collected.finalPairings[_fa + '-' + _fb] || 0) / phase1Target;
+  }
   return {
     gr: gs.gr,
     grMatches: gs.grMatches,
@@ -5773,7 +5791,8 @@ function computeModalTournament(N, onProgress) {
     M,
     __isModal: true,
     modalR32SampleN: phase1Target,
-    modalMatchSampleN: MODAL_MATCH_SAMPLES
+    modalMatchSampleN: MODAL_MATCH_SAMPLES,
+    modalFinalPairPct
   };
 }
 
@@ -6945,7 +6964,10 @@ function buildWorkerCode() {
     simMatchDetailed, simGroupDetailed, simGroup,
     assignThirds, simulate, simulateDetailed,
     focusResult, focusGroupPosition, focusOpponents,
-    accumulate, newOpponentsStore, newChampionPath, newStageStats
+    accumulate, newOpponentsStore, newChampionPath, newStageStats,
+    // Modal tournament (improvement #2: the two 100k phases run off-thread)
+    collectR32Pairs, pickModalR32Pairs, buildModalGroupStage, buildModalKO,
+    sampleModalMatch, computeModalTournament
   ];
   const sharedSrc = SHARED_FNS.map(fn => fn.toString()).join('\n\n');
 
@@ -7054,6 +7076,20 @@ function buildWorkerCode() {
           self.postMessage(payload);
         }
         self.postMessage({ type: 'done', counts, groupPos, champs, opponents, championPath, stageStats, N });
+      } else if (msg.type === 'modal') {
+        // Improvement #2: the two 100k Monte-Carlo phases run HERE, off the
+        // main thread. computeModalTournament is pure and shipped via
+        // SHARED_FNS; the modalSim returned is structured-cloned back, which
+        // preserves the winner===t1 shared reference the bracket renderer uses.
+        TEAMS = msg.teams;
+        FIFA_THIRD_LOOKUP = msg.fifaThirdLookup;
+        RATING_MODE = msg.ratingMode;
+        HOME_ADVANTAGE_ON = msg.homeAdvOn;
+        FOCUS = msg.focus;
+        const modalSim = computeModalTournament(msg.n, (phase, done, total, champs) => {
+          self.postMessage({ type: 'modal_progress', phase, done, total, champs: champs || null });
+        });
+        self.postMessage({ type: 'modal_done', modalSim });
       }
     };
   `;
@@ -7437,6 +7473,75 @@ function runModalTournament() {
   });
   const start = Date.now();
 
+  // Improvement #2: run both 100k Monte-Carlo phases in a Worker so the main
+  // thread (and the page) stays responsive. Falls back to the hand-written
+  // two-phase main-thread version below when Workers are unavailable.
+  const workerSupported = (typeof Worker !== 'undefined' && typeof Blob !== 'undefined' &&
+                           typeof URL !== 'undefined' && URL.createObjectURL);
+  if (!workerSupported) { runModalTournament_mainThreadFallback(start); return; }
+  let mWorker;
+  try {
+    mWorker = new Worker(getWorkerUrl());
+  } catch (err) {
+    console.warn('Modal worker creation failed, falling back:', err.message);
+    runModalTournament_mainThreadFallback(start);
+    return;
+  }
+  let mPhase2Started = false;
+  mWorker.onmessage = function(e) {
+    const msg = e.data;
+    if (msg.type === 'modal_progress') {
+      if (msg.phase === 'phase1') {
+        const pct = (msg.done / msg.total) * 50;
+        updateProgress(pct,
+          t('modal_progress_phase1_tmpl', { done: msg.done.toLocaleString(), total: msg.total.toLocaleString() }),
+          '');
+        if (msg.champs) updateLiveFeedFromWorker(msg.champs, msg.done, null);
+      } else {
+        if (!mPhase2Started) {
+          mPhase2Started = true;
+          const resultsEl = $('results');
+          if (resultsEl) {
+            resultsEl.innerHTML =
+              '<div class="modal-phase2-status">' +
+              '<div class="modal-phase2-spinner"></div>' +
+              '<div class="modal-phase2-text">' +
+              (t('modal_phase2_status') || 'Finalizing the most likely scores for each bracket match…') +
+              '</div></div>';
+          }
+        }
+        const pct = 50 + (msg.done / msg.total) * 50;
+        updateProgress(pct,
+          t('modal_progress_phase2_tmpl', { done: msg.done, total: msg.total }),
+          '');
+      }
+    } else if (msg.type === 'modal_done') {
+      hideProgress();
+      setButtonsDisabled(false);
+      $('results').innerHTML = renderModalSection(msg.modalSim);
+      mWorker.terminate();
+    }
+  };
+  mWorker.onerror = function(err) {
+    console.warn('Modal worker error, falling back:', err.message);
+    mWorker.terminate();
+    runModalTournament_mainThreadFallback(start);
+  };
+  mWorker.postMessage({
+    type: 'modal',
+    teams: TEAMS,
+    fifaThirdLookup: FIFA_THIRD_LOOKUP,
+    ratingMode: RATING_MODE,
+    homeAdvOn: HOME_ADVANTAGE_ON,
+    focus: FOCUS,
+    n: MODAL_R32_SAMPLES
+  });
+}
+
+// Fallback: the original hand-written two-phase main-thread version, used
+// only when Workers are unavailable. setTimeout chains keep the UI from
+// freezing solid; the Worker path above is the normal one.
+function runModalTournament_mainThreadFallback(start) {
   // --- Phase 1: sample R32 pairs + group standings tuples ---
   const phase1N = MODAL_R32_SAMPLES;
   const PHASE1_BATCH = 2000;
