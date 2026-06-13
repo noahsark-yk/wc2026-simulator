@@ -2313,6 +2313,10 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
   font-size: 12.5px; }
 .live-bar-item { display: inline-flex; align-items: center; gap: 4px; }
 .live-bar-dim { opacity: 0.65; }
+#live-next { flex-wrap: wrap; }
+.live-next-match { display: inline-flex; align-items: center; gap: 4px; margin-right: 6px; }
+.live-next-d { opacity: 0.65; }
+.live-next-label { font-weight: 600; }
 .live-classic-link { margin-left: auto; text-decoration: underline; cursor: pointer;
   color: inherit; opacity: 0.8; }
 .live-dot { width: 8px; height: 8px; border-radius: 50%; background: #ef4444;
@@ -2354,6 +2358,7 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
     <span class="live-bar-item" id="live-played"></span>
     <span class="live-bar-item live-bar-dim" id="live-checked"></span>
     <span class="live-bar-item" id="live-now"></span>
+    <span class="live-bar-item" id="live-next"></span>
     <span class="live-bar-item live-bar-dim" id="live-ratings-note"></span>
     <a class="live-bar-item live-classic-link" id="live-to-classic" href="classic"></a>
   </div>
@@ -2573,6 +2578,8 @@ const T = {
     live_new_results: '新しい試合結果を反映しました ── タップして再計算',
     live_to_classic: '通常版（予測のみ）→',
     live_ratings_note: 'レーティングは毎日更新（大会の結果も反映）',
+    live_next: '次の試合 ▶',
+    live_next_draw: '引分',
     badge: 'LIVE',
     label_rating: 'レーティング',
     label_home: 'ホーム優位',
@@ -2705,6 +2712,8 @@ const T = {
     live_new_results: 'New results are in — tap to re-simulate',
     live_to_classic: 'Classic version (prediction only) →',
     live_ratings_note: 'Ratings update daily with tournament results',
+    live_next: 'Next ▶',
+    live_next_draw: 'draw',
     badge: 'LIVE',
     label_rating: 'Rating',
     label_home: 'Home Adv.',
@@ -2837,6 +2846,8 @@ const T = {
     live_new_results: 'Hay nuevos resultados — toca para recalcular',
     live_to_classic: 'Versión clásica (solo predicción) →',
     live_ratings_note: 'Clasificaciones actualizadas a diario con los resultados del torneo',
+    live_next: 'Próximo ▶',
+    live_next_draw: 'empate',
     badge: 'EN VIVO',
     label_rating: 'Rating',
     label_home: 'V. local',
@@ -2969,6 +2980,8 @@ const T = {
     live_new_results: 'Novos resultados — toque para recalcular',
     live_to_classic: 'Versão clássica (apenas previsão) →',
     live_ratings_note: 'Ratings atualizados diariamente com os resultados do torneio',
+    live_next: 'Próximo ▶',
+    live_next_draw: 'empate',
     badge: 'AO VIVO',
     label_rating: 'Rating',
     label_home: 'Mandante',
@@ -3101,6 +3114,8 @@ const T = {
     live_new_results: 'Nouveaux résultats — touchez pour recalculer',
     live_to_classic: 'Version classique (prédiction seule) →',
     live_ratings_note: 'Classements mis à jour chaque jour avec les résultats du tournoi',
+    live_next: 'Prochain ▶',
+    live_next_draw: 'nul',
     badge: 'EN DIRECT',
     label_rating: 'Classement',
     label_home: 'Dom.',
@@ -3233,6 +3248,8 @@ const T = {
     live_new_results: 'Neue Ergebnisse — tippen zum Neuberechnen',
     live_to_classic: 'Klassische Version (nur Prognose) →',
     live_ratings_note: 'Ratings täglich mit den Turnierergebnissen aktualisiert',
+    live_next: 'Nächstes Spiel ▶',
+    live_next_draw: 'Remis',
     badge: 'LIVE',
     label_rating: 'Rating',
     label_home: 'Heimvorteil',
@@ -3365,6 +3382,8 @@ const T = {
     live_new_results: 'Nuovi risultati — tocca per ricalcolare',
     live_to_classic: 'Versione classica (solo previsione) →',
     live_ratings_note: 'Rating aggiornati ogni giorno con i risultati del torneo',
+    live_next: 'Prossima ▶',
+    live_next_draw: 'pareggio',
     badge: 'LIVE',
     label_rating: 'Rating',
     label_home: 'Casa',
@@ -3497,6 +3516,8 @@ const T = {
     live_new_results: '새 경기 결과 반영 — 탭하여 다시 계산',
     live_to_classic: '일반판(예측만) →',
     live_ratings_note: '레이팅은 매일 업데이트(대회 결과 반영)',
+    live_next: '다음 경기 ▶',
+    live_next_draw: '무승부',
     badge: 'LIVE',
     label_rating: '레이팅',
     label_home: '홈 이점',
@@ -3629,6 +3650,8 @@ const T = {
     live_new_results: '有新赛果 — 点按重新计算',
     live_to_classic: '经典版（仅预测）→',
     live_ratings_note: '积分评级每日更新（含本届赛果）',
+    live_next: '下一场 ▶',
+    live_next_draw: '平局',
     badge: '实时',
     label_rating: '评分',
     label_home: '主场优势',
@@ -3761,6 +3784,8 @@ const T = {
     live_new_results: 'نتائج جديدة — انقر لإعادة الحساب',
     live_to_classic: 'النسخة الكلاسيكية (التوقع فقط) ←',
     live_ratings_note: 'التصنيفات تُحدَّث يومياً بنتائج البطولة',
+    live_next: 'التالية ◀',
+    live_next_draw: 'تعادل',
     badge: 'مباشر',
     label_rating: 'التصنيف',
     label_home: 'ميزة الأرض',
@@ -7980,6 +8005,7 @@ const TOTAL_REAL_MATCHES = 104;
 
 let REAL_RESULTS = {};    // realKey -> {c1,c2,s1,s2,winnerC,aet,pk,pkS1,pkS2,date}
 let LIVE_MATCHES = [];    // in-progress matches for the status bar
+const UPCOMING_FIXTURES = {}; // key -> {c1,c2,kickoff,isKO}; next-match preview
 let REAL_COUNT = 0;
 let LAST_CHECKED = null;
 let UNMAPPED_TEAMS = [];
@@ -8017,10 +8043,27 @@ function ingestEspnEvents(events) {
     const comp = ev.competitions && ev.competitions[0];
     if (!comp || !comp.competitors || comp.competitors.length < 2) return;
     const st0 = ev.status && ev.status.type;
-    // Skip not-yet-played fixtures BEFORE team resolution: future KO slots
-    // come back with placeholder "teams" ("2A", "RD16 W3", ...) that would
-    // otherwise spam the unmapped warning.
-    if (!st0 || (!st0.completed && st0.state !== 'in')) return;
+    // Not-yet-played fixtures: remember the card for the next-match preview,
+    // then skip BEFORE team resolution — future KO slots come back with
+    // placeholder "teams" ("2A", "RD16 W3", ...) that must not spam the
+    // unmapped warning, so failed resolution here stays silent.
+    if (!st0 || (!st0.completed && st0.state !== 'in')) {
+      if (st0 && st0.state === 'pre') {
+        const h0 = comp.competitors.find(x => x.homeAway === 'home') || comp.competitors[0];
+        const a0 = comp.competitors.find(x => x.homeAway === 'away') || comp.competitors[1];
+        const ch = espnToCode(h0.team && h0.team.abbreviation);
+        const ca = espnToCode(a0.team && a0.team.abbreviation);
+        const ko = Date.parse(ev.date);
+        if (ch && ca && isFinite(ko)) {
+          // Keyed merge (never wholesale replace): the fresh yesterday..
+          // tomorrow query must not wipe fixtures the whole-tournament
+          // range query found further out.
+          UPCOMING_FIXTURES[realKey(ch, ca, ko >= KO_THRESHOLD_MS)] =
+            { c1: ch, c2: ca, kickoff: ko, isKO: ko >= KO_THRESHOLD_MS };
+        }
+      }
+      return;
+    }
     const home = comp.competitors.find(x => x.homeAway === 'home') || comp.competitors[0];
     const away = comp.competitors.find(x => x.homeAway === 'away') || comp.competitors[1];
     const cHome = espnToCode(home.team && home.team.abbreviation);
@@ -8123,6 +8166,56 @@ function updateLiveStatusBar() {
       + '</span>'
     ).join('');
   }
+  const nextEl = document.getElementById('live-next');
+  if (nextEl) nextEl.innerHTML = nextMatchPreviewHtml();
+}
+
+// ---- Next-match preview (improvement #6; main thread only, never shipped
+// to the worker). Win/draw/win odds for the next kickoff wave, sampled from
+// the SAME generator the tournament sim uses — mode, home bonus and (in
+// Matchup mode) score sampling all apply, so the preview always agrees with
+// the bracket the visitor is looking at.
+// KO kickoff date -> stage name; only homeBonusMultiplier consumes the stage
+// (QF onward every venue is in the USA, so CAN/MEX lose their bonus).
+function koStageFromDate(ms) {
+  if (ms >= Date.UTC(2026, 6, 18)) return 'f';        // 3rd place + final
+  if (ms >= Date.UTC(2026, 6, 13, 12)) return 'sf';
+  if (ms >= Date.UTC(2026, 6, 8, 12)) return 'qf';
+  if (ms >= Date.UTC(2026, 6, 3, 12)) return 'r16';
+  return 'r32';
+}
+
+function nextMatchPreviewHtml() {
+  if (typeof TEAMS === 'undefined' || !TEAMS.length) return '';
+  const now = Date.now();
+  const up = Object.values(UPCOMING_FIXTURES)
+    .filter(f => f.kickoff > now && !REAL_RESULTS[realKey(f.c1, f.c2, f.isKO)])
+    .sort((x, y) => x.kickoff - y.kickoff);
+  if (!up.length) return '';
+  // Whole next kickoff wave (final group rounds start simultaneously).
+  const wave = up.filter(f => f.kickoff === up[0].kickoff);
+  const N = 2000;
+  const parts = wave.map(f => {
+    const t1 = TEAMS.find(tm => tm.c === f.c1), t2 = TEAMS.find(tm => tm.c === f.c2);
+    if (!t1 || !t2) return '';
+    const stage = f.isKO ? koStageFromDate(f.kickoff) : 'gs';
+    let w1 = 0, w2 = 0, d = 0;
+    for (let i = 0; i < N; i++) {
+      const w = simMatch(t1, t2, !f.isKO, stage);
+      if (w === null) d++; else if (w.c === t1.c) w1++; else w2++;
+    }
+    const pc = (n) => Math.round(n / N * 100) + '%';
+    return '<span class="live-next-match">'
+      + nmf(f.c1) + ' <b>' + pc(w1) + '</b>'
+      + (f.isKO ? '' : ' <span class="live-next-d">' + t('live_next_draw') + ' ' + pc(d) + '</span>')
+      + ' <b>' + pc(w2) + '</b> ' + nmf(f.c2)
+      + '</span>';
+  }).filter(Boolean);
+  if (!parts.length) return '';
+  const when = new Date(up[0].kickoff).toLocaleString([], {
+    month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+  return '<span class="live-next-label">' + t('live_next') + '</span> '
+    + parts.join(' ') + ' <span class="live-clock">' + when + '</span>';
 }
 
 let _livePollTimer = null;
@@ -8219,6 +8312,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       populateFocusSelect();
       renderRatingsTable();
       resetAll();
+      updateLiveStatusBar();
     });
   });
 
@@ -8232,6 +8326,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       btn.setAttribute('aria-pressed', 'true');
       HOME_ADVANTAGE_ON = (btn.dataset.home === 'on');
       resetAll();
+      updateLiveStatusBar();
     });
   });
 
