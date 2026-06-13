@@ -7,11 +7,11 @@
 <title>World Cup 2026 Live Simulator — Real Results + Monte Carlo</title>
 
 <!-- SEO -->
-<meta name="description" content="Live World Cup 2026 simulator: real match results locked in as they finish, the remaining games simulated 100,000 times. Ratings frozen at kickoff.">
+<meta name="description" content="Live World Cup 2026 simulator: real match results locked in as they finish, the remaining games simulated 100,000 times. Ratings update daily.">
 
 <!-- Open Graph (Facebook, LINE, Discord, Slack, etc.) -->
 <meta property="og:title" content="World Cup 2026 Live Simulator — Real Results + Monte Carlo">
-<meta property="og:description" content="Real match results locked in as they finish, the remaining games simulated 100,000 times. Ratings frozen at kickoff.">
+<meta property="og:description" content="Real match results locked in as they finish, the remaining games simulated 100,000 times. Ratings update daily.">
 <meta property="og:image" content="https://noahsark-wc2026.pages.dev/ogp.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -32,7 +32,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="World Cup 2026 Live Simulator — Real Results + Monte Carlo">
-<meta name="twitter:description" content="Real match results locked in as they finish, the remaining games simulated 100,000 times. Ratings frozen at kickoff.">
+<meta name="twitter:description" content="Real match results locked in as they finish, the remaining games simulated 100,000 times. Ratings update daily.">
 <meta name="twitter:image" content="https://noahsark-wc2026.pages.dev/ogp.png">
 <meta name="twitter:site" content="@noahsark_yk">
 <meta name="twitter:creator" content="@noahsark_yk">
@@ -2354,7 +2354,7 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
     <span class="live-bar-item" id="live-played"></span>
     <span class="live-bar-item live-bar-dim" id="live-checked"></span>
     <span class="live-bar-item" id="live-now"></span>
-    <span class="live-bar-item live-bar-dim" id="live-frozen-note"></span>
+    <span class="live-bar-item live-bar-dim" id="live-ratings-note"></span>
     <a class="live-bar-item live-classic-link" id="live-to-classic" href="classic"></a>
   </div>
   <div id="live-new-banner" style="display:none" onclick="this.style.display='none'; renderOnce();"></div>
@@ -2571,8 +2571,8 @@ const T = {
     live_played: '反映済み {n} / {total} 試合',
     live_checked: '最終確認',
     live_new_results: '新しい試合結果を反映しました ── タップして再計算',
-    live_to_classic: '通常版（開幕前予測）→',
-    live_frozen_note: 'レーティングは開幕時点（6/11）で凍結',
+    live_to_classic: '通常版（予測のみ）→',
+    live_ratings_note: 'レーティングは毎日更新（大会の結果も反映）',
     badge: 'LIVE',
     label_rating: 'レーティング',
     label_home: 'ホーム優位',
@@ -2703,8 +2703,8 @@ const T = {
     live_played: '{n} / {total} matches applied',
     live_checked: 'Last checked',
     live_new_results: 'New results are in — tap to re-simulate',
-    live_to_classic: 'Classic version (pre-tournament) →',
-    live_frozen_note: 'Ratings frozen at kickoff (Jun 11)',
+    live_to_classic: 'Classic version (prediction only) →',
+    live_ratings_note: 'Ratings update daily with tournament results',
     badge: 'LIVE',
     label_rating: 'Rating',
     label_home: 'Home Adv.',
@@ -2835,8 +2835,8 @@ const T = {
     live_played: '{n} / {total} partidos aplicados',
     live_checked: 'Última comprobación',
     live_new_results: 'Hay nuevos resultados — toca para recalcular',
-    live_to_classic: 'Versión clásica (pretorneo) →',
-    live_frozen_note: 'Clasificaciones congeladas al inicio (11 jun)',
+    live_to_classic: 'Versión clásica (solo predicción) →',
+    live_ratings_note: 'Clasificaciones actualizadas a diario con los resultados del torneo',
     badge: 'EN VIVO',
     label_rating: 'Rating',
     label_home: 'V. local',
@@ -2967,8 +2967,8 @@ const T = {
     live_played: '{n} / {total} jogos aplicados',
     live_checked: 'Última verificação',
     live_new_results: 'Novos resultados — toque para recalcular',
-    live_to_classic: 'Versão clássica (pré-torneio) →',
-    live_frozen_note: 'Ratings congelados na abertura (11 jun)',
+    live_to_classic: 'Versão clássica (apenas previsão) →',
+    live_ratings_note: 'Ratings atualizados diariamente com os resultados do torneio',
     badge: 'AO VIVO',
     label_rating: 'Rating',
     label_home: 'Mandante',
@@ -3099,8 +3099,8 @@ const T = {
     live_played: '{n} / {total} matchs intégrés',
     live_checked: 'Dernière vérification',
     live_new_results: 'Nouveaux résultats — touchez pour recalculer',
-    live_to_classic: 'Version classique (avant tournoi) →',
-    live_frozen_note: 'Classements figés au 11 juin (ouverture)',
+    live_to_classic: 'Version classique (prédiction seule) →',
+    live_ratings_note: 'Classements mis à jour chaque jour avec les résultats du tournoi',
     badge: 'EN DIRECT',
     label_rating: 'Classement',
     label_home: 'Dom.',
@@ -3231,8 +3231,8 @@ const T = {
     live_played: '{n} / {total} Spiele übernommen',
     live_checked: 'Zuletzt geprüft',
     live_new_results: 'Neue Ergebnisse — tippen zum Neuberechnen',
-    live_to_classic: 'Klassische Version (vor Turnierstart) →',
-    live_frozen_note: 'Ratings eingefroren zum Auftakt (11. Juni)',
+    live_to_classic: 'Klassische Version (nur Prognose) →',
+    live_ratings_note: 'Ratings täglich mit den Turnierergebnissen aktualisiert',
     badge: 'LIVE',
     label_rating: 'Rating',
     label_home: 'Heimvorteil',
@@ -3363,8 +3363,8 @@ const T = {
     live_played: '{n} / {total} partite applicate',
     live_checked: 'Ultimo controllo',
     live_new_results: 'Nuovi risultati — tocca per ricalcolare',
-    live_to_classic: 'Versione classica (pre-torneo) →',
-    live_frozen_note: 'Rating congelati al via (11 giu)',
+    live_to_classic: 'Versione classica (solo previsione) →',
+    live_ratings_note: 'Rating aggiornati ogni giorno con i risultati del torneo',
     badge: 'LIVE',
     label_rating: 'Rating',
     label_home: 'Casa',
@@ -3495,8 +3495,8 @@ const T = {
     live_played: '{n} / {total} 경기 반영됨',
     live_checked: '마지막 확인',
     live_new_results: '새 경기 결과 반영 — 탭하여 다시 계산',
-    live_to_classic: '일반판(개막 전 예측) →',
-    live_frozen_note: '레이팅은 개막 시점(6/11) 고정',
+    live_to_classic: '일반판(예측만) →',
+    live_ratings_note: '레이팅은 매일 업데이트(대회 결과 반영)',
     badge: 'LIVE',
     label_rating: '레이팅',
     label_home: '홈 이점',
@@ -3627,8 +3627,8 @@ const T = {
     live_played: '已应用 {n} / {total} 场比赛',
     live_checked: '最后检查',
     live_new_results: '有新赛果 — 点按重新计算',
-    live_to_classic: '经典版（赛前预测）→',
-    live_frozen_note: '积分评级冻结于开幕时（6月11日）',
+    live_to_classic: '经典版（仅预测）→',
+    live_ratings_note: '积分评级每日更新（含本届赛果）',
     badge: '实时',
     label_rating: '评分',
     label_home: '主场优势',
@@ -3759,8 +3759,8 @@ const T = {
     live_played: 'تم تطبيق {n} / {total} مباراة',
     live_checked: 'آخر فحص',
     live_new_results: 'نتائج جديدة — انقر لإعادة الحساب',
-    live_to_classic: 'النسخة الكلاسيكية (قبل البطولة) ←',
-    live_frozen_note: 'التصنيفات مجمدة عند الافتتاح (11 يونيو)',
+    live_to_classic: 'النسخة الكلاسيكية (التوقع فقط) ←',
+    live_ratings_note: 'التصنيفات تُحدَّث يومياً بنتائج البطولة',
     badge: 'مباشر',
     label_rating: 'التصنيف',
     label_home: 'ميزة الأرض',
@@ -7941,8 +7941,8 @@ function applyLanguage() {
   if (_lnb) _lnb.textContent = t('live_new_results');
   const _ltc = document.getElementById('live-to-classic');
   if (_ltc) _ltc.textContent = t('live_to_classic');
-  const _lfn = document.getElementById('live-frozen-note');
-  if (_lfn) _lfn.textContent = t('live_frozen_note');
+  const _lrn = document.getElementById('live-ratings-note');
+  if (_lrn) _lrn.textContent = t('live_ratings_note');
   updateLiveStatusBar();
   document.title = t('title');
   populateFocusSelect();
@@ -7963,10 +7963,12 @@ function applyLanguage() {
 // same function definitions via toString(), so the hook travels for free;
 // only REAL_RESULTS itself must be handed over in the 'run' postMessage).
 //
-// Ratings stay FROZEN at the opening-day snapshot (teams_frozen.json,
-// repo commit af23118 = 2026-06-11 06:52 UTC): the page answers "given what
-// we believed at kickoff of match 1, what do the remaining games look like
-// now that reality has pinned down these results."
+// Ratings come from the daily-updated teams.json (v2.21 — frozen at the
+// opening-day snapshot until 2026-06-13, now lifted): finished matches feed
+// back into the ratings via the daily rebuild, so the page answers "given
+// everything we know TODAY, what do the remaining games look like with
+// these results pinned down." Opening-day beliefs are preserved in
+// data/predictions_opening.json.
 
 const WC_DATES_RANGE = '20260611-20260719';
 // Group stage runs through Jun 27 (latest kickoffs spill past midnight UTC,
@@ -8141,12 +8143,14 @@ function showNewResultsBanner() {
 }
 
 // ============ INIT ============
-// Load teams from teams_frozen.json — the opening-day snapshot. The live
-// page must NOT read the daily-updated teams.json: ratings are frozen so
-// every probability is conditional on the same pre-tournament beliefs.
+// Load teams from the daily-updated teams.json — the same file the classic
+// page reads. v2.21 (2026-06-13) lifted the opening-day freeze: the
+// pre-tournament predictions are preserved in data/predictions_opening.json,
+// so live ratings are free to follow the tournament as finished matches
+// feed the daily rebuild (Elo / atk / def / wpe all move).
 async function loadTeams() {
   try {
-    const res = await fetch('teams_frozen.json', { cache: 'no-cache' });
+    const res = await fetch('teams.json', { cache: 'no-cache' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
     if (!data || !Array.isArray(data.teams) || data.teams.length === 0) {

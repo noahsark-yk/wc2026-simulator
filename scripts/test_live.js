@@ -1,7 +1,7 @@
 // Live-page (index.html, site root) smoke test (local only, not part of the site).
 // Verifies: page loads clean, real results are fetched and locked into
-// every sim path (main + worker), frozen ratings are used, UI marks real
-// matches. Run: node scripts/test_live.js  (needs `python -m http.server
+// every sim path (main + worker), daily-updated ratings load (teams.json,
+// freeze lifted in v2.21), UI marks real matches. Run: node scripts/test_live.js  (needs `python -m http.server
 // 8123` or any static server in the repo root, see runner below).
 const puppeteer = require('puppeteer');
 
@@ -16,7 +16,7 @@ const puppeteer = require('puppeteer');
   await page.goto('http://localhost:8123/index.html', { waitUntil: 'networkidle2', timeout: 60000 });
   await new Promise(r => setTimeout(r, 4000));
 
-  // 1) Status: teams loaded from frozen snapshot, ESPN results ingested.
+  // 1) Status: teams loaded from the daily teams.json, ESPN results ingested.
   const status = await page.evaluate(() => ({
     played: (document.getElementById('live-played') || {}).textContent || '',
     realCount: typeof REAL_COUNT !== 'undefined' ? REAL_COUNT : 'n/a',

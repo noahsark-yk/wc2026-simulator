@@ -10,6 +10,12 @@
 // record: the baseline for the opening-vs-now delta view (improvement #5)
 // and for the post-tournament scoring article.
 //
+// WARNING (v2.21, 2026-06-13): index.html now reads the daily-updated
+// teams.json — the rating freeze was lifted. Re-running this script today
+// would overwrite the opening-day record with a TODAY-snapshot. The saved
+// data/predictions_opening.json is FINAL; to truly regenerate it, point
+// index.html's loadTeams back at teams_frozen.json temporarily.
+//
 // Usage:
 //   1. serve the repo root:  python -m http.server 8123
 //   2. node scripts/snapshot_opening.js
