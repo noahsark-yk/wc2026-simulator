@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-13T15:33:13.382Z",
+  "fetchedAt": "2026-06-14T06:43:00.023Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -4441,6 +4441,14 @@
       "code": "SUI",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-13",
+          "isHome": false,
+          "opponentName": "Qatar",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-06",
           "isHome": false,
@@ -10199,6 +10207,14 @@
       "code": "BRA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-13",
+          "isHome": true,
+          "opponentName": "Morocco",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-06",
           "isHome": true,
@@ -21949,6 +21965,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-13",
+          "isHome": true,
+          "opponentName": "Switzerland",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-06",
           "isHome": false,
           "opponentName": "El Salvador",
@@ -22707,6 +22731,14 @@
       "code": "MAR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-13",
+          "isHome": false,
+          "opponentName": "Brazil",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-07",
           "isHome": true,
