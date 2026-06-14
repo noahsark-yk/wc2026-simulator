@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-14T06:36:34.994Z",
+  "fetchedAt": "2026-06-14T15:43:43.284Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -53,10 +53,6 @@
       "name": "Croatia",
       "elo": 1912
     },
-    "TUR": {
-      "name": "Turkey",
-      "elo": 1911
-    },
     "JPN": {
       "name": "Japan",
       "elo": 1906
@@ -81,21 +77,29 @@
       "name": "Senegal",
       "elo": 1860
     },
+    "TUR": {
+      "name": "Turkey",
+      "elo": 1849
+    },
     "MAR": {
       "name": "Morocco",
       "elo": 1840
+    },
+    "AUS": {
+      "name": "Australia",
+      "elo": 1839
     },
     "AUT": {
       "name": "Austria",
       "elo": 1830
     },
+    "SCO": {
+      "name": "Scotland",
+      "elo": 1794
+    },
     "KOR": {
       "name": "South Korea",
       "elo": 1786
-    },
-    "SCO": {
-      "name": "Scotland",
-      "elo": 1782
     },
     "PAR": {
       "name": "Paraguay",
@@ -104,10 +108,6 @@
     "USA": {
       "name": "United States",
       "elo": 1780
-    },
-    "AUS": {
-      "name": "Australia",
-      "elo": 1777
     },
     "ALG": {
       "name": "Algeria",
@@ -179,7 +179,7 @@
     },
     "HAI": {
       "name": "Haiti",
-      "elo": 1548
+      "elo": 1536
     },
     "RSA": {
       "name": "South Africa",
