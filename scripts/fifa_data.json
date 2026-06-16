@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-15",
+  "lastUpdated": "2026-06-16",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260401",
   "sourceConfirmedDate": null,
@@ -9,13 +9,13 @@
       "rank": 1,
       "points": 1877.27
     },
-    "ESP": {
-      "rank": 2,
-      "points": 1874.71
-    },
     "FRA": {
-      "rank": 3,
+      "rank": 2,
       "points": 1870.7
+    },
+    "ESP": {
+      "rank": 3,
+      "points": 1856.03
     },
     "ENG": {
       "rank": 4,
@@ -43,7 +43,7 @@
     },
     "BEL": {
       "rank": 10,
-      "points": 1742.24
+      "points": 1733.93
     },
     "CRO": {
       "rank": 11,
@@ -65,29 +65,29 @@
       "rank": 16,
       "points": 1684.07
     },
-    "URU": {
-      "rank": 17,
-      "points": 1673.07
-    },
     "JPN": {
-      "rank": 18,
+      "rank": 17,
       "points": 1665.94
+    },
+    "URU": {
+      "rank": 18,
+      "points": 1661.95
     },
     "SUI": {
       "rank": 19,
       "points": 1640.93
     },
-    "IRN": {
-      "rank": 20,
-      "points": 1619.58
-    },
     "KOR": {
-      "rank": 22,
+      "rank": 21,
       "points": 1612.55
     },
     "AUS": {
-      "rank": 23,
+      "rank": 22,
       "points": 1605.61
+    },
+    "IRN": {
+      "rank": 23,
+      "points": 1605.12
     },
     "AUT": {
       "rank": 24,
@@ -105,13 +105,13 @@
       "rank": 28,
       "points": 1570.76
     },
-    "CIV": {
-      "rank": 29,
-      "points": 1568.62
-    },
     "EGY": {
+      "rank": 29,
+      "points": 1570.67
+    },
+    "CIV": {
       "rank": 30,
-      "points": 1562.37
+      "points": 1568.62
     },
     "NOR": {
       "rank": 31,
@@ -163,7 +163,7 @@
     },
     "KSA": {
       "rank": 60,
-      "points": 1423.88
+      "points": 1435
     },
     "RSA": {
       "rank": 61,
@@ -173,29 +173,29 @@
       "rank": 63,
       "points": 1395.19
     },
-    "JOR": {
-      "rank": 64,
-      "points": 1387.74
-    },
     "CPV": {
-      "rank": 67,
-      "points": 1371.11
+      "rank": 64,
+      "points": 1389.79
+    },
+    "JOR": {
+      "rank": 65,
+      "points": 1387.74
     },
     "GHA": {
       "rank": 73,
       "points": 1346.88
     },
-    "CUW": {
+    "NZL": {
       "rank": 82,
+      "points": 1290.04
+    },
+    "CUW": {
+      "rank": 83,
       "points": 1287
     },
     "HAI": {
-      "rank": 84,
-      "points": 1277.67
-    },
-    "NZL": {
       "rank": 85,
-      "points": 1275.58
+      "points": 1277.67
     }
   }
 }

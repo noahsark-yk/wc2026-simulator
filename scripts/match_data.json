@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-15T07:20:53.570Z",
+  "fetchedAt": "2026-06-16T07:30:01.033Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -8,6 +8,14 @@
       "code": "ESP",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-15",
+          "isHome": false,
+          "opponentName": "Cape Verde",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-08",
           "isHome": true,
@@ -5081,6 +5089,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-15",
+          "isHome": true,
+          "opponentName": "Egypt",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-06",
           "isHome": true,
           "opponentName": "Tunisia",
@@ -9042,6 +9058,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-14",
+          "isHome": true,
+          "opponentName": "Tunisia",
+          "ourScore": 5,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-04",
           "isHome": true,
           "opponentName": "Greece",
@@ -11406,6 +11430,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-15",
+          "isHome": false,
+          "opponentName": "Saudi Arabia",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-03-31",
           "isHome": false,
           "opponentName": "Algeria",
@@ -11964,6 +11996,14 @@
       "code": "ECU",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-14",
+          "isHome": false,
+          "opponentName": "Ivory Coast",
+          "ourScore": 0,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-07",
           "isHome": true,
@@ -18842,6 +18882,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-15",
+          "isHome": true,
+          "opponentName": "Uruguay",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-09",
           "isHome": true,
           "opponentName": "Senegal",
@@ -24210,6 +24258,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-14",
+          "isHome": false,
+          "opponentName": "Sweden",
+          "ourScore": 1,
+          "oppScore": 5,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-06",
           "isHome": false,
           "opponentName": "Belgium",
@@ -24904,6 +24960,14 @@
       "code": "EGY",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-15",
+          "isHome": false,
+          "opponentName": "Belgium",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-06",
           "isHome": false,
@@ -26239,6 +26303,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-14",
+          "isHome": true,
+          "opponentName": "Ecuador",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-04",
           "isHome": false,
           "opponentName": "France",
@@ -27356,6 +27428,14 @@
       "code": "CPV",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-15",
+          "isHome": true,
+          "opponentName": "Spain",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-06",
           "isHome": true,

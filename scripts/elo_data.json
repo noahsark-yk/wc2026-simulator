@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-15T07:14:15.069Z",
+  "fetchedAt": "2026-06-16T07:23:04.240Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -7,7 +7,7 @@
   "teams": {
     "ESP": {
       "name": "Spain",
-      "elo": 2157
+      "elo": 2129
     },
     "ARG": {
       "name": "Argentina",
@@ -41,10 +41,6 @@
       "name": "Germany",
       "elo": 1939
     },
-    "ECU": {
-      "name": "Ecuador",
-      "elo": 1938
-    },
     "NOR": {
       "name": "Norway",
       "elo": 1914
@@ -57,17 +53,21 @@
       "name": "Japan",
       "elo": 1910
     },
-    "BEL": {
-      "name": "Belgium",
-      "elo": 1894
-    },
-    "URU": {
-      "name": "Uruguay",
-      "elo": 1892
+    "ECU": {
+      "name": "Ecuador",
+      "elo": 1890
     },
     "MEX": {
       "name": "Mexico",
       "elo": 1881
+    },
+    "BEL": {
+      "name": "Belgium",
+      "elo": 1879
+    },
+    "URU": {
+      "name": "Uruguay",
+      "elo": 1870
     },
     "SUI": {
       "name": "Switzerland",
@@ -121,6 +121,14 @@
       "name": "Canada",
       "elo": 1767
     },
+    "SWE": {
+      "name": "Sweden",
+      "elo": 1755
+    },
+    "CIV": {
+      "name": "Ivory Coast",
+      "elo": 1743
+    },
     "PAN": {
       "name": "Panama",
       "elo": 1730
@@ -133,17 +141,9 @@
       "name": "Czechia",
       "elo": 1712
     },
-    "SWE": {
-      "name": "Sweden",
-      "elo": 1712
-    },
     "EGY": {
       "name": "Egypt",
-      "elo": 1696
-    },
-    "CIV": {
-      "name": "Ivory Coast",
-      "elo": 1695
+      "elo": 1711
     },
     "JOR": {
       "name": "Jordan",
@@ -152,10 +152,6 @@
     "COD": {
       "name": "DR Congo",
       "elo": 1652
-    },
-    "TUN": {
-      "name": "Tunisia",
-      "elo": 1628
     },
     "BIH": {
       "name": "Bosnia/Herzeg",
@@ -167,11 +163,15 @@
     },
     "CPV": {
       "name": "Cape Verde",
-      "elo": 1578
+      "elo": 1606
     },
     "KSA": {
       "name": "Saudi Arabia",
-      "elo": 1576
+      "elo": 1598
+    },
+    "TUN": {
+      "name": "Tunisia",
+      "elo": 1585
     },
     "NZL": {
       "name": "New Zealand",
