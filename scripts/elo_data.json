@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-16T07:23:04.240Z",
+  "fetchedAt": "2026-06-17T07:05:40.295Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -15,7 +15,7 @@
     },
     "FRA": {
       "name": "France",
-      "elo": 2063
+      "elo": 2084
     },
     "ENG": {
       "name": "England",
@@ -43,7 +43,7 @@
     },
     "NOR": {
       "name": "Norway",
-      "elo": 1914
+      "elo": 1929
     },
     "CRO": {
       "name": "Croatia",
@@ -73,10 +73,6 @@
       "name": "Switzerland",
       "elo": 1865
     },
-    "SEN": {
-      "name": "Senegal",
-      "elo": 1860
-    },
     "TUR": {
       "name": "Turkey",
       "elo": 1849
@@ -87,6 +83,10 @@
     },
     "AUS": {
       "name": "Australia",
+      "elo": 1839
+    },
+    "SEN": {
+      "name": "Senegal",
       "elo": 1839
     },
     "AUT": {
@@ -113,13 +113,13 @@
       "name": "Algeria",
       "elo": 1772
     },
-    "IRN": {
-      "name": "Iran",
-      "elo": 1772
-    },
     "CAN": {
       "name": "Canada",
       "elo": 1767
+    },
+    "IRN": {
+      "name": "Iran",
+      "elo": 1756
     },
     "SWE": {
       "name": "Sweden",
@@ -157,10 +157,6 @@
       "name": "Bosnia/Herzeg",
       "elo": 1616
     },
-    "IRQ": {
-      "name": "Iraq",
-      "elo": 1607
-    },
     "CPV": {
       "name": "Cape Verde",
       "elo": 1606
@@ -169,13 +165,17 @@
       "name": "Saudi Arabia",
       "elo": 1598
     },
+    "IRQ": {
+      "name": "Iraq",
+      "elo": 1592
+    },
     "TUN": {
       "name": "Tunisia",
       "elo": 1585
     },
     "NZL": {
       "name": "New Zealand",
-      "elo": 1562
+      "elo": 1578
     },
     "HAI": {
       "name": "Haiti",
