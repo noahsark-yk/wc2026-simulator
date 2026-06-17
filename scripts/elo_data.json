@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-17T07:05:40.295Z",
+  "fetchedAt": "2026-06-17T16:52:03.639Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -11,7 +11,7 @@
     },
     "ARG": {
       "name": "Argentina",
-      "elo": 2115
+      "elo": 2128
     },
     "FRA": {
       "name": "France",
@@ -73,6 +73,10 @@
       "name": "Switzerland",
       "elo": 1865
     },
+    "AUT": {
+      "name": "Austria",
+      "elo": 1857
+    },
     "TUR": {
       "name": "Turkey",
       "elo": 1849
@@ -88,10 +92,6 @@
     "SEN": {
       "name": "Senegal",
       "elo": 1839
-    },
-    "AUT": {
-      "name": "Austria",
-      "elo": 1830
     },
     "SCO": {
       "name": "Scotland",
@@ -109,13 +109,13 @@
       "name": "United States",
       "elo": 1780
     },
-    "ALG": {
-      "name": "Algeria",
-      "elo": 1772
-    },
     "CAN": {
       "name": "Canada",
       "elo": 1767
+    },
+    "ALG": {
+      "name": "Algeria",
+      "elo": 1759
     },
     "IRN": {
       "name": "Iran",
@@ -147,7 +147,7 @@
     },
     "JOR": {
       "name": "Jordan",
-      "elo": 1680
+      "elo": 1653
     },
     "COD": {
       "name": "DR Congo",
