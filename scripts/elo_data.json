@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-18T06:48:33.506Z",
+  "fetchedAt": "2026-06-18T16:51:54.276Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -23,7 +23,7 @@
     },
     "COL": {
       "name": "Colombia",
-      "elo": 1982
+      "elo": 1998
     },
     "BRA": {
       "name": "Brazil",
@@ -129,14 +129,6 @@
       "name": "Ivory Coast",
       "elo": 1743
     },
-    "PAN": {
-      "name": "Panama",
-      "elo": 1730
-    },
-    "UZB": {
-      "name": "Uzbekistan",
-      "elo": 1714
-    },
     "CZE": {
       "name": "Czechia",
       "elo": 1712
@@ -144,6 +136,14 @@
     "EGY": {
       "name": "Egypt",
       "elo": 1711
+    },
+    "UZB": {
+      "name": "Uzbekistan",
+      "elo": 1698
+    },
+    "PAN": {
+      "name": "Panama",
+      "elo": 1683
     },
     "COD": {
       "name": "DR Congo",
@@ -177,6 +177,10 @@
       "name": "New Zealand",
       "elo": 1578
     },
+    "GHA": {
+      "name": "Ghana",
+      "elo": 1557
+    },
     "HAI": {
       "name": "Haiti",
       "elo": 1536
@@ -184,10 +188,6 @@
     "RSA": {
       "name": "South Africa",
       "elo": 1511
-    },
-    "GHA": {
-      "name": "Ghana",
-      "elo": 1510
     },
     "QAT": {
       "name": "Qatar",

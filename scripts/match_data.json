@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-18T06:55:02.664Z",
+  "fetchedAt": "2026-06-18T16:58:48.374Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -10895,6 +10895,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-17",
+          "isHome": true,
+          "opponentName": "Uzbekistan",
+          "ourScore": 3,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-07",
           "isHome": true,
           "opponentName": "Jordan",
@@ -15487,6 +15495,14 @@
       "code": "PAN",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-17",
+          "isHome": false,
+          "opponentName": "Ghana",
+          "ourScore": 0,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-06",
           "isHome": false,
@@ -20199,6 +20215,14 @@
       "code": "UZB",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-17",
+          "isHome": false,
+          "opponentName": "Colombia",
+          "ourScore": 1,
+          "oppScore": 3,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-08",
           "isHome": false,
@@ -26981,6 +27005,14 @@
       "code": "GHA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-17",
+          "isHome": true,
+          "opponentName": "Panama",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-02",
           "isHome": false,
