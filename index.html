@@ -6793,9 +6793,10 @@ function renderStats(counts, groupPos, champs, N, opponents, championPath, stage
     const cls = c === FOCUS ? 'highlight' : '';
     const zeroCls = n === 0 ? 'ranking-zero' : '';
     // improvement #5: how the tournament moved this team's title odds.
-    // Marker = direction + the OPENING value (today's value is right there);
-    // |delta| < 0.3pp stays blank — that's sampling-noise territory even at
-    // 100k (and the reason run-1000 never shows markers: N gate above).
+    // Marker = direction + the change in pp since opening day (e.g. "↓3.0pp"
+    // = down 3.0 points from the pre-tournament prediction; the absolute
+    // odds are right there to its left). |delta| < 0.3pp stays blank — that's
+    // sampling-noise territory even at 100k (and why run-1000 shows none).
     let delta = '';
     if (showDeltas) {
       const o = OPENING_PREDICTIONS.modes[RATING_MODE][c];
@@ -6803,7 +6804,7 @@ function renderStats(counts, groupPos, champs, N, opponents, championPath, stage
         const oPct = 100 * o.w / OPENING_PREDICTIONS.N;
         const d = (100 * n / N) - oPct;
         if (Math.abs(d) >= 0.3) {
-          delta = `<span class="ranking-delta ${d > 0 ? 'rd-up' : 'rd-down'}">${d > 0 ? '↑' : '↓'}${oPct.toFixed(1)}%</span>`;
+          delta = `<span class="ranking-delta ${d > 0 ? 'rd-up' : 'rd-down'}">${d > 0 ? '↑' : '↓'}${Math.abs(d).toFixed(1)}pp</span>`;
         }
       }
     }
