@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-17T16:58:43.294Z",
+  "fetchedAt": "2026-06-18T06:55:02.664Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -1311,6 +1311,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-17",
+          "isHome": true,
+          "opponentName": "Croatia",
+          "ourScore": 4,
+          "oppScore": 2,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-10",
           "isHome": true,
           "opponentName": "Costa Rica",
@@ -1965,6 +1973,14 @@
       "code": "POR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-17",
+          "isHome": false,
+          "opponentName": "DR Congo",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-10",
           "isHome": true,
@@ -3850,6 +3866,14 @@
       "code": "CRO",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-17",
+          "isHome": false,
+          "opponentName": "England",
+          "ourScore": 2,
+          "oppScore": 4,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-07",
           "isHome": true,
@@ -28730,6 +28754,14 @@
       "code": "COD",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-17",
+          "isHome": true,
+          "opponentName": "Portugal",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-09",
           "isHome": false,

@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-17T16:52:03.639Z",
+  "fetchedAt": "2026-06-18T06:48:33.506Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -19,11 +19,7 @@
     },
     "ENG": {
       "name": "England",
-      "elo": 2024
-    },
-    "POR": {
-      "name": "Portugal",
-      "elo": 1989
+      "elo": 2055
     },
     "COL": {
       "name": "Colombia",
@@ -32,6 +28,10 @@
     "BRA": {
       "name": "Brazil",
       "elo": 1978
+    },
+    "POR": {
+      "name": "Portugal",
+      "elo": 1967
     },
     "NED": {
       "name": "Netherlands",
@@ -45,10 +45,6 @@
       "name": "Norway",
       "elo": 1929
     },
-    "CRO": {
-      "name": "Croatia",
-      "elo": 1912
-    },
     "JPN": {
       "name": "Japan",
       "elo": 1910
@@ -56,6 +52,10 @@
     "ECU": {
       "name": "Ecuador",
       "elo": 1890
+    },
+    "CRO": {
+      "name": "Croatia",
+      "elo": 1881
     },
     "MEX": {
       "name": "Mexico",
@@ -145,13 +145,13 @@
       "name": "Egypt",
       "elo": 1711
     },
+    "COD": {
+      "name": "DR Congo",
+      "elo": 1674
+    },
     "JOR": {
       "name": "Jordan",
       "elo": 1653
-    },
-    "COD": {
-      "name": "DR Congo",
-      "elo": 1652
     },
     "BIH": {
       "name": "Bosnia/Herzeg",
