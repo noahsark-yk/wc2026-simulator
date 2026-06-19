@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-18",
+  "lastUpdated": "2026-06-19",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260401",
   "sourceConfirmedDate": null,
@@ -45,13 +45,13 @@
       "rank": 10,
       "points": 1733.93
     },
-    "COL": {
-      "rank": 11,
-      "points": 1712.6
-    },
     "MEX": {
-      "rank": 13,
-      "points": 1700.98
+      "rank": 11,
+      "points": 1721.78
+    },
+    "COL": {
+      "rank": 12,
+      "points": 1712.6
     },
     "CRO": {
       "rank": 14,
@@ -75,23 +75,23 @@
     },
     "SUI": {
       "rank": 19,
-      "points": 1640.93
+      "points": 1654.94
     },
     "AUT": {
       "rank": 21,
       "points": 1612.86
     },
-    "KOR": {
-      "rank": 22,
-      "points": 1612.55
-    },
     "AUS": {
-      "rank": 23,
+      "rank": 22,
       "points": 1605.61
     },
     "IRN": {
-      "rank": 24,
+      "rank": 23,
       "points": 1605.12
+    },
+    "KOR": {
+      "rank": 24,
+      "points": 1591.75
     },
     "TUR": {
       "rank": 26,
@@ -101,25 +101,25 @@
       "rank": 27,
       "points": 1577.18
     },
-    "ECU": {
+    "CAN": {
       "rank": 28,
+      "points": 1572.13
+    },
+    "ECU": {
+      "rank": 29,
       "points": 1570.76
     },
     "EGY": {
-      "rank": 29,
+      "rank": 30,
       "points": 1570.67
     },
     "CIV": {
-      "rank": 30,
+      "rank": 31,
       "points": 1568.62
     },
     "ALG": {
-      "rank": 31,
-      "points": 1559.24
-    },
-    "CAN": {
       "rank": 32,
-      "points": 1551.5
+      "points": 1559.24
     },
     "SWE": {
       "rank": 34,
@@ -143,19 +143,19 @@
     },
     "CZE": {
       "rank": 44,
-      "points": 1484.82
-    },
-    "QAT": {
-      "rank": 49,
-      "points": 1459.45
+      "points": 1481.49
     },
     "TUN": {
-      "rank": 55,
+      "rank": 54,
       "points": 1453
     },
     "UZB": {
-      "rank": 56,
+      "rank": 55,
       "points": 1444.48
+    },
+    "QAT": {
+      "rank": 58,
+      "points": 1438.82
     },
     "KSA": {
       "rank": 59,
@@ -167,15 +167,15 @@
     },
     "RSA": {
       "rank": 61,
-      "points": 1414.88
-    },
-    "BIH": {
-      "rank": 63,
-      "points": 1395.19
+      "points": 1418.21
     },
     "CPV": {
-      "rank": 64,
+      "rank": 63,
       "points": 1389.79
+    },
+    "BIH": {
+      "rank": 64,
+      "points": 1381.18
     },
     "GHA": {
       "rank": 65,

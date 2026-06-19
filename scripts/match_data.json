@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-18T16:58:48.374Z",
+  "fetchedAt": "2026-06-19T16:35:47.636Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -4498,6 +4498,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-18",
+          "isHome": true,
+          "opponentName": "Bosnia and Herzegovina",
+          "ourScore": 4,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-13",
           "isHome": false,
           "opponentName": "Qatar",
@@ -6319,6 +6327,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-18",
+          "isHome": true,
+          "opponentName": "South Africa",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-11",
           "isHome": false,
           "opponentName": "South Korea",
@@ -7420,6 +7436,14 @@
       "code": "BIH",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-18",
+          "isHome": false,
+          "opponentName": "Switzerland",
+          "ourScore": 1,
+          "oppScore": 4,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-12",
           "isHome": false,
@@ -13970,6 +13994,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-18",
+          "isHome": true,
+          "opponentName": "Qatar",
+          "ourScore": 6,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-12",
           "isHome": true,
           "opponentName": "Bosnia and Herzegovina",
@@ -14632,6 +14664,14 @@
       "code": "MEX",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-18",
+          "isHome": true,
+          "opponentName": "South Korea",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-11",
           "isHome": true,
@@ -17763,6 +17803,14 @@
       "code": "KOR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-18",
+          "isHome": false,
+          "opponentName": "Mexico",
+          "ourScore": 0,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-11",
           "isHome": true,
@@ -22180,6 +22228,14 @@
       "code": "QAT",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-18",
+          "isHome": false,
+          "opponentName": "Canada",
+          "ourScore": 0,
+          "oppScore": 6,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-13",
           "isHome": true,
@@ -28083,6 +28139,14 @@
       "code": "RSA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-18",
+          "isHome": false,
+          "opponentName": "Czechia",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-11",
           "isHome": false,
