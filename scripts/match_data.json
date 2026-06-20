@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-19T16:35:47.636Z",
+  "fetchedAt": "2026-06-20T15:36:26.655Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -7956,6 +7956,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-19",
+          "isHome": false,
+          "opponentName": "Morocco",
+          "ourScore": 0,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-13",
           "isHome": true,
           "opponentName": "Haiti",
@@ -8530,6 +8538,14 @@
       "code": "TUR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-19",
+          "isHome": false,
+          "opponentName": "Paraguay",
+          "ourScore": 0,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-13",
           "isHome": false,
@@ -10343,6 +10359,14 @@
       "code": "BRA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-19",
+          "isHome": true,
+          "opponentName": "Haiti",
+          "ourScore": 3,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-13",
           "isHome": true,
@@ -12692,6 +12716,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-19",
+          "isHome": true,
+          "opponentName": "Turkey",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-12",
           "isHome": false,
           "opponentName": "United States",
@@ -13210,6 +13242,14 @@
       "code": "USA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-19",
+          "isHome": true,
+          "opponentName": "Australia",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-12",
           "isHome": true,
@@ -16742,6 +16782,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-19",
+          "isHome": false,
+          "opponentName": "Brazil",
+          "ourScore": 0,
+          "oppScore": 3,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-13",
           "isHome": false,
           "opponentName": "Scotland",
@@ -19760,6 +19808,14 @@
       "code": "AUS",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-19",
+          "isHome": false,
+          "opponentName": "United States",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-13",
           "isHome": true,
@@ -23003,6 +23059,14 @@
       "code": "MAR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-19",
+          "isHome": true,
+          "opponentName": "Scotland",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-13",
           "isHome": false,

@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-19T16:28:51.536Z",
+  "fetchedAt": "2026-06-20T15:29:29.912Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -27,7 +27,7 @@
     },
     "BRA": {
       "name": "Brazil",
-      "elo": 1978
+      "elo": 1986
     },
     "POR": {
       "name": "Portugal",
@@ -73,37 +73,33 @@
       "name": "Uruguay",
       "elo": 1870
     },
+    "MAR": {
+      "name": "Morocco",
+      "elo": 1866
+    },
     "AUT": {
       "name": "Austria",
       "elo": 1857
-    },
-    "TUR": {
-      "name": "Turkey",
-      "elo": 1849
-    },
-    "MAR": {
-      "name": "Morocco",
-      "elo": 1840
-    },
-    "AUS": {
-      "name": "Australia",
-      "elo": 1839
     },
     "SEN": {
       "name": "Senegal",
       "elo": 1839
     },
-    "SCO": {
-      "name": "Scotland",
-      "elo": 1794
+    "USA": {
+      "name": "United States",
+      "elo": 1820
     },
     "PAR": {
       "name": "Paraguay",
-      "elo": 1780
+      "elo": 1816
     },
-    "USA": {
-      "name": "United States",
-      "elo": 1780
+    "TUR": {
+      "name": "Turkey",
+      "elo": 1813
+    },
+    "AUS": {
+      "name": "Australia",
+      "elo": 1799
     },
     "CAN": {
       "name": "Canada",
@@ -112,6 +108,10 @@
     "KOR": {
       "name": "South Korea",
       "elo": 1771
+    },
+    "SCO": {
+      "name": "Scotland",
+      "elo": 1768
     },
     "ALG": {
       "name": "Algeria",
@@ -183,7 +183,7 @@
     },
     "HAI": {
       "name": "Haiti",
-      "elo": 1536
+      "elo": 1528
     },
     "RSA": {
       "name": "South Africa",
