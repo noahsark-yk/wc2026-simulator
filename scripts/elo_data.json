@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-20T15:29:29.912Z",
+  "fetchedAt": "2026-06-21T06:47:59.143Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -29,17 +29,17 @@
       "name": "Brazil",
       "elo": 1986
     },
+    "NED": {
+      "name": "Netherlands",
+      "elo": 1972
+    },
     "POR": {
       "name": "Portugal",
       "elo": 1967
     },
-    "NED": {
-      "name": "Netherlands",
-      "elo": 1944
-    },
     "GER": {
       "name": "Germany",
-      "elo": 1939
+      "elo": 1954
     },
     "NOR": {
       "name": "Norway",
@@ -121,13 +121,13 @@
       "name": "Iran",
       "elo": 1756
     },
-    "SWE": {
-      "name": "Sweden",
-      "elo": 1755
-    },
     "CIV": {
       "name": "Ivory Coast",
-      "elo": 1743
+      "elo": 1728
+    },
+    "SWE": {
+      "name": "Sweden",
+      "elo": 1727
     },
     "EGY": {
       "name": "Egypt",
