@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-21T06:47:59.143Z",
+  "fetchedAt": "2026-06-22T07:20:24.668Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -7,7 +7,7 @@
   "teams": {
     "ESP": {
       "name": "Spain",
-      "elo": 2129
+      "elo": 2134
     },
     "ARG": {
       "name": "Argentina",
@@ -47,15 +47,11 @@
     },
     "JPN": {
       "name": "Japan",
-      "elo": 1910
+      "elo": 1925
     },
     "MEX": {
       "name": "Mexico",
       "elo": 1896
-    },
-    "ECU": {
-      "name": "Ecuador",
-      "elo": 1890
     },
     "SUI": {
       "name": "Switzerland",
@@ -67,19 +63,23 @@
     },
     "BEL": {
       "name": "Belgium",
-      "elo": 1879
-    },
-    "URU": {
-      "name": "Uruguay",
-      "elo": 1870
+      "elo": 1869
     },
     "MAR": {
       "name": "Morocco",
       "elo": 1866
     },
+    "ECU": {
+      "name": "Ecuador",
+      "elo": 1864
+    },
     "AUT": {
       "name": "Austria",
       "elo": 1857
+    },
+    "URU": {
+      "name": "Uruguay",
+      "elo": 1851
     },
     "SEN": {
       "name": "Senegal",
@@ -113,13 +113,13 @@
       "name": "Scotland",
       "elo": 1768
     },
+    "IRN": {
+      "name": "Iran",
+      "elo": 1766
+    },
     "ALG": {
       "name": "Algeria",
       "elo": 1759
-    },
-    "IRN": {
-      "name": "Iran",
-      "elo": 1756
     },
     "CIV": {
       "name": "Ivory Coast",
@@ -155,27 +155,27 @@
     },
     "CPV": {
       "name": "Cape Verde",
-      "elo": 1606
-    },
-    "KSA": {
-      "name": "Saudi Arabia",
-      "elo": 1598
+      "elo": 1625
     },
     "BIH": {
       "name": "Bosnia/Herzeg",
       "elo": 1596
     },
+    "KSA": {
+      "name": "Saudi Arabia",
+      "elo": 1593
+    },
     "IRQ": {
       "name": "Iraq",
       "elo": 1592
     },
-    "TUN": {
-      "name": "Tunisia",
-      "elo": 1585
-    },
     "NZL": {
       "name": "New Zealand",
       "elo": 1578
+    },
+    "TUN": {
+      "name": "Tunisia",
+      "elo": 1570
     },
     "GHA": {
       "name": "Ghana",
@@ -189,13 +189,13 @@
       "name": "South Africa",
       "elo": 1527
     },
+    "CUW": {
+      "name": "Curaçao",
+      "elo": 1453
+    },
     "QAT": {
       "name": "Qatar",
       "elo": 1437
-    },
-    "CUW": {
-      "name": "Curaçao",
-      "elo": 1427
     }
   }
 }
