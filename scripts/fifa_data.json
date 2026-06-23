@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-22",
+  "lastUpdated": "2026-06-23",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260401",
   "sourceConfirmedDate": null,
@@ -7,11 +7,11 @@
   "teams": {
     "ARG": {
       "rank": 1,
-      "points": 1889.06
+      "points": 1901.93
     },
     "FRA": {
       "rank": 2,
-      "points": 1887.11
+      "points": 1894.4
     },
     "ESP": {
       "rank": 3,
@@ -65,49 +65,49 @@
       "rank": 16,
       "points": 1681.26
     },
-    "SEN": {
-      "rank": 17,
-      "points": 1667.66
-    },
     "SUI": {
-      "rank": 18,
+      "rank": 17,
       "points": 1654.94
     },
     "URU": {
-      "rank": 19,
+      "rank": 18,
       "points": 1649.96
     },
-    "AUT": {
-      "rank": 21,
-      "points": 1612.86
+    "SEN": {
+      "rank": 19,
+      "points": 1638.36
     },
     "IRN": {
-      "rank": 22,
+      "rank": 21,
       "points": 1611.18
     },
-    "KOR": {
+    "NOR": {
+      "rank": 22,
+      "points": 1606.48
+    },
+    "AUT": {
       "rank": 23,
+      "points": 1599.99
+    },
+    "KOR": {
+      "rank": 24,
       "points": 1591.75
     },
     "AUS": {
-      "rank": 25,
+      "rank": 26,
       "points": 1584.55
     },
     "EGY": {
-      "rank": 26,
+      "rank": 27,
       "points": 1583.37
     },
-    "NOR": {
-      "rank": 27,
-      "points": 1577.18
+    "ALG": {
+      "rank": 28,
+      "points": 1575.64
     },
     "CAN": {
-      "rank": 28,
-      "points": 1572.13
-    },
-    "ALG": {
       "rank": 29,
-      "points": 1559.24
+      "points": 1572.13
     },
     "ECU": {
       "rank": 30,
@@ -163,7 +163,7 @@
     },
     "IRQ": {
       "rank": 60,
-      "points": 1426.53
+      "points": 1419.24
     },
     "RSA": {
       "rank": 61,
@@ -182,8 +182,8 @@
       "points": 1380.71
     },
     "JOR": {
-      "rank": 68,
-      "points": 1372.29
+      "rank": 72,
+      "points": 1355.89
     },
     "CUW": {
       "rank": 81,

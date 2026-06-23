@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-22T07:26:59.977Z",
+  "fetchedAt": "2026-06-23T06:10:14.392Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -5776,6 +5776,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-22",
+          "isHome": false,
+          "opponentName": "Argentina",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-16",
           "isHome": true,
           "opponentName": "Jordan",
@@ -9784,6 +9792,14 @@
       "code": "ARG",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-22",
+          "isHome": true,
+          "opponentName": "Austria",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-16",
           "isHome": true,
@@ -25289,6 +25305,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-21",
+          "isHome": true,
+          "opponentName": "New Zealand",
+          "ourScore": 3,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-15",
           "isHome": false,
           "opponentName": "Belgium",
@@ -29577,6 +29601,14 @@
       "code": "NZL",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-21",
+          "isHome": false,
+          "opponentName": "Egypt",
+          "ourScore": 1,
+          "oppScore": 3,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-15",
           "isHome": false,
