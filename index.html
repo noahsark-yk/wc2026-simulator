@@ -5221,12 +5221,17 @@ function simGroup(teams) {
   // reality; simulated games use the rating-weighted pseudo margin. 2-team ties
   // resolve EXACTLY (direct result decides); 3-team ties use the GD approximation.
   const h2h = {};
-  teams.forEach(x => { pts[x.c] = 0; sc[x.c] = 0; h2h[x.c] = {}; });
+  const fp = {}; // v2.25: fair-play points (real cards only; late group tiebreak)
+  teams.forEach(x => { pts[x.c] = 0; sc[x.c] = 0; h2h[x.c] = {}; fp[x.c] = 0; });
   for (let i = 0; i < teams.length; i++) {
     for (let j = i+1; j < teams.length; j++) {
       const ti = teams[i], tj = teams[j];
       const w = simMatch(ti, tj, true, 'gs');
       const _real = lookupRealResult(ti.c, tj.c, 'gs');
+      if (_real && _real.fairPlay) {
+        if (_real.fairPlay[ti.c] != null) fp[ti.c] += _real.fairPlay[ti.c];
+        if (_real.fairPlay[tj.c] != null) fp[tj.c] += _real.fairPlay[tj.c];
+      }
       if (!w) {
         pts[ti.c] += 1; pts[tj.c] += 1;
         h2h[ti.c][tj.c] = { pts: 1, gd: 0 };
@@ -5264,6 +5269,7 @@ function simGroup(teams) {
       if (mA.pts !== mB.pts) return mB.pts - mA.pts;
       if (mA.gd  !== mB.gd)  return mB.gd  - mA.gd;
       if (sc[a.c] !== sc[b.c]) return sc[b.c] - sc[a.c];
+      if (fp[a.c] !== fp[b.c]) return fp[b.c] - fp[a.c]; // v2.25: fair-play (fewer cards up)
       return rating(b) - rating(a);
     });
     const out = [];
@@ -5297,12 +5303,19 @@ function simGroup(teams) {
 function simGroupDetailed(teams) {
   const stats = {}; // c -> {P, W, D, L, GF, GA, GD, Pts}
   const matches = []; // list of {t1, t2, score}
-  teams.forEach(x => { stats[x.c] = { P:0, W:0, D:0, L:0, GF:0, GA:0, GD:0, Pts:0 }; });
+  const fp = {}; // v2.25: fair-play points (real cards only; late group tiebreak)
+  teams.forEach(x => { stats[x.c] = { P:0, W:0, D:0, L:0, GF:0, GA:0, GD:0, Pts:0 }; fp[x.c] = 0; });
   for (let i = 0; i < teams.length; i++) {
     for (let j = i+1; j < teams.length; j++) {
       const t1 = teams[i], t2 = teams[j];
       const result = simMatchDetailed(t1, t2, 'gs');
       matches.push(result);
+      // v2.25: accumulate real-card fair-play points (simulated games add 0)
+      const _rfp = lookupRealResult(t1.c, t2.c, 'gs');
+      if (_rfp && _rfp.fairPlay) {
+        if (_rfp.fairPlay[t1.c] != null) fp[t1.c] += _rfp.fairPlay[t1.c];
+        if (_rfp.fairPlay[t2.c] != null) fp[t2.c] += _rfp.fairPlay[t2.c];
+      }
       const s1 = result.score.s1, s2 = result.score.s2;
       stats[t1.c].P++; stats[t2.c].P++;
       stats[t1.c].GF += s1; stats[t1.c].GA += s2;
@@ -5384,10 +5397,11 @@ function simGroupDetailed(teams) {
       if (mA.GD  !== mB.GD)  return mB.GD  - mA.GD;
       if (mA.GF  !== mB.GF)  return mB.GF  - mA.GF;
       // H2H fully tied within this scope → fall to overall GD, then GF
-      // (FIFA 2026 steps 5-6). Last resort is rating (fair-play applied in the
-      // caller for LIVE groups via real cards; otherwise straight to rating).
+      // (FIFA 2026 steps 5-6), then fair-play (LIVE only, from real cards),
+      // then rating (FIFA-ranking / drawing-of-lots stand-in for determinism).
       if (stats[a.c].GD !== stats[b.c].GD) return stats[b.c].GD - stats[a.c].GD;
       if (stats[a.c].GF !== stats[b.c].GF) return stats[b.c].GF - stats[a.c].GF;
+      if (fp[a.c] !== fp[b.c]) return fp[b.c] - fp[a.c]; // higher (fewer cards) ranks above
       return rating(b) - rating(a);
     });
     // Walk the sorted result, building sub-blocks of teams that are STILL
@@ -8247,6 +8261,40 @@ function lookupRealResult(c1, c2, stage) {
   return REAL_RESULTS[key] || null;
 }
 
+// v2.25: FIFA team-conduct (fair-play) points from ESPN card details, used as a
+// late group tiebreak (after overall GD/GF, before FIFA ranking) per the 2026
+// rules. Per athlete final state: yellow=-1, two yellows / indirect red=-3,
+// direct red=-4, yellow+direct red=-5. ESPN detail types: 94=yellow, 93=red.
+// ESPN does NOT flag a second-yellow-red distinctly, so a red on an athlete who
+// also has a yellow this match is read as an indirect red (-3, the common case);
+// a red with no yellow is a straight red (-4). Returns { code: points<=0 }.
+function computeFairPlay(details, idToCode) {
+  const ath = {}; // athleteId -> { code, y, r }
+  (details || []).forEach(d => {
+    const t = d.type || {};
+    const isY = t.id === '94' || d.yellowCard === true;
+    const isR = t.id === '93' || d.redCard === true;
+    if (!isY && !isR) return;
+    const a = (d.athletesInvolved && d.athletesInvolved[0]) || null;
+    const teamId = (d.team && d.team.id) || (a && a.team && a.team.id);
+    const code = idToCode[teamId];
+    if (!code) return;
+    const key = (a && a.id) || ('anon' + Object.keys(ath).length);
+    if (!ath[key]) ath[key] = { code, y: 0, r: 0 };
+    if (isR) ath[key].r++; else ath[key].y++;
+  });
+  const pts = {};
+  Object.keys(ath).forEach(k => {
+    const s = ath[k];
+    let p = 0;
+    if (s.r > 0) p = s.y > 0 ? -3 : -4;   // yellow+red -> indirect(-3); lone red -> direct(-4)
+    else if (s.y >= 2) p = -3;            // two yellows, no explicit red event
+    else if (s.y === 1) p = -1;
+    pts[s.code] = (pts[s.code] || 0) + p;
+  });
+  return pts;
+}
+
 function ingestEspnEvents(events) {
   let added = 0;
   const lives = [];
@@ -8305,6 +8353,11 @@ function ingestEspnEvents(events) {
       if (s1 > s2) winnerC = cHome;
       else if (s2 > s1) winnerC = cAway;
       else if (hasPK) winnerC = pk1 > pk2 ? cHome : cAway;
+      // v2.25: fair-play points from this match's cards (late group tiebreak).
+      const idToCode = {};
+      if (home.team && home.team.id) idToCode[home.team.id] = cHome;
+      if (away.team && away.team.id) idToCode[away.team.id] = cAway;
+      const fairPlay = computeFairPlay(comp.details, idToCode);
       const key = realKey(cHome, cAway, isKO);
       if (!REAL_RESULTS[key]) added++;
       REAL_RESULTS[key] = {
@@ -8312,7 +8365,7 @@ function ingestEspnEvents(events) {
         s1: isNaN(s1) ? 0 : s1, s2: isNaN(s2) ? 0 : s2,
         winnerC, aet: !!aet, pk: !!hasPK,
         pkS1: hasPK ? pk1 : 0, pkS2: hasPK ? pk2 : 0,
-        date: ev.date
+        date: ev.date, fairPlay
       };
     } else if (st.state === 'in') {
       lives.push({
