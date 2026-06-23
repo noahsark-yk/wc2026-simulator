@@ -5215,18 +5215,24 @@ function generateScoreForOutcome(t1, t2, winnerTeam, stage) {
 
 function simGroup(teams) {
   const pts = {}, sc = {};
-  teams.forEach(x => { pts[x.c] = 0; sc[x.c] = 0; });
+  // v2.24: head-to-head BEFORE overall sc when teams are level on points (FIFA
+  // 2026 order). Per-pair H2H record: pts (3/1/0) + signed GD. LIVE: locked real
+  // matches contribute their ACTUAL goal margin so fast-path standings agree with
+  // reality; simulated games use the rating-weighted pseudo margin. 2-team ties
+  // resolve EXACTLY (direct result decides); 3-team ties use the GD approximation.
+  const h2h = {};
+  teams.forEach(x => { pts[x.c] = 0; sc[x.c] = 0; h2h[x.c] = {}; });
   for (let i = 0; i < teams.length; i++) {
     for (let j = i+1; j < teams.length; j++) {
-      const w = simMatch(teams[i], teams[j], true, 'gs');
-      // LIVE: for locked real matches use the ACTUAL goal difference as the
-      // pseudo-GD tiebreak contribution, so fast-path standings agree with
-      // reality (the rating-weighted synthetic margin is for simulated games).
-      const _real = lookupRealResult(teams[i].c, teams[j].c, 'gs');
+      const ti = teams[i], tj = teams[j];
+      const w = simMatch(ti, tj, true, 'gs');
+      const _real = lookupRealResult(ti.c, tj.c, 'gs');
       if (!w) {
-        pts[teams[i].c] += 1; pts[teams[j].c] += 1;
+        pts[ti.c] += 1; pts[tj.c] += 1;
+        h2h[ti.c][tj.c] = { pts: 1, gd: 0 };
+        h2h[tj.c][ti.c] = { pts: 1, gd: 0 };
       } else {
-        const l = w === teams[i] ? teams[j] : teams[i];
+        const l = w === ti ? tj : ti;
         pts[w.c] += 3;
         let d;
         if (_real) {
@@ -5236,11 +5242,55 @@ function simGroup(teams) {
           d = Math.max(0.5, rDiff + Math.random());
         }
         sc[w.c] += d; sc[l.c] -= d;
+        h2h[w.c][l.c] = { pts: 3, gd: d };
+        h2h[l.c][w.c] = { pts: 0, gd: -d };
       }
     }
   }
-  return [...teams].sort((a,b) => pts[b.c]-pts[a.c] || sc[b.c]-sc[a.c] || rating(b)-rating(a))
-    .map(x => ({...x, pts: pts[x.c], sc: sc[x.c]}));
+  // Resolve a block of teams level on points: H2H pts → H2H GD → overall sc →
+  // rating. Recurses on sub-blocks still tied on H2H with a rescoped mini-table.
+  const resolveFast = (block) => {
+    if (block.length <= 1) return block;
+    const scope = block.map(t => t.c);
+    const mini = {};
+    scope.forEach(c => { mini[c] = { pts: 0, gd: 0 }; });
+    for (const ca of scope) for (const cb of scope) {
+      if (ca === cb) continue;
+      const r = h2h[ca][cb];
+      if (r) { mini[ca].pts += r.pts; mini[ca].gd += r.gd; }
+    }
+    const sorted = [...block].sort((a, b) => {
+      const mA = mini[a.c], mB = mini[b.c];
+      if (mA.pts !== mB.pts) return mB.pts - mA.pts;
+      if (mA.gd  !== mB.gd)  return mB.gd  - mA.gd;
+      if (sc[a.c] !== sc[b.c]) return sc[b.c] - sc[a.c];
+      return rating(b) - rating(a);
+    });
+    const out = [];
+    let i = 0;
+    while (i < sorted.length) {
+      let j = i + 1;
+      while (j < sorted.length
+        && mini[sorted[i].c].pts === mini[sorted[j].c].pts
+        && mini[sorted[i].c].gd  === mini[sorted[j].c].gd) j++;
+      if (j - i === 1) out.push(sorted[i]);
+      else if (j - i === block.length) { for (let k = i; k < sorted.length; k++) out.push(sorted[k]); break; }
+      else out.push(...resolveFast(sorted.slice(i, j)));
+      i = j;
+    }
+    return out;
+  };
+  const byPts = [...teams].sort((a, b) => pts[b.c] - pts[a.c]);
+  const standings = [];
+  let bi = 0;
+  while (bi < byPts.length) {
+    let bj = bi + 1;
+    while (bj < byPts.length && pts[byPts[bj].c] === pts[byPts[bi].c]) bj++;
+    if (bj - bi === 1) standings.push(byPts[bi]);
+    else resolveFast(byPts.slice(bi, bj)).forEach(t => standings.push(t));
+    bi = bj;
+  }
+  return standings.map(x => ({...x, pts: pts[x.c], sc: sc[x.c]}));
 }
 
 // Detailed group sim with actual match scores
@@ -5271,16 +5321,19 @@ function simGroupDetailed(teams) {
   }
   teams.forEach(x => { stats[x.c].GD = stats[x.c].GF - stats[x.c].GA; });
 
-  // v2.13.1: FIFA-compliant tiebreak order.
-  // Order per FIFA WC 2026 regulations:
-  //   1. Points
-  //   2. Goal Difference (all matches)
-  //   3. Goals For (all matches)
-  //   4. Among tied teams only: H2H Points
-  //   5. Among tied teams only: H2H Goal Difference
-  //   6. Among tied teams only: H2H Goals For
-  //   7. Fair-play (not modeled here — we skip straight to rating)
-  //   8. Drawing of lots (replaced by rating tiebreak for determinism in sim)
+  // v2.24: TRUE FIFA WC 2026 tiebreak order (head-to-head FIRST).
+  // Earlier versions sorted by overall GD/GF *before* H2H — that was the
+  // 2018/2022 rule. For 2026 FIFA moved H2H ahead of overall GD/GF. Correct:
+  //   1. Points (all matches)
+  //   --- among teams level on points, in this order: ---
+  //   2. H2H Points (matches between the tied teams only)
+  //   3. H2H Goal Difference
+  //   4. H2H Goals For
+  //   5. Overall Goal Difference (all matches)
+  //   6. Overall Goals For (all matches)
+  //   7. Fair-play / team-conduct score (LIVE: from real card data — see Part B
+  //      / addFairPlay; falls through to rating for purely simulated groups)
+  //   8. FIFA ranking → drawing of lots (replaced by rating for determinism)
   //
   // The fast-path simGroup() (used in 100k MC) skips H2H for speed, relying on
   // a rating-weighted pseudo-GD ("sc"). This detailed path resolves 3-way ties
@@ -5324,14 +5377,17 @@ function simGroupDetailed(teams) {
     // fall through to rating.
     const scope = block.map(t => t.c);
     const mini = h2hStats(scope);
-    // Sort by H2H Pts → H2H GD → H2H GF → rating
+    // Sort by H2H Pts → H2H GD → H2H GF → overall GD → overall GF → rating
     const sorted = [...block].sort((a, b) => {
       const mA = mini[a.c], mB = mini[b.c];
       if (mA.Pts !== mB.Pts) return mB.Pts - mA.Pts;
       if (mA.GD  !== mB.GD)  return mB.GD  - mA.GD;
       if (mA.GF  !== mB.GF)  return mB.GF  - mA.GF;
-      // Fully tied on H2H — last resort is rating (FIFA would use fair-play
-      // then drawing of lots, neither of which we model).
+      // H2H fully tied within this scope → fall to overall GD, then GF
+      // (FIFA 2026 steps 5-6). Last resort is rating (fair-play applied in the
+      // caller for LIVE groups via real cards; otherwise straight to rating).
+      if (stats[a.c].GD !== stats[b.c].GD) return stats[b.c].GD - stats[a.c].GD;
+      if (stats[a.c].GF !== stats[b.c].GF) return stats[b.c].GF - stats[a.c].GF;
       return rating(b) - rating(a);
     });
     // Walk the sorted result, building sub-blocks of teams that are STILL
@@ -5373,31 +5429,21 @@ function simGroupDetailed(teams) {
     return output;
   };
 
-  // Group the teams by identical (Pts, GD, GF) — those are the "tied blocks"
-  // that need H2H resolution.
-  const sortedByOverall = [...teams].sort((a, b) =>
-    stats[b.c].Pts - stats[a.c].Pts ||
-    stats[b.c].GD  - stats[a.c].GD  ||
-    stats[b.c].GF  - stats[a.c].GF
-  );
+  // FIFA 2026: teams level on POINTS are separated by head-to-head FIRST, then
+  // by overall GD/GF. So block strictly by points and hand each multi-team block
+  // to resolveBlock, which applies H2H → overall → rating in the correct order.
+  // (Pre-2026 rules blocked by identical (Pts,GD,GF) and only ran H2H on the
+  // leftover — that put overall GD/GF ahead of H2H, which was the bug.)
+  const byPoints = [...teams].sort((a, b) => stats[b.c].Pts - stats[a.c].Pts);
   const standings = [];
   let bi = 0;
-  while (bi < sortedByOverall.length) {
-    const cur = sortedByOverall[bi];
+  while (bi < byPoints.length) {
     let bj = bi + 1;
-    while (bj < sortedByOverall.length) {
-      const nxt = sortedByOverall[bj];
-      if (stats[cur.c].Pts === stats[nxt.c].Pts
-       && stats[cur.c].GD  === stats[nxt.c].GD
-       && stats[cur.c].GF  === stats[nxt.c].GF) {
-        bj++;
-      } else break;
-    }
+    while (bj < byPoints.length && stats[byPoints[bj].c].Pts === stats[byPoints[bi].c].Pts) bj++;
     if (bj - bi === 1) {
-      standings.push(cur);
+      standings.push(byPoints[bi]);
     } else {
-      const block = sortedByOverall.slice(bi, bj);
-      resolveBlock(block).forEach(t => standings.push(t));
+      resolveBlock(byPoints.slice(bi, bj)).forEach(t => standings.push(t));
     }
     bi = bj;
   }
