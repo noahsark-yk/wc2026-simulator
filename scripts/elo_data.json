@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-23T06:03:20.171Z",
+  "fetchedAt": "2026-06-23T16:22:13.521Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -15,7 +15,7 @@
     },
     "FRA": {
       "name": "France",
-      "elo": 2084
+      "elo": 2090
     },
     "ENG": {
       "name": "England",
@@ -43,7 +43,7 @@
     },
     "NOR": {
       "name": "Norway",
-      "elo": 1929
+      "elo": 1951
     },
     "JPN": {
       "name": "Japan",
@@ -81,13 +81,13 @@
       "name": "Austria",
       "elo": 1841
     },
-    "SEN": {
-      "name": "Senegal",
-      "elo": 1839
-    },
     "USA": {
       "name": "United States",
       "elo": 1820
+    },
+    "SEN": {
+      "name": "Senegal",
+      "elo": 1817
     },
     "PAR": {
       "name": "Paraguay",
@@ -100,6 +100,10 @@
     "AUS": {
       "name": "Australia",
       "elo": 1799
+    },
+    "ALG": {
+      "name": "Algeria",
+      "elo": 1780
     },
     "CAN": {
       "name": "Canada",
@@ -116,10 +120,6 @@
     "IRN": {
       "name": "Iran",
       "elo": 1766
-    },
-    "ALG": {
-      "name": "Algeria",
-      "elo": 1759
     },
     "EGY": {
       "name": "Egypt",
@@ -151,7 +151,7 @@
     },
     "JOR": {
       "name": "Jordan",
-      "elo": 1653
+      "elo": 1632
     },
     "CPV": {
       "name": "Cape Verde",
@@ -167,7 +167,7 @@
     },
     "IRQ": {
       "name": "Iraq",
-      "elo": 1592
+      "elo": 1586
     },
     "TUN": {
       "name": "Tunisia",

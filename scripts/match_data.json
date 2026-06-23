@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-23T06:10:14.392Z",
+  "fetchedAt": "2026-06-23T16:29:20.484Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -671,6 +671,14 @@
       "code": "FRA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-22",
+          "isHome": true,
+          "opponentName": "Iraq",
+          "ourScore": 3,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-16",
           "isHome": true,
@@ -6965,6 +6973,14 @@
       "code": "NOR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-22",
+          "isHome": true,
+          "opponentName": "Senegal",
+          "ourScore": 3,
+          "oppScore": 2,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-16",
           "isHome": true,
@@ -21031,6 +21047,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-22",
+          "isHome": false,
+          "opponentName": "Algeria",
+          "ourScore": 1,
+          "oppScore": 2,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-16",
           "isHome": false,
           "opponentName": "Austria",
@@ -21741,6 +21765,14 @@
       "code": "IRQ",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-22",
+          "isHome": false,
+          "opponentName": "France",
+          "ourScore": 0,
+          "oppScore": 3,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-16",
           "isHome": false,
@@ -23907,6 +23939,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-22",
+          "isHome": false,
+          "opponentName": "Norway",
+          "ourScore": 2,
+          "oppScore": 3,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-16",
           "isHome": false,
           "opponentName": "France",
@@ -25967,6 +26007,14 @@
       "code": "ALG",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-22",
+          "isHome": true,
+          "opponentName": "Jordan",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-16",
           "isHome": false,
