@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-23T16:29:20.484Z",
+  "fetchedAt": "2026-06-24T06:10:36.303Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -1327,6 +1327,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-23",
+          "isHome": true,
+          "opponentName": "Ghana",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-17",
           "isHome": true,
           "opponentName": "Croatia",
@@ -1989,6 +1997,14 @@
       "code": "POR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-23",
+          "isHome": true,
+          "opponentName": "Uzbekistan",
+          "ourScore": 5,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-17",
           "isHome": false,
@@ -3898,6 +3914,14 @@
       "code": "CRO",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-23",
+          "isHome": true,
+          "opponentName": "Panama",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-17",
           "isHome": false,
@@ -15664,6 +15688,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-23",
+          "isHome": false,
+          "opponentName": "Croatia",
+          "ourScore": 0,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-17",
           "isHome": false,
           "opponentName": "Ghana",
@@ -20439,6 +20471,14 @@
       "code": "UZB",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-23",
+          "isHome": false,
+          "opponentName": "Portugal",
+          "ourScore": 0,
+          "oppScore": 5,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-17",
           "isHome": false,
@@ -27301,6 +27341,14 @@
       "code": "GHA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-23",
+          "isHome": false,
+          "opponentName": "England",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-17",
           "isHome": true,

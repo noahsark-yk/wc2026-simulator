@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-23T16:22:13.521Z",
+  "fetchedAt": "2026-06-24T06:03:42.381Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -19,11 +19,15 @@
     },
     "ENG": {
       "name": "England",
-      "elo": 2055
+      "elo": 2028
     },
     "COL": {
       "name": "Colombia",
       "elo": 1998
+    },
+    "POR": {
+      "name": "Portugal",
+      "elo": 1988
     },
     "BRA": {
       "name": "Brazil",
@@ -32,10 +36,6 @@
     "NED": {
       "name": "Netherlands",
       "elo": 1972
-    },
-    "POR": {
-      "name": "Portugal",
-      "elo": 1967
     },
     "GER": {
       "name": "Germany",
@@ -49,6 +49,10 @@
       "name": "Japan",
       "elo": 1925
     },
+    "CRO": {
+      "name": "Croatia",
+      "elo": 1896
+    },
     "MEX": {
       "name": "Mexico",
       "elo": 1896
@@ -56,10 +60,6 @@
     "SUI": {
       "name": "Switzerland",
       "elo": 1885
-    },
-    "CRO": {
-      "name": "Croatia",
-      "elo": 1881
     },
     "BEL": {
       "name": "Belgium",
@@ -133,21 +133,21 @@
       "name": "Sweden",
       "elo": 1727
     },
-    "UZB": {
-      "name": "Uzbekistan",
-      "elo": 1698
-    },
     "CZE": {
       "name": "Czechia",
       "elo": 1696
     },
-    "PAN": {
-      "name": "Panama",
-      "elo": 1683
+    "UZB": {
+      "name": "Uzbekistan",
+      "elo": 1677
     },
     "COD": {
       "name": "DR Congo",
       "elo": 1674
+    },
+    "PAN": {
+      "name": "Panama",
+      "elo": 1668
     },
     "JOR": {
       "name": "Jordan",
@@ -169,13 +169,13 @@
       "name": "Iraq",
       "elo": 1586
     },
+    "GHA": {
+      "name": "Ghana",
+      "elo": 1584
+    },
     "TUN": {
       "name": "Tunisia",
       "elo": 1570
-    },
-    "GHA": {
-      "name": "Ghana",
-      "elo": 1557
     },
     "NZL": {
       "name": "New Zealand",

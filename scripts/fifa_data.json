@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-23",
+  "lastUpdated": "2026-06-24",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260401",
   "sourceConfirmedDate": null,
@@ -19,7 +19,7 @@
     },
     "ENG": {
       "rank": 4,
-      "points": 1847.68
+      "points": 1829.82
     },
     "BRA": {
       "rank": 5,
@@ -29,37 +29,37 @@
       "rank": 6,
       "points": 1769.98
     },
-    "NED": {
+    "POR": {
       "rank": 7,
+      "points": 1766.74
+    },
+    "NED": {
+      "rank": 8,
       "points": 1764.4
     },
     "GER": {
-      "rank": 8,
-      "points": 1760.46
-    },
-    "POR": {
       "rank": 9,
-      "points": 1755.09
+      "points": 1760.46
     },
     "BEL": {
       "rank": 10,
       "points": 1727.88
     },
-    "MEX": {
+    "COL": {
       "rank": 11,
+      "points": 1727.42
+    },
+    "MEX": {
+      "rank": 12,
       "points": 1721.78
     },
-    "COL": {
-      "rank": 12,
-      "points": 1712.6
+    "CRO": {
+      "rank": 13,
+      "points": 1711.48
     },
     "USA": {
-      "rank": 13,
+      "rank": 14,
       "points": 1709.59
-    },
-    "CRO": {
-      "rank": 15,
-      "points": 1695.21
     },
     "JPN": {
       "rank": 16,
@@ -129,33 +129,33 @@
       "rank": 37,
       "points": 1517.39
     },
-    "PAN": {
-      "rank": 40,
-      "points": 1505.33
-    },
     "SCO": {
-      "rank": 41,
+      "rank": 40,
       "points": 1504.41
     },
-    "COD": {
-      "rank": 43,
-      "points": 1487.18
+    "PAN": {
+      "rank": 42,
+      "points": 1489.05
     },
     "CZE": {
-      "rank": 44,
+      "rank": 43,
       "points": 1481.49
     },
-    "UZB": {
-      "rank": 54,
-      "points": 1444.48
+    "COD": {
+      "rank": 47,
+      "points": 1472.37
     },
     "QAT": {
-      "rank": 57,
+      "rank": 56,
       "points": 1438.82
     },
     "TUN": {
-      "rank": 58,
+      "rank": 57,
       "points": 1437.69
+    },
+    "UZB": {
+      "rank": 58,
+      "points": 1432.84
     },
     "KSA": {
       "rank": 59,
@@ -173,13 +173,13 @@
       "rank": 63,
       "points": 1401.77
     },
-    "BIH": {
-      "rank": 64,
-      "points": 1381.18
-    },
     "GHA": {
+      "rank": 64,
+      "points": 1398.57
+    },
+    "BIH": {
       "rank": 65,
-      "points": 1380.71
+      "points": 1381.18
     },
     "JOR": {
       "rank": 72,
