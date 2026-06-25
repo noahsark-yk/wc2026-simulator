@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-24",
+  "lastUpdated": "2026-06-25",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260401",
   "sourceConfirmedDate": null,
@@ -23,11 +23,11 @@
     },
     "BRA": {
       "rank": 5,
-      "points": 1772.01
+      "points": 1785.19
     },
     "MAR": {
       "rank": 6,
-      "points": 1769.98
+      "points": 1776.4
     },
     "POR": {
       "rank": 7,
@@ -41,17 +41,17 @@
       "rank": 9,
       "points": 1760.46
     },
-    "BEL": {
+    "MEX": {
       "rank": 10,
+      "points": 1736.01
+    },
+    "BEL": {
+      "rank": 11,
       "points": 1727.88
     },
     "COL": {
-      "rank": 11,
-      "points": 1727.42
-    },
-    "MEX": {
       "rank": 12,
-      "points": 1721.78
+      "points": 1727.42
     },
     "CRO": {
       "rank": 13,
@@ -67,7 +67,7 @@
     },
     "SUI": {
       "rank": 17,
-      "points": 1654.94
+      "points": 1676
     },
     "URU": {
       "rank": 18,
@@ -89,33 +89,33 @@
       "rank": 23,
       "points": 1599.99
     },
-    "KOR": {
-      "rank": 24,
-      "points": 1591.75
-    },
     "AUS": {
-      "rank": 26,
+      "rank": 25,
       "points": 1584.55
     },
     "EGY": {
-      "rank": 27,
+      "rank": 26,
       "points": 1583.37
     },
     "ALG": {
-      "rank": 28,
+      "rank": 27,
       "points": 1575.64
     },
-    "CAN": {
-      "rank": 29,
-      "points": 1572.13
+    "KOR": {
+      "rank": 28,
+      "points": 1558.72
     },
     "ECU": {
-      "rank": 30,
+      "rank": 29,
       "points": 1558.35
     },
     "CIV": {
-      "rank": 31,
+      "rank": 30,
       "points": 1551.71
+    },
+    "CAN": {
+      "rank": 31,
+      "points": 1551.07
     },
     "TUR": {
       "rank": 32,
@@ -130,24 +130,24 @@
       "points": 1517.39
     },
     "SCO": {
-      "rank": 40,
-      "points": 1504.41
+      "rank": 41,
+      "points": 1491.22
     },
     "PAN": {
       "rank": 42,
       "points": 1489.05
     },
-    "CZE": {
-      "rank": 43,
-      "points": 1481.49
-    },
     "COD": {
-      "rank": 47,
+      "rank": 46,
       "points": 1472.37
     },
-    "QAT": {
-      "rank": 56,
-      "points": 1438.82
+    "CZE": {
+      "rank": 48,
+      "points": 1467.26
+    },
+    "RSA": {
+      "rank": 54,
+      "points": 1451.24
     },
     "TUN": {
       "rank": 57,
@@ -165,21 +165,21 @@
       "rank": 60,
       "points": 1419.24
     },
-    "RSA": {
+    "QAT": {
       "rank": 61,
-      "points": 1418.21
+      "points": 1411.06
+    },
+    "BIH": {
+      "rank": 62,
+      "points": 1408.93
     },
     "CPV": {
-      "rank": 63,
+      "rank": 64,
       "points": 1401.77
     },
     "GHA": {
-      "rank": 64,
-      "points": 1398.57
-    },
-    "BIH": {
       "rank": 65,
-      "points": 1381.18
+      "points": 1398.57
     },
     "JOR": {
       "rank": 72,
@@ -194,8 +194,8 @@
       "points": 1277.34
     },
     "HAI": {
-      "rank": 87,
-      "points": 1271
+      "rank": 88,
+      "points": 1264.58
     }
   }
 }

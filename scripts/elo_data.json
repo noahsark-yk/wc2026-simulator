@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-24T06:03:42.381Z",
+  "fetchedAt": "2026-06-25T06:03:19.922Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -21,17 +21,17 @@
       "name": "England",
       "elo": 2028
     },
+    "BRA": {
+      "name": "Brazil",
+      "elo": 2009
+    },
     "COL": {
       "name": "Colombia",
-      "elo": 1998
+      "elo": 2006
     },
     "POR": {
       "name": "Portugal",
       "elo": 1988
-    },
-    "BRA": {
-      "name": "Brazil",
-      "elo": 1986
     },
     "NED": {
       "name": "Netherlands",
@@ -49,6 +49,10 @@
       "name": "Japan",
       "elo": 1925
     },
+    "SUI": {
+      "name": "Switzerland",
+      "elo": 1914
+    },
     "CRO": {
       "name": "Croatia",
       "elo": 1896
@@ -57,17 +61,13 @@
       "name": "Mexico",
       "elo": 1896
     },
-    "SUI": {
-      "name": "Switzerland",
-      "elo": 1885
+    "MAR": {
+      "name": "Morocco",
+      "elo": 1877
     },
     "BEL": {
       "name": "Belgium",
       "elo": 1869
-    },
-    "MAR": {
-      "name": "Morocco",
-      "elo": 1866
     },
     "ECU": {
       "name": "Ecuador",
@@ -105,21 +105,21 @@
       "name": "Algeria",
       "elo": 1780
     },
-    "CAN": {
-      "name": "Canada",
-      "elo": 1777
-    },
     "KOR": {
       "name": "South Korea",
       "elo": 1771
     },
-    "SCO": {
-      "name": "Scotland",
-      "elo": 1768
-    },
     "IRN": {
       "name": "Iran",
       "elo": 1766
+    },
+    "CAN": {
+      "name": "Canada",
+      "elo": 1748
+    },
+    "SCO": {
+      "name": "Scotland",
+      "elo": 1745
     },
     "EGY": {
       "name": "Egypt",
@@ -141,13 +141,13 @@
       "name": "Uzbekistan",
       "elo": 1677
     },
-    "COD": {
-      "name": "DR Congo",
-      "elo": 1674
-    },
     "PAN": {
       "name": "Panama",
       "elo": 1668
+    },
+    "COD": {
+      "name": "DR Congo",
+      "elo": 1666
     },
     "JOR": {
       "name": "Jordan",
@@ -159,7 +159,7 @@
     },
     "BIH": {
       "name": "Bosnia/Herzeg",
-      "elo": 1596
+      "elo": 1622
     },
     "KSA": {
       "name": "Saudi Arabia",
@@ -181,13 +181,13 @@
       "name": "New Zealand",
       "elo": 1549
     },
-    "HAI": {
-      "name": "Haiti",
-      "elo": 1528
-    },
     "RSA": {
       "name": "South Africa",
       "elo": 1527
+    },
+    "HAI": {
+      "name": "Haiti",
+      "elo": 1517
     },
     "CUW": {
       "name": "Curaçao",
@@ -195,7 +195,7 @@
     },
     "QAT": {
       "name": "Qatar",
-      "elo": 1437
+      "elo": 1411
     }
   }
 }
