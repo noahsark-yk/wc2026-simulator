@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-26T06:13:32.263Z",
+  "fetchedAt": "2026-06-26T16:14:48.720Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -8667,6 +8667,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-25",
+          "isHome": false,
+          "opponentName": "United States",
+          "ourScore": 3,
+          "oppScore": 2,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-19",
           "isHome": false,
           "opponentName": "Paraguay",
@@ -12908,6 +12916,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-25",
+          "isHome": false,
+          "opponentName": "Australia",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-19",
           "isHome": true,
           "opponentName": "Turkey",
@@ -13434,6 +13450,14 @@
       "code": "USA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-25",
+          "isHome": true,
+          "opponentName": "Turkey",
+          "ourScore": 2,
+          "oppScore": 3,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-19",
           "isHome": true,
@@ -20088,6 +20112,14 @@
       "code": "AUS",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-25",
+          "isHome": true,
+          "opponentName": "Paraguay",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-19",
           "isHome": false,

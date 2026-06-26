@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-26T06:06:49.206Z",
+  "fetchedAt": "2026-06-26T16:07:53.205Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -73,6 +73,10 @@
       "name": "Belgium",
       "elo": 1869
     },
+    "TUR": {
+      "name": "Turkey",
+      "elo": 1852
+    },
     "URU": {
       "name": "Uruguay",
       "elo": 1851
@@ -81,25 +85,21 @@
       "name": "Austria",
       "elo": 1841
     },
-    "USA": {
-      "name": "United States",
-      "elo": 1820
-    },
     "SEN": {
       "name": "Senegal",
       "elo": 1817
     },
     "PAR": {
       "name": "Paraguay",
-      "elo": 1816
-    },
-    "TUR": {
-      "name": "Turkey",
-      "elo": 1813
+      "elo": 1815
     },
     "AUS": {
       "name": "Australia",
-      "elo": 1799
+      "elo": 1800
+    },
+    "USA": {
+      "name": "United States",
+      "elo": 1781
     },
     "ALG": {
       "name": "Algeria",
