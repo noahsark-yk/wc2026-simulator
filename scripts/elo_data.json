@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-25T06:03:19.922Z",
+  "fetchedAt": "2026-06-26T06:06:49.206Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -35,30 +35,34 @@
     },
     "NED": {
       "name": "Netherlands",
-      "elo": 1972
-    },
-    "GER": {
-      "name": "Germany",
-      "elo": 1954
+      "elo": 1980
     },
     "NOR": {
       "name": "Norway",
       "elo": 1951
     },
-    "JPN": {
-      "name": "Japan",
-      "elo": 1925
+    "GER": {
+      "name": "Germany",
+      "elo": 1916
     },
     "SUI": {
       "name": "Switzerland",
       "elo": 1914
     },
-    "CRO": {
-      "name": "Croatia",
-      "elo": 1896
-    },
     "MEX": {
       "name": "Mexico",
+      "elo": 1912
+    },
+    "JPN": {
+      "name": "Japan",
+      "elo": 1910
+    },
+    "ECU": {
+      "name": "Ecuador",
+      "elo": 1902
+    },
+    "CRO": {
+      "name": "Croatia",
       "elo": 1896
     },
     "MAR": {
@@ -68,10 +72,6 @@
     "BEL": {
       "name": "Belgium",
       "elo": 1869
-    },
-    "ECU": {
-      "name": "Ecuador",
-      "elo": 1864
     },
     "URU": {
       "name": "Uruguay",
@@ -105,10 +105,6 @@
       "name": "Algeria",
       "elo": 1780
     },
-    "KOR": {
-      "name": "South Korea",
-      "elo": 1771
-    },
     "IRN": {
       "name": "Iran",
       "elo": 1766
@@ -121,21 +117,25 @@
       "name": "Scotland",
       "elo": 1745
     },
+    "CIV": {
+      "name": "Ivory Coast",
+      "elo": 1743
+    },
+    "SWE": {
+      "name": "Sweden",
+      "elo": 1742
+    },
     "EGY": {
       "name": "Egypt",
       "elo": 1740
     },
-    "CIV": {
-      "name": "Ivory Coast",
-      "elo": 1728
-    },
-    "SWE": {
-      "name": "Sweden",
-      "elo": 1727
+    "KOR": {
+      "name": "South Korea",
+      "elo": 1723
     },
     "CZE": {
       "name": "Czechia",
-      "elo": 1696
+      "elo": 1680
     },
     "UZB": {
       "name": "Uzbekistan",
@@ -173,17 +173,17 @@
       "name": "Ghana",
       "elo": 1584
     },
+    "RSA": {
+      "name": "South Africa",
+      "elo": 1575
+    },
     "TUN": {
       "name": "Tunisia",
-      "elo": 1570
+      "elo": 1562
     },
     "NZL": {
       "name": "New Zealand",
       "elo": 1549
-    },
-    "RSA": {
-      "name": "South Africa",
-      "elo": 1527
     },
     "HAI": {
       "name": "Haiti",
@@ -191,7 +191,7 @@
     },
     "CUW": {
       "name": "Curaçao",
-      "elo": 1453
+      "elo": 1438
     },
     "QAT": {
       "name": "Qatar",
