@@ -1,25 +1,25 @@
 {
-  "fetchedAt": "2026-06-26T16:07:53.205Z",
+  "fetchedAt": "2026-06-28T06:14:12.452Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
   "missing": [],
   "teams": {
+    "ESP": {
+      "name": "Spain",
+      "elo": 2144
+    },
     "ARG": {
       "name": "Argentina",
       "elo": 2144
     },
-    "ESP": {
-      "name": "Spain",
-      "elo": 2134
-    },
     "FRA": {
       "name": "France",
-      "elo": 2090
+      "elo": 2123
     },
     "ENG": {
       "name": "England",
-      "elo": 2028
+      "elo": 2038
     },
     "BRA": {
       "name": "Brazil",
@@ -27,11 +27,11 @@
     },
     "COL": {
       "name": "Colombia",
-      "elo": 2006
+      "elo": 2004
     },
     "POR": {
       "name": "Portugal",
-      "elo": 1988
+      "elo": 1990
     },
     "NED": {
       "name": "Netherlands",
@@ -39,7 +39,7 @@
     },
     "NOR": {
       "name": "Norway",
-      "elo": 1951
+      "elo": 1918
     },
     "GER": {
       "name": "Germany",
@@ -57,37 +57,37 @@
       "name": "Japan",
       "elo": 1910
     },
+    "CRO": {
+      "name": "Croatia",
+      "elo": 1905
+    },
     "ECU": {
       "name": "Ecuador",
       "elo": 1902
     },
-    "CRO": {
-      "name": "Croatia",
-      "elo": 1896
+    "BEL": {
+      "name": "Belgium",
+      "elo": 1884
     },
     "MAR": {
       "name": "Morocco",
       "elo": 1877
     },
-    "BEL": {
-      "name": "Belgium",
-      "elo": 1869
-    },
     "TUR": {
       "name": "Turkey",
       "elo": 1852
     },
+    "SEN": {
+      "name": "Senegal",
+      "elo": 1842
+    },
     "URU": {
       "name": "Uruguay",
-      "elo": 1851
+      "elo": 1841
     },
     "AUT": {
       "name": "Austria",
       "elo": 1841
-    },
-    "SEN": {
-      "name": "Senegal",
-      "elo": 1817
     },
     "PAR": {
       "name": "Paraguay",
@@ -107,7 +107,7 @@
     },
     "IRN": {
       "name": "Iran",
-      "elo": 1766
+      "elo": 1764
     },
     "CAN": {
       "name": "Canada",
@@ -127,51 +127,47 @@
     },
     "EGY": {
       "name": "Egypt",
-      "elo": 1740
+      "elo": 1742
     },
     "KOR": {
       "name": "South Korea",
       "elo": 1723
     },
+    "COD": {
+      "name": "DR Congo",
+      "elo": 1712
+    },
     "CZE": {
       "name": "Czechia",
       "elo": 1680
     },
-    "UZB": {
-      "name": "Uzbekistan",
-      "elo": 1677
-    },
     "PAN": {
       "name": "Panama",
-      "elo": 1668
-    },
-    "COD": {
-      "name": "DR Congo",
-      "elo": 1666
+      "elo": 1658
     },
     "JOR": {
       "name": "Jordan",
       "elo": 1632
     },
-    "CPV": {
-      "name": "Cape Verde",
-      "elo": 1625
+    "UZB": {
+      "name": "Uzbekistan",
+      "elo": 1631
     },
     "BIH": {
       "name": "Bosnia/Herzeg",
       "elo": 1622
     },
+    "CPV": {
+      "name": "Cape Verde",
+      "elo": 1622
+    },
     "KSA": {
       "name": "Saudi Arabia",
-      "elo": 1593
-    },
-    "IRQ": {
-      "name": "Iraq",
-      "elo": 1586
+      "elo": 1596
     },
     "GHA": {
       "name": "Ghana",
-      "elo": 1584
+      "elo": 1575
     },
     "RSA": {
       "name": "South Africa",
@@ -181,9 +177,13 @@
       "name": "Tunisia",
       "elo": 1562
     },
+    "IRQ": {
+      "name": "Iraq",
+      "elo": 1561
+    },
     "NZL": {
       "name": "New Zealand",
-      "elo": 1549
+      "elo": 1534
     },
     "HAI": {
       "name": "Haiti",
