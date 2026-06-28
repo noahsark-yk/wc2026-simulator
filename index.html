@@ -347,6 +347,33 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 .btn.primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
 .btn.subtle { color: var(--text-secondary); }
 
+/* Journey banner — link to the cinematic journey.html experience */
+.journey-banner {
+  margin: 14px 0 2px;
+  display: flex;
+  justify-content: center;
+}
+.journey-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 2px 14px rgba(0,0,0,0.28);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.journey-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.38);
+}
+.journey-arrow { transition: transform 0.15s; }
+.journey-link:hover .journey-arrow { transform: translateX(3px); }
+
 /* Progress */
 .progress-wrap { margin: 16px 0; display: none; }
 .progress-wrap.show { display: block; }
@@ -2367,6 +2394,14 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
   </div>
   <div id="live-new-banner" style="display:none" onclick="this.style.display='none'; renderOnce();"></div>
 
+  <!-- Journey: link to the cinematic single-page "travel through the World Cup" experience -->
+  <div class="journey-banner">
+    <a href="journey.html" class="journey-link">
+      <span id="ui-journey-text">🏆 Journey through the World Cup</span>
+      <span class="journey-arrow" aria-hidden="true">→</span>
+    </a>
+  </div>
+
   <div class="toolbar">
     <div class="control-group">
       <span class="control-label" id="ui-label-rating">Rating</span>
@@ -2707,6 +2742,7 @@ const T = {
     half_left: '左ブロック',
     half_right: '右ブロック',
     share_x: 'Xでシェア',
+    journey: '🏆 W杯を旅する',
   },
   en: {
     title: 'World Cup 2026 Live Simulator',
@@ -2842,6 +2878,7 @@ const T = {
     half_left: 'Left Half',
     half_right: 'Right Half',
     share_x: 'Share on X',
+    journey: '🏆 Journey through the World Cup',
   },
   es: {
     title: 'Simulador en Vivo del Mundial 2026',
@@ -2977,6 +3014,7 @@ const T = {
     half_left: 'Mitad izquierda',
     half_right: 'Mitad derecha',
     share_x: 'Compartir en X',
+    journey: '🏆 Viaja por la Copa del Mundo',
   },
   pt: {
     title: 'Simulador ao Vivo da Copa do Mundo 2026',
@@ -3112,6 +3150,7 @@ const T = {
     half_left: 'Metade esquerda',
     half_right: 'Metade direita',
     share_x: 'Compartilhar no X',
+    journey: '🏆 Viaje pela Copa do Mundo',
   },
   fr: {
     title: 'Simulateur en Direct Coupe du Monde 2026',
@@ -3247,6 +3286,7 @@ const T = {
     half_left: 'Moitié gauche',
     half_right: 'Moitié droite',
     share_x: 'Partager sur X',
+    journey: '🏆 Voyagez à travers la Coupe du Monde',
   },
   de: {
     title: 'WM 2026 Live-Simulator',
@@ -3382,6 +3422,7 @@ const T = {
     half_left: 'Linke Hälfte',
     half_right: 'Rechte Hälfte',
     share_x: 'Auf X teilen',
+    journey: '🏆 Reise durch die WM',
   },
   it: {
     title: 'Simulatore Live Mondiale 2026',
@@ -3517,6 +3558,7 @@ const T = {
     half_left: 'Metà sinistra',
     half_right: 'Metà destra',
     share_x: 'Condividi su X',
+    journey: '🏆 Viaggia attraverso i Mondiali',
   },
   ko: {
     title: '2026 월드컵 라이브 시뮬레이터',
@@ -3652,6 +3694,7 @@ const T = {
     half_left: '왼쪽 절반',
     half_right: '오른쪽 절반',
     share_x: 'X에 공유',
+    journey: '🏆 월드컵을 여행하다',
   },
   zh: {
     title: '2026世界杯实时模拟器',
@@ -3787,6 +3830,7 @@ const T = {
     half_left: '左半区',
     half_right: '右半区',
     share_x: '分享到X',
+    journey: '🏆 世界杯之旅',
   },
   ar: {
     title: 'محاكي كأس العالم 2026 المباشر',
@@ -3922,6 +3966,7 @@ const T = {
     half_left: 'النصف الأيسر',
     half_right: 'النصف الأيمن',
     share_x: 'شارك على X',
+    journey: '🏆 رحلة عبر كأس العالم',
   }
 };
 
@@ -8155,6 +8200,8 @@ function applyLanguage() {
   $('ui-btn-100k').textContent = t('btn_100k');
   $('ui-btn-modal').textContent = t('btn_modal');
   $('ui-btn-reset').textContent = t('btn_reset');
+  const _jt = document.getElementById('ui-journey-text');
+  if (_jt) _jt.textContent = t('journey');
   $('ui-section-groups').textContent = t('section_groups');
   $('ui-groups-meta').textContent = t('groups_meta');
   $('ui-ratings-summary').textContent = t('ratings_summary');
