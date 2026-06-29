@@ -1,16 +1,16 @@
 {
-  "fetchedAt": "2026-06-28T06:14:12.452Z",
+  "fetchedAt": "2026-06-29T06:42:33.040Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
   "missing": [],
   "teams": {
-    "ESP": {
-      "name": "Spain",
-      "elo": 2144
-    },
     "ARG": {
       "name": "Argentina",
+      "elo": 2148
+    },
+    "ESP": {
+      "name": "Spain",
       "elo": 2144
     },
     "FRA": {
@@ -87,7 +87,7 @@
     },
     "AUT": {
       "name": "Austria",
-      "elo": 1841
+      "elo": 1836
     },
     "PAR": {
       "name": "Paraguay",
@@ -97,13 +97,13 @@
       "name": "Australia",
       "elo": 1800
     },
+    "ALG": {
+      "name": "Algeria",
+      "elo": 1785
+    },
     "USA": {
       "name": "United States",
       "elo": 1781
-    },
-    "ALG": {
-      "name": "Algeria",
-      "elo": 1780
     },
     "IRN": {
       "name": "Iran",
@@ -111,7 +111,7 @@
     },
     "CAN": {
       "name": "Canada",
-      "elo": 1748
+      "elo": 1764
     },
     "SCO": {
       "name": "Scotland",
@@ -145,13 +145,13 @@
       "name": "Panama",
       "elo": 1658
     },
-    "JOR": {
-      "name": "Jordan",
-      "elo": 1632
-    },
     "UZB": {
       "name": "Uzbekistan",
       "elo": 1631
+    },
+    "JOR": {
+      "name": "Jordan",
+      "elo": 1628
     },
     "BIH": {
       "name": "Bosnia/Herzeg",
@@ -169,10 +169,6 @@
       "name": "Ghana",
       "elo": 1575
     },
-    "RSA": {
-      "name": "South Africa",
-      "elo": 1575
-    },
     "TUN": {
       "name": "Tunisia",
       "elo": 1562
@@ -180,6 +176,10 @@
     "IRQ": {
       "name": "Iraq",
       "elo": 1561
+    },
+    "RSA": {
+      "name": "South Africa",
+      "elo": 1559
     },
     "NZL": {
       "name": "New Zealand",

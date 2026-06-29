@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-28T06:21:03.548Z",
+  "fetchedAt": "2026-06-29T06:49:27.801Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -5880,6 +5880,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-27",
+          "isHome": false,
+          "opponentName": "Algeria",
+          "ourScore": 3,
+          "oppScore": 3,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-22",
           "isHome": false,
           "opponentName": "Argentina",
@@ -9952,6 +9960,14 @@
       "code": "ARG",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-27",
+          "isHome": true,
+          "opponentName": "Jordan",
+          "ourScore": 3,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-22",
           "isHome": true,
@@ -14321,6 +14337,14 @@
       "code": "CAN",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-28",
+          "isHome": true,
+          "opponentName": "South Africa",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-24",
           "isHome": true,
@@ -21351,6 +21375,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-27",
+          "isHome": false,
+          "opponentName": "Argentina",
+          "ourScore": 1,
+          "oppScore": 3,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-22",
           "isHome": false,
           "opponentName": "Algeria",
@@ -26360,6 +26392,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-27",
+          "isHome": true,
+          "opponentName": "Austria",
+          "ourScore": 3,
+          "oppScore": 3,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-22",
           "isHome": true,
           "opponentName": "Jordan",
@@ -28771,6 +28811,14 @@
       "code": "RSA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-28",
+          "isHome": false,
+          "opponentName": "Canada",
+          "ourScore": 0,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-24",
           "isHome": true,

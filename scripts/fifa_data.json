@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-28",
+  "lastUpdated": "2026-06-29",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260401",
   "sourceConfirmedDate": null,
@@ -109,17 +109,17 @@
       "rank": 29,
       "points": 1576.8
     },
-    "CIV": {
+    "CAN": {
       "rank": 30,
+      "points": 1571.34
+    },
+    "CIV": {
+      "rank": 31,
       "points": 1565.47
     },
     "KOR": {
-      "rank": 31,
-      "points": 1558.72
-    },
-    "CAN": {
       "rank": 32,
-      "points": 1551.07
+      "points": 1558.72
     },
     "SWE": {
       "rank": 36,
