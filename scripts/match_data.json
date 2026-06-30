@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-30T06:14:29.998Z",
+  "fetchedAt": "2026-06-30T16:27:27.479Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -2676,6 +2676,14 @@
       "code": "NED",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-29",
+          "isHome": false,
+          "opponentName": "Morocco",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-25",
           "isHome": true,
@@ -23579,6 +23587,14 @@
       "code": "MAR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-29",
+          "isHome": true,
+          "opponentName": "Netherlands",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-24",
           "isHome": true,

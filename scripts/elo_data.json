@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-30T06:07:32.736Z",
+  "fetchedAt": "2026-06-30T16:20:38.905Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -35,7 +35,7 @@
     },
     "NED": {
       "name": "Netherlands",
-      "elo": 1980
+      "elo": 1971
     },
     "NOR": {
       "name": "Norway",
@@ -65,13 +65,13 @@
       "name": "Japan",
       "elo": 1888
     },
+    "MAR": {
+      "name": "Morocco",
+      "elo": 1886
+    },
     "BEL": {
       "name": "Belgium",
       "elo": 1884
-    },
-    "MAR": {
-      "name": "Morocco",
-      "elo": 1877
     },
     "TUR": {
       "name": "Turkey",
