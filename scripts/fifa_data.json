@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-06-30",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260401",
   "sourceConfirmedDate": null,
@@ -23,15 +23,15 @@
     },
     "BRA": {
       "rank": 5,
-      "points": 1785.19
+      "points": 1804.92
     },
     "MAR": {
       "rank": 6,
-      "points": 1776.4
+      "points": 1788.86
     },
     "NED": {
       "rank": 7,
-      "points": 1775.5
+      "points": 1775.54
     },
     "POR": {
       "rank": 8,
@@ -121,13 +121,13 @@
       "rank": 32,
       "points": 1558.72
     },
-    "SWE": {
-      "rank": 36,
-      "points": 1525.58
-    },
     "PAR": {
+      "rank": 34,
+      "points": 1542.48
+    },
+    "SWE": {
       "rank": 37,
-      "points": 1520.59
+      "points": 1525.58
     },
     "COD": {
       "rank": 41,

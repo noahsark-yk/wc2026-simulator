@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-29T16:49:51.505Z",
+  "fetchedAt": "2026-06-30T06:07:32.736Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -23,7 +23,7 @@
     },
     "BRA": {
       "name": "Brazil",
-      "elo": 2009
+      "elo": 2031
     },
     "COL": {
       "name": "Colombia",
@@ -41,10 +41,6 @@
       "name": "Norway",
       "elo": 1918
     },
-    "GER": {
-      "name": "Germany",
-      "elo": 1916
-    },
     "SUI": {
       "name": "Switzerland",
       "elo": 1914
@@ -53,9 +49,9 @@
       "name": "Mexico",
       "elo": 1912
     },
-    "JPN": {
-      "name": "Japan",
-      "elo": 1910
+    "GER": {
+      "name": "Germany",
+      "elo": 1908
     },
     "CRO": {
       "name": "Croatia",
@@ -64,6 +60,10 @@
     "ECU": {
       "name": "Ecuador",
       "elo": 1902
+    },
+    "JPN": {
+      "name": "Japan",
+      "elo": 1888
     },
     "BEL": {
       "name": "Belgium",
@@ -91,7 +91,7 @@
     },
     "PAR": {
       "name": "Paraguay",
-      "elo": 1815
+      "elo": 1823
     },
     "AUS": {
       "name": "Australia",

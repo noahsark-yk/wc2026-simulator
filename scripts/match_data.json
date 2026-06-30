@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-29T16:56:24.714Z",
+  "fetchedAt": "2026-06-30T06:14:29.998Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -3323,6 +3323,14 @@
       "code": "GER",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-29",
+          "isHome": true,
+          "opponentName": "Paraguay",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-25",
           "isHome": false,
@@ -10592,6 +10600,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-29",
+          "isHome": true,
+          "opponentName": "Japan",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-24",
           "isHome": true,
           "opponentName": "Scotland",
@@ -13003,6 +13019,14 @@
       "code": "PAR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-29",
+          "isHome": false,
+          "opponentName": "Germany",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-25",
           "isHome": false,
@@ -17596,6 +17620,14 @@
       "code": "JPN",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-29",
+          "isHome": false,
+          "opponentName": "Brazil",
+          "ourScore": 1,
+          "oppScore": 2,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-25",
           "isHome": true,
