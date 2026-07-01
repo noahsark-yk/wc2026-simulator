@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-01T06:22:30.432Z",
+  "fetchedAt": "2026-07-01T16:18:24.653Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -37,6 +37,10 @@
       "name": "Netherlands",
       "elo": 1971
     },
+    "MEX": {
+      "name": "Mexico",
+      "elo": 1943
+    },
     "NOR": {
       "name": "Norway",
       "elo": 1934
@@ -45,10 +49,6 @@
       "name": "Switzerland",
       "elo": 1914
     },
-    "MEX": {
-      "name": "Mexico",
-      "elo": 1912
-    },
     "GER": {
       "name": "Germany",
       "elo": 1908
@@ -56,10 +56,6 @@
     "CRO": {
       "name": "Croatia",
       "elo": 1905
-    },
-    "ECU": {
-      "name": "Ecuador",
-      "elo": 1902
     },
     "JPN": {
       "name": "Japan",
@@ -72,6 +68,10 @@
     "BEL": {
       "name": "Belgium",
       "elo": 1884
+    },
+    "ECU": {
+      "name": "Ecuador",
+      "elo": 1871
     },
     "TUR": {
       "name": "Turkey",

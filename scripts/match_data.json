@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-01T06:29:09.400Z",
+  "fetchedAt": "2026-07-01T16:24:55.987Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -12429,6 +12429,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-30",
+          "isHome": false,
+          "opponentName": "Mexico",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-25",
           "isHome": true,
           "opponentName": "Germany",
@@ -15080,6 +15088,14 @@
       "code": "MEX",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-30",
+          "isHome": true,
+          "opponentName": "Ecuador",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-24",
           "isHome": true,
