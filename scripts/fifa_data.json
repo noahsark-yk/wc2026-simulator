@@ -1,17 +1,17 @@
 {
-  "lastUpdated": "2026-06-30",
+  "lastUpdated": "2026-07-01",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260401",
   "sourceConfirmedDate": null,
   "teamCount": 48,
   "teams": {
-    "ARG": {
-      "rank": 1,
-      "points": 1907.4
-    },
     "FRA": {
+      "rank": 1,
+      "points": 1916.24
+    },
+    "ARG": {
       "rank": 2,
-      "points": 1906.84
+      "points": 1907.4
     },
     "ESP": {
       "rank": 3,
@@ -39,7 +39,7 @@
     },
     "MEX": {
       "rank": 9,
-      "points": 1736.01
+      "points": 1754.3
     },
     "BEL": {
       "rank": 10,
@@ -77,17 +77,17 @@
       "rank": 19,
       "points": 1634.7
     },
-    "IRN": {
+    "NOR": {
       "rank": 21,
+      "points": 1617.67
+    },
+    "IRN": {
+      "rank": 22,
       "points": 1609.85
     },
     "AUT": {
-      "rank": 22,
-      "points": 1598.82
-    },
-    "NOR": {
       "rank": 23,
-      "points": 1594.04
+      "points": 1598.82
     },
     "ECU": {
       "rank": 24,

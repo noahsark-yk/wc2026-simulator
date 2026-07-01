@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-30T16:20:38.905Z",
+  "fetchedAt": "2026-07-01T06:22:30.432Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -15,7 +15,7 @@
     },
     "FRA": {
       "name": "France",
-      "elo": 2123
+      "elo": 2134
     },
     "ENG": {
       "name": "England",
@@ -39,7 +39,7 @@
     },
     "NOR": {
       "name": "Norway",
-      "elo": 1918
+      "elo": 1934
     },
     "SUI": {
       "name": "Switzerland",
@@ -117,17 +117,17 @@
       "name": "Scotland",
       "elo": 1745
     },
-    "CIV": {
-      "name": "Ivory Coast",
-      "elo": 1743
-    },
-    "SWE": {
-      "name": "Sweden",
-      "elo": 1742
-    },
     "EGY": {
       "name": "Egypt",
       "elo": 1742
+    },
+    "SWE": {
+      "name": "Sweden",
+      "elo": 1731
+    },
+    "CIV": {
+      "name": "Ivory Coast",
+      "elo": 1727
     },
     "KOR": {
       "name": "South Korea",

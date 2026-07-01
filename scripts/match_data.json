@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-30T16:27:27.479Z",
+  "fetchedAt": "2026-07-01T06:29:09.400Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -679,6 +679,14 @@
       "code": "FRA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-30",
+          "isHome": true,
+          "opponentName": "Sweden",
+          "ourScore": 3,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-26",
           "isHome": true,
@@ -7102,6 +7110,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-06-30",
+          "isHome": true,
+          "opponentName": "Ivory Coast",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-26",
           "isHome": false,
           "opponentName": "France",
@@ -9361,6 +9377,14 @@
       "code": "SWE",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-30",
+          "isHome": false,
+          "opponentName": "France",
+          "ourScore": 0,
+          "oppScore": 3,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-25",
           "isHome": false,
@@ -27150,6 +27174,14 @@
       "code": "CIV",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-06-30",
+          "isHome": false,
+          "opponentName": "Norway",
+          "ourScore": 1,
+          "oppScore": 2,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-25",
           "isHome": true,
