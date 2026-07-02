@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-01T16:18:24.653Z",
+  "fetchedAt": "2026-07-02T05:55:21.391Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -19,7 +19,7 @@
     },
     "ENG": {
       "name": "England",
-      "elo": 2038
+      "elo": 2046
     },
     "BRA": {
       "name": "Brazil",
@@ -49,6 +49,10 @@
       "name": "Switzerland",
       "elo": 1914
     },
+    "BEL": {
+      "name": "Belgium",
+      "elo": 1910
+    },
     "GER": {
       "name": "Germany",
       "elo": 1908
@@ -65,10 +69,6 @@
       "name": "Morocco",
       "elo": 1886
     },
-    "BEL": {
-      "name": "Belgium",
-      "elo": 1884
-    },
     "ECU": {
       "name": "Ecuador",
       "elo": 1871
@@ -76,10 +76,6 @@
     "TUR": {
       "name": "Turkey",
       "elo": 1852
-    },
-    "SEN": {
-      "name": "Senegal",
-      "elo": 1842
     },
     "URU": {
       "name": "Uruguay",
@@ -93,17 +89,21 @@
       "name": "Paraguay",
       "elo": 1823
     },
+    "SEN": {
+      "name": "Senegal",
+      "elo": 1816
+    },
     "AUS": {
       "name": "Australia",
       "elo": 1800
     },
+    "USA": {
+      "name": "United States",
+      "elo": 1798
+    },
     "ALG": {
       "name": "Algeria",
       "elo": 1785
-    },
-    "USA": {
-      "name": "United States",
-      "elo": 1781
     },
     "IRN": {
       "name": "Iran",
@@ -135,7 +135,7 @@
     },
     "COD": {
       "name": "DR Congo",
-      "elo": 1712
+      "elo": 1704
     },
     "CZE": {
       "name": "Czechia",
@@ -153,13 +153,13 @@
       "name": "Jordan",
       "elo": 1628
     },
-    "BIH": {
-      "name": "Bosnia/Herzeg",
-      "elo": 1622
-    },
     "CPV": {
       "name": "Cape Verde",
       "elo": 1622
+    },
+    "BIH": {
+      "name": "Bosnia/Herzeg",
+      "elo": 1605
     },
     "KSA": {
       "name": "Saudi Arabia",

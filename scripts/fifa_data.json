@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-01",
+  "lastUpdated": "2026-07-02",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260401",
   "sourceConfirmedDate": null,
@@ -19,7 +19,7 @@
     },
     "ENG": {
       "rank": 4,
-      "points": 1840.46
+      "points": 1850.97
     },
     "BRA": {
       "rank": 5,
@@ -37,13 +37,13 @@
       "rank": 8,
       "points": 1764.86
     },
-    "MEX": {
-      "rank": 9,
-      "points": 1754.3
-    },
     "BEL": {
+      "rank": 9,
+      "points": 1756.51
+    },
+    "MEX": {
       "rank": 10,
-      "points": 1735.41
+      "points": 1754.3
     },
     "COL": {
       "rank": 11,
@@ -59,7 +59,7 @@
     },
     "USA": {
       "rank": 15,
-      "points": 1677.17
+      "points": 1690.33
     },
     "SUI": {
       "rank": 16,

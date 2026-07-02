@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-01T16:24:55.987Z",
+  "fetchedAt": "2026-07-02T06:02:17.504Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -1350,6 +1350,14 @@
       "code": "ENG",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-01",
+          "isHome": true,
+          "opponentName": "DR Congo",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-27",
           "isHome": true,
@@ -5273,6 +5281,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-07-01",
+          "isHome": true,
+          "opponentName": "Senegal",
+          "ourScore": 3,
+          "oppScore": 2,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-26",
           "isHome": true,
           "opponentName": "New Zealand",
@@ -7644,6 +7660,14 @@
       "code": "BIH",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-01",
+          "isHome": false,
+          "opponentName": "United States",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-24",
           "isHome": true,
@@ -13602,6 +13626,14 @@
       "code": "USA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-01",
+          "isHome": true,
+          "opponentName": "Bosnia and Herzegovina",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-25",
           "isHome": true,
@@ -24387,6 +24419,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-07-01",
+          "isHome": false,
+          "opponentName": "Belgium",
+          "ourScore": 2,
+          "oppScore": 3,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-26",
           "isHome": true,
           "opponentName": "Iraq",
@@ -29634,6 +29674,14 @@
       "code": "COD",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-01",
+          "isHome": false,
+          "opponentName": "England",
+          "ourScore": 1,
+          "oppScore": 2,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-27",
           "isHome": true,
