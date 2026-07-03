@@ -1,17 +1,17 @@
 {
-  "fetchedAt": "2026-07-02T16:00:32.174Z",
+  "fetchedAt": "2026-07-03T05:49:46.621Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
   "missing": [],
   "teams": {
+    "ESP": {
+      "name": "Spain",
+      "elo": 2159
+    },
     "ARG": {
       "name": "Argentina",
       "elo": 2148
-    },
-    "ESP": {
-      "name": "Spain",
-      "elo": 2144
     },
     "FRA": {
       "name": "France",
@@ -25,13 +25,13 @@
       "name": "Brazil",
       "elo": 2031
     },
+    "POR": {
+      "name": "Portugal",
+      "elo": 2013
+    },
     "COL": {
       "name": "Colombia",
       "elo": 2004
-    },
-    "POR": {
-      "name": "Portugal",
-      "elo": 1990
     },
     "NED": {
       "name": "Netherlands",
@@ -57,10 +57,6 @@
       "name": "Germany",
       "elo": 1908
     },
-    "CRO": {
-      "name": "Croatia",
-      "elo": 1905
-    },
     "JPN": {
       "name": "Japan",
       "elo": 1888
@@ -68,6 +64,10 @@
     "MAR": {
       "name": "Morocco",
       "elo": 1886
+    },
+    "CRO": {
+      "name": "Croatia",
+      "elo": 1882
     },
     "ECU": {
       "name": "Ecuador",
@@ -81,13 +81,13 @@
       "name": "Uruguay",
       "elo": 1841
     },
-    "AUT": {
-      "name": "Austria",
-      "elo": 1836
-    },
     "PAR": {
       "name": "Paraguay",
       "elo": 1823
+    },
+    "AUT": {
+      "name": "Austria",
+      "elo": 1821
     },
     "SEN": {
       "name": "Senegal",

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-02",
+  "lastUpdated": "2026-07-03",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260401",
   "sourceConfirmedDate": null,
@@ -15,7 +15,7 @@
     },
     "ESP": {
       "rank": 3,
-      "points": 1879.58
+      "points": 1892.28
     },
     "ENG": {
       "rank": 4,
@@ -29,13 +29,13 @@
       "rank": 6,
       "points": 1788.86
     },
-    "NED": {
-      "rank": 7,
-      "points": 1775.54
-    },
     "POR": {
+      "rank": 7,
+      "points": 1787.85
+    },
+    "NED": {
       "rank": 8,
-      "points": 1764.86
+      "points": 1775.54
     },
     "BEL": {
       "rank": 9,
@@ -57,13 +57,13 @@
       "rank": 13,
       "points": 1723.05
     },
-    "USA": {
-      "rank": 15,
-      "points": 1690.33
-    },
     "SUI": {
+      "rank": 15,
+      "points": 1696.3
+    },
+    "USA": {
       "rank": 16,
-      "points": 1676
+      "points": 1690.33
     },
     "JPN": {
       "rank": 17,

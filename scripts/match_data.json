@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-02T16:07:37.442Z",
+  "fetchedAt": "2026-07-03T05:56:44.171Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -8,6 +8,14 @@
       "code": "ESP",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-02",
+          "isHome": true,
+          "opponentName": "Austria",
+          "ourScore": 3,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-26",
           "isHome": true,
@@ -2038,6 +2046,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-07-02",
+          "isHome": true,
+          "opponentName": "Croatia",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-27",
           "isHome": false,
           "opponentName": "Colombia",
@@ -3995,6 +4011,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-07-02",
+          "isHome": false,
+          "opponentName": "Portugal",
+          "ourScore": 1,
+          "oppScore": 2,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-27",
           "isHome": true,
           "opponentName": "Ghana",
@@ -5919,6 +5943,14 @@
       "code": "AUT",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-02",
+          "isHome": false,
+          "opponentName": "Spain",
+          "ourScore": 0,
+          "oppScore": 3,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-27",
           "isHome": false,
