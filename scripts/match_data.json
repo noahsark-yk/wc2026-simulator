@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-03T05:56:44.171Z",
+  "fetchedAt": "2026-07-03T15:55:35.575Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -4665,6 +4665,14 @@
       "code": "SUI",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-02",
+          "isHome": true,
+          "opponentName": "Algeria",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-24",
           "isHome": false,
@@ -26551,6 +26559,14 @@
       "code": "ALG",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-02",
+          "isHome": false,
+          "opponentName": "Switzerland",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-27",
           "isHome": true,

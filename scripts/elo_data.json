@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-03T05:49:46.621Z",
+  "fetchedAt": "2026-07-03T15:49:08.427Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -41,13 +41,13 @@
       "name": "Mexico",
       "elo": 1943
     },
+    "SUI": {
+      "name": "Switzerland",
+      "elo": 1943
+    },
     "NOR": {
       "name": "Norway",
       "elo": 1934
-    },
-    "SUI": {
-      "name": "Switzerland",
-      "elo": 1914
     },
     "BEL": {
       "name": "Belgium",
@@ -101,10 +101,6 @@
       "name": "United States",
       "elo": 1798
     },
-    "ALG": {
-      "name": "Algeria",
-      "elo": 1785
-    },
     "IRN": {
       "name": "Iran",
       "elo": 1764
@@ -112,6 +108,10 @@
     "CAN": {
       "name": "Canada",
       "elo": 1764
+    },
+    "ALG": {
+      "name": "Algeria",
+      "elo": 1756
     },
     "SCO": {
       "name": "Scotland",
