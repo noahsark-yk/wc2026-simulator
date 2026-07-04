@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-03",
+  "lastUpdated": "2026-07-04",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260401",
   "sourceConfirmedDate": null,
@@ -11,7 +11,7 @@
     },
     "ARG": {
       "rank": 2,
-      "points": 1907.4
+      "points": 1913.71
     },
     "ESP": {
       "rank": 3,
@@ -47,7 +47,7 @@
     },
     "COL": {
       "rank": 11,
-      "points": 1729.3
+      "points": 1739.89
     },
     "GER": {
       "rank": 12,
@@ -89,13 +89,13 @@
       "rank": 23,
       "points": 1598.82
     },
-    "ECU": {
-      "rank": 24,
-      "points": 1592.59
-    },
     "EGY": {
-      "rank": 26,
-      "points": 1584.71
+      "rank": 24,
+      "points": 1597.04
+    },
+    "ECU": {
+      "rank": 25,
+      "points": 1592.59
     },
     "TUR": {
       "rank": 27,
@@ -103,7 +103,7 @@
     },
     "AUS": {
       "rank": 28,
-      "points": 1581.35
+      "points": 1581.51
     },
     "ALG": {
       "rank": 29,

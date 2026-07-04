@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-03T15:55:35.575Z",
+  "fetchedAt": "2026-07-04T05:49:14.137Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -10064,6 +10064,14 @@
       "code": "ARG",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-03",
+          "isHome": true,
+          "opponentName": "Cape Verde",
+          "ourScore": 3,
+          "oppScore": 2,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-27",
           "isHome": true,
@@ -20385,6 +20393,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-07-03",
+          "isHome": true,
+          "opponentName": "Egypt",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-25",
           "isHome": true,
           "opponentName": "Paraguay",
@@ -25889,6 +25905,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-07-03",
+          "isHome": false,
+          "opponentName": "Australia",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-26",
           "isHome": true,
           "opponentName": "Iran",
@@ -28452,6 +28476,14 @@
       "code": "CPV",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-03",
+          "isHome": false,
+          "opponentName": "Argentina",
+          "ourScore": 2,
+          "oppScore": 3,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-26",
           "isHome": true,
