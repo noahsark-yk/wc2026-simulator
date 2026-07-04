@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-04T05:42:13.605Z",
+  "fetchedAt": "2026-07-04T14:58:26.524Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -31,7 +31,7 @@
     },
     "COL": {
       "name": "Colombia",
-      "elo": 2004
+      "elo": 2009
     },
     "NED": {
       "name": "Netherlands",
@@ -167,7 +167,7 @@
     },
     "GHA": {
       "name": "Ghana",
-      "elo": 1575
+      "elo": 1570
     },
     "TUN": {
       "name": "Tunisia",

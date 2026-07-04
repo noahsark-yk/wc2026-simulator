@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-04T05:49:14.137Z",
+  "fetchedAt": "2026-07-04T15:05:21.836Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -11302,6 +11302,14 @@
       "code": "COL",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-03",
+          "isHome": true,
+          "opponentName": "Ghana",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-27",
           "isHome": true,
@@ -27909,6 +27917,14 @@
       "code": "GHA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-03",
+          "isHome": false,
+          "opponentName": "Colombia",
+          "ourScore": 0,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-27",
           "isHome": false,
