@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-04T15:05:21.836Z",
+  "fetchedAt": "2026-07-05T06:07:41.588Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -687,6 +687,14 @@
       "code": "FRA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-04",
+          "isHome": true,
+          "opponentName": "Paraguay",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-30",
           "isHome": true,
@@ -13140,6 +13148,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-07-04",
+          "isHome": false,
+          "opponentName": "France",
+          "ourScore": 0,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-29",
           "isHome": false,
           "opponentName": "Germany",
@@ -14489,6 +14505,14 @@
       "code": "CAN",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-04",
+          "isHome": false,
+          "opponentName": "Morocco",
+          "ourScore": 0,
+          "oppScore": 3,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-28",
           "isHome": true,
@@ -23723,6 +23747,14 @@
       "code": "MAR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-04",
+          "isHome": true,
+          "opponentName": "Canada",
+          "ourScore": 3,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-29",
           "isHome": true,

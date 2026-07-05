@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-04T14:58:26.524Z",
+  "fetchedAt": "2026-07-05T06:00:46.572Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -15,7 +15,7 @@
     },
     "FRA": {
       "name": "France",
-      "elo": 2134
+      "elo": 2143
     },
     "ENG": {
       "name": "England",
@@ -49,6 +49,10 @@
       "name": "Norway",
       "elo": 1934
     },
+    "MAR": {
+      "name": "Morocco",
+      "elo": 1921
+    },
     "BEL": {
       "name": "Belgium",
       "elo": 1910
@@ -60,10 +64,6 @@
     "JPN": {
       "name": "Japan",
       "elo": 1888
-    },
-    "MAR": {
-      "name": "Morocco",
-      "elo": 1886
     },
     "CRO": {
       "name": "Croatia",
@@ -81,10 +81,6 @@
       "name": "Uruguay",
       "elo": 1841
     },
-    "PAR": {
-      "name": "Paraguay",
-      "elo": 1823
-    },
     "AUT": {
       "name": "Austria",
       "elo": 1821
@@ -92,6 +88,10 @@
     "SEN": {
       "name": "Senegal",
       "elo": 1816
+    },
+    "PAR": {
+      "name": "Paraguay",
+      "elo": 1814
     },
     "USA": {
       "name": "United States",
@@ -103,10 +103,6 @@
     },
     "IRN": {
       "name": "Iran",
-      "elo": 1764
-    },
-    "CAN": {
-      "name": "Canada",
       "elo": 1764
     },
     "ALG": {
@@ -124,6 +120,10 @@
     "SWE": {
       "name": "Sweden",
       "elo": 1731
+    },
+    "CAN": {
+      "name": "Canada",
+      "elo": 1729
     },
     "CIV": {
       "name": "Ivory Coast",

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-04",
+  "lastUpdated": "2026-07-05",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260401",
   "sourceConfirmedDate": null,
@@ -7,7 +7,7 @@
   "teams": {
     "FRA": {
       "rank": 1,
-      "points": 1916.24
+      "points": 1925.86
     },
     "ARG": {
       "rank": 2,
@@ -27,7 +27,7 @@
     },
     "MAR": {
       "rank": 6,
-      "points": 1788.86
+      "points": 1803.99
     },
     "POR": {
       "rank": 7,
