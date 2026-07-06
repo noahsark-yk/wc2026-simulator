@@ -87,6 +87,10 @@ jobs:
           git push
       
       # === Cloudflare Pages deployment (always runs) ===
+      # NOTE: この whitelist が本番にデプロイされる全ファイル。新しい公開ファイルを
+      # リポジトリに足したら、ここにも必ず追加すること。journey.html / journey-engine.js /
+      # functions/ の漏れが「デイリー更新のたびに /journey が index にすり替わる」6日間障害の
+      # 原因だった（2026-07-06 判明・修正）。
       - name: Prepare deploy directory
         run: |
           mkdir -p _deploy
@@ -95,6 +99,9 @@ jobs:
           cp classic.html _deploy/
           cp _redirects _deploy/
           cp teams_frozen.json _deploy/
+          cp journey.html _deploy/
+          cp journey-engine.js _deploy/
+          cp -r functions _deploy/
           cp -r data _deploy/
       
       - name: Deploy to Cloudflare Pages
