@@ -540,9 +540,18 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
   color: var(--focus);
   opacity: 0.8;
 }
-@media (max-width: 480px) {
+/* 600px: 480 だと DPR2.625 系の実機（CSS幅 512px 等）が漏れて右端 absolute のまま左にはみ出す（2026-06-30 実機報告） */
+@media (max-width: 600px) {
   .focus-grid-wrapper {
-    min-width: 280px;
+    position: fixed;
+    left: 10px;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    min-width: unset;
+    max-width: unset;
+    max-height: 80vh;
     padding: 8px;
   }
   .focus-grid-button {
