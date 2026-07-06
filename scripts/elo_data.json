@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-05T15:06:39.413Z",
+  "fetchedAt": "2026-07-06T06:24:33.108Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -21,10 +21,6 @@
       "name": "England",
       "elo": 2046
     },
-    "BRA": {
-      "name": "Brazil",
-      "elo": 2031
-    },
     "POR": {
       "name": "Portugal",
       "elo": 2013
@@ -32,6 +28,14 @@
     "COL": {
       "name": "Colombia",
       "elo": 2009
+    },
+    "BRA": {
+      "name": "Brazil",
+      "elo": 1993
+    },
+    "NOR": {
+      "name": "Norway",
+      "elo": 1972
     },
     "NED": {
       "name": "Netherlands",
@@ -44,10 +48,6 @@
     "SUI": {
       "name": "Switzerland",
       "elo": 1943
-    },
-    "NOR": {
-      "name": "Norway",
-      "elo": 1934
     },
     "MAR": {
       "name": "Morocco",

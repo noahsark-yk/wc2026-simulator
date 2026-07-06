@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-05",
+  "lastUpdated": "2026-07-06",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260401",
   "sourceConfirmedDate": null,
@@ -19,7 +19,7 @@
     },
     "ENG": {
       "rank": 4,
-      "points": 1850.97
+      "points": 1871.39
     },
     "BRA": {
       "rank": 5,
@@ -73,13 +73,13 @@
       "rank": 18,
       "points": 1653.43
     },
-    "URU": {
-      "rank": 19,
-      "points": 1634.7
-    },
     "NOR": {
-      "rank": 21,
-      "points": 1617.67
+      "rank": 19,
+      "points": 1651.29
+    },
+    "URU": {
+      "rank": 20,
+      "points": 1634.7
     },
     "IRN": {
       "rank": 22,

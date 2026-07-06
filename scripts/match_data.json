@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-05T15:13:34.282Z",
+  "fetchedAt": "2026-07-06T06:31:28.315Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -7174,6 +7174,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-07-05",
+          "isHome": true,
+          "opponentName": "Brazil",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-06-30",
           "isHome": true,
           "opponentName": "Ivory Coast",
@@ -10711,6 +10719,14 @@
       "code": "BRA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-05",
+          "isHome": false,
+          "opponentName": "Norway",
+          "ourScore": 1,
+          "oppScore": 2,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-06-29",
           "isHome": true,
