@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-06",
+  "lastUpdated": "2026-07-07",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260401",
   "sourceConfirmedDate": null,
@@ -15,7 +15,7 @@
     },
     "ESP": {
       "rank": 3,
-      "points": 1892.28
+      "points": 1912.34
     },
     "ENG": {
       "rank": 4,
@@ -33,13 +33,13 @@
       "rank": 7,
       "points": 1787.85
     },
-    "NED": {
-      "rank": 8,
-      "points": 1775.54
-    },
     "BEL": {
+      "rank": 8,
+      "points": 1778.36
+    },
+    "NED": {
       "rank": 9,
-      "points": 1756.51
+      "points": 1775.54
     },
     "MEX": {
       "rank": 10,

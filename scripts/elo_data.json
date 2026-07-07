@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-06T16:48:06.975Z",
+  "fetchedAt": "2026-07-07T06:04:36.721Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -7,7 +7,7 @@
   "teams": {
     "ESP": {
       "name": "Spain",
-      "elo": 2159
+      "elo": 2177
     },
     "ARG": {
       "name": "Argentina",
@@ -21,13 +21,13 @@
       "name": "England",
       "elo": 2076
     },
-    "POR": {
-      "name": "Portugal",
-      "elo": 2013
-    },
     "COL": {
       "name": "Colombia",
       "elo": 2009
+    },
+    "POR": {
+      "name": "Portugal",
+      "elo": 1995
     },
     "BRA": {
       "name": "Brazil",
