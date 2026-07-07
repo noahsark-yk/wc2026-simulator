@@ -3854,17 +3854,31 @@ let journeyQueue = [], journeyIdx = 0, journeySim = null, journeySeed = 20260623
 
 // 推し国の試合を kickoff 順に抽出（FIXTURES は date ソート済み）。GS → KO（focusMatches から動的追加）。
 const KO_STAGES = [['r32',TT('js1_ko_r32'),'2026-06-29'],['r16',TT('js1_ko_r16'),'2026-07-04'],['qf',TT('js1_ko_qf'),'2026-07-09'],['sf',TT('js1_ko_sf'),'2026-07-14'],['f',TT('js1_ko_f'),'2026-07-19']];
+// GS と KO の境界（index.html と同値）。GS 最終戦=6/28 02:00Z、R32 初戦=6/28 19:00Z なので 10:00 UTC で切る。
+// 日付文字列（day）比較だと 6/28 の R32 初戦が GS 側に落ちる ── 必ずこのタイムスタンプで判定する。
+const KO_THRESHOLD_MS = Date.UTC(2026, 5, 28, 10, 0, 0);
 // KO 試合は FIXTURES に対戦カードが無い（予想）。journeySim の match を擬似 fx 化して巡行に乗せる（推し国を c1 に揃える）
 function koFixture(jm, stage, date){
   let c1 = jm.t1.c, c2 = jm.t2.c;
   if (c2 === focusNation){ c1 = jm.t2.c; c2 = jm.t1.c; }   // 推し国視点（c1）に統一
   return { c1: c1, c2: c2, state: 'pre', stage: stage, venue: null, date: date, id: null, ko: true };
 }
+// 現実で確定済みの KO 戦なら実 fixture を返す ── 試合再生が実データ（本物の得点者・実況・スタッツ）になる。
+// ただし延長/PK 決着は実データ再生経路が未対応（時計90分固定・PK演出なし）なので null を返し、
+// sim 経路（koFixture ── engine のロック済み実スコアで再生・延長/PK 演出対応）に落とす。
+function realKoFixtureFor(jm, stage){
+  // 単純トーナメントでは同じ2チームが KO で2度当たることはない → KO 期間内のペア一致だけで一意
+  const fx = FIXTURES.find(m => m.state === 'post' && Date.parse(m.date) >= KO_THRESHOLD_MS
+    && ((m.c1 === jm.t1.c && m.c2 === jm.t2.c) || (m.c1 === jm.t2.c && m.c2 === jm.t1.c)));
+  if (!fx) return null;
+  if (fx.s1 === fx.s2) return null;                                                          // 90分同点（PK行き）→ sim 経路
+  if (fx.aetHint || (fx.pk1 != null && fx.pk2 != null && (fx.pk1 > 0 || fx.pk2 > 0))) return null;  // 延長/PK 決着 → sim 経路
+  return Object.assign({}, fx, { stage: stage, ko: true });
+}
 function buildJourneyQueue(){
-  // FIXTURES には大会進行で確定した実 KO fixture（r32 等）も入るため、GS のみに絞る（KO 開始日より前＝グループステージ、念のため最大3試合）。
+  // FIXTURES には大会進行で確定した実 KO fixture（r32 等）も入るため、GS のみに絞る（KO_THRESHOLD_MS より前＝グループステージ、念のため最大3試合）。
   // KO はシミュレーション（focusMatches）で別途生成するので、実 KO fixture をここで GS として入れると同じカードが二重登録され、「決勝T敗退後にもう一度同じ試合を見せられる」バグになる。
-  const koStart = KO_STAGES[0][2];   // r32 開始日（'2026-06-29'）
-  const mine = FIXTURES.filter(m => (m.c1 === focusNation || m.c2 === focusNation) && m.day < koStart).slice(0, 3);
+  const mine = FIXTURES.filter(m => (m.c1 === focusNation || m.c2 === focusNation) && Date.parse(m.date) < KO_THRESHOLD_MS).slice(0, 3);
   const q = mine.filter(m => !(skipConfirmed && m.state === 'post')).map((fx, i) => ({ type: 'match', fx: fx, leg: i + 1, stage: 'gs' }));
   // KO：推し国が勝ち上がった分だけ focusMatches に入る（負け試合も含む＝最後に観てから旅が終わる）
   if (journeySim && journeySim.focusMatches){
@@ -3873,7 +3887,8 @@ function buildJourneyQueue(){
       const jm = fm[key];
       if (!jm) break;   // このラウンドに進めなかった → 旅はここまで
       q.push({ type: 'bracket', stage: key, label: label, koMatch: jm });   // トーナメント表（③）
-      q.push({ type: 'match', fx: koFixture(jm, key, date), leg: q.filter(it => it.type === 'match').length + 1, stage: key });
+      // 現実で確定済みの KO 戦（90分決着）は実 fixture で再生（本物の得点者・実況）、それ以外は sim 経路
+      q.push({ type: 'match', fx: realKoFixtureFor(jm, key) || koFixture(jm, key, date), leg: q.filter(it => it.type === 'match').length + 1, stage: key });
     }
   }
   journeyQueue = q;
@@ -4454,24 +4469,41 @@ function buildFixturesFromEvents(){
     if (!home || !away) return;
     const c1 = home.team.abbreviation, c2 = away.team.abbreviation;
     if (!isReal(c1) || !isReal(c2)) return;
-    const st = (((ev.status || {}).type) || {}).state;
+    const stt = ((ev.status || {}).type) || {};
+    const st = stt.state;
+    // KO 戦の PK/延長情報（ESPN: shootoutScore は PK 決着時のみ、status id 28 = 90分FT）
+    const _pk1 = parseInt(home.shootoutScore, 10), _pk2 = parseInt(away.shootoutScore, 10);
     FIXTURES.push({
       date: ev.date, day: (ev.date || '').slice(0, 10), state: st, c1: c1, c2: c2,
       id: ev.id, homeId: home.team.id, awayId: away.team.id,
       s1: st === 'post' ? Number(home.score) : null,
       s2: st === 'post' ? Number(away.score) : null,
+      pk1: (st === 'post' && !isNaN(_pk1)) ? _pk1 : null,
+      pk2: (st === 'post' && !isNaN(_pk2)) ? _pk2 : null,
+      aetHint: st === 'post' && (/AET|EXTRA|PEN/i.test(stt.name || '') || String(stt.id) !== '28'),
       venue: (comp.venue || {}).fullName || '',
     });
   });
   FIXTURES.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
 }
 
-// Confirmed GS results in the engine's REAL_RESULTS shape (real match order).
+// Confirmed results in the engine's REAL_RESULTS shape (real match order).
+// GS は GS| キー、決勝トーナメントは KO| キー ── engine の lookupRealResult(stage) の照合形式と対応。
+// KO を GS| で登録すると実 R32/R16 結果が一切ロックされずシミュに置き換わる（2026-07-07 修正、旅に確定結果が反映されないバグの根本原因）。
+// KO は同点なし＝winnerC 必須：90分同点なら PK スコアから勝者を出す（engine 側は winnerC が無い KO ロックを無視する）。
 function buildRealResults(){
   const R = {};
   FIXTURES.forEach(m => {
     if (m.state !== 'post' || m.s1 == null) return;
-    R['GS|' + [m.c1, m.c2].slice().sort().join('|')] = { c1: m.c1, c2: m.c2, s1: m.s1, s2: m.s2, winnerC: m.s1 > m.s2 ? m.c1 : (m.s2 > m.s1 ? m.c2 : null) };
+    const isKO = Date.parse(m.date) >= KO_THRESHOLD_MS;
+    const hasPK = m.pk1 != null && m.pk2 != null && (m.pk1 > 0 || m.pk2 > 0);
+    let winnerC = m.s1 > m.s2 ? m.c1 : (m.s2 > m.s1 ? m.c2 : null);
+    if (!winnerC && hasPK) winnerC = m.pk1 > m.pk2 ? m.c1 : m.c2;
+    R[(isKO ? 'KO|' : 'GS|') + [m.c1, m.c2].slice().sort().join('|')] = {
+      c1: m.c1, c2: m.c2, s1: m.s1, s2: m.s2, winnerC: winnerC,
+      aet: !!(isKO && (hasPK || m.aetHint)), pk: !!hasPK,
+      pkS1: hasPK ? m.pk1 : 0, pkS2: hasPK ? m.pk2 : 0
+    };
   });
   return R;
 }
