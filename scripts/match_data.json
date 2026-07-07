@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-07T06:11:34.700Z",
+  "fetchedAt": "2026-07-07T16:26:03.057Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -5344,6 +5344,14 @@
       "code": "BEL",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-06",
+          "isHome": false,
+          "opponentName": "United States",
+          "ourScore": 4,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-07-01",
           "isHome": true,
@@ -13738,6 +13746,14 @@
       "code": "USA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-06",
+          "isHome": true,
+          "opponentName": "Belgium",
+          "ourScore": 1,
+          "oppScore": 4,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-07-01",
           "isHome": true,
