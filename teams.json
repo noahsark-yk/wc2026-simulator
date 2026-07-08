@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-07",
+  "lastUpdated": "2026-07-08",
   "source": "Auto-generated from eloratings.net",
   "teams": [
     {
@@ -19,7 +19,7 @@
       "fifaR": 10,
       "fifaP": 1754.3,
       "adjA": 0.98,
-      "adjD": 0.74,
+      "adjD": 0.75,
       "wpe": 1.09
     },
     {
@@ -145,21 +145,21 @@
     {
       "c": "SUI",
       "opta": 81.9,
-      "elo": 1943,
+      "elo": 1949,
       "g": "B",
       "f": "ch",
       "atk": {
-        "s": 1.29,
+        "s": 1.19,
         "w": 2.14
       },
       "def": {
-        "s": 1.77,
+        "s": 1.63,
         "w": 0.78
       },
-      "fifaR": 15,
-      "fifaP": 1696.3,
-      "adjA": 1.23,
-      "adjD": 0.99,
+      "fifaR": 14,
+      "fifaP": 1710.88,
+      "adjA": 1.19,
+      "adjD": 0.96,
       "wpe": 1.08
     },
     {
@@ -169,7 +169,7 @@
       "g": "C",
       "f": "br",
       "atk": {
-        "s": 1.35,
+        "s": 1.34,
         "w": 2.51
       },
       "def": {
@@ -209,7 +209,7 @@
       "g": "C",
       "f": "ht",
       "atk": {
-        "s": 1.39,
+        "s": 1.38,
         "w": 2.06
       },
       "def": {
@@ -239,7 +239,7 @@
       "fifaR": 42,
       "fifaP": 1491.22,
       "adjA": 0.93,
-      "adjD": 1.13,
+      "adjD": 1.14,
       "wpe": 0.85
     },
     {
@@ -254,7 +254,7 @@
       },
       "def": {
         "s": 1.92,
-        "w": 0.78
+        "w": 0.79
       },
       "fifaR": 16,
       "fifaP": 1690.33,
@@ -500,27 +500,27 @@
       "fifaP": 1778.36,
       "adjA": 1.37,
       "adjD": 0.84,
-      "wpe": 1.13
+      "wpe": 1.12
     },
     {
       "c": "EGY",
       "opta": 67.7,
-      "elo": 1747,
+      "elo": 1742,
       "g": "G",
       "f": "eg",
       "atk": {
-        "s": 0.93,
+        "s": 1.03,
         "w": 1.65
       },
       "def": {
-        "s": 1.43,
-        "w": 0.71
+        "s": 1.57,
+        "w": 0.72
       },
       "fifaR": 24,
       "fifaP": 1597.04,
-      "adjA": 0.81,
-      "adjD": 0.88,
-      "wpe": 0.96
+      "adjA": 0.84,
+      "adjD": 0.9,
+      "wpe": 0.94
     },
     {
       "c": "IRN",
@@ -599,7 +599,7 @@
       "fifaR": 64,
       "fifaP": 1402.97,
       "adjA": 0.84,
-      "adjD": 1.03,
+      "adjD": 1.02,
       "wpe": 0.83
     },
     {
@@ -725,22 +725,22 @@
     {
       "c": "ARG",
       "opta": 97.8,
-      "elo": 2151,
+      "elo": 2156,
       "g": "J",
       "f": "ar",
       "atk": {
         "s": 1.29,
-        "w": 2.62
+        "w": 2.64
       },
       "def": {
         "s": 1.1,
-        "w": 0.43
+        "w": 0.5
       },
       "fifaR": 2,
-      "fifaP": 1913.71,
-      "adjA": 1.35,
-      "adjD": 0.55,
-      "wpe": 1.47
+      "fifaP": 1925.15,
+      "adjA": 1.38,
+      "adjD": 0.59,
+      "wpe": 1.49
     },
     {
       "c": "ALG",
@@ -809,7 +809,7 @@
       "g": "K",
       "f": "pt",
       "atk": {
-        "s": 1.26,
+        "s": 1.25,
         "w": 2.61
       },
       "def": {
@@ -865,22 +865,22 @@
     {
       "c": "COL",
       "opta": 90.1,
-      "elo": 2009,
+      "elo": 2003,
       "g": "K",
       "f": "co",
       "atk": {
-        "s": 1.28,
+        "s": 1.21,
         "w": 2.14
       },
       "def": {
-        "s": 1.33,
+        "s": 1.25,
         "w": 0.58
       },
       "fifaR": 11,
       "fifaP": 1739.89,
-      "adjA": 1.21,
-      "adjD": 0.75,
-      "wpe": 1.28
+      "adjA": 1.17,
+      "adjD": 0.72,
+      "wpe": 1.27
     },
     {
       "c": "ENG",
@@ -964,11 +964,11 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-07-07T16:26:08.289Z",
+    "generatedAt": "2026-07-08T05:25:07.661Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
-    "fifaLastUpdated": "2026-07-07",
+    "fifaLastUpdated": "2026-07-08",
     "fifaTeamCount": 48,
     "methodology": {
       "primaryPeriodStart": "2022-01-01",
@@ -979,10 +979,10 @@
       "halfLifeDays": 540,
       "shrinkK": 5,
       "globalMeans": {
-        "atkS": 1.122,
+        "atkS": 1.121,
         "atkW": 2.023,
         "defS": 1.655,
-        "defW": 0.779
+        "defW": 0.781
       }
     }
   }

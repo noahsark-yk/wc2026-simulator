@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-07T16:26:03.057Z",
+  "fetchedAt": "2026-07-08T05:25:02.525Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -4697,6 +4697,14 @@
       "code": "SUI",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-07",
+          "isHome": false,
+          "opponentName": "Colombia",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-07-02",
           "isHome": true,
@@ -10113,6 +10121,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-07-07",
+          "isHome": true,
+          "opponentName": "Egypt",
+          "ourScore": 3,
+          "oppScore": 2,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-07-03",
           "isHome": true,
           "opponentName": "Cape Verde",
@@ -11358,6 +11374,14 @@
       "code": "COL",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-07",
+          "isHome": true,
+          "opponentName": "Switzerland",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-07-03",
           "isHome": true,
@@ -26008,6 +26032,14 @@
       "code": "EGY",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-07",
+          "isHome": false,
+          "opponentName": "Argentina",
+          "ourScore": 2,
+          "oppScore": 3,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-07-03",
           "isHome": false,
