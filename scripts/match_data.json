@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-09T16:30:17.052Z",
+  "fetchedAt": "2026-07-10T06:06:49.304Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -695,6 +695,14 @@
       "code": "FRA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-09",
+          "isHome": true,
+          "opponentName": "Morocco",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-07-04",
           "isHome": true,
@@ -23835,6 +23843,14 @@
       "code": "MAR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-09",
+          "isHome": false,
+          "opponentName": "France",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-07-04",
           "isHome": true,
