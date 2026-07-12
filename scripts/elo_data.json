@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-10T16:15:22.157Z",
+  "fetchedAt": "2026-07-12T05:23:40.820Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -7,7 +7,7 @@
   "teams": {
     "ESP": {
       "name": "Spain",
-      "elo": 2177
+      "elo": 2190
     },
     "FRA": {
       "name": "France",
@@ -19,7 +19,7 @@
     },
     "ENG": {
       "name": "England",
-      "elo": 2076
+      "elo": 2097
     },
     "COL": {
       "name": "Colombia",
@@ -33,21 +33,21 @@
       "name": "Brazil",
       "elo": 1993
     },
-    "NOR": {
-      "name": "Norway",
-      "elo": 1972
-    },
     "NED": {
       "name": "Netherlands",
       "elo": 1971
     },
-    "BEL": {
-      "name": "Belgium",
-      "elo": 1961
+    "NOR": {
+      "name": "Norway",
+      "elo": 1951
     },
     "SUI": {
       "name": "Switzerland",
       "elo": 1949
+    },
+    "BEL": {
+      "name": "Belgium",
+      "elo": 1948
     },
     "MEX": {
       "name": "Mexico",
@@ -55,7 +55,7 @@
     },
     "GER": {
       "name": "Germany",
-      "elo": 1907
+      "elo": 1908
     },
     "MAR": {
       "name": "Morocco",
@@ -67,7 +67,7 @@
     },
     "CRO": {
       "name": "Croatia",
-      "elo": 1881
+      "elo": 1882
     },
     "ECU": {
       "name": "Ecuador",
@@ -179,7 +179,7 @@
     },
     "RSA": {
       "name": "South Africa",
-      "elo": 1560
+      "elo": 1559
     },
     "NZL": {
       "name": "New Zealand",
