@@ -25,7 +25,7 @@
     {
       "c": "RSA",
       "opta": 64.8,
-      "elo": 1559,
+      "elo": 1560,
       "g": "A",
       "f": "za",
       "atk": {
@@ -285,7 +285,7 @@
     {
       "c": "AUS",
       "opta": 75.6,
-      "elo": 1795,
+      "elo": 1794,
       "g": "D",
       "f": "au",
       "atk": {
@@ -325,7 +325,7 @@
     {
       "c": "GER",
       "opta": 88,
-      "elo": 1908,
+      "elo": 1907,
       "g": "E",
       "f": "de",
       "atk": {
@@ -964,7 +964,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-07-14T04:55:09.194Z",
+    "generatedAt": "2026-07-14T15:24:20.002Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",

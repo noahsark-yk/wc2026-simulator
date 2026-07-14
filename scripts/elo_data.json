@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-14T04:48:04.436Z",
+  "fetchedAt": "2026-07-14T15:17:16.602Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -55,7 +55,7 @@
     },
     "GER": {
       "name": "Germany",
-      "elo": 1908
+      "elo": 1907
     },
     "MAR": {
       "name": "Morocco",
@@ -95,7 +95,7 @@
     },
     "AUS": {
       "name": "Australia",
-      "elo": 1795
+      "elo": 1794
     },
     "IRN": {
       "name": "Iran",
@@ -179,7 +179,7 @@
     },
     "RSA": {
       "name": "South Africa",
-      "elo": 1559
+      "elo": 1560
     },
     "NZL": {
       "name": "New Zealand",
