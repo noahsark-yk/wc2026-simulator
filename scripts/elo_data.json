@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-14T15:17:16.602Z",
+  "fetchedAt": "2026-07-15T04:48:22.409Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -7,7 +7,7 @@
   "teams": {
     "ESP": {
       "name": "Spain",
-      "elo": 2190
+      "elo": 2232
     },
     "ARG": {
       "name": "Argentina",
@@ -15,7 +15,7 @@
     },
     "FRA": {
       "name": "France",
-      "elo": 2163
+      "elo": 2121
     },
     "ENG": {
       "name": "England",
@@ -55,7 +55,7 @@
     },
     "GER": {
       "name": "Germany",
-      "elo": 1907
+      "elo": 1908
     },
     "MAR": {
       "name": "Morocco",
@@ -67,7 +67,7 @@
     },
     "CRO": {
       "name": "Croatia",
-      "elo": 1881
+      "elo": 1882
     },
     "ECU": {
       "name": "Ecuador",
@@ -95,7 +95,7 @@
     },
     "AUS": {
       "name": "Australia",
-      "elo": 1794
+      "elo": 1795
     },
     "IRN": {
       "name": "Iran",
