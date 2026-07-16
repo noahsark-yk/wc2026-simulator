@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-15T15:25:23.106Z",
+  "fetchedAt": "2026-07-16T15:33:43.278Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -1406,6 +1406,14 @@
       "code": "ENG",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-15",
+          "isHome": false,
+          "opponentName": "Argentina",
+          "ourScore": 1,
+          "oppScore": 2,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-07-11",
           "isHome": true,
@@ -10184,6 +10192,14 @@
       "code": "ARG",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-15",
+          "isHome": true,
+          "opponentName": "England",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-07-11",
           "isHome": true,
