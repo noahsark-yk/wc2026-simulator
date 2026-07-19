@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-18T14:50:55.323Z",
+  "fetchedAt": "2026-07-19T05:25:15.183Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -712,6 +712,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-07-18",
+          "isHome": false,
+          "opponentName": "England",
+          "ourScore": 4,
+          "oppScore": 6,
+          "tournament": "World Cup"
+        },
+        {
           "date": "2026-07-14",
           "isHome": false,
           "opponentName": "Spain",
@@ -1406,6 +1414,14 @@
       "code": "ENG",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-07-18",
+          "isHome": true,
+          "opponentName": "France",
+          "ourScore": 6,
+          "oppScore": 4,
+          "tournament": "World Cup"
+        },
         {
           "date": "2026-07-15",
           "isHome": false,
