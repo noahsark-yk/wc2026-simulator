@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-19T14:47:40.351Z",
+  "fetchedAt": "2026-07-20T05:37:04.310Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -7,11 +7,11 @@
   "teams": {
     "ESP": {
       "name": "Spain",
-      "elo": 2232
+      "elo": 2259
     },
     "ARG": {
       "name": "Argentina",
-      "elo": 2200
+      "elo": 2173
     },
     "ENG": {
       "name": "England",

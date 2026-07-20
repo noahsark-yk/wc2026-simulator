@@ -1,17 +1,17 @@
 {
-  "lastUpdated": "2026-07-19",
+  "lastUpdated": "2026-07-20",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260401",
   "sourceConfirmedDate": null,
   "teamCount": 48,
   "teams": {
-    "ARG": {
-      "rank": 1,
-      "points": 1970.37
-    },
     "ESP": {
+      "rank": 1,
+      "points": 1995.88
+    },
+    "ARG": {
       "rank": 2,
-      "points": 1965.61
+      "points": 1970.37
     },
     "FRA": {
       "rank": 3,
