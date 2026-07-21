@@ -299,7 +299,7 @@
       "fifaR": 28,
       "fifaP": 1581.51,
       "adjA": 0.87,
-      "adjD": 0.79,
+      "adjD": 0.8,
       "wpe": 0.97
     },
     {
@@ -964,7 +964,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-07-21T05:24:49.524Z",
+    "generatedAt": "2026-07-21T15:36:27.436Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
