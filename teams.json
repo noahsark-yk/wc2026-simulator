@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-23",
+  "lastUpdated": "2026-07-24",
   "source": "Auto-generated from eloratings.net",
   "teams": [
     {
@@ -114,7 +114,7 @@
       },
       "def": {
         "s": 2.25,
-        "w": 1.01
+        "w": 1
       },
       "fifaR": 61,
       "fifaP": 1408.93,
@@ -218,7 +218,7 @@
       },
       "fifaR": 88,
       "fifaP": 1264.58,
-      "adjA": 0.97,
+      "adjA": 0.98,
       "adjD": 1.52,
       "wpe": 0.72
     },
@@ -369,7 +369,7 @@
       "g": "E",
       "f": "ci",
       "atk": {
-        "s": 1.18,
+        "s": 1.17,
         "w": 1.9
       },
       "def": {
@@ -573,7 +573,7 @@
         "w": 2.49
       },
       "def": {
-        "s": 1.07,
+        "s": 1.08,
         "w": 0.46
       },
       "fifaR": 1,
@@ -673,7 +673,7 @@
         "w": 2.18
       },
       "def": {
-        "s": 1.92,
+        "s": 1.91,
         "w": 0.52
       },
       "fifaR": 18,
@@ -964,11 +964,11 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-07-23T15:54:44.526Z",
+    "generatedAt": "2026-07-24T15:27:31.497Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
-    "fifaLastUpdated": "2026-07-23",
+    "fifaLastUpdated": "2026-07-24",
     "fifaTeamCount": 48,
     "methodology": {
       "primaryPeriodStart": "2022-01-01",
