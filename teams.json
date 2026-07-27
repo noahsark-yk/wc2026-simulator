@@ -410,7 +410,7 @@
       "f": "nl",
       "atk": {
         "s": 1.4,
-        "w": 2.71
+        "w": 2.7
       },
       "def": {
         "s": 1.65,
@@ -829,7 +829,7 @@
       "g": "K",
       "f": "cd",
       "atk": {
-        "s": 0.94,
+        "s": 0.95,
         "w": 1.5
       },
       "def": {
@@ -964,7 +964,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-07-27T05:53:21.256Z",
+    "generatedAt": "2026-07-27T16:14:49.111Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
