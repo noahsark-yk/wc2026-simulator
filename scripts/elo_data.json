@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-28T15:58:50.711Z",
+  "fetchedAt": "2026-07-29T05:18:35.039Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -43,7 +43,7 @@
     },
     "BEL": {
       "name": "Belgium",
-      "elo": 1948
+      "elo": 1947
     },
     "SUI": {
       "name": "Switzerland",
@@ -67,7 +67,7 @@
     },
     "CRO": {
       "name": "Croatia",
-      "elo": 1882
+      "elo": 1881
     },
     "ECU": {
       "name": "Ecuador",
@@ -127,7 +127,7 @@
     },
     "CIV": {
       "name": "Ivory Coast",
-      "elo": 1727
+      "elo": 1728
     },
     "KOR": {
       "name": "South Korea",
@@ -147,7 +147,7 @@
     },
     "UZB": {
       "name": "Uzbekistan",
-      "elo": 1631
+      "elo": 1630
     },
     "JOR": {
       "name": "Jordan",
@@ -167,7 +167,7 @@
     },
     "GHA": {
       "name": "Ghana",
-      "elo": 1570
+      "elo": 1571
     },
     "TUN": {
       "name": "Tunisia",
@@ -179,7 +179,7 @@
     },
     "RSA": {
       "name": "South Africa",
-      "elo": 1559
+      "elo": 1560
     },
     "NZL": {
       "name": "New Zealand",

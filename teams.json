@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-28",
+  "lastUpdated": "2026-07-29",
   "source": "Auto-generated from eloratings.net",
   "teams": [
     {
@@ -25,7 +25,7 @@
     {
       "c": "RSA",
       "opta": 64.8,
-      "elo": 1559,
+      "elo": 1560,
       "g": "A",
       "f": "za",
       "atk": {
@@ -365,7 +365,7 @@
     {
       "c": "CIV",
       "opta": 72,
-      "elo": 1727,
+      "elo": 1728,
       "g": "E",
       "f": "ci",
       "atk": {
@@ -430,7 +430,7 @@
       "f": "jp",
       "atk": {
         "s": 1.43,
-        "w": 2.54
+        "w": 2.53
       },
       "def": {
         "s": 1.46,
@@ -439,7 +439,7 @@
       "fifaR": 17,
       "fifaP": 1673.68,
       "adjA": 1.31,
-      "adjD": 0.68,
+      "adjD": 0.69,
       "wpe": 1.21
     },
     {
@@ -453,7 +453,7 @@
         "w": 2.27
       },
       "def": {
-        "s": 2.39,
+        "s": 2.38,
         "w": 1.1
       },
       "fifaR": 37,
@@ -485,7 +485,7 @@
     {
       "c": "BEL",
       "opta": 83.3,
-      "elo": 1948,
+      "elo": 1947,
       "g": "G",
       "f": "be",
       "atk": {
@@ -845,7 +845,7 @@
     {
       "c": "UZB",
       "opta": 70.4,
-      "elo": 1631,
+      "elo": 1630,
       "g": "K",
       "f": "uz",
       "atk": {
@@ -905,7 +905,7 @@
     {
       "c": "CRO",
       "opta": 83.4,
-      "elo": 1882,
+      "elo": 1881,
       "g": "L",
       "f": "hr",
       "atk": {
@@ -925,7 +925,7 @@
     {
       "c": "GHA",
       "opta": 59.4,
-      "elo": 1570,
+      "elo": 1571,
       "g": "L",
       "f": "gh",
       "atk": {
@@ -964,11 +964,11 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-07-28T16:05:59.171Z",
+    "generatedAt": "2026-07-29T05:25:36.422Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
-    "fifaLastUpdated": "2026-07-28",
+    "fifaLastUpdated": "2026-07-29",
     "fifaTeamCount": 48,
     "methodology": {
       "primaryPeriodStart": "2022-01-01",
