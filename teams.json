@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-06",
+  "lastUpdated": "2026-08-07",
   "source": "Auto-generated from eloratings.net",
   "teams": [
     {
@@ -579,7 +579,7 @@
       "fifaR": 1,
       "fifaP": 1995.88,
       "adjA": 1.57,
-      "adjD": 0.56,
+      "adjD": 0.57,
       "wpe": 1.68
     },
     {
@@ -929,7 +929,7 @@
       "g": "L",
       "f": "gh",
       "atk": {
-        "s": 0.73,
+        "s": 0.74,
         "w": 1.63
       },
       "def": {
@@ -964,11 +964,11 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-08-06T05:19:51.256Z",
+    "generatedAt": "2026-08-07T04:29:31.754Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
-    "fifaLastUpdated": "2026-08-06",
+    "fifaLastUpdated": "2026-08-07",
     "fifaTeamCount": 48,
     "methodology": {
       "primaryPeriodStart": "2022-01-01",
