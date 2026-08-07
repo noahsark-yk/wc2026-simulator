@@ -354,7 +354,7 @@
       },
       "def": {
         "s": 1.63,
-        "w": 1.18
+        "w": 1.17
       },
       "fifaR": 82,
       "fifaP": 1285.64,
@@ -569,7 +569,7 @@
       "g": "H",
       "f": "es",
       "atk": {
-        "s": 1.87,
+        "s": 1.86,
         "w": 2.49
       },
       "def": {
@@ -964,7 +964,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-08-07T04:29:31.754Z",
+    "generatedAt": "2026-08-07T14:51:48.654Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
