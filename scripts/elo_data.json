@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-07T14:45:13.775Z",
+  "fetchedAt": "2026-08-08T14:23:05.824Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -39,7 +39,7 @@
     },
     "NOR": {
       "name": "Norway",
-      "elo": 1951
+      "elo": 1952
     },
     "BEL": {
       "name": "Belgium",
@@ -173,12 +173,12 @@
       "name": "Tunisia",
       "elo": 1562
     },
-    "IRQ": {
-      "name": "Iraq",
-      "elo": 1561
-    },
     "RSA": {
       "name": "South Africa",
+      "elo": 1560
+    },
+    "IRQ": {
+      "name": "Iraq",
       "elo": 1560
     },
     "NZL": {
