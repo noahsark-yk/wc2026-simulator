@@ -433,7 +433,7 @@
         "w": 2.53
       },
       "def": {
-        "s": 1.46,
+        "s": 1.47,
         "w": 0.53
       },
       "fifaR": 17,
@@ -620,7 +620,7 @@
       "fifaP": 1425.52,
       "adjA": 0.6,
       "adjD": 1.19,
-      "wpe": 0.71
+      "wpe": 0.72
     },
     {
       "c": "URU",
@@ -964,7 +964,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-08-09T03:36:27.410Z",
+    "generatedAt": "2026-08-09T14:31:47.977Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
