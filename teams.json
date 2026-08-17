@@ -910,7 +910,7 @@
       "f": "hr",
       "atk": {
         "s": 1.12,
-        "w": 2.25
+        "w": 2.24
       },
       "def": {
         "s": 1.69,
@@ -964,7 +964,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-08-17T03:02:17.469Z",
+    "generatedAt": "2026-08-17T14:24:57.727Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
