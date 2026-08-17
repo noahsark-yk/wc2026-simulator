@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-08-16",
+  "lastUpdated": "2026-08-17",
   "source": "Auto-generated from eloratings.net",
   "teams": [
     {
       "c": "MEX",
       "opta": 77.2,
-      "elo": 1913,
+      "elo": 1914,
       "g": "A",
       "f": "mx",
       "atk": {
@@ -225,7 +225,7 @@
     {
       "c": "SCO",
       "opta": 70.6,
-      "elo": 1745,
+      "elo": 1746,
       "g": "C",
       "f": "gb-sct",
       "atk": {
@@ -325,7 +325,7 @@
     {
       "c": "GER",
       "opta": 88,
-      "elo": 1908,
+      "elo": 1907,
       "g": "E",
       "f": "de",
       "atk": {
@@ -513,7 +513,7 @@
         "w": 1.65
       },
       "def": {
-        "s": 1.58,
+        "s": 1.59,
         "w": 0.72
       },
       "fifaR": 24,
@@ -685,7 +685,7 @@
     {
       "c": "IRQ",
       "opta": 63.2,
-      "elo": 1560,
+      "elo": 1561,
       "g": "I",
       "f": "iq",
       "atk": {
@@ -705,7 +705,7 @@
     {
       "c": "NOR",
       "opta": 77.6,
-      "elo": 1952,
+      "elo": 1951,
       "g": "I",
       "f": "no",
       "atk": {
@@ -964,11 +964,11 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-08-16T03:01:57.126Z",
+    "generatedAt": "2026-08-17T03:02:17.469Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
-    "fifaLastUpdated": "2026-08-16",
+    "fifaLastUpdated": "2026-08-17",
     "fifaTeamCount": 48,
     "methodology": {
       "primaryPeriodStart": "2022-01-01",

@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-16T02:55:15.797Z",
+  "fetchedAt": "2026-08-17T02:55:05.433Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -39,7 +39,7 @@
     },
     "NOR": {
       "name": "Norway",
-      "elo": 1952
+      "elo": 1951
     },
     "BEL": {
       "name": "Belgium",
@@ -51,11 +51,11 @@
     },
     "MEX": {
       "name": "Mexico",
-      "elo": 1913
+      "elo": 1914
     },
     "GER": {
       "name": "Germany",
-      "elo": 1908
+      "elo": 1907
     },
     "MAR": {
       "name": "Morocco",
@@ -111,7 +111,7 @@
     },
     "SCO": {
       "name": "Scotland",
-      "elo": 1745
+      "elo": 1746
     },
     "EGY": {
       "name": "Egypt",
@@ -173,12 +173,12 @@
       "name": "Tunisia",
       "elo": 1562
     },
-    "RSA": {
-      "name": "South Africa",
-      "elo": 1560
-    },
     "IRQ": {
       "name": "Iraq",
+      "elo": 1561
+    },
+    "RSA": {
+      "name": "South Africa",
       "elo": 1560
     },
     "NZL": {
