@@ -225,7 +225,7 @@
     {
       "c": "SCO",
       "opta": 70.6,
-      "elo": 1746,
+      "elo": 1745,
       "g": "C",
       "f": "gb-sct",
       "atk": {
@@ -614,7 +614,7 @@
       },
       "def": {
         "s": 1.57,
-        "w": 0.95
+        "w": 0.94
       },
       "fifaR": 58,
       "fifaP": 1425.52,
@@ -633,7 +633,7 @@
         "w": 1.61
       },
       "def": {
-        "s": 1.15,
+        "s": 1.16,
         "w": 0.8
       },
       "fifaR": 20,
@@ -649,7 +649,7 @@
       "g": "I",
       "f": "fr",
       "atk": {
-        "s": 1.74,
+        "s": 1.73,
         "w": 2.49
       },
       "def": {
@@ -964,7 +964,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-08-20T02:58:57.377Z",
+    "generatedAt": "2026-08-20T14:32:15.498Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
