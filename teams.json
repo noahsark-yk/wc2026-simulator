@@ -200,7 +200,7 @@
       "fifaP": 1803.99,
       "adjA": 1.05,
       "adjD": 0.57,
-      "wpe": 1.19
+      "wpe": 1.18
     },
     {
       "c": "HAI",
@@ -245,7 +245,7 @@
     {
       "c": "USA",
       "opta": 73.1,
-      "elo": 1747,
+      "elo": 1746,
       "g": "D",
       "f": "us",
       "atk": {
@@ -964,7 +964,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-08-21T03:04:50.480Z",
+    "generatedAt": "2026-08-21T14:32:07.860Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",

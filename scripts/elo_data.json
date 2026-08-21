@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-21T02:58:17.832Z",
+  "fetchedAt": "2026-08-21T14:25:02.461Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -105,12 +105,12 @@
       "name": "Algeria",
       "elo": 1756
     },
-    "USA": {
-      "name": "United States",
-      "elo": 1747
-    },
     "SCO": {
       "name": "Scotland",
+      "elo": 1746
+    },
+    "USA": {
+      "name": "United States",
       "elo": 1746
     },
     "EGY": {
