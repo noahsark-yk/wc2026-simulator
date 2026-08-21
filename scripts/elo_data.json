@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-20T14:25:42.345Z",
+  "fetchedAt": "2026-08-21T02:58:17.832Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -39,7 +39,7 @@
     },
     "NOR": {
       "name": "Norway",
-      "elo": 1951
+      "elo": 1952
     },
     "BEL": {
       "name": "Belgium",
@@ -111,7 +111,7 @@
     },
     "SCO": {
       "name": "Scotland",
-      "elo": 1745
+      "elo": 1746
     },
     "EGY": {
       "name": "Egypt",
@@ -147,7 +147,7 @@
     },
     "UZB": {
       "name": "Uzbekistan",
-      "elo": 1631
+      "elo": 1630
     },
     "JOR": {
       "name": "Jordan",
