@@ -250,7 +250,7 @@
       "f": "us",
       "atk": {
         "s": 1.47,
-        "w": 2.06
+        "w": 2.05
       },
       "def": {
         "s": 1.92,
@@ -964,7 +964,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-08-25T03:00:24.678Z",
+    "generatedAt": "2026-08-25T14:41:35.282Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
