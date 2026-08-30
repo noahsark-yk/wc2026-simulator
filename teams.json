@@ -389,11 +389,11 @@
       "g": "E",
       "f": "ec",
       "atk": {
-        "s": 0.78,
+        "s": 0.79,
         "w": 1.54
       },
       "def": {
-        "s": 1.06,
+        "s": 1.07,
         "w": 0.58
       },
       "fifaR": 25,
@@ -964,7 +964,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-08-30T07:54:35.147Z",
+    "generatedAt": "2026-08-30T17:57:40.595Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
