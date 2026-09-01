@@ -5,7 +5,7 @@
     {
       "c": "MEX",
       "opta": 77.2,
-      "elo": 1914,
+      "elo": 1913,
       "g": "A",
       "f": "mx",
       "atk": {
@@ -330,7 +330,7 @@
       "f": "de",
       "atk": {
         "s": 1.45,
-        "w": 2.68
+        "w": 2.67
       },
       "def": {
         "s": 1.72,
@@ -609,7 +609,7 @@
       "g": "H",
       "f": "sa",
       "atk": {
-        "s": 0.67,
+        "s": 0.68,
         "w": 1.36
       },
       "def": {
@@ -964,7 +964,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-09-01T07:16:14.316Z",
+    "generatedAt": "2026-09-01T17:37:30.015Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
