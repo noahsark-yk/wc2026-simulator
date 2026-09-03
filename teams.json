@@ -89,7 +89,7 @@
       "g": "B",
       "f": "ca",
       "atk": {
-        "s": 0.68,
+        "s": 0.69,
         "w": 1.87
       },
       "def": {
@@ -964,7 +964,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-09-03T06:54:10.867Z",
+    "generatedAt": "2026-09-03T17:30:18.221Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
