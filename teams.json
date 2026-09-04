@@ -53,7 +53,7 @@
         "w": 2.04
       },
       "def": {
-        "s": 1.73,
+        "s": 1.72,
         "w": 0.69
       },
       "fifaR": 32,
@@ -69,11 +69,11 @@
       "g": "A",
       "f": "cz",
       "atk": {
-        "s": 1,
+        "s": 0.98,
         "w": 2.02
       },
       "def": {
-        "s": 1.95,
+        "s": 1.93,
         "w": 0.92
       },
       "fifaR": 48,
@@ -113,7 +113,7 @@
         "w": 1.64
       },
       "def": {
-        "s": 2.24,
+        "s": 2.23,
         "w": 1
       },
       "fifaR": 61,
@@ -479,7 +479,7 @@
       "fifaR": 57,
       "fifaP": 1426.58,
       "adjA": 0.73,
-      "adjD": 1.14,
+      "adjD": 1.13,
       "wpe": 0.79
     },
     {
@@ -639,7 +639,7 @@
       "fifaR": 20,
       "fifaP": 1634.7,
       "adjA": 0.82,
-      "adjD": 0.8,
+      "adjD": 0.81,
       "wpe": 0.96
     },
     {
@@ -693,7 +693,7 @@
         "w": 1.41
       },
       "def": {
-        "s": 2.26,
+        "s": 2.25,
         "w": 0.89
       },
       "fifaR": 63,
@@ -964,7 +964,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-09-04T06:59:55.451Z",
+    "generatedAt": "2026-09-04T17:24:37.330Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
@@ -979,9 +979,9 @@
       "halfLifeDays": 540,
       "shrinkK": 5,
       "globalMeans": {
-        "atkS": 1.123,
+        "atkS": 1.122,
         "atkW": 2.023,
-        "defS": 1.673,
+        "defS": 1.672,
         "defW": 0.781
       }
     }
