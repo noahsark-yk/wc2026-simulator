@@ -510,7 +510,7 @@
       "f": "eg",
       "atk": {
         "s": 1.03,
-        "w": 1.65
+        "w": 1.66
       },
       "def": {
         "s": 1.59,
@@ -793,7 +793,7 @@
         "w": 1.7
       },
       "def": {
-        "s": 2.5,
+        "s": 2.49,
         "w": 0.99
       },
       "fifaR": 73,
@@ -964,7 +964,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-09-05T06:43:52.914Z",
+    "generatedAt": "2026-09-05T16:30:54.911Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
