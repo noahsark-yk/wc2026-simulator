@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-04T17:24:29.157Z",
+  "fetchedAt": "2026-09-05T06:43:48.050Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -6081,9 +6081,7 @@
           "tournament": "European League A"
         }
       ],
-      "sourceUrl": "https://www.eloratings.net/Belgium",
-      "staleFromPrior": true,
-      "freshFetchError": "navigation failed"
+      "sourceUrl": "https://www.eloratings.net/Belgium"
     },
     "AUT": {
       "code": "AUT",
