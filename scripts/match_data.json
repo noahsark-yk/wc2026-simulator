@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-11T17:32:13.819Z",
+  "fetchedAt": "2026-09-12T06:55:02.904Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -9587,7 +9587,9 @@
           "tournament": "European League B"
         }
       ],
-      "sourceUrl": "https://www.eloratings.net/Turkey"
+      "sourceUrl": "https://www.eloratings.net/Turkey",
+      "staleFromPrior": true,
+      "freshFetchError": "navigation failed"
     },
     "SWE": {
       "code": "SWE",
