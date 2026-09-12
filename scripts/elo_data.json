@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-12T06:48:03.637Z",
+  "fetchedAt": "2026-09-12T16:39:06.945Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -35,7 +35,7 @@
     },
     "NED": {
       "name": "Netherlands",
-      "elo": 1971
+      "elo": 1970
     },
     "NOR": {
       "name": "Norway",
@@ -95,7 +95,7 @@
     },
     "AUS": {
       "name": "Australia",
-      "elo": 1795
+      "elo": 1794
     },
     "IRN": {
       "name": "Iran",
@@ -105,13 +105,13 @@
       "name": "Algeria",
       "elo": 1756
     },
-    "SCO": {
-      "name": "Scotland",
-      "elo": 1746
-    },
     "USA": {
       "name": "United States",
       "elo": 1746
+    },
+    "SCO": {
+      "name": "Scotland",
+      "elo": 1745
     },
     "EGY": {
       "name": "Egypt",
@@ -147,7 +147,7 @@
     },
     "UZB": {
       "name": "Uzbekistan",
-      "elo": 1630
+      "elo": 1631
     },
     "JOR": {
       "name": "Jordan",

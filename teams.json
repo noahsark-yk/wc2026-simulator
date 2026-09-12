@@ -225,7 +225,7 @@
     {
       "c": "SCO",
       "opta": 70.6,
-      "elo": 1746,
+      "elo": 1745,
       "g": "C",
       "f": "gb-sct",
       "atk": {
@@ -285,7 +285,7 @@
     {
       "c": "AUS",
       "opta": 75.6,
-      "elo": 1795,
+      "elo": 1794,
       "g": "D",
       "f": "au",
       "atk": {
@@ -405,7 +405,7 @@
     {
       "c": "NED",
       "opta": 88.7,
-      "elo": 1971,
+      "elo": 1970,
       "g": "F",
       "f": "nl",
       "atk": {
@@ -690,7 +690,7 @@
       "f": "iq",
       "atk": {
         "s": 0.85,
-        "w": 1.41
+        "w": 1.42
       },
       "def": {
         "s": 2.25,
@@ -845,7 +845,7 @@
     {
       "c": "UZB",
       "opta": 70.4,
-      "elo": 1630,
+      "elo": 1631,
       "g": "K",
       "f": "uz",
       "atk": {
@@ -964,7 +964,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-09-12T06:55:10.484Z",
+    "generatedAt": "2026-09-12T16:45:55.610Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
