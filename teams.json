@@ -310,7 +310,7 @@
       "f": "tr",
       "atk": {
         "s": 0.96,
-        "w": 2.2
+        "w": 2.19
       },
       "def": {
         "s": 2.02,
@@ -453,7 +453,7 @@
         "w": 2.27
       },
       "def": {
-        "s": 2.37,
+        "s": 2.36,
         "w": 1.09
       },
       "fifaR": 37,
@@ -549,7 +549,7 @@
       "g": "G",
       "f": "nz",
       "atk": {
-        "s": 0.85,
+        "s": 0.86,
         "w": 2.02
       },
       "def": {
@@ -810,7 +810,7 @@
       "f": "pt",
       "atk": {
         "s": 1.25,
-        "w": 2.6
+        "w": 2.59
       },
       "def": {
         "s": 1.15,
@@ -964,7 +964,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-09-19T07:04:09.161Z",
+    "generatedAt": "2026-09-19T17:02:00.976Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
