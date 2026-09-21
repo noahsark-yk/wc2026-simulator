@@ -234,7 +234,7 @@
       },
       "def": {
         "s": 1.73,
-        "w": 0.97
+        "w": 0.96
       },
       "fifaR": 42,
       "fifaP": 1491.22,
@@ -405,7 +405,7 @@
     {
       "c": "NED",
       "opta": 88.7,
-      "elo": 1970,
+      "elo": 1971,
       "g": "F",
       "f": "nl",
       "atk": {
@@ -964,7 +964,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-09-21T07:41:29.796Z",
+    "generatedAt": "2026-09-21T19:05:51.915Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
