@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-20T17:16:24.504Z",
+  "fetchedAt": "2026-09-21T07:41:21.034Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -29293,7 +29293,9 @@
           "tournament": "Friendly"
         }
       ],
-      "sourceUrl": "https://www.eloratings.net/Cape_Verde"
+      "sourceUrl": "https://www.eloratings.net/Cape_Verde",
+      "staleFromPrior": true,
+      "freshFetchError": "navigation failed"
     },
     "RSA": {
       "code": "RSA",
