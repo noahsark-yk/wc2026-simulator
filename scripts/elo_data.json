@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-24T07:05:34.180Z",
+  "fetchedAt": "2026-09-24T18:04:48.839Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -63,23 +63,23 @@
     },
     "JPN": {
       "name": "Japan",
-      "elo": 1888
+      "elo": 1897
     },
     "CRO": {
       "name": "Croatia",
       "elo": 1881
     },
-    "ECU": {
-      "name": "Ecuador",
-      "elo": 1871
-    },
     "TUR": {
       "name": "Turkey",
       "elo": 1852
     },
+    "ECU": {
+      "name": "Ecuador",
+      "elo": 1851
+    },
     "URU": {
       "name": "Uruguay",
-      "elo": 1841
+      "elo": 1832
     },
     "AUT": {
       "name": "Austria",
@@ -97,13 +97,13 @@
       "name": "Australia",
       "elo": 1794
     },
-    "IRN": {
-      "name": "Iran",
-      "elo": 1764
-    },
     "ALG": {
       "name": "Algeria",
       "elo": 1756
+    },
+    "IRN": {
+      "name": "Iran",
+      "elo": 1748
     },
     "USA": {
       "name": "United States",
@@ -112,6 +112,10 @@
     "SCO": {
       "name": "Scotland",
       "elo": 1745
+    },
+    "KOR": {
+      "name": "South Korea",
+      "elo": 1743
     },
     "EGY": {
       "name": "Egypt",
@@ -129,13 +133,9 @@
       "name": "Ivory Coast",
       "elo": 1728
     },
-    "KOR": {
-      "name": "South Korea",
-      "elo": 1723
-    },
     "COD": {
       "name": "DR Congo",
-      "elo": 1704
+      "elo": 1709
     },
     "CZE": {
       "name": "Czechia",
@@ -147,7 +147,7 @@
     },
     "UZB": {
       "name": "Uzbekistan",
-      "elo": 1631
+      "elo": 1647
     },
     "JOR": {
       "name": "Jordan",
@@ -183,7 +183,7 @@
     },
     "NZL": {
       "name": "New Zealand",
-      "elo": 1534
+      "elo": 1531
     },
     "HAI": {
       "name": "Haiti",

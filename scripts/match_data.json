@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-24T07:11:53.905Z",
+  "fetchedAt": "2026-09-24T18:11:49.367Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -12126,6 +12126,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-24",
+          "isHome": false,
+          "opponentName": "Japan",
+          "ourScore": 1,
+          "oppScore": 3,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-06-26",
           "isHome": false,
           "opponentName": "Spain",
@@ -12708,6 +12716,14 @@
       "code": "ECU",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-24",
+          "isHome": false,
+          "opponentName": "South Korea",
+          "ourScore": 0,
+          "oppScore": 3,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-06-30",
           "isHome": false,
@@ -17989,6 +18005,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-24",
+          "isHome": true,
+          "opponentName": "Uruguay",
+          "ourScore": 3,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-06-29",
           "isHome": false,
           "opponentName": "Brazil",
@@ -18636,6 +18660,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-24",
+          "isHome": true,
+          "opponentName": "Ecuador",
+          "ourScore": 3,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-06-24",
           "isHome": false,
           "opponentName": "South Africa",
@@ -19274,6 +19306,14 @@
       "code": "IRN",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-24",
+          "isHome": false,
+          "opponentName": "Uzbekistan",
+          "ourScore": 1,
+          "oppScore": 3,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-06-26",
           "isHome": false,
@@ -21167,6 +21207,14 @@
       "code": "UZB",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-24",
+          "isHome": true,
+          "opponentName": "Iran",
+          "ourScore": 3,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-06-27",
           "isHome": false,
@@ -30043,6 +30091,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-24",
+          "isHome": true,
+          "opponentName": "Equatorial Guinea",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "African Nations Cup qual"
+        },
+        {
           "date": "2026-07-01",
           "isHome": false,
           "opponentName": "England",
@@ -30617,6 +30673,14 @@
       "code": "NZL",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-24",
+          "isHome": true,
+          "opponentName": "Palestine",
+          "ourScore": 2,
+          "oppScore": 2,
+          "tournament": "Friendly tournament"
+        },
         {
           "date": "2026-06-26",
           "isHome": false,
