@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-23T18:11:18.476Z",
+  "fetchedAt": "2026-09-24T07:11:53.905Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -19866,6 +19866,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-23",
+          "isHome": true,
+          "opponentName": "Kuwait",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "Gulf Cup"
+        },
+        {
           "date": "2026-06-26",
           "isHome": false,
           "opponentName": "Cape Verde",
@@ -22509,6 +22517,14 @@
       "code": "IRQ",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-23",
+          "isHome": true,
+          "opponentName": "Oman",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "Gulf Cup"
+        },
         {
           "date": "2026-06-26",
           "isHome": false,

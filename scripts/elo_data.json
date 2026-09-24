@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-23T18:04:13.498Z",
+  "fetchedAt": "2026-09-24T07:05:34.180Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -163,7 +163,7 @@
     },
     "KSA": {
       "name": "Saudi Arabia",
-      "elo": 1596
+      "elo": 1600
     },
     "GHA": {
       "name": "Ghana",
@@ -173,13 +173,13 @@
       "name": "Tunisia",
       "elo": 1562
     },
-    "IRQ": {
-      "name": "Iraq",
-      "elo": 1561
-    },
     "RSA": {
       "name": "South Africa",
       "elo": 1560
+    },
+    "IRQ": {
+      "name": "Iraq",
+      "elo": 1556
     },
     "NZL": {
       "name": "New Zealand",
