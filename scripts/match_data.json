@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-24T18:11:49.367Z",
+  "fetchedAt": "2026-09-25T07:10:06.337Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -2142,6 +2142,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-24",
+          "isHome": true,
+          "opponentName": "Wales",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-07-06",
           "isHome": false,
           "opponentName": "Spain",
@@ -2813,6 +2821,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-24",
+          "isHome": true,
+          "opponentName": "Germany",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-06-29",
           "isHome": false,
           "opponentName": "Morocco",
@@ -3467,6 +3483,14 @@
       "code": "GER",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-24",
+          "isHome": false,
+          "opponentName": "Netherlands",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "European League A"
+        },
         {
           "date": "2026-06-29",
           "isHome": true,
@@ -6088,6 +6112,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-24",
+          "isHome": true,
+          "opponentName": "Israel",
+          "ourScore": 3,
+          "oppScore": 1,
+          "tournament": "European League B"
+        },
+        {
           "date": "2026-07-02",
           "isHome": false,
           "opponentName": "Spain",
@@ -7301,6 +7333,14 @@
       "code": "NOR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-24",
+          "isHome": true,
+          "opponentName": "Denmark",
+          "ourScore": 3,
+          "oppScore": 2,
+          "tournament": "European League A"
+        },
         {
           "date": "2026-07-11",
           "isHome": false,
@@ -23237,6 +23277,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-24",
+          "isHome": true,
+          "opponentName": "Bahrain",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "Gulf Cup"
+        },
+        {
           "date": "2026-06-24",
           "isHome": false,
           "opponentName": "Bosnia and Herzegovina",
@@ -25506,6 +25554,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-24",
+          "isHome": true,
+          "opponentName": "Uganda",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "African Nations Cup qual"
+        },
+        {
           "date": "2026-06-25",
           "isHome": false,
           "opponentName": "Netherlands",
@@ -27631,6 +27687,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-24",
+          "isHome": true,
+          "opponentName": "Ghana",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "African Nations Cup qual"
+        },
+        {
           "date": "2026-06-30",
           "isHome": false,
           "opponentName": "Norway",
@@ -28237,6 +28301,14 @@
       "code": "GHA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-24",
+          "isHome": false,
+          "opponentName": "Ivory Coast",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "African Nations Cup qual"
+        },
         {
           "date": "2026-07-03",
           "isHome": false,

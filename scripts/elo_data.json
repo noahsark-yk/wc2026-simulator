@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-24T18:04:48.839Z",
+  "fetchedAt": "2026-09-25T07:03:24.429Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -27,7 +27,7 @@
     },
     "POR": {
       "name": "Portugal",
-      "elo": 1995
+      "elo": 1998
     },
     "BRA": {
       "name": "Brazil",
@@ -35,11 +35,11 @@
     },
     "NED": {
       "name": "Netherlands",
-      "elo": 1971
+      "elo": 1962
     },
     "NOR": {
       "name": "Norway",
-      "elo": 1952
+      "elo": 1962
     },
     "BEL": {
       "name": "Belgium",
@@ -49,13 +49,13 @@
       "name": "Switzerland",
       "elo": 1928
     },
+    "GER": {
+      "name": "Germany",
+      "elo": 1916
+    },
     "MEX": {
       "name": "Mexico",
       "elo": 1913
-    },
-    "GER": {
-      "name": "Germany",
-      "elo": 1907
     },
     "MAR": {
       "name": "Morocco",
@@ -83,7 +83,7 @@
     },
     "AUT": {
       "name": "Austria",
-      "elo": 1821
+      "elo": 1831
     },
     "SEN": {
       "name": "Senegal",
@@ -121,6 +121,10 @@
       "name": "Egypt",
       "elo": 1742
     },
+    "CIV": {
+      "name": "Ivory Coast",
+      "elo": 1739
+    },
     "SWE": {
       "name": "Sweden",
       "elo": 1731
@@ -128,10 +132,6 @@
     "CAN": {
       "name": "Canada",
       "elo": 1729
-    },
-    "CIV": {
-      "name": "Ivory Coast",
-      "elo": 1728
     },
     "COD": {
       "name": "DR Congo",
@@ -167,11 +167,7 @@
     },
     "GHA": {
       "name": "Ghana",
-      "elo": 1571
-    },
-    "TUN": {
-      "name": "Tunisia",
-      "elo": 1562
+      "elo": 1560
     },
     "RSA": {
       "name": "South Africa",
@@ -181,6 +177,10 @@
       "name": "Iraq",
       "elo": 1556
     },
+    "TUN": {
+      "name": "Tunisia",
+      "elo": 1549
+    },
     "NZL": {
       "name": "New Zealand",
       "elo": 1531
@@ -189,13 +189,13 @@
       "name": "Haiti",
       "elo": 1517
     },
+    "QAT": {
+      "name": "Qatar",
+      "elo": 1441
+    },
     "CUW": {
       "name": "Curaçao",
       "elo": 1438
-    },
-    "QAT": {
-      "name": "Qatar",
-      "elo": 1411
     }
   }
 }
