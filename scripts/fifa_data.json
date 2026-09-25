@@ -21,13 +21,13 @@
       "rank": 4,
       "points": 1922.83
     },
-    "BRA": {
-      "rank": 5,
-      "points": 1804.92
-    },
     "MAR": {
-      "rank": 6,
+      "rank": 5,
       "points": 1803.99
+    },
+    "BRA": {
+      "rank": 6,
+      "points": 1802.9
     },
     "POR": {
       "rank": 7,
@@ -75,7 +75,7 @@
     },
     "SEN": {
       "rank": 19,
-      "points": 1653.43
+      "points": 1644.89
     },
     "URU": {
       "rank": 20,
@@ -97,13 +97,13 @@
       "rank": 25,
       "points": 1587.26
     },
-    "TUR": {
-      "rank": 27,
-      "points": 1582.54
-    },
     "AUS": {
+      "rank": 27,
+      "points": 1583.53
+    },
+    "TUR": {
       "rank": 28,
-      "points": 1581.51
+      "points": 1582.54
     },
     "ALG": {
       "rank": 29,
@@ -139,7 +139,7 @@
     },
     "PAN": {
       "rank": 45,
-      "points": 1478.41
+      "points": 1475.22
     },
     "CZE": {
       "rank": 48,
@@ -151,7 +151,7 @@
     },
     "KSA": {
       "rank": 57,
-      "points": 1425.52
+      "points": 1427.79
     },
     "TUN": {
       "rank": 58,
@@ -163,7 +163,7 @@
     },
     "QAT": {
       "rank": 60,
-      "points": 1411.06
+      "points": 1414.6
     },
     "BIH": {
       "rank": 61,
@@ -171,7 +171,7 @@
     },
     "IRQ": {
       "rank": 63,
-      "points": 1404.17
+      "points": 1403.25
     },
     "CPV": {
       "rank": 64,
@@ -182,7 +182,7 @@
       "points": 1378.62
     },
     "JOR": {
-      "rank": 73,
+      "rank": 72,
       "points": 1350.41
     },
     "CUW": {

@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-25T07:10:06.337Z",
+  "fetchedAt": "2026-09-25T18:15:33.096Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -10928,6 +10928,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-25",
+          "isHome": false,
+          "opponentName": "Australia",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-07-05",
           "isHome": false,
           "opponentName": "Norway",
@@ -16352,6 +16360,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-25",
+          "isHome": false,
+          "opponentName": "India",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-06-27",
           "isHome": false,
           "opponentName": "England",
@@ -17151,6 +17167,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-24",
+          "isHome": false,
+          "opponentName": "Costa Rica",
+          "ourScore": 4,
+          "oppScore": 3,
+          "tournament": "CONCACAF Nat League A"
+        },
+        {
           "date": "2026-06-25",
           "isHome": false,
           "opponentName": "Ivory Coast",
@@ -17589,6 +17613,14 @@
       "code": "HAI",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-24",
+          "isHome": true,
+          "opponentName": "Trinidad and Tobago",
+          "ourScore": 3,
+          "oppScore": 2,
+          "tournament": "CONCACAF Nat League A"
+        },
         {
           "date": "2026-06-24",
           "isHome": false,
@@ -20720,6 +20752,14 @@
       "code": "AUS",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-25",
+          "isHome": true,
+          "opponentName": "Brazil",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-07-03",
           "isHome": true,
@@ -24842,6 +24882,14 @@
       "code": "SEN",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-25",
+          "isHome": false,
+          "opponentName": "Mozambique",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "African Nations Cup qual"
+        },
         {
           "date": "2026-07-01",
           "isHome": false,

@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-25T07:03:24.429Z",
+  "fetchedAt": "2026-09-25T18:08:55.119Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -31,7 +31,7 @@
     },
     "BRA": {
       "name": "Brazil",
-      "elo": 1993
+      "elo": 1990
     },
     "NED": {
       "name": "Netherlands",
@@ -85,17 +85,17 @@
       "name": "Austria",
       "elo": 1831
     },
-    "SEN": {
-      "name": "Senegal",
-      "elo": 1816
-    },
     "PAR": {
       "name": "Paraguay",
       "elo": 1814
     },
+    "SEN": {
+      "name": "Senegal",
+      "elo": 1800
+    },
     "AUS": {
       "name": "Australia",
-      "elo": 1794
+      "elo": 1797
     },
     "ALG": {
       "name": "Algeria",
@@ -143,7 +143,7 @@
     },
     "PAN": {
       "name": "Panama",
-      "elo": 1658
+      "elo": 1650
     },
     "UZB": {
       "name": "Uzbekistan",
@@ -187,15 +187,15 @@
     },
     "HAI": {
       "name": "Haiti",
-      "elo": 1517
+      "elo": 1530
+    },
+    "CUW": {
+      "name": "Curaçao",
+      "elo": 1471
     },
     "QAT": {
       "name": "Qatar",
       "elo": 1441
-    },
-    "CUW": {
-      "name": "Curaçao",
-      "elo": 1438
     }
   }
 }
