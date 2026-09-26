@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-25T18:08:55.119Z",
+  "fetchedAt": "2026-09-26T07:00:19.762Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -19,7 +19,7 @@
     },
     "FRA": {
       "name": "France",
-      "elo": 2070
+      "elo": 2083
     },
     "COL": {
       "name": "Colombia",
@@ -33,6 +33,10 @@
       "name": "Brazil",
       "elo": 1990
     },
+    "BEL": {
+      "name": "Belgium",
+      "elo": 1979
+    },
     "NED": {
       "name": "Netherlands",
       "elo": 1962
@@ -40,10 +44,6 @@
     "NOR": {
       "name": "Norway",
       "elo": 1962
-    },
-    "BEL": {
-      "name": "Belgium",
-      "elo": 1947
     },
     "SUI": {
       "name": "Switzerland",
@@ -59,7 +59,7 @@
     },
     "MAR": {
       "name": "Morocco",
-      "elo": 1901
+      "elo": 1903
     },
     "JPN": {
       "name": "Japan",
@@ -69,13 +69,13 @@
       "name": "Croatia",
       "elo": 1881
     },
-    "TUR": {
-      "name": "Turkey",
-      "elo": 1852
-    },
     "ECU": {
       "name": "Ecuador",
       "elo": 1851
+    },
+    "TUR": {
+      "name": "Turkey",
+      "elo": 1839
     },
     "URU": {
       "name": "Uruguay",
@@ -99,7 +99,7 @@
     },
     "ALG": {
       "name": "Algeria",
-      "elo": 1756
+      "elo": 1759
     },
     "IRN": {
       "name": "Iran",
@@ -117,21 +117,21 @@
       "name": "South Korea",
       "elo": 1743
     },
-    "EGY": {
-      "name": "Egypt",
-      "elo": 1742
+    "SWE": {
+      "name": "Sweden",
+      "elo": 1741
     },
     "CIV": {
       "name": "Ivory Coast",
       "elo": 1739
     },
-    "SWE": {
-      "name": "Sweden",
-      "elo": 1731
-    },
     "CAN": {
       "name": "Canada",
       "elo": 1729
+    },
+    "EGY": {
+      "name": "Egypt",
+      "elo": 1728
     },
     "COD": {
       "name": "DR Congo",
@@ -153,17 +153,17 @@
       "name": "Jordan",
       "elo": 1628
     },
-    "CPV": {
-      "name": "Cape Verde",
-      "elo": 1619
-    },
     "BIH": {
       "name": "Bosnia/Herzeg",
-      "elo": 1605
+      "elo": 1616
     },
     "KSA": {
       "name": "Saudi Arabia",
       "elo": 1600
+    },
+    "CPV": {
+      "name": "Cape Verde",
+      "elo": 1595
     },
     "GHA": {
       "name": "Ghana",

@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-25T18:15:33.096Z",
+  "fetchedAt": "2026-09-26T07:07:15.310Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -719,6 +719,14 @@
       "code": "FRA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-25",
+          "isHome": false,
+          "opponentName": "Turkey",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "European League A"
+        },
         {
           "date": "2026-07-18",
           "isHome": false,
@@ -5457,6 +5465,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-25",
+          "isHome": false,
+          "opponentName": "Italy",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-07-10",
           "isHome": false,
           "opponentName": "Spain",
@@ -7893,6 +7909,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-25",
+          "isHome": false,
+          "opponentName": "Poland",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "European League B"
+        },
+        {
           "date": "2026-07-01",
           "isHome": false,
           "opponentName": "United States",
@@ -9019,6 +9043,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-25",
+          "isHome": true,
+          "opponentName": "France",
+          "ourScore": 0,
+          "oppScore": 1,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-06-25",
           "isHome": false,
           "opponentName": "United States",
@@ -9633,6 +9665,14 @@
       "code": "SWE",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-25",
+          "isHome": true,
+          "opponentName": "Romania",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "European League B"
+        },
         {
           "date": "2026-06-30",
           "isHome": false,
@@ -24108,6 +24148,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-25",
+          "isHome": true,
+          "opponentName": "Gabon",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "African Nations Cup qual"
+        },
+        {
           "date": "2026-07-09",
           "isHome": false,
           "opponentName": "France",
@@ -26329,6 +26377,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-25",
+          "isHome": true,
+          "opponentName": "Angola",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "African Nations Cup qual"
+        },
+        {
           "date": "2026-07-07",
           "isHome": false,
           "opponentName": "Argentina",
@@ -27015,6 +27071,14 @@
       "code": "ALG",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-25",
+          "isHome": true,
+          "opponentName": "Zambia",
+          "ourScore": 3,
+          "oppScore": 1,
+          "tournament": "African Nations Cup qual"
+        },
         {
           "date": "2026-07-02",
           "isHome": false,
@@ -28932,6 +28996,14 @@
       "code": "CPV",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-25",
+          "isHome": false,
+          "opponentName": "Mali",
+          "ourScore": 1,
+          "oppScore": 3,
+          "tournament": "African Nations Cup qual"
+        },
         {
           "date": "2026-07-03",
           "isHome": false,

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-25",
+  "lastUpdated": "2026-09-26",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260611",
   "sourceConfirmedDate": null,
@@ -15,7 +15,7 @@
     },
     "FRA": {
       "rank": 3,
-      "points": 1948.97
+      "points": 1951.92
     },
     "ENG": {
       "rank": 4,
@@ -23,7 +23,7 @@
     },
     "MAR": {
       "rank": 5,
-      "points": 1803.99
+      "points": 1806.87
     },
     "BRA": {
       "rank": 6,
@@ -35,7 +35,7 @@
     },
     "BEL": {
       "rank": 8,
-      "points": 1778.36
+      "points": 1784.8
     },
     "NED": {
       "rank": 9,
@@ -91,23 +91,23 @@
     },
     "EGY": {
       "rank": 24,
-      "points": 1597.04
+      "points": 1590.02
     },
     "ECU": {
-      "rank": 25,
+      "rank": 26,
       "points": 1587.26
     },
     "AUS": {
       "rank": 27,
       "points": 1583.53
     },
-    "TUR": {
-      "rank": 28,
-      "points": 1582.54
-    },
     "ALG": {
+      "rank": 28,
+      "points": 1582.45
+    },
+    "TUR": {
       "rank": 29,
-      "points": 1576.8
+      "points": 1579.59
     },
     "CIV": {
       "rank": 30,
@@ -126,11 +126,11 @@
       "points": 1542.48
     },
     "SWE": {
-      "rank": 37,
-      "points": 1525.58
+      "rank": 35,
+      "points": 1532.08
     },
     "COD": {
-      "rank": 40,
+      "rank": 39,
       "points": 1501.48
     },
     "SCO": {
@@ -146,7 +146,7 @@
       "points": 1467.26
     },
     "RSA": {
-      "rank": 53,
+      "rank": 52,
       "points": 1451.24
     },
     "KSA": {
@@ -167,7 +167,7 @@
     },
     "BIH": {
       "rank": 61,
-      "points": 1408.93
+      "points": 1410.59
     },
     "IRQ": {
       "rank": 63,
@@ -175,10 +175,10 @@
     },
     "CPV": {
       "rank": 64,
-      "points": 1402.97
+      "points": 1391.72
     },
     "GHA": {
-      "rank": 66,
+      "rank": 65,
       "points": 1378.62
     },
     "JOR": {
@@ -194,7 +194,7 @@
       "points": 1271.43
     },
     "NZL": {
-      "rank": 87,
+      "rank": 88,
       "points": 1269.55
     }
   }
