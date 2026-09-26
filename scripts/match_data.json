@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-26T07:07:15.310Z",
+  "fetchedAt": "2026-09-26T17:35:30.835Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -8451,6 +8451,14 @@
       "code": "SCO",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-26",
+          "isHome": false,
+          "opponentName": "Slovenia",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "European League B"
+        },
         {
           "date": "2026-06-24",
           "isHome": false,
@@ -29555,6 +29563,14 @@
       "code": "RSA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-26",
+          "isHome": true,
+          "opponentName": "Guinea",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "African Nations Cup qual"
+        },
         {
           "date": "2026-06-28",
           "isHome": false,

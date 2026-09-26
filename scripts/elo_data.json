@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-26T07:00:19.762Z",
+  "fetchedAt": "2026-09-26T17:29:06.048Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -105,13 +105,13 @@
       "name": "Iran",
       "elo": 1748
     },
+    "SCO": {
+      "name": "Scotland",
+      "elo": 1747
+    },
     "USA": {
       "name": "United States",
       "elo": 1746
-    },
-    "SCO": {
-      "name": "Scotland",
-      "elo": 1745
     },
     "KOR": {
       "name": "South Korea",
@@ -165,12 +165,12 @@
       "name": "Cape Verde",
       "elo": 1595
     },
-    "GHA": {
-      "name": "Ghana",
-      "elo": 1560
-    },
     "RSA": {
       "name": "South Africa",
+      "elo": 1570
+    },
+    "GHA": {
+      "name": "Ghana",
       "elo": 1560
     },
     "IRQ": {
