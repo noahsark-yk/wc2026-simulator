@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-27T07:37:54.841Z",
+  "fetchedAt": "2026-09-27T18:06:32.513Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -11631,6 +11631,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-26",
+          "isHome": true,
+          "opponentName": "Mexico",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-07-07",
           "isHome": true,
           "opponentName": "Switzerland",
@@ -14866,6 +14874,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-26",
+          "isHome": true,
+          "opponentName": "Chile",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-07-04",
           "isHome": false,
           "opponentName": "Morocco",
@@ -15560,6 +15576,14 @@
       "code": "MEX",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-26",
+          "isHome": false,
+          "opponentName": "Colombia",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-07-05",
           "isHome": true,
@@ -30945,6 +30969,14 @@
       "code": "NZL",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-27",
+          "isHome": false,
+          "opponentName": "China",
+          "ourScore": 3,
+          "oppScore": 0,
+          "tournament": "Friendly tournament"
+        },
         {
           "date": "2026-09-24",
           "isHome": true,

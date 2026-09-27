@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-27T07:31:00.006Z",
+  "fetchedAt": "2026-09-27T17:59:37.559Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -23,7 +23,7 @@
     },
     "COL": {
       "name": "Colombia",
-      "elo": 2003
+      "elo": 2000
     },
     "POR": {
       "name": "Portugal",
@@ -55,7 +55,7 @@
     },
     "MEX": {
       "name": "Mexico",
-      "elo": 1913
+      "elo": 1916
     },
     "MAR": {
       "name": "Morocco",
@@ -127,7 +127,7 @@
     },
     "CAN": {
       "name": "Canada",
-      "elo": 1729
+      "elo": 1736
     },
     "EGY": {
       "name": "Egypt",
@@ -177,13 +177,13 @@
       "name": "Ghana",
       "elo": 1560
     },
+    "NZL": {
+      "name": "New Zealand",
+      "elo": 1557
+    },
     "TUN": {
       "name": "Tunisia",
       "elo": 1549
-    },
-    "NZL": {
-      "name": "New Zealand",
-      "elo": 1531
     },
     "HAI": {
       "name": "Haiti",

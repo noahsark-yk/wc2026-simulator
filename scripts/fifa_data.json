@@ -39,7 +39,7 @@
     },
     "NED": {
       "rank": 9,
-      "points": 1774.83
+      "points": 1778.65
     },
     "MEX": {
       "rank": 10,
@@ -81,13 +81,13 @@
       "rank": 20,
       "points": 1630.08
     },
-    "IRN": {
-      "rank": 22,
-      "points": 1603.01
-    },
     "AUT": {
+      "rank": 22,
+      "points": 1606.69
+    },
+    "IRN": {
       "rank": 23,
-      "points": 1602.81
+      "points": 1603.01
     },
     "EGY": {
       "rank": 24,
@@ -134,7 +134,7 @@
       "points": 1501.48
     },
     "SCO": {
-      "rank": 42,
+      "rank": 41,
       "points": 1490.5
     },
     "PAN": {
@@ -189,13 +189,13 @@
       "rank": 81,
       "points": 1295.51
     },
-    "HAI": {
-      "rank": 85,
-      "points": 1271.43
-    },
     "NZL": {
-      "rank": 87,
-      "points": 1269.55
+      "rank": 84,
+      "points": 1274.43
+    },
+    "HAI": {
+      "rank": 86,
+      "points": 1271.43
     }
   }
 }
