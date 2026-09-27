@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-26T17:29:06.048Z",
+  "fetchedAt": "2026-09-27T07:31:00.006Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -7,7 +7,7 @@
   "teams": {
     "ESP": {
       "name": "Spain",
-      "elo": 2259
+      "elo": 2277
     },
     "ARG": {
       "name": "Argentina",
@@ -15,7 +15,7 @@
     },
     "ENG": {
       "name": "England",
-      "elo": 2125
+      "elo": 2107
     },
     "FRA": {
       "name": "France",
@@ -47,7 +47,7 @@
     },
     "SUI": {
       "name": "Switzerland",
-      "elo": 1928
+      "elo": 1942
     },
     "GER": {
       "name": "Germany",
@@ -67,7 +67,7 @@
     },
     "CRO": {
       "name": "Croatia",
-      "elo": 1881
+      "elo": 1895
     },
     "ECU": {
       "name": "Ecuador",
@@ -101,6 +101,10 @@
       "name": "Algeria",
       "elo": 1759
     },
+    "USA": {
+      "name": "United States",
+      "elo": 1757
+    },
     "IRN": {
       "name": "Iran",
       "elo": 1748
@@ -108,10 +112,6 @@
     "SCO": {
       "name": "Scotland",
       "elo": 1747
-    },
-    "USA": {
-      "name": "United States",
-      "elo": 1746
     },
     "KOR": {
       "name": "South Korea",
@@ -139,7 +139,7 @@
     },
     "CZE": {
       "name": "Czechia",
-      "elo": 1680
+      "elo": 1666
     },
     "PAN": {
       "name": "Panama",
@@ -159,7 +159,7 @@
     },
     "KSA": {
       "name": "Saudi Arabia",
-      "elo": 1600
+      "elo": 1616
     },
     "CPV": {
       "name": "Cape Verde",
@@ -169,13 +169,13 @@
       "name": "South Africa",
       "elo": 1570
     },
+    "IRQ": {
+      "name": "Iraq",
+      "elo": 1564
+    },
     "GHA": {
       "name": "Ghana",
       "elo": 1560
-    },
-    "IRQ": {
-      "name": "Iraq",
-      "elo": 1556
     },
     "TUN": {
       "name": "Tunisia",
