@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-28T08:09:11.552Z",
+  "fetchedAt": "2026-09-28T20:19:18.962Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -59,7 +59,7 @@
     },
     "JPN": {
       "name": "Japan",
-      "elo": 1897
+      "elo": 1901
     },
     "CRO": {
       "name": "Croatia",
@@ -73,6 +73,10 @@
       "name": "Ecuador",
       "elo": 1851
     },
+    "URU": {
+      "name": "Uruguay",
+      "elo": 1850
+    },
     "AUT": {
       "name": "Austria",
       "elo": 1845
@@ -80,10 +84,6 @@
     "TUR": {
       "name": "Turkey",
       "elo": 1839
-    },
-    "URU": {
-      "name": "Uruguay",
-      "elo": 1832
     },
     "PAR": {
       "name": "Paraguay",
@@ -113,10 +113,6 @@
       "name": "Scotland",
       "elo": 1747
     },
-    "KOR": {
-      "name": "South Korea",
-      "elo": 1743
-    },
     "SWE": {
       "name": "Sweden",
       "elo": 1741
@@ -133,9 +129,13 @@
       "name": "Egypt",
       "elo": 1728
     },
+    "KOR": {
+      "name": "South Korea",
+      "elo": 1725
+    },
     "COD": {
       "name": "DR Congo",
-      "elo": 1709
+      "elo": 1718
     },
     "CZE": {
       "name": "Czechia",
@@ -173,6 +173,10 @@
       "name": "Iraq",
       "elo": 1564
     },
+    "HAI": {
+      "name": "Haiti",
+      "elo": 1564
+    },
     "GHA": {
       "name": "Ghana",
       "elo": 1560
@@ -185,13 +189,9 @@
       "name": "Tunisia",
       "elo": 1549
     },
-    "HAI": {
-      "name": "Haiti",
-      "elo": 1530
-    },
     "CUW": {
       "name": "Curaçao",
-      "elo": 1471
+      "elo": 1486
     },
     "QAT": {
       "name": "Qatar",
