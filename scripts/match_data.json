@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-27T18:06:32.513Z",
+  "fetchedAt": "2026-09-28T08:16:11.268Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -2166,6 +2166,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-27",
+          "isHome": false,
+          "opponentName": "Norway",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-09-24",
           "isHome": true,
           "opponentName": "Wales",
@@ -2845,6 +2853,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-27",
+          "isHome": false,
+          "opponentName": "Serbia",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-09-24",
           "isHome": true,
           "opponentName": "Germany",
@@ -3507,6 +3523,14 @@
       "code": "GER",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-27",
+          "isHome": true,
+          "opponentName": "Greece",
+          "ourScore": 0,
+          "oppScore": 1,
+          "tournament": "European League A"
+        },
         {
           "date": "2026-09-24",
           "isHome": false,
@@ -6160,6 +6184,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-27",
+          "isHome": true,
+          "opponentName": "Kosovo",
+          "ourScore": 3,
+          "oppScore": 1,
+          "tournament": "European League B"
+        },
+        {
           "date": "2026-09-24",
           "isHome": true,
           "opponentName": "Israel",
@@ -7389,6 +7421,14 @@
       "code": "NOR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-27",
+          "isHome": true,
+          "opponentName": "Portugal",
+          "ourScore": 1,
+          "oppScore": 2,
+          "tournament": "European League A"
+        },
         {
           "date": "2026-09-24",
           "isHome": true,
@@ -13499,6 +13539,14 @@
       "code": "PAR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-27",
+          "isHome": true,
+          "opponentName": "Bolivia",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-07-04",
           "isHome": false,
@@ -22047,6 +22095,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-27",
+          "isHome": true,
+          "opponentName": "Syria",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-06-27",
           "isHome": false,
           "opponentName": "Argentina",
@@ -23452,6 +23508,14 @@
       "code": "QAT",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-27",
+          "isHome": true,
+          "opponentName": "Yemen",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "Gulf Cup"
+        },
         {
           "date": "2026-09-24",
           "isHome": true,

@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-27T17:59:37.559Z",
+  "fetchedAt": "2026-09-28T08:09:11.552Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -21,13 +21,13 @@
       "name": "France",
       "elo": 2083
     },
+    "POR": {
+      "name": "Portugal",
+      "elo": 2022
+    },
     "COL": {
       "name": "Colombia",
       "elo": 2000
-    },
-    "POR": {
-      "name": "Portugal",
-      "elo": 1998
     },
     "BRA": {
       "name": "Brazil",
@@ -39,19 +39,15 @@
     },
     "NED": {
       "name": "Netherlands",
-      "elo": 1962
-    },
-    "NOR": {
-      "name": "Norway",
-      "elo": 1962
+      "elo": 1974
     },
     "SUI": {
       "name": "Switzerland",
       "elo": 1942
     },
-    "GER": {
-      "name": "Germany",
-      "elo": 1916
+    "NOR": {
+      "name": "Norway",
+      "elo": 1937
     },
     "MEX": {
       "name": "Mexico",
@@ -69,9 +65,17 @@
       "name": "Croatia",
       "elo": 1895
     },
+    "GER": {
+      "name": "Germany",
+      "elo": 1884
+    },
     "ECU": {
       "name": "Ecuador",
       "elo": 1851
+    },
+    "AUT": {
+      "name": "Austria",
+      "elo": 1845
     },
     "TUR": {
       "name": "Turkey",
@@ -81,13 +85,9 @@
       "name": "Uruguay",
       "elo": 1832
     },
-    "AUT": {
-      "name": "Austria",
-      "elo": 1831
-    },
     "PAR": {
       "name": "Paraguay",
-      "elo": 1814
+      "elo": 1821
     },
     "SEN": {
       "name": "Senegal",
@@ -151,7 +151,7 @@
     },
     "JOR": {
       "name": "Jordan",
-      "elo": 1628
+      "elo": 1622
     },
     "BIH": {
       "name": "Bosnia/Herzeg",
@@ -195,7 +195,7 @@
     },
     "QAT": {
       "name": "Qatar",
-      "elo": 1441
+      "elo": 1449
     }
   }
 }

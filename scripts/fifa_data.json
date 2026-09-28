@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-27",
+  "lastUpdated": "2026-09-28",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260611",
   "sourceConfirmedDate": null,
@@ -31,7 +31,7 @@
     },
     "POR": {
       "rank": 7,
-      "points": 1791.77
+      "points": 1797.39
     },
     "BEL": {
       "rank": 8,
@@ -55,7 +55,7 @@
     },
     "GER": {
       "rank": 13,
-      "points": 1726.93
+      "points": 1716.13
     },
     "SUI": {
       "rank": 14,
@@ -71,7 +71,7 @@
     },
     "NOR": {
       "rank": 18,
-      "points": 1658.33
+      "points": 1652.71
     },
     "SEN": {
       "rank": 19,
@@ -123,7 +123,7 @@
     },
     "PAR": {
       "rank": 34,
-      "points": 1542.48
+      "points": 1545.51
     },
     "SWE": {
       "rank": 35,
@@ -134,7 +134,7 @@
       "points": 1501.48
     },
     "SCO": {
-      "rank": 41,
+      "rank": 42,
       "points": 1490.5
     },
     "PAN": {
@@ -157,13 +157,13 @@
       "rank": 58,
       "points": 1422.81
     },
-    "UZB": {
-      "rank": 59,
-      "points": 1416.56
-    },
     "QAT": {
+      "rank": 59,
+      "points": 1416.66
+    },
+    "UZB": {
       "rank": 60,
-      "points": 1414.6
+      "points": 1416.56
     },
     "BIH": {
       "rank": 61,
@@ -183,19 +183,19 @@
     },
     "JOR": {
       "rank": 72,
-      "points": 1350.41
+      "points": 1349.77
     },
     "CUW": {
       "rank": 81,
-      "points": 1295.51
-    },
-    "NZL": {
-      "rank": 84,
-      "points": 1274.43
+      "points": 1300.41
     },
     "HAI": {
-      "rank": 86,
-      "points": 1271.43
+      "rank": 84,
+      "points": 1281.36
+    },
+    "NZL": {
+      "rank": 85,
+      "points": 1274.43
     }
   }
 }
