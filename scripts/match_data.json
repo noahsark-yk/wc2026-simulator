@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-29T07:55:23.667Z",
+  "fetchedAt": "2026-09-29T19:06:25.795Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -11096,6 +11096,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-29",
+          "isHome": false,
+          "opponentName": "Australia",
+          "ourScore": 4,
+          "oppScore": 2,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-09-25",
           "isHome": false,
           "opponentName": "Australia",
@@ -19627,6 +19635,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-29",
+          "isHome": false,
+          "opponentName": "Russia",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-09-24",
           "isHome": false,
           "opponentName": "Uzbekistan",
@@ -21008,6 +21024,14 @@
       "code": "AUS",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-29",
+          "isHome": true,
+          "opponentName": "Brazil",
+          "ourScore": 2,
+          "oppScore": 4,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-09-25",
           "isHome": true,
@@ -24388,6 +24412,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-29",
+          "isHome": true,
+          "opponentName": "Lesotho",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "African Nations Cup qual"
+        },
+        {
           "date": "2026-09-25",
           "isHome": true,
           "opponentName": "Gabon",
@@ -25170,6 +25202,14 @@
       "code": "SEN",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-29",
+          "isHome": false,
+          "opponentName": "Ethiopia",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "African Nations Cup qual"
+        },
         {
           "date": "2026-09-25",
           "isHome": false,
@@ -26625,6 +26665,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-29",
+          "isHome": false,
+          "opponentName": "South Sudan",
+          "ourScore": 5,
+          "oppScore": 0,
+          "tournament": "African Nations Cup qual"
+        },
+        {
           "date": "2026-09-25",
           "isHome": true,
           "opponentName": "Angola",
@@ -27319,6 +27367,14 @@
       "code": "ALG",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-29",
+          "isHome": false,
+          "opponentName": "Burundi",
+          "ourScore": 2,
+          "oppScore": 2,
+          "tournament": "African Nations Cup qual"
+        },
         {
           "date": "2026-09-25",
           "isHome": true,
@@ -28662,6 +28718,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-29",
+          "isHome": true,
+          "opponentName": "Gambia",
+          "ourScore": 2,
+          "oppScore": 4,
+          "tournament": "African Nations Cup qual"
+        },
+        {
           "date": "2026-09-24",
           "isHome": false,
           "opponentName": "Ivory Coast",
@@ -29244,6 +29308,14 @@
       "code": "CPV",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-29",
+          "isHome": true,
+          "opponentName": "Rwanda",
+          "ourScore": 1,
+          "oppScore": 2,
+          "tournament": "African Nations Cup qual"
+        },
         {
           "date": "2026-09-25",
           "isHome": false,

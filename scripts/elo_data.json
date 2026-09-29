@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-29T07:48:57.539Z",
+  "fetchedAt": "2026-09-29T18:59:25.915Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -25,13 +25,13 @@
       "name": "Portugal",
       "elo": 2022
     },
+    "BRA": {
+      "name": "Brazil",
+      "elo": 2001
+    },
     "COL": {
       "name": "Colombia",
       "elo": 2000
-    },
-    "BRA": {
-      "name": "Brazil",
-      "elo": 1990
     },
     "NED": {
       "name": "Netherlands",
@@ -55,7 +55,7 @@
     },
     "MAR": {
       "name": "Morocco",
-      "elo": 1903
+      "elo": 1904
     },
     "JPN": {
       "name": "Japan",
@@ -87,39 +87,39 @@
     },
     "SEN": {
       "name": "Senegal",
-      "elo": 1800
-    },
-    "AUS": {
-      "name": "Australia",
-      "elo": 1797
+      "elo": 1803
     },
     "TUR": {
       "name": "Turkey",
       "elo": 1794
     },
+    "AUS": {
+      "name": "Australia",
+      "elo": 1786
+    },
     "SWE": {
       "name": "Sweden",
-      "elo": 1759
-    },
-    "ALG": {
-      "name": "Algeria",
       "elo": 1759
     },
     "USA": {
       "name": "United States",
       "elo": 1757
     },
-    "IRN": {
-      "name": "Iran",
-      "elo": 1748
-    },
     "SCO": {
       "name": "Scotland",
       "elo": 1747
     },
+    "ALG": {
+      "name": "Algeria",
+      "elo": 1743
+    },
     "CIV": {
       "name": "Ivory Coast",
       "elo": 1739
+    },
+    "IRN": {
+      "name": "Iran",
+      "elo": 1738
     },
     "CAN": {
       "name": "Canada",
@@ -127,7 +127,7 @@
     },
     "EGY": {
       "name": "Egypt",
-      "elo": 1728
+      "elo": 1732
     },
     "KOR": {
       "name": "South Korea",
@@ -161,10 +161,6 @@
       "name": "Saudi Arabia",
       "elo": 1616
     },
-    "CPV": {
-      "name": "Cape Verde",
-      "elo": 1595
-    },
     "RSA": {
       "name": "South Africa",
       "elo": 1570
@@ -177,8 +173,8 @@
       "name": "Haiti",
       "elo": 1564
     },
-    "GHA": {
-      "name": "Ghana",
+    "CPV": {
+      "name": "Cape Verde",
       "elo": 1560
     },
     "NZL": {
@@ -188,6 +184,10 @@
     "TUN": {
       "name": "Tunisia",
       "elo": 1533
+    },
+    "GHA": {
+      "name": "Ghana",
+      "elo": 1512
     },
     "CUW": {
       "name": "Curaçao",
