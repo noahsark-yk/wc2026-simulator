@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-28T20:26:18.706Z",
+  "fetchedAt": "2026-09-29T07:55:23.667Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -727,6 +727,14 @@
       "code": "FRA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-28",
+          "isHome": false,
+          "opponentName": "Belgium",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "European League A"
+        },
         {
           "date": "2026-09-25",
           "isHome": false,
@@ -5521,6 +5529,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-28",
+          "isHome": true,
+          "opponentName": "France",
+          "ourScore": 0,
+          "oppScore": 1,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-09-25",
           "isHome": false,
           "opponentName": "Italy",
@@ -7989,6 +8005,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-28",
+          "isHome": false,
+          "opponentName": "Romania",
+          "ourScore": 4,
+          "oppScore": 2,
+          "tournament": "European League B"
+        },
+        {
           "date": "2026-09-25",
           "isHome": false,
           "opponentName": "Poland",
@@ -9131,6 +9155,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-28",
+          "isHome": true,
+          "opponentName": "Italy",
+          "ourScore": 1,
+          "oppScore": 4,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-09-25",
           "isHome": true,
           "opponentName": "France",
@@ -9753,6 +9785,14 @@
       "code": "SWE",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-28",
+          "isHome": true,
+          "opponentName": "Poland",
+          "ourScore": 3,
+          "oppScore": 1,
+          "tournament": "European League B"
+        },
         {
           "date": "2026-09-25",
           "isHome": true,
@@ -25849,6 +25889,14 @@
       "code": "TUN",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-28",
+          "isHome": true,
+          "opponentName": "Botswana",
+          "ourScore": 2,
+          "oppScore": 2,
+          "tournament": "African Nations Cup qual"
+        },
         {
           "date": "2026-09-24",
           "isHome": true,

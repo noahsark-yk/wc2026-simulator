@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-28T20:19:18.962Z",
+  "fetchedAt": "2026-09-29T07:48:57.539Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -19,7 +19,7 @@
     },
     "FRA": {
       "name": "France",
-      "elo": 2083
+      "elo": 2103
     },
     "POR": {
       "name": "Portugal",
@@ -33,13 +33,13 @@
       "name": "Brazil",
       "elo": 1990
     },
-    "BEL": {
-      "name": "Belgium",
-      "elo": 1979
-    },
     "NED": {
       "name": "Netherlands",
       "elo": 1974
+    },
+    "BEL": {
+      "name": "Belgium",
+      "elo": 1959
     },
     "SUI": {
       "name": "Switzerland",
@@ -81,10 +81,6 @@
       "name": "Austria",
       "elo": 1845
     },
-    "TUR": {
-      "name": "Turkey",
-      "elo": 1839
-    },
     "PAR": {
       "name": "Paraguay",
       "elo": 1821
@@ -96,6 +92,14 @@
     "AUS": {
       "name": "Australia",
       "elo": 1797
+    },
+    "TUR": {
+      "name": "Turkey",
+      "elo": 1794
+    },
+    "SWE": {
+      "name": "Sweden",
+      "elo": 1759
     },
     "ALG": {
       "name": "Algeria",
@@ -112,10 +116,6 @@
     "SCO": {
       "name": "Scotland",
       "elo": 1747
-    },
-    "SWE": {
-      "name": "Sweden",
-      "elo": 1741
     },
     "CIV": {
       "name": "Ivory Coast",
@@ -141,6 +141,10 @@
       "name": "Czechia",
       "elo": 1666
     },
+    "BIH": {
+      "name": "Bosnia/Herzeg",
+      "elo": 1655
+    },
     "PAN": {
       "name": "Panama",
       "elo": 1650
@@ -152,10 +156,6 @@
     "JOR": {
       "name": "Jordan",
       "elo": 1622
-    },
-    "BIH": {
-      "name": "Bosnia/Herzeg",
-      "elo": 1616
     },
     "KSA": {
       "name": "Saudi Arabia",
@@ -187,7 +187,7 @@
     },
     "TUN": {
       "name": "Tunisia",
-      "elo": 1549
+      "elo": 1533
     },
     "CUW": {
       "name": "Curaçao",

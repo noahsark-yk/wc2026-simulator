@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-28",
+  "lastUpdated": "2026-09-29",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260611",
   "sourceConfirmedDate": null,
@@ -15,7 +15,7 @@
     },
     "FRA": {
       "rank": 3,
-      "points": 1951.92
+      "points": 1957.1
     },
     "ENG": {
       "rank": 4,
@@ -35,7 +35,7 @@
     },
     "BEL": {
       "rank": 8,
-      "points": 1784.8
+      "points": 1779.63
     },
     "NED": {
       "rank": 9,
@@ -105,17 +105,17 @@
       "rank": 28,
       "points": 1582.45
     },
-    "TUR": {
-      "rank": 29,
-      "points": 1579.59
-    },
     "CAN": {
-      "rank": 30,
+      "rank": 29,
       "points": 1575.27
     },
     "CIV": {
-      "rank": 31,
+      "rank": 30,
       "points": 1573.85
+    },
+    "TUR": {
+      "rank": 31,
+      "points": 1573.77
     },
     "KOR": {
       "rank": 32,
@@ -127,11 +127,11 @@
     },
     "SWE": {
       "rank": 35,
-      "points": 1532.08
+      "points": 1539.47
     },
     "COD": {
       "rank": 39,
-      "points": 1501.48
+      "points": 1506.37
     },
     "SCO": {
       "rank": 42,
@@ -153,9 +153,9 @@
       "rank": 57,
       "points": 1431.66
     },
-    "TUN": {
+    "BIH": {
       "rank": 58,
-      "points": 1422.81
+      "points": 1418.65
     },
     "QAT": {
       "rank": 59,
@@ -165,12 +165,12 @@
       "rank": 60,
       "points": 1416.56
     },
-    "BIH": {
+    "TUN": {
       "rank": 61,
-      "points": 1410.59
+      "points": 1415.38
     },
     "IRQ": {
-      "rank": 62,
+      "rank": 63,
       "points": 1405.66
     },
     "CPV": {
