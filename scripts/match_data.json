@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-30T07:58:32.720Z",
+  "fetchedAt": "2026-09-30T18:50:26.363Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -14203,6 +14203,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-29",
+          "isHome": true,
+          "opponentName": "Chile",
+          "ourScore": 4,
+          "oppScore": 2,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-09-26",
           "isHome": true,
           "opponentName": "Peru",
@@ -15728,6 +15736,14 @@
       "code": "MEX",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-29",
+          "isHome": true,
+          "opponentName": "Peru",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-09-26",
           "isHome": false,
@@ -29947,6 +29963,14 @@
       "code": "RSA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-30",
+          "isHome": true,
+          "opponentName": "Eritrea",
+          "ourScore": 5,
+          "oppScore": 0,
+          "tournament": "African Nations Cup qual"
+        },
         {
           "date": "2026-09-26",
           "isHome": true,

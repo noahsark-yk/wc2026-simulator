@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-30T07:52:09.435Z",
+  "fetchedAt": "2026-09-30T18:43:50.988Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -51,7 +51,7 @@
     },
     "MEX": {
       "name": "Mexico",
-      "elo": 1916
+      "elo": 1910
     },
     "MAR": {
       "name": "Morocco",
@@ -97,13 +97,13 @@
       "name": "Australia",
       "elo": 1786
     },
+    "USA": {
+      "name": "United States",
+      "elo": 1766
+    },
     "SWE": {
       "name": "Sweden",
       "elo": 1759
-    },
-    "USA": {
-      "name": "United States",
-      "elo": 1757
     },
     "ALG": {
       "name": "Algeria",
@@ -163,7 +163,7 @@
     },
     "RSA": {
       "name": "South Africa",
-      "elo": 1570
+      "elo": 1579
     },
     "HAI": {
       "name": "Haiti",
