@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-29T19:06:25.795Z",
+  "fetchedAt": "2026-09-30T07:58:32.720Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -8,6 +8,14 @@
       "code": "ESP",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-29",
+          "isHome": true,
+          "opponentName": "Croatia",
+          "ourScore": 4,
+          "oppScore": 1,
+          "tournament": "European League A"
+        },
         {
           "date": "2026-09-26",
           "isHome": false,
@@ -1446,6 +1454,14 @@
       "code": "ENG",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-29",
+          "isHome": false,
+          "opponentName": "Czechia",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "European League A"
+        },
         {
           "date": "2026-09-26",
           "isHome": true,
@@ -4195,6 +4211,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-29",
+          "isHome": false,
+          "opponentName": "Spain",
+          "ourScore": 1,
+          "oppScore": 4,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-09-26",
           "isHome": false,
           "opponentName": "Czechia",
@@ -4857,6 +4881,14 @@
       "code": "SUI",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-29",
+          "isHome": false,
+          "opponentName": "Scotland",
+          "ourScore": 3,
+          "oppScore": 0,
+          "tournament": "European League B"
+        },
         {
           "date": "2026-09-26",
           "isHome": false,
@@ -6823,6 +6855,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-29",
+          "isHome": true,
+          "opponentName": "England",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-09-26",
           "isHome": true,
           "opponentName": "Croatia",
@@ -8555,6 +8595,14 @@
       "code": "SCO",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-29",
+          "isHome": true,
+          "opponentName": "Switzerland",
+          "ourScore": 0,
+          "oppScore": 3,
+          "tournament": "European League B"
+        },
         {
           "date": "2026-09-26",
           "isHome": false,
@@ -20242,6 +20290,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-29",
+          "isHome": true,
+          "opponentName": "Iraq",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "Gulf Cup"
+        },
+        {
           "date": "2026-09-26",
           "isHome": true,
           "opponentName": "Oman",
@@ -22933,6 +22989,14 @@
       "code": "IRQ",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-29",
+          "isHome": false,
+          "opponentName": "Saudi Arabia",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "Gulf Cup"
+        },
         {
           "date": "2026-09-26",
           "isHome": true,
@@ -28102,6 +28166,14 @@
       "code": "CIV",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-29",
+          "isHome": true,
+          "opponentName": "Somalia",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "African Nations Cup qual"
+        },
         {
           "date": "2026-09-24",
           "isHome": true,

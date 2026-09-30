@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-29",
+  "lastUpdated": "2026-09-30",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260611",
   "sourceConfirmedDate": null,
@@ -7,7 +7,7 @@
   "teams": {
     "ESP": {
       "rank": 1,
-      "points": 2002.34
+      "points": 2006.21
     },
     "ARG": {
       "rank": 2,
@@ -19,7 +19,7 @@
     },
     "ENG": {
       "rank": 4,
-      "points": 1916.38
+      "points": 1918.62
     },
     "MAR": {
       "rank": 5,
@@ -43,7 +43,7 @@
     },
     "MEX": {
       "rank": 10,
-      "points": 1754.16
+      "points": 1751.57
     },
     "COL": {
       "rank": 11,
@@ -51,19 +51,19 @@
     },
     "CRO": {
       "rank": 12,
-      "points": 1727.14
-    },
-    "GER": {
-      "rank": 13,
-      "points": 1716.13
+      "points": 1723.27
     },
     "SUI": {
+      "rank": 13,
+      "points": 1718.54
+    },
+    "GER": {
       "rank": 14,
-      "points": 1714.07
+      "points": 1716.13
     },
     "USA": {
       "rank": 16,
-      "points": 1693.24
+      "points": 1696.09
     },
     "JPN": {
       "rank": 17,
@@ -107,7 +107,7 @@
     },
     "CIV": {
       "rank": 28,
-      "points": 1573.85
+      "points": 1575.23
     },
     "TUR": {
       "rank": 29,
@@ -134,8 +134,8 @@
       "points": 1506.37
     },
     "SCO": {
-      "rank": 42,
-      "points": 1490.5
+      "rank": 43,
+      "points": 1486.04
     },
     "PAN": {
       "rank": 46,
@@ -143,15 +143,15 @@
     },
     "CZE": {
       "rank": 49,
-      "points": 1463.17
+      "points": 1460.93
     },
     "RSA": {
       "rank": 50,
       "points": 1460.12
     },
     "KSA": {
-      "rank": 57,
-      "points": 1431.66
+      "rank": 56,
+      "points": 1436.41
     },
     "BIH": {
       "rank": 58,
@@ -171,14 +171,14 @@
     },
     "IRQ": {
       "rank": 63,
-      "points": 1405.66
+      "points": 1400.91
     },
     "CPV": {
       "rank": 68,
       "points": 1373.58
     },
     "GHA": {
-      "rank": 70,
+      "rank": 69,
       "points": 1361.27
     },
     "JOR": {
@@ -194,7 +194,7 @@
       "points": 1281.36
     },
     "NZL": {
-      "rank": 86,
+      "rank": 87,
       "points": 1274.43
     }
   }

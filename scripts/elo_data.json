@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-29T18:59:25.915Z",
+  "fetchedAt": "2026-09-30T07:52:09.435Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -7,7 +7,7 @@
   "teams": {
     "ESP": {
       "name": "Spain",
-      "elo": 2277
+      "elo": 2281
     },
     "ARG": {
       "name": "Argentina",
@@ -15,7 +15,7 @@
     },
     "ENG": {
       "name": "England",
-      "elo": 2107
+      "elo": 2114
     },
     "FRA": {
       "name": "France",
@@ -37,13 +37,13 @@
       "name": "Netherlands",
       "elo": 1974
     },
+    "SUI": {
+      "name": "Switzerland",
+      "elo": 1968
+    },
     "BEL": {
       "name": "Belgium",
       "elo": 1959
-    },
-    "SUI": {
-      "name": "Switzerland",
-      "elo": 1942
     },
     "NOR": {
       "name": "Norway",
@@ -63,7 +63,7 @@
     },
     "CRO": {
       "name": "Croatia",
-      "elo": 1895
+      "elo": 1891
     },
     "GER": {
       "name": "Germany",
@@ -105,10 +105,6 @@
       "name": "United States",
       "elo": 1757
     },
-    "SCO": {
-      "name": "Scotland",
-      "elo": 1747
-    },
     "ALG": {
       "name": "Algeria",
       "elo": 1743
@@ -133,13 +129,17 @@
       "name": "South Korea",
       "elo": 1725
     },
+    "SCO": {
+      "name": "Scotland",
+      "elo": 1721
+    },
     "COD": {
       "name": "DR Congo",
       "elo": 1718
     },
     "CZE": {
       "name": "Czechia",
-      "elo": 1666
+      "elo": 1659
     },
     "BIH": {
       "name": "Bosnia/Herzeg",
@@ -153,21 +153,17 @@
       "name": "Uzbekistan",
       "elo": 1647
     },
+    "KSA": {
+      "name": "Saudi Arabia",
+      "elo": 1634
+    },
     "JOR": {
       "name": "Jordan",
       "elo": 1622
     },
-    "KSA": {
-      "name": "Saudi Arabia",
-      "elo": 1616
-    },
     "RSA": {
       "name": "South Africa",
       "elo": 1570
-    },
-    "IRQ": {
-      "name": "Iraq",
-      "elo": 1564
     },
     "HAI": {
       "name": "Haiti",
@@ -180,6 +176,10 @@
     "NZL": {
       "name": "New Zealand",
       "elo": 1557
+    },
+    "IRQ": {
+      "name": "Iraq",
+      "elo": 1546
     },
     "TUN": {
       "name": "Tunisia",
