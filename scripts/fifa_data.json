@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-30",
+  "lastUpdated": "2026-10-01",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260611",
   "sourceConfirmedDate": null,
@@ -11,7 +11,7 @@
     },
     "ARG": {
       "rank": 2,
-      "points": 1970.37
+      "points": 1971.13
     },
     "FRA": {
       "rank": 3,
@@ -141,13 +141,13 @@
       "rank": 46,
       "points": 1475.22
     },
-    "CZE": {
-      "rank": 49,
-      "points": 1460.93
-    },
     "RSA": {
+      "rank": 49,
+      "points": 1462.67
+    },
+    "CZE": {
       "rank": 50,
-      "points": 1460.12
+      "points": 1460.93
     },
     "KSA": {
       "rank": 56,
@@ -157,13 +157,13 @@
       "rank": 58,
       "points": 1418.65
     },
-    "QAT": {
-      "rank": 59,
-      "points": 1416.66
-    },
     "UZB": {
-      "rank": 60,
+      "rank": 59,
       "points": 1416.56
+    },
+    "QAT": {
+      "rank": 60,
+      "points": 1416.28
     },
     "TUN": {
       "rank": 61,

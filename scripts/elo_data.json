@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-30T18:43:50.988Z",
+  "fetchedAt": "2026-10-01T08:13:39.861Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -195,7 +195,7 @@
     },
     "QAT": {
       "name": "Qatar",
-      "elo": 1449
+      "elo": 1456
     }
   }
 }

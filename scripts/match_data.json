@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-30T18:50:26.363Z",
+  "fetchedAt": "2026-10-01T08:19:58.909Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -23692,6 +23692,14 @@
       "code": "QAT",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-09-30",
+          "isHome": true,
+          "opponentName": "United Arab Emirates",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "Gulf Cup"
+        },
         {
           "date": "2026-09-27",
           "isHome": true,
