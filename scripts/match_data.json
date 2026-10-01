@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-01T08:19:58.909Z",
+  "fetchedAt": "2026-10-01T19:16:07.048Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -10473,6 +10473,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-09-30",
+          "isHome": true,
+          "opponentName": "Bolivia",
+          "ourScore": 4,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-07-19",
           "isHome": false,
           "opponentName": "Spain",
@@ -13004,6 +13012,14 @@
       "code": "ECU",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-01",
+          "isHome": false,
+          "opponentName": "Japan",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "Friendly tournament"
+        },
         {
           "date": "2026-09-24",
           "isHome": false,
@@ -16648,6 +16664,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-01",
+          "isHome": false,
+          "opponentName": "New Zealand",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "Friendly tournament"
+        },
+        {
           "date": "2026-09-25",
           "isHome": false,
           "opponentName": "India",
@@ -18380,6 +18404,14 @@
       "code": "JPN",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-01",
+          "isHome": true,
+          "opponentName": "Ecuador",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "Friendly tournament"
+        },
         {
           "date": "2026-09-28",
           "isHome": true,
@@ -21639,6 +21671,14 @@
       "code": "UZB",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-01",
+          "isHome": true,
+          "opponentName": "Syria",
+          "ourScore": 4,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-09-24",
           "isHome": true,
@@ -31305,6 +31345,14 @@
       "code": "NZL",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-01",
+          "isHome": true,
+          "opponentName": "Panama",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "Friendly tournament"
+        },
         {
           "date": "2026-09-27",
           "isHome": false,

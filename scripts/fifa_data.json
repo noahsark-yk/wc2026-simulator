@@ -67,7 +67,7 @@
     },
     "JPN": {
       "rank": 17,
-      "points": 1681.4
+      "points": 1683
     },
     "NOR": {
       "rank": 18,
@@ -95,7 +95,7 @@
     },
     "ECU": {
       "rank": 25,
-      "points": 1587.26
+      "points": 1588.16
     },
     "AUS": {
       "rank": 26,
@@ -139,7 +139,7 @@
     },
     "PAN": {
       "rank": 46,
-      "points": 1475.22
+      "points": 1473.38
     },
     "RSA": {
       "rank": 49,
@@ -153,13 +153,13 @@
       "rank": 56,
       "points": 1436.41
     },
-    "BIH": {
-      "rank": 58,
-      "points": 1418.65
-    },
     "UZB": {
+      "rank": 58,
+      "points": 1420.31
+    },
+    "BIH": {
       "rank": 59,
-      "points": 1416.56
+      "points": 1418.65
     },
     "QAT": {
       "rank": 60,
@@ -190,12 +190,12 @@
       "points": 1300.41
     },
     "HAI": {
-      "rank": 84,
+      "rank": 83,
       "points": 1281.36
     },
     "NZL": {
-      "rank": 87,
-      "points": 1274.43
+      "rank": 86,
+      "points": 1278.77
     }
   }
 }

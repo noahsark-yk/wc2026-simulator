@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-01T08:13:39.861Z",
+  "fetchedAt": "2026-10-01T19:09:33.859Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -11,7 +11,7 @@
     },
     "ARG": {
       "name": "Argentina",
-      "elo": 2173
+      "elo": 2174
     },
     "ENG": {
       "name": "England",
@@ -59,7 +59,7 @@
     },
     "JPN": {
       "name": "Japan",
-      "elo": 1901
+      "elo": 1895
     },
     "CRO": {
       "name": "Croatia",
@@ -71,7 +71,7 @@
     },
     "ECU": {
       "name": "Ecuador",
-      "elo": 1851
+      "elo": 1857
     },
     "URU": {
       "name": "Uruguay",
@@ -145,13 +145,13 @@
       "name": "Bosnia/Herzeg",
       "elo": 1655
     },
-    "PAN": {
-      "name": "Panama",
-      "elo": 1650
-    },
     "UZB": {
       "name": "Uzbekistan",
-      "elo": 1647
+      "elo": 1653
+    },
+    "PAN": {
+      "name": "Panama",
+      "elo": 1646
     },
     "KSA": {
       "name": "Saudi Arabia",
@@ -169,13 +169,13 @@
       "name": "Haiti",
       "elo": 1564
     },
+    "NZL": {
+      "name": "New Zealand",
+      "elo": 1561
+    },
     "CPV": {
       "name": "Cape Verde",
       "elo": 1560
-    },
-    "NZL": {
-      "name": "New Zealand",
-      "elo": 1557
     },
     "IRQ": {
       "name": "Iraq",
