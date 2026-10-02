@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-02T07:59:38.396Z",
+  "fetchedAt": "2026-10-02T18:56:46.553Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -17982,6 +17982,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-01",
+          "isHome": false,
+          "opponentName": "Dominican Republic",
+          "ourScore": 4,
+          "oppScore": 1,
+          "tournament": "CONCACAF Nat League A"
+        },
+        {
           "date": "2026-09-27",
           "isHome": true,
           "opponentName": "Costa Rica",
@@ -19123,6 +19131,14 @@
       "code": "KOR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-02",
+          "isHome": true,
+          "opponentName": "Venezuela",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-09-28",
           "isHome": true,
@@ -30802,6 +30818,14 @@
       "code": "COD",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-02",
+          "isHome": false,
+          "opponentName": "Uganda",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-09-28",
           "isHome": false,

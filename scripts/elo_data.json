@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-02T07:52:41.924Z",
+  "fetchedAt": "2026-10-02T18:49:46.437Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -127,7 +127,7 @@
     },
     "KOR": {
       "name": "South Korea",
-      "elo": 1725
+      "elo": 1722
     },
     "SCO": {
       "name": "Scotland",
@@ -135,7 +135,7 @@
     },
     "COD": {
       "name": "DR Congo",
-      "elo": 1718
+      "elo": 1693
     },
     "CZE": {
       "name": "Czechia",
@@ -161,13 +161,13 @@
       "name": "Jordan",
       "elo": 1622
     },
+    "HAI": {
+      "name": "Haiti",
+      "elo": 1586
+    },
     "RSA": {
       "name": "South Africa",
       "elo": 1579
-    },
-    "HAI": {
-      "name": "Haiti",
-      "elo": 1564
     },
     "NZL": {
       "name": "New Zealand",
