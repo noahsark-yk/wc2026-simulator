@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-01T19:09:33.859Z",
+  "fetchedAt": "2026-10-02T07:52:41.924Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -23,7 +23,7 @@
     },
     "POR": {
       "name": "Portugal",
-      "elo": 2022
+      "elo": 2047
     },
     "BRA": {
       "name": "Brazil",
@@ -35,7 +35,7 @@
     },
     "NED": {
       "name": "Netherlands",
-      "elo": 1974
+      "elo": 1970
     },
     "SUI": {
       "name": "Switzerland",
@@ -45,13 +45,13 @@
       "name": "Belgium",
       "elo": 1959
     },
-    "NOR": {
-      "name": "Norway",
-      "elo": 1937
-    },
     "MEX": {
       "name": "Mexico",
       "elo": 1910
+    },
+    "NOR": {
+      "name": "Norway",
+      "elo": 1908
     },
     "MAR": {
       "name": "Morocco",
@@ -61,13 +61,13 @@
       "name": "Japan",
       "elo": 1895
     },
+    "GER": {
+      "name": "Germany",
+      "elo": 1894
+    },
     "CRO": {
       "name": "Croatia",
       "elo": 1891
-    },
-    "GER": {
-      "name": "Germany",
-      "elo": 1884
     },
     "ECU": {
       "name": "Ecuador",
@@ -79,7 +79,7 @@
     },
     "AUT": {
       "name": "Austria",
-      "elo": 1845
+      "elo": 1843
     },
     "PAR": {
       "name": "Paraguay",
@@ -191,7 +191,7 @@
     },
     "CUW": {
       "name": "Curaçao",
-      "elo": 1486
+      "elo": 1494
     },
     "QAT": {
       "name": "Qatar",

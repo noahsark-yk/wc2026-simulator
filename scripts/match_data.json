@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-01T19:16:07.048Z",
+  "fetchedAt": "2026-10-02T07:59:38.396Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -2190,6 +2190,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-01",
+          "isHome": false,
+          "opponentName": "Denmark",
+          "ourScore": 4,
+          "oppScore": 2,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-09-27",
           "isHome": false,
           "opponentName": "Norway",
@@ -2877,6 +2885,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-01",
+          "isHome": false,
+          "opponentName": "Greece",
+          "ourScore": 2,
+          "oppScore": 2,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-09-27",
           "isHome": false,
           "opponentName": "Serbia",
@@ -3547,6 +3563,14 @@
       "code": "GER",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-01",
+          "isHome": true,
+          "opponentName": "Serbia",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "European League A"
+        },
         {
           "date": "2026-09-27",
           "isHome": true,
@@ -6232,6 +6256,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-01",
+          "isHome": false,
+          "opponentName": "Ireland",
+          "ourScore": 2,
+          "oppScore": 2,
+          "tournament": "European League B"
+        },
+        {
           "date": "2026-09-27",
           "isHome": true,
           "opponentName": "Kosovo",
@@ -7477,6 +7509,14 @@
       "code": "NOR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-01",
+          "isHome": false,
+          "opponentName": "Wales",
+          "ourScore": 1,
+          "oppScore": 2,
+          "tournament": "European League A"
+        },
         {
           "date": "2026-09-27",
           "isHome": true,
@@ -17478,6 +17518,14 @@
       "code": "CUW",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-01",
+          "isHome": true,
+          "opponentName": "Trinidad and Tobago",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "CONCACAF Nat League A"
+        },
         {
           "date": "2026-09-27",
           "isHome": true,
