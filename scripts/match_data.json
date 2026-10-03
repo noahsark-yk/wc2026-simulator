@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-02T18:56:46.553Z",
+  "fetchedAt": "2026-10-03T07:38:08.000Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -735,6 +735,14 @@
       "code": "FRA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-02",
+          "isHome": true,
+          "opponentName": "Italy",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "European League A"
+        },
         {
           "date": "2026-09-28",
           "isHome": false,
@@ -5585,6 +5593,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-02",
+          "isHome": true,
+          "opponentName": "Turkey",
+          "ourScore": 3,
+          "oppScore": 0,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-09-28",
           "isHome": true,
           "opponentName": "France",
@@ -8085,6 +8101,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-02",
+          "isHome": true,
+          "opponentName": "Sweden",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "European League B"
+        },
+        {
           "date": "2026-09-28",
           "isHome": false,
           "opponentName": "Romania",
@@ -9243,6 +9267,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-02",
+          "isHome": false,
+          "opponentName": "Belgium",
+          "ourScore": 0,
+          "oppScore": 3,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-09-28",
           "isHome": true,
           "opponentName": "Italy",
@@ -9873,6 +9905,14 @@
       "code": "SWE",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-02",
+          "isHome": false,
+          "opponentName": "Bosnia and Herzegovina",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "European League B"
+        },
         {
           "date": "2026-09-28",
           "isHome": true,

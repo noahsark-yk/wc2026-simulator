@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-02T18:49:46.437Z",
+  "fetchedAt": "2026-10-03T07:31:12.635Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -19,7 +19,7 @@
     },
     "FRA": {
       "name": "France",
-      "elo": 2103
+      "elo": 2088
     },
     "POR": {
       "name": "Portugal",
@@ -33,6 +33,10 @@
       "name": "Colombia",
       "elo": 2000
     },
+    "BEL": {
+      "name": "Belgium",
+      "elo": 1972
+    },
     "NED": {
       "name": "Netherlands",
       "elo": 1970
@@ -40,10 +44,6 @@
     "SUI": {
       "name": "Switzerland",
       "elo": 1968
-    },
-    "BEL": {
-      "name": "Belgium",
-      "elo": 1959
     },
     "MEX": {
       "name": "Mexico",
@@ -89,13 +89,13 @@
       "name": "Senegal",
       "elo": 1803
     },
-    "TUR": {
-      "name": "Turkey",
-      "elo": 1794
-    },
     "AUS": {
       "name": "Australia",
       "elo": 1786
+    },
+    "TUR": {
+      "name": "Turkey",
+      "elo": 1781
     },
     "USA": {
       "name": "United States",
