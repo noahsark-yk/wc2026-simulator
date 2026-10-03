@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-03T07:38:08.000Z",
+  "fetchedAt": "2026-10-03T17:48:30.309Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -11232,6 +11232,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-03",
+          "isHome": false,
+          "opponentName": "India",
+          "ourScore": 4,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-09-29",
           "isHome": false,
           "opponentName": "Australia",
@@ -11854,6 +11862,14 @@
       "code": "COL",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-02",
+          "isHome": false,
+          "opponentName": "Paraguay",
+          "ourScore": 0,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-09-26",
           "isHome": true,
@@ -13739,6 +13755,14 @@
       "code": "PAR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-02",
+          "isHome": true,
+          "opponentName": "Colombia",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-09-27",
           "isHome": true,

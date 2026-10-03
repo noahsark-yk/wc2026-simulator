@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-03T07:31:12.635Z",
+  "fetchedAt": "2026-10-03T17:41:32.574Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -31,7 +31,7 @@
     },
     "COL": {
       "name": "Colombia",
-      "elo": 2000
+      "elo": 1985
     },
     "BEL": {
       "name": "Belgium",
@@ -83,7 +83,7 @@
     },
     "PAR": {
       "name": "Paraguay",
-      "elo": 1821
+      "elo": 1836
     },
     "SEN": {
       "name": "Senegal",
