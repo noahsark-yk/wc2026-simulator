@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-03",
+  "lastUpdated": "2026-10-04",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260611",
   "sourceConfirmedDate": null,
@@ -7,11 +7,11 @@
   "teams": {
     "ESP": {
       "rank": 1,
-      "points": 2006.21
+      "points": 2007.86
     },
     "ARG": {
       "rank": 2,
-      "points": 1971.13
+      "points": 1972.17
     },
     "FRA": {
       "rank": 3,
@@ -19,7 +19,7 @@
     },
     "ENG": {
       "rank": 4,
-      "points": 1918.62
+      "points": 1923.43
     },
     "MAR": {
       "rank": 5,
@@ -43,27 +43,27 @@
     },
     "MEX": {
       "rank": 10,
-      "points": 1751.57
+      "points": 1746.04
     },
     "COL": {
       "rank": 11,
       "points": 1733.25
     },
-    "CRO": {
+    "SUI": {
       "rank": 12,
-      "points": 1723.27
+      "points": 1722.46
     },
     "GER": {
       "rank": 13,
       "points": 1720.57
     },
-    "SUI": {
+    "CRO": {
       "rank": 14,
-      "points": 1718.54
+      "points": 1718.45
     },
     "USA": {
       "rank": 16,
-      "points": 1696.09
+      "points": 1701.62
     },
     "JPN": {
       "rank": 17,
@@ -103,15 +103,15 @@
     },
     "CAN": {
       "rank": 27,
-      "points": 1575.27
-    },
-    "CIV": {
-      "rank": 28,
-      "points": 1575.23
+      "points": 1579.16
     },
     "ALG": {
-      "rank": 29,
+      "rank": 28,
       "points": 1572.99
+    },
+    "CIV": {
+      "rank": 29,
+      "points": 1569.32
     },
     "TUR": {
       "rank": 30,
@@ -135,7 +135,7 @@
     },
     "SCO": {
       "rank": 42,
-      "points": 1486.04
+      "points": 1491.75
     },
     "PAN": {
       "rank": 46,
@@ -147,11 +147,11 @@
     },
     "CZE": {
       "rank": 50,
-      "points": 1460.93
+      "points": 1459.28
     },
     "KSA": {
       "rank": 56,
-      "points": 1436.41
+      "points": 1438.71
     },
     "BIH": {
       "rank": 58,
@@ -163,7 +163,7 @@
     },
     "QAT": {
       "rank": 60,
-      "points": 1416.28
+      "points": 1416.47
     },
     "TUN": {
       "rank": 61,
@@ -182,11 +182,11 @@
       "points": 1361.27
     },
     "JOR": {
-      "rank": 73,
+      "rank": 74,
       "points": 1349.77
     },
     "CUW": {
-      "rank": 81,
+      "rank": 80,
       "points": 1306.53
     },
     "HAI": {
