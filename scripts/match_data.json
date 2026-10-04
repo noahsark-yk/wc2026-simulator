@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-04T07:48:42.400Z",
+  "fetchedAt": "2026-10-04T18:01:39.759Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -10601,6 +10601,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-03",
+          "isHome": true,
+          "opponentName": "Burkina Faso",
+          "ourScore": 7,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-09-30",
           "isHome": true,
           "opponentName": "Bolivia",
@@ -14371,6 +14379,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-03",
+          "isHome": true,
+          "opponentName": "Mexico",
+          "ourScore": 3,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-09-29",
           "isHome": true,
           "opponentName": "Chile",
@@ -15912,6 +15928,14 @@
       "code": "MEX",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-03",
+          "isHome": false,
+          "opponentName": "United States",
+          "ourScore": 0,
+          "oppScore": 3,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-09-29",
           "isHome": true,
@@ -25530,6 +25554,14 @@
       "code": "SEN",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-04",
+          "isHome": true,
+          "opponentName": "Comoros",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-09-29",
           "isHome": false,
