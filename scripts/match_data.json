@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-05T08:19:00.834Z",
+  "fetchedAt": "2026-10-05T21:29:21.067Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -743,6 +743,14 @@
       "code": "FRA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-05",
+          "isHome": true,
+          "opponentName": "Belgium",
+          "ourScore": 4,
+          "oppScore": 1,
+          "tournament": "European League A"
+        },
         {
           "date": "2026-10-02",
           "isHome": true,
@@ -5649,6 +5657,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-05",
+          "isHome": false,
+          "opponentName": "France",
+          "ourScore": 1,
+          "oppScore": 4,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-10-02",
           "isHome": true,
           "opponentName": "Turkey",
@@ -8181,6 +8197,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-05",
+          "isHome": true,
+          "opponentName": "Poland",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "European League B"
+        },
+        {
           "date": "2026-10-02",
           "isHome": true,
           "opponentName": "Sweden",
@@ -9355,6 +9379,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-05",
+          "isHome": false,
+          "opponentName": "Italy",
+          "ourScore": 1,
+          "oppScore": 3,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-10-02",
           "isHome": false,
           "opponentName": "Belgium",
@@ -9993,6 +10025,14 @@
       "code": "SWE",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-05",
+          "isHome": false,
+          "opponentName": "Romania",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "European League B"
+        },
         {
           "date": "2026-10-02",
           "isHome": false,
@@ -13204,6 +13244,14 @@
       "code": "ECU",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-05",
+          "isHome": true,
+          "opponentName": "Panama",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "Friendly tournament"
+        },
         {
           "date": "2026-10-01",
           "isHome": false,
@@ -16888,6 +16936,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-05",
+          "isHome": false,
+          "opponentName": "Ecuador",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "Friendly tournament"
+        },
+        {
           "date": "2026-10-01",
           "isHome": false,
           "opponentName": "New Zealand",
@@ -17703,6 +17759,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-04",
+          "isHome": false,
+          "opponentName": "Trinidad and Tobago",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "CONCACAF Nat League A"
+        },
+        {
           "date": "2026-10-01",
           "isHome": true,
           "opponentName": "Trinidad and Tobago",
@@ -18165,6 +18229,14 @@
       "code": "HAI",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-04",
+          "isHome": false,
+          "opponentName": "Costa Rica",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "CONCACAF Nat League A"
+        },
         {
           "date": "2026-10-01",
           "isHome": false,
@@ -18644,6 +18716,14 @@
       "code": "JPN",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-05",
+          "isHome": true,
+          "opponentName": "New Zealand",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "Friendly tournament"
+        },
         {
           "date": "2026-10-01",
           "isHome": true,
@@ -31059,6 +31139,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-05",
+          "isHome": true,
+          "opponentName": "Uganda",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-10-02",
           "isHome": false,
           "opponentName": "Uganda",
@@ -31657,6 +31745,14 @@
       "code": "NZL",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-05",
+          "isHome": false,
+          "opponentName": "Japan",
+          "ourScore": 1,
+          "oppScore": 2,
+          "tournament": "Friendly tournament"
+        },
         {
           "date": "2026-10-01",
           "isHome": true,
