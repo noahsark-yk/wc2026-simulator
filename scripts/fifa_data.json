@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-04",
+  "lastUpdated": "2026-10-05",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260611",
   "sourceConfirmedDate": null,
@@ -21,17 +21,17 @@
       "rank": 4,
       "points": 1923.43
     },
-    "MAR": {
+    "POR": {
       "rank": 5,
-      "points": 1808.18
+      "points": 1807.69
     },
     "BRA": {
       "rank": 6,
       "points": 1806.51
     },
-    "POR": {
+    "MAR": {
       "rank": 7,
-      "points": 1802.42
+      "points": 1805.34
     },
     "BEL": {
       "rank": 8,
@@ -39,7 +39,7 @@
     },
     "NED": {
       "rank": 9,
-      "points": 1774.89
+      "points": 1778.61
     },
     "MEX": {
       "rank": 10,
@@ -53,13 +53,13 @@
       "rank": 12,
       "points": 1722.46
     },
-    "GER": {
-      "rank": 13,
-      "points": 1720.57
-    },
     "CRO": {
-      "rank": 14,
+      "rank": 13,
       "points": 1718.45
+    },
+    "GER": {
+      "rank": 14,
+      "points": 1717.52
     },
     "USA": {
       "rank": 16,
@@ -75,7 +75,7 @@
     },
     "NOR": {
       "rank": 19,
-      "points": 1643.16
+      "points": 1637.89
     },
     "URU": {
       "rank": 20,
@@ -89,13 +89,13 @@
       "rank": 23,
       "points": 1597.31
     },
-    "EGY": {
-      "rank": 24,
-      "points": 1592.08
-    },
     "ECU": {
-      "rank": 25,
+      "rank": 24,
       "points": 1588.16
+    },
+    "EGY": {
+      "rank": 25,
+      "points": 1585.86
     },
     "AUS": {
       "rank": 26,
@@ -138,19 +138,19 @@
       "points": 1491.75
     },
     "PAN": {
-      "rank": 46,
+      "rank": 47,
       "points": 1473.38
     },
     "RSA": {
-      "rank": 49,
-      "points": 1462.67
+      "rank": 48,
+      "points": 1468.88
     },
     "CZE": {
       "rank": 50,
       "points": 1459.28
     },
     "KSA": {
-      "rank": 56,
+      "rank": 55,
       "points": 1438.71
     },
     "BIH": {
@@ -187,11 +187,11 @@
     },
     "CUW": {
       "rank": 80,
-      "points": 1306.53
+      "points": 1304.98
     },
     "HAI": {
       "rank": 83,
-      "points": 1286.27
+      "points": 1280.91
     },
     "NZL": {
       "rank": 86,

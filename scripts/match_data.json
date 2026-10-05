@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-04T18:01:39.759Z",
+  "fetchedAt": "2026-10-05T08:19:00.834Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -2214,6 +2214,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-04",
+          "isHome": true,
+          "opponentName": "Norway",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-10-01",
           "isHome": false,
           "opponentName": "Denmark",
@@ -2909,6 +2917,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-04",
+          "isHome": true,
+          "opponentName": "Serbia",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-10-01",
           "isHome": false,
           "opponentName": "Greece",
@@ -3587,6 +3603,14 @@
       "code": "GER",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-04",
+          "isHome": false,
+          "opponentName": "Greece",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "European League A"
+        },
         {
           "date": "2026-10-01",
           "isHome": true,
@@ -6304,6 +6328,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-04",
+          "isHome": false,
+          "opponentName": "Kosovo",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "European League B"
+        },
+        {
           "date": "2026-10-01",
           "isHome": false,
           "opponentName": "Ireland",
@@ -7565,6 +7597,14 @@
       "code": "NOR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-04",
+          "isHome": false,
+          "opponentName": "Portugal",
+          "ourScore": 1,
+          "oppScore": 2,
+          "tournament": "European League A"
+        },
         {
           "date": "2026-10-01",
           "isHome": false,
@@ -24764,6 +24804,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-04",
+          "isHome": true,
+          "opponentName": "Mali",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-09-29",
           "isHome": true,
           "opponentName": "Lesotho",
@@ -27024,6 +27072,14 @@
       "code": "EGY",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-04",
+          "isHome": true,
+          "opponentName": "South Africa",
+          "ourScore": 0,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-09-29",
           "isHome": false,
@@ -30251,6 +30307,14 @@
       "code": "RSA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-04",
+          "isHome": false,
+          "opponentName": "Egypt",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-09-30",
           "isHome": true,

@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-04T17:55:13.930Z",
+  "fetchedAt": "2026-10-05T08:12:02.687Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -23,7 +23,7 @@
     },
     "POR": {
       "name": "Portugal",
-      "elo": 2047
+      "elo": 2055
     },
     "BRA": {
       "name": "Brazil",
@@ -33,6 +33,10 @@
       "name": "Colombia",
       "elo": 1985
     },
+    "NED": {
+      "name": "Netherlands",
+      "elo": 1974
+    },
     "BEL": {
       "name": "Belgium",
       "elo": 1972
@@ -41,25 +45,21 @@
       "name": "Switzerland",
       "elo": 1972
     },
-    "NED": {
-      "name": "Netherlands",
-      "elo": 1970
-    },
     "NOR": {
       "name": "Norway",
-      "elo": 1908
+      "elo": 1900
     },
     "MAR": {
       "name": "Morocco",
-      "elo": 1904
+      "elo": 1896
+    },
+    "GER": {
+      "name": "Germany",
+      "elo": 1895
     },
     "JPN": {
       "name": "Japan",
       "elo": 1895
-    },
-    "GER": {
-      "name": "Germany",
-      "elo": 1894
     },
     "MEX": {
       "name": "Mexico",
@@ -79,7 +79,7 @@
     },
     "AUT": {
       "name": "Austria",
-      "elo": 1843
+      "elo": 1841
     },
     "PAR": {
       "name": "Paraguay",
@@ -121,10 +121,6 @@
       "name": "Iran",
       "elo": 1738
     },
-    "EGY": {
-      "name": "Egypt",
-      "elo": 1732
-    },
     "CIV": {
       "name": "Ivory Coast",
       "elo": 1723
@@ -132,6 +128,10 @@
     "KOR": {
       "name": "South Korea",
       "elo": 1722
+    },
+    "EGY": {
+      "name": "Egypt",
+      "elo": 1716
     },
     "COD": {
       "name": "DR Congo",
@@ -161,13 +161,13 @@
       "name": "Saudi Arabia",
       "elo": 1621
     },
+    "RSA": {
+      "name": "South Africa",
+      "elo": 1595
+    },
     "HAI": {
       "name": "Haiti",
       "elo": 1586
-    },
-    "RSA": {
-      "name": "South Africa",
-      "elo": 1579
     },
     "NZL": {
       "name": "New Zealand",
