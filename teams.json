@@ -57,7 +57,7 @@
         "w": 0.67
       },
       "fifaR": 32,
-      "fifaP": 1558.79,
+      "fifaP": 1562.49,
       "adjA": 0.94,
       "adjD": 0.92,
       "wpe": 0.96
@@ -389,7 +389,7 @@
       "g": "E",
       "f": "ec",
       "atk": {
-        "s": 0.74,
+        "s": 0.75,
         "w": 1.43
       },
       "def": {
@@ -409,7 +409,7 @@
       "g": "F",
       "f": "nl",
       "atk": {
-        "s": 1.36,
+        "s": 1.35,
         "w": 2.58
       },
       "def": {
@@ -637,7 +637,7 @@
         "w": 0.82
       },
       "fifaR": 20,
-      "fifaP": 1634.45,
+      "fifaP": 1635.54,
       "adjA": 0.9,
       "adjD": 0.86,
       "wpe": 0.95
@@ -757,7 +757,7 @@
         "w": 0.78
       },
       "fifaR": 28,
-      "fifaP": 1572.99,
+      "fifaP": 1574.77,
       "adjA": 1.05,
       "adjD": 1.03,
       "wpe": 1.05
@@ -796,8 +796,8 @@
         "s": 2.51,
         "w": 1
       },
-      "fifaR": 74,
-      "fifaP": 1349.77,
+      "fifaR": 73,
+      "fifaP": 1350.88,
       "adjA": 0.84,
       "adjD": 1.38,
       "wpe": 0.69
@@ -857,7 +857,7 @@
         "w": 0.77
       },
       "fifaR": 59,
-      "fifaP": 1420.31,
+      "fifaP": 1416.61,
       "adjA": 0.88,
       "adjD": 1.13,
       "wpe": 0.89
@@ -964,7 +964,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-10-06T08:35:51.650Z",
+    "generatedAt": "2026-10-06T19:33:49.074Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
