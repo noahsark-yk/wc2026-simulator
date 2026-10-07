@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-07T08:11:57.770Z",
+  "fetchedAt": "2026-10-07T19:45:24.451Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -14539,6 +14539,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-06",
+          "isHome": true,
+          "opponentName": "Canada",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-10-03",
           "isHome": true,
           "opponentName": "Mexico",
@@ -15378,6 +15386,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-06",
+          "isHome": false,
+          "opponentName": "United States",
+          "ourScore": 0,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-10-03",
           "isHome": true,
           "opponentName": "Peru",
@@ -16088,6 +16104,14 @@
       "code": "MEX",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-06",
+          "isHome": false,
+          "opponentName": "Chile",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-10-03",
           "isHome": false,

@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-07T08:05:01.757Z",
+  "fetchedAt": "2026-10-07T19:39:03.255Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -63,7 +63,7 @@
     },
     "MEX": {
       "name": "Mexico",
-      "elo": 1890
+      "elo": 1868
     },
     "CRO": {
       "name": "Croatia",
@@ -89,12 +89,12 @@
       "name": "Senegal",
       "elo": 1805
     },
-    "AUS": {
-      "name": "Australia",
-      "elo": 1786
-    },
     "USA": {
       "name": "United States",
+      "elo": 1792
+    },
+    "AUS": {
+      "name": "Australia",
       "elo": 1786
     },
     "SWE": {
@@ -105,13 +105,13 @@
       "name": "Turkey",
       "elo": 1768
     },
-    "CAN": {
-      "name": "Canada",
-      "elo": 1745
-    },
     "ALG": {
       "name": "Algeria",
       "elo": 1744
+    },
+    "CAN": {
+      "name": "Canada",
+      "elo": 1739
     },
     "IRN": {
       "name": "Iran",
