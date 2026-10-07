@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-06",
+  "lastUpdated": "2026-10-07",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260611",
   "sourceConfirmedDate": null,
@@ -7,11 +7,11 @@
   "teams": {
     "ESP": {
       "rank": 1,
-      "points": 2007.86
+      "points": 2011.57
     },
     "ARG": {
       "rank": 2,
-      "points": 1972.17
+      "points": 1972.8
     },
     "FRA": {
       "rank": 3,
@@ -19,7 +19,7 @@
     },
     "ENG": {
       "rank": 4,
-      "points": 1923.43
+      "points": 1925.59
     },
     "POR": {
       "rank": 5,
@@ -43,27 +43,27 @@
     },
     "MEX": {
       "rank": 10,
-      "points": 1746.04
+      "points": 1738.48
     },
     "COL": {
       "rank": 11,
-      "points": 1733.25
+      "points": 1735.8
     },
     "SUI": {
       "rank": 12,
-      "points": 1722.46
-    },
-    "CRO": {
-      "rank": 13,
-      "points": 1718.45
+      "points": 1725.39
     },
     "GER": {
-      "rank": 14,
+      "rank": 13,
       "points": 1717.52
+    },
+    "CRO": {
+      "rank": 14,
+      "points": 1714.74
     },
     "USA": {
       "rank": 16,
-      "points": 1701.62
+      "points": 1705.47
     },
     "JPN": {
       "rank": 17,
@@ -103,7 +103,7 @@
     },
     "CAN": {
       "rank": 27,
-      "points": 1579.16
+      "points": 1575.31
     },
     "ALG": {
       "rank": 28,
@@ -134,11 +134,11 @@
       "points": 1506.37
     },
     "SCO": {
-      "rank": 42,
-      "points": 1491.75
+      "rank": 43,
+      "points": 1483.57
     },
     "PAN": {
-      "rank": 45,
+      "rank": 46,
       "points": 1476.97
     },
     "RSA": {
@@ -146,12 +146,12 @@
       "points": 1468.88
     },
     "CZE": {
-      "rank": 50,
-      "points": 1459.28
+      "rank": 51,
+      "points": 1457.12
     },
     "KSA": {
       "rank": 55,
-      "points": 1438.71
+      "points": 1443.17
     },
     "BIH": {
       "rank": 57,
@@ -182,7 +182,7 @@
       "points": 1361.27
     },
     "JOR": {
-      "rank": 73,
+      "rank": 72,
       "points": 1350.88
     },
     "CUW": {
@@ -190,11 +190,11 @@
       "points": 1304.98
     },
     "HAI": {
-      "rank": 83,
+      "rank": 84,
       "points": 1280.91
     },
     "NZL": {
-      "rank": 87,
+      "rank": 88,
       "points": 1277.02
     }
   }

@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-06T19:27:22.668Z",
+  "fetchedAt": "2026-10-07T08:05:01.757Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -7,7 +7,7 @@
   "teams": {
     "ESP": {
       "name": "Spain",
-      "elo": 2282
+      "elo": 2287
     },
     "ARG": {
       "name": "Argentina",
@@ -15,7 +15,7 @@
     },
     "ENG": {
       "name": "England",
-      "elo": 2144
+      "elo": 2146
     },
     "FRA": {
       "name": "France",
@@ -31,15 +31,15 @@
     },
     "COL": {
       "name": "Colombia",
-      "elo": 1985
+      "elo": 1990
+    },
+    "SUI": {
+      "name": "Switzerland",
+      "elo": 1975
     },
     "NED": {
       "name": "Netherlands",
       "elo": 1974
-    },
-    "SUI": {
-      "name": "Switzerland",
-      "elo": 1972
     },
     "BEL": {
       "name": "Belgium",
@@ -67,11 +67,11 @@
     },
     "CRO": {
       "name": "Croatia",
-      "elo": 1861
+      "elo": 1856
     },
     "URU": {
       "name": "Uruguay",
-      "elo": 1850
+      "elo": 1851
     },
     "ECU": {
       "name": "Ecuador",
@@ -105,29 +105,29 @@
       "name": "Turkey",
       "elo": 1768
     },
-    "SCO": {
-      "name": "Scotland",
-      "elo": 1746
-    },
     "CAN": {
       "name": "Canada",
       "elo": 1745
     },
     "ALG": {
       "name": "Algeria",
-      "elo": 1743
+      "elo": 1744
     },
     "IRN": {
       "name": "Iran",
       "elo": 1738
     },
+    "KOR": {
+      "name": "South Korea",
+      "elo": 1730
+    },
     "CIV": {
       "name": "Ivory Coast",
       "elo": 1723
     },
-    "KOR": {
-      "name": "South Korea",
-      "elo": 1722
+    "SCO": {
+      "name": "Scotland",
+      "elo": 1718
     },
     "EGY": {
       "name": "Egypt",
@@ -143,7 +143,7 @@
     },
     "CZE": {
       "name": "Czechia",
-      "elo": 1658
+      "elo": 1656
     },
     "PAN": {
       "name": "Panama",
@@ -151,15 +151,15 @@
     },
     "UZB": {
       "name": "Uzbekistan",
-      "elo": 1653
+      "elo": 1645
+    },
+    "KSA": {
+      "name": "Saudi Arabia",
+      "elo": 1639
     },
     "JOR": {
       "name": "Jordan",
       "elo": 1622
-    },
-    "KSA": {
-      "name": "Saudi Arabia",
-      "elo": 1621
     },
     "RSA": {
       "name": "South Africa",

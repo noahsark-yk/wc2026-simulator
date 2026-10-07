@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-06T19:33:43.408Z",
+  "fetchedAt": "2026-10-07T08:11:57.770Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -8,6 +8,14 @@
       "code": "ESP",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-06",
+          "isHome": false,
+          "opponentName": "Croatia",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "European League A"
+        },
         {
           "date": "2026-10-03",
           "isHome": true,
@@ -1478,6 +1486,14 @@
       "code": "ENG",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-06",
+          "isHome": true,
+          "opponentName": "Czechia",
+          "ourScore": 3,
+          "oppScore": 0,
+          "tournament": "European League A"
+        },
         {
           "date": "2026-10-03",
           "isHome": false,
@@ -4291,6 +4307,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-06",
+          "isHome": true,
+          "opponentName": "Spain",
+          "ourScore": 1,
+          "oppScore": 2,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-10-03",
           "isHome": true,
           "opponentName": "England",
@@ -4969,6 +4993,14 @@
       "code": "SUI",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-06",
+          "isHome": true,
+          "opponentName": "North Macedonia",
+          "ourScore": 3,
+          "oppScore": 0,
+          "tournament": "European League B"
+        },
         {
           "date": "2026-10-03",
           "isHome": true,
@@ -6983,6 +7015,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-06",
+          "isHome": false,
+          "opponentName": "England",
+          "ourScore": 0,
+          "oppScore": 3,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-10-03",
           "isHome": false,
           "opponentName": "Spain",
@@ -8763,6 +8803,14 @@
       "code": "SCO",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-06",
+          "isHome": true,
+          "opponentName": "Slovenia",
+          "ourScore": 1,
+          "oppScore": 2,
+          "tournament": "European League B"
+        },
         {
           "date": "2026-10-03",
           "isHome": false,
@@ -10681,6 +10729,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-06",
+          "isHome": true,
+          "opponentName": "Benin",
+          "ourScore": 3,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-10-03",
           "isHome": true,
           "opponentName": "Burkina Faso",
@@ -11999,6 +12055,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-06",
+          "isHome": true,
+          "opponentName": "Peru",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-10-02",
           "isHome": false,
           "opponentName": "Paraguay",
@@ -12645,6 +12709,14 @@
       "code": "URU",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-06",
+          "isHome": false,
+          "opponentName": "India",
+          "ourScore": 6,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-09-28",
           "isHome": false,
@@ -19396,6 +19468,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-06",
+          "isHome": true,
+          "opponentName": "Uzbekistan",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-10-02",
           "isHome": true,
           "opponentName": "Venezuela",
@@ -20665,6 +20745,14 @@
       "code": "KSA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-06",
+          "isHome": true,
+          "opponentName": "United Arab Emirates",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "Gulf Cup"
+        },
         {
           "date": "2026-10-03",
           "isHome": true,
@@ -22008,6 +22096,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-10-06",
+          "isHome": false,
+          "opponentName": "South Korea",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-10-01",
           "isHome": true,
           "opponentName": "Syria",
@@ -22646,6 +22742,14 @@
       "code": "JOR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-06",
+          "isHome": true,
+          "opponentName": "Venezuela",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-09-27",
           "isHome": true,
@@ -27863,6 +27967,14 @@
       "code": "ALG",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-10-06",
+          "isHome": true,
+          "opponentName": "Niger",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-09-29",
           "isHome": false,
