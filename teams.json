@@ -33,7 +33,7 @@
         "w": 1.53
       },
       "def": {
-        "s": 1.46,
+        "s": 1.47,
         "w": 0.75
       },
       "fifaR": 48,
@@ -774,7 +774,7 @@
       },
       "def": {
         "s": 1.73,
-        "w": 0.87
+        "w": 0.86
       },
       "fifaR": 22,
       "fifaP": 1600.66,
@@ -964,7 +964,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-10-13T08:59:05.155Z",
+    "generatedAt": "2026-10-13T20:06:50.241Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
