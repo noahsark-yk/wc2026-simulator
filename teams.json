@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-24",
+  "lastUpdated": "2026-10-25",
   "source": "Auto-generated from eloratings.net",
   "teams": [
     {
@@ -245,7 +245,7 @@
     {
       "c": "USA",
       "opta": 73.1,
-      "elo": 1792,
+      "elo": 1793,
       "g": "D",
       "f": "us",
       "atk": {
@@ -473,7 +473,7 @@
         "w": 1.64
       },
       "def": {
-        "s": 2.1,
+        "s": 2.09,
         "w": 0.88
       },
       "fifaR": 61,
@@ -964,11 +964,11 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-10-24T17:13:36.789Z",
+    "generatedAt": "2026-10-25T07:20:16.459Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
-    "fifaLastUpdated": "2026-10-24",
+    "fifaLastUpdated": "2026-10-25",
     "fifaTeamCount": 48,
     "methodology": {
       "primaryPeriodStart": "2022-01-01",

@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-24T17:06:22.929Z",
+  "fetchedAt": "2026-10-25T07:13:11.110Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -91,7 +91,7 @@
     },
     "USA": {
       "name": "United States",
-      "elo": 1792
+      "elo": 1793
     },
     "AUS": {
       "name": "Australia",
