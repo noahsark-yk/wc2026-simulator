@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-29",
+  "lastUpdated": "2026-10-30",
   "source": "Auto-generated from eloratings.net",
   "teams": [
     {
@@ -420,7 +420,7 @@
       "fifaP": 1778.61,
       "adjA": 1.38,
       "adjD": 0.93,
-      "wpe": 1.18
+      "wpe": 1.17
     },
     {
       "c": "JPN",
@@ -573,7 +573,7 @@
         "w": 2.59
       },
       "def": {
-        "s": 1.13,
+        "s": 1.14,
         "w": 0.54
       },
       "fifaR": 1,
@@ -658,7 +658,7 @@
       },
       "fifaR": 3,
       "fifaP": 1958.86,
-      "adjA": 1.51,
+      "adjA": 1.5,
       "adjD": 0.75,
       "wpe": 1.56
     },
@@ -839,7 +839,7 @@
       "fifaR": 40,
       "fifaP": 1506.37,
       "adjA": 0.73,
-      "adjD": 0.85,
+      "adjD": 0.86,
       "wpe": 0.88
     },
     {
@@ -880,7 +880,7 @@
       "fifaP": 1735.8,
       "adjA": 1.12,
       "adjD": 0.7,
-      "wpe": 1.2
+      "wpe": 1.19
     },
     {
       "c": "ENG",
@@ -964,11 +964,11 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-10-29T08:04:08.231Z",
+    "generatedAt": "2026-10-30T08:06:02.967Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
-    "fifaLastUpdated": "2026-10-29",
+    "fifaLastUpdated": "2026-10-30",
     "fifaTeamCount": 48,
     "methodology": {
       "primaryPeriodStart": "2022-01-01",
