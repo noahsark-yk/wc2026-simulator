@@ -94,7 +94,7 @@
       },
       "def": {
         "s": 1.7,
-        "w": 0.6
+        "w": 0.61
       },
       "fifaR": 27,
       "fifaP": 1575.31,
@@ -460,7 +460,7 @@
       "fifaP": 1543.8,
       "adjA": 1.08,
       "adjD": 1.33,
-      "wpe": 0.89
+      "wpe": 0.9
     },
     {
       "c": "TUN",
@@ -964,7 +964,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-10-31T08:02:38.701Z",
+    "generatedAt": "2026-10-31T18:09:58.029Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
