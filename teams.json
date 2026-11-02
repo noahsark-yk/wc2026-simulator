@@ -490,7 +490,7 @@
       "f": "be",
       "atk": {
         "s": 1.22,
-        "w": 2.66
+        "w": 2.65
       },
       "def": {
         "s": 1.59,
@@ -964,7 +964,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-11-02T08:53:43.417Z",
+    "generatedAt": "2026-11-02T22:38:18.458Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",

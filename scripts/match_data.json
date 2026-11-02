@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-02T08:53:35.422Z",
+  "fetchedAt": "2026-11-02T22:38:11.110Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -2231,7 +2231,9 @@
           "tournament": "European League A"
         }
       ],
-      "sourceUrl": "https://www.eloratings.net/England"
+      "sourceUrl": "https://www.eloratings.net/England",
+      "staleFromPrior": true,
+      "freshFetchError": "navigation failed"
     },
     "POR": {
       "code": "POR",
@@ -14532,9 +14534,7 @@
           "tournament": "World Cup qualifier"
         }
       ],
-      "sourceUrl": "https://www.eloratings.net/Paraguay",
-      "staleFromPrior": true,
-      "freshFetchError": "navigation failed"
+      "sourceUrl": "https://www.eloratings.net/Paraguay"
     },
     "USA": {
       "code": "USA",
