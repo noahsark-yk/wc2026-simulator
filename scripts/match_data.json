@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-01T18:47:14.074Z",
+  "fetchedAt": "2026-11-02T08:53:35.422Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -14532,7 +14532,9 @@
           "tournament": "World Cup qualifier"
         }
       ],
-      "sourceUrl": "https://www.eloratings.net/Paraguay"
+      "sourceUrl": "https://www.eloratings.net/Paraguay",
+      "staleFromPrior": true,
+      "freshFetchError": "navigation failed"
     },
     "USA": {
       "code": "USA",
