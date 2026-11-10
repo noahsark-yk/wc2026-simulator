@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-10T09:07:54.451Z",
+  "fetchedAt": "2026-11-10T20:39:29.994Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -47,7 +47,7 @@
     },
     "NOR": {
       "name": "Norway",
-      "elo": 1900
+      "elo": 1901
     },
     "JPN": {
       "name": "Japan",
@@ -91,7 +91,7 @@
     },
     "USA": {
       "name": "United States",
-      "elo": 1793
+      "elo": 1792
     },
     "AUS": {
       "name": "Australia",
