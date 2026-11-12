@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-11",
+  "lastUpdated": "2026-11-12",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260720",
   "sourceConfirmedDate": null,
@@ -194,8 +194,8 @@
       "points": 1280.91
     },
     "NZL": {
-      "rank": 88,
-      "points": 1277.02
+      "rank": 85,
+      "points": 1280.27
     }
   }
 }
