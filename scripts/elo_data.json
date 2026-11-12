@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-12T09:10:29.402Z",
+  "fetchedAt": "2026-11-12T21:15:10.977Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -43,7 +43,7 @@
     },
     "BEL": {
       "name": "Belgium",
-      "elo": 1956
+      "elo": 1971
     },
     "NOR": {
       "name": "Norway",
@@ -95,7 +95,7 @@
     },
     "AUS": {
       "name": "Australia",
-      "elo": 1787
+      "elo": 1786
     },
     "SWE": {
       "name": "Sweden",
@@ -103,7 +103,7 @@
     },
     "TUR": {
       "name": "Turkey",
-      "elo": 1768
+      "elo": 1753
     },
     "ALG": {
       "name": "Algeria",
@@ -135,7 +135,7 @@
     },
     "COD": {
       "name": "DR Congo",
-      "elo": 1687
+      "elo": 1691
     },
     "BIH": {
       "name": "Bosnia/Herzeg",
@@ -149,13 +149,13 @@
       "name": "Panama",
       "elo": 1654
     },
-    "UZB": {
-      "name": "Uzbekistan",
-      "elo": 1645
-    },
     "KSA": {
       "name": "Saudi Arabia",
       "elo": 1639
+    },
+    "UZB": {
+      "name": "Uzbekistan",
+      "elo": 1636
     },
     "JOR": {
       "name": "Jordan",
@@ -169,13 +169,13 @@
       "name": "Haiti",
       "elo": 1563
     },
+    "NZL": {
+      "name": "New Zealand",
+      "elo": 1561
+    },
     "CPV": {
       "name": "Cape Verde",
       "elo": 1560
-    },
-    "NZL": {
-      "name": "New Zealand",
-      "elo": 1559
     },
     "IRQ": {
       "name": "Iraq",
@@ -187,7 +187,7 @@
     },
     "GHA": {
       "name": "Ghana",
-      "elo": 1512
+      "elo": 1514
     },
     "CUW": {
       "name": "Curaçao",

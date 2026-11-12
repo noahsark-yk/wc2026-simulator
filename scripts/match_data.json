@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-12T09:16:51.107Z",
+  "fetchedAt": "2026-11-12T21:21:48.048Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -5689,6 +5689,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-12",
+          "isHome": false,
+          "opponentName": "Turkey",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-10-05",
           "isHome": false,
           "opponentName": "France",
@@ -9426,6 +9434,14 @@
       "code": "TUR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-12",
+          "isHome": true,
+          "opponentName": "Belgium",
+          "ourScore": 1,
+          "oppScore": 2,
+          "tournament": "European League A"
+        },
         {
           "date": "2026-10-05",
           "isHome": false,
@@ -22120,6 +22136,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-12",
+          "isHome": true,
+          "opponentName": "Russia",
+          "ourScore": 2,
+          "oppScore": 3,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-10-06",
           "isHome": false,
           "opponentName": "South Korea",
@@ -29366,6 +29390,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-12",
+          "isHome": true,
+          "opponentName": "Somalia",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "African Nations Cup qual"
+        },
+        {
           "date": "2026-09-29",
           "isHome": true,
           "opponentName": "Gambia",
@@ -31275,6 +31307,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-12",
+          "isHome": true,
+          "opponentName": "Sierra Leone",
+          "ourScore": 3,
+          "oppScore": 1,
+          "tournament": "African Nations Cup qual"
+        },
+        {
           "date": "2026-10-05",
           "isHome": true,
           "opponentName": "Uganda",
@@ -31881,6 +31921,14 @@
       "code": "NZL",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-12",
+          "isHome": true,
+          "opponentName": "India",
+          "ourScore": 5,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-10-05",
           "isHome": false,

@@ -35,7 +35,7 @@
     },
     "BEL": {
       "rank": 8,
-      "points": 1779.17
+      "points": 1783.73
     },
     "NED": {
       "rank": 9,
@@ -113,13 +113,13 @@
       "rank": 29,
       "points": 1569.32
     },
-    "TUR": {
-      "rank": 31,
-      "points": 1563.54
-    },
     "KOR": {
-      "rank": 32,
+      "rank": 31,
       "points": 1562.49
+    },
+    "TUR": {
+      "rank": 32,
+      "points": 1558.97
     },
     "PAR": {
       "rank": 33,
@@ -157,17 +157,17 @@
       "rank": 57,
       "points": 1429.32
     },
-    "UZB": {
-      "rank": 59,
-      "points": 1416.61
-    },
     "QAT": {
-      "rank": 60,
+      "rank": 59,
       "points": 1416.47
     },
     "TUN": {
-      "rank": 61,
+      "rank": 60,
       "points": 1415.38
+    },
+    "UZB": {
+      "rank": 61,
+      "points": 1412.75
     },
     "IRQ": {
       "rank": 63,
