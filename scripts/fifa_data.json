@@ -99,7 +99,7 @@
     },
     "AUS": {
       "rank": 26,
-      "points": 1580.52
+      "points": 1584
     },
     "CAN": {
       "rank": 27,
@@ -113,17 +113,17 @@
       "rank": 29,
       "points": 1569.32
     },
-    "KOR": {
-      "rank": 31,
-      "points": 1562.49
-    },
     "TUR": {
-      "rank": 32,
+      "rank": 31,
       "points": 1558.97
+    },
+    "KOR": {
+      "rank": 32,
+      "points": 1556.36
     },
     "PAR": {
       "rank": 33,
-      "points": 1552.3
+      "points": 1553.6
     },
     "SWE": {
       "rank": 34,
@@ -150,20 +150,20 @@
       "points": 1455.52
     },
     "KSA": {
-      "rank": 55,
-      "points": 1443.17
+      "rank": 54,
+      "points": 1449.29
     },
     "BIH": {
       "rank": 57,
       "points": 1429.32
     },
-    "QAT": {
-      "rank": 59,
-      "points": 1416.47
-    },
     "TUN": {
-      "rank": 60,
+      "rank": 59,
       "points": 1415.38
+    },
+    "QAT": {
+      "rank": 60,
+      "points": 1413
     },
     "UZB": {
       "rank": 61,
@@ -174,7 +174,7 @@
       "points": 1400.91
     },
     "CPV": {
-      "rank": 68,
+      "rank": 67,
       "points": 1373.58
     },
     "GHA": {

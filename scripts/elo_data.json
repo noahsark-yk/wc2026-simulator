@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-13T09:00:36.151Z",
+  "fetchedAt": "2026-11-13T20:42:12.458Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -83,7 +83,7 @@
     },
     "PAR": {
       "name": "Paraguay",
-      "elo": 1836
+      "elo": 1838
     },
     "SEN": {
       "name": "Senegal",
@@ -141,13 +141,13 @@
       "name": "Bosnia/Herzeg",
       "elo": 1672
     },
-    "PAN": {
-      "name": "Panama",
-      "elo": 1654
-    },
     "CZE": {
       "name": "Czechia",
       "elo": 1653
+    },
+    "PAN": {
+      "name": "Panama",
+      "elo": 1650
     },
     "KSA": {
       "name": "Saudi Arabia",
@@ -191,7 +191,7 @@
     },
     "CUW": {
       "name": "Curaçao",
-      "elo": 1491
+      "elo": 1495
     },
     "QAT": {
       "name": "Qatar",

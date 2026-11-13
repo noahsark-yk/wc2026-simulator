@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-13T09:07:42.962Z",
+  "fetchedAt": "2026-11-13T20:49:12.358Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -14028,6 +14028,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-13",
+          "isHome": false,
+          "opponentName": "Singapore",
+          "ourScore": 4,
+          "oppScore": 1,
+          "tournament": "Friendly tournament"
+        },
+        {
           "date": "2026-10-02",
           "isHome": true,
           "opponentName": "Colombia",
@@ -17088,6 +17096,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-12",
+          "isHome": false,
+          "opponentName": "Curaçao",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "CONCACAF Nat League"
+        },
+        {
           "date": "2026-10-05",
           "isHome": false,
           "opponentName": "Ecuador",
@@ -17910,6 +17926,14 @@
       "code": "CUW",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-12",
+          "isHome": true,
+          "opponentName": "Panama",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "CONCACAF Nat League"
+        },
         {
           "date": "2026-10-04",
           "isHome": false,
@@ -26618,6 +26642,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-13",
+          "isHome": true,
+          "opponentName": "Libya",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "African Nations Cup qual"
+        },
+        {
           "date": "2026-09-28",
           "isHome": true,
           "opponentName": "Botswana",
@@ -30045,6 +30077,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-13",
+          "isHome": true,
+          "opponentName": "Liberia",
+          "ourScore": 4,
+          "oppScore": 2,
+          "tournament": "African Nations Cup qual"
+        },
+        {
           "date": "2026-09-29",
           "isHome": true,
           "opponentName": "Rwanda",
@@ -30611,6 +30651,14 @@
       "code": "RSA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-13",
+          "isHome": true,
+          "opponentName": "Kenya",
+          "ourScore": 2,
+          "oppScore": 2,
+          "tournament": "African Nations Cup qual"
+        },
         {
           "date": "2026-10-04",
           "isHome": false,
