@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-12T21:15:10.977Z",
+  "fetchedAt": "2026-11-13T09:00:36.151Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -7,7 +7,7 @@
   "teams": {
     "ESP": {
       "name": "Spain",
-      "elo": 2287
+      "elo": 2290
     },
     "ARG": {
       "name": "Argentina",
@@ -15,11 +15,11 @@
     },
     "ENG": {
       "name": "England",
-      "elo": 2146
+      "elo": 2150
     },
     "FRA": {
       "name": "France",
-      "elo": 2104
+      "elo": 2066
     },
     "POR": {
       "name": "Portugal",
@@ -67,7 +67,7 @@
     },
     "CRO": {
       "name": "Croatia",
-      "elo": 1856
+      "elo": 1852
     },
     "URU": {
       "name": "Uruguay",
@@ -87,7 +87,7 @@
     },
     "SEN": {
       "name": "Senegal",
-      "elo": 1805
+      "elo": 1808
     },
     "USA": {
       "name": "United States",
@@ -123,7 +123,7 @@
     },
     "CIV": {
       "name": "Ivory Coast",
-      "elo": 1723
+      "elo": 1728
     },
     "SCO": {
       "name": "Scotland",
@@ -141,13 +141,13 @@
       "name": "Bosnia/Herzeg",
       "elo": 1672
     },
-    "CZE": {
-      "name": "Czechia",
-      "elo": 1656
-    },
     "PAN": {
       "name": "Panama",
       "elo": 1654
+    },
+    "CZE": {
+      "name": "Czechia",
+      "elo": 1653
     },
     "KSA": {
       "name": "Saudi Arabia",

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-12",
+  "lastUpdated": "2026-11-13",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260720",
   "sourceConfirmedDate": null,
@@ -7,7 +7,7 @@
   "teams": {
     "ESP": {
       "rank": 1,
-      "points": 2011.57
+      "points": 2013.17
     },
     "ARG": {
       "rank": 2,
@@ -15,11 +15,11 @@
     },
     "FRA": {
       "rank": 3,
-      "points": 1958.86
+      "points": 1948.07
     },
     "ENG": {
       "rank": 4,
-      "points": 1925.59
+      "points": 1930.21
     },
     "POR": {
       "rank": 5,
@@ -54,12 +54,12 @@
       "points": 1725.39
     },
     "GER": {
-      "rank": 13,
+      "rank": 14,
       "points": 1717.52
     },
     "CRO": {
-      "rank": 14,
-      "points": 1714.74
+      "rank": 15,
+      "points": 1710.12
     },
     "USA": {
       "rank": 16,
@@ -147,7 +147,7 @@
     },
     "CZE": {
       "rank": 51,
-      "points": 1457.12
+      "points": 1455.52
     },
     "KSA": {
       "rank": 55,
@@ -187,7 +187,7 @@
     },
     "CUW": {
       "rank": 80,
-      "points": 1304.98
+      "points": 1308.96
     },
     "HAI": {
       "rank": 84,

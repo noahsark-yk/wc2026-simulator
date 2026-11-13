@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-12T21:21:48.048Z",
+  "fetchedAt": "2026-11-13T09:07:42.962Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -8,6 +8,14 @@
       "code": "ESP",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-12",
+          "isHome": false,
+          "opponentName": "Czechia",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "European League A"
+        },
         {
           "date": "2026-10-06",
           "isHome": false,
@@ -752,6 +760,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-12",
+          "isHome": false,
+          "opponentName": "Italy",
+          "ourScore": 1,
+          "oppScore": 3,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-10-05",
           "isHome": true,
           "opponentName": "Belgium",
@@ -1486,6 +1502,14 @@
       "code": "ENG",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-12",
+          "isHome": true,
+          "opponentName": "Croatia",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "European League A"
+        },
         {
           "date": "2026-10-06",
           "isHome": true,
@@ -4307,6 +4331,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-12",
+          "isHome": false,
+          "opponentName": "England",
+          "ourScore": 1,
+          "oppScore": 2,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-10-06",
           "isHome": true,
           "opponentName": "Spain",
@@ -7022,6 +7054,14 @@
       "code": "CZE",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-12",
+          "isHome": true,
+          "opponentName": "Spain",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "European League A"
+        },
         {
           "date": "2026-10-06",
           "isHome": false,
@@ -25835,6 +25875,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-12",
+          "isHome": true,
+          "opponentName": "Sudan",
+          "ourScore": 4,
+          "oppScore": 1,
+          "tournament": "African Nations Cup qual"
+        },
+        {
           "date": "2026-10-04",
           "isHome": true,
           "opponentName": "Comoros",
@@ -28758,6 +28806,14 @@
       "code": "CIV",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-12",
+          "isHome": true,
+          "opponentName": "Gambia",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "African Nations Cup qual"
+        },
         {
           "date": "2026-10-03",
           "isHome": true,
