@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-13",
+  "lastUpdated": "2026-11-14",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260720",
   "sourceConfirmedDate": null,
@@ -11,7 +11,7 @@
     },
     "ARG": {
       "rank": 2,
-      "points": 1972.8
+      "points": 1964.95
     },
     "FRA": {
       "rank": 3,
@@ -39,7 +39,7 @@
     },
     "NED": {
       "rank": 9,
-      "points": 1778.61
+      "points": 1782.43
     },
     "MEX": {
       "rank": 10,
@@ -47,15 +47,15 @@
     },
     "COL": {
       "rank": 11,
-      "points": 1735.8
-    },
-    "SUI": {
-      "rank": 12,
-      "points": 1725.39
+      "points": 1738.36
     },
     "GER": {
+      "rank": 13,
+      "points": 1721.85
+    },
+    "SUI": {
       "rank": 14,
-      "points": 1717.52
+      "points": 1721.79
     },
     "CRO": {
       "rank": 15,
@@ -73,13 +73,13 @@
       "rank": 18,
       "points": 1648.84
     },
-    "NOR": {
-      "rank": 19,
-      "points": 1637.89
-    },
     "URU": {
+      "rank": 19,
+      "points": 1643.39
+    },
+    "NOR": {
       "rank": 20,
-      "points": 1635.54
+      "points": 1637.89
     },
     "AUT": {
       "rank": 22,
@@ -91,7 +91,7 @@
     },
     "ECU": {
       "rank": 24,
-      "points": 1587.07
+      "points": 1590.74
     },
     "EGY": {
       "rank": 25,
@@ -103,7 +103,7 @@
     },
     "CAN": {
       "rank": 27,
-      "points": 1575.31
+      "points": 1580.81
     },
     "ALG": {
       "rank": 28,
@@ -134,11 +134,11 @@
       "points": 1506.37
     },
     "SCO": {
-      "rank": 43,
-      "points": 1483.57
+      "rank": 42,
+      "points": 1489.2
     },
     "PAN": {
-      "rank": 46,
+      "rank": 45,
       "points": 1476.97
     },
     "RSA": {
@@ -146,7 +146,7 @@
       "points": 1468.88
     },
     "CZE": {
-      "rank": 51,
+      "rank": 52,
       "points": 1455.52
     },
     "KSA": {
@@ -171,7 +171,7 @@
     },
     "IRQ": {
       "rank": 63,
-      "points": 1400.91
+      "points": 1398.83
     },
     "CPV": {
       "rank": 67,
