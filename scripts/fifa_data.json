@@ -25,13 +25,13 @@
       "rank": 5,
       "points": 1807.69
     },
-    "BRA": {
-      "rank": 6,
-      "points": 1806.51
-    },
     "MAR": {
-      "rank": 7,
+      "rank": 6,
       "points": 1805.34
+    },
+    "BRA": {
+      "rank": 7,
+      "points": 1800.36
     },
     "BEL": {
       "rank": 8,
@@ -67,19 +67,19 @@
     },
     "JPN": {
       "rank": 17,
-      "points": 1684.75
+      "points": 1690.9
     },
     "SEN": {
       "rank": 18,
       "points": 1648.84
     },
-    "URU": {
-      "rank": 19,
-      "points": 1643.39
-    },
     "NOR": {
+      "rank": 19,
+      "points": 1643.59
+    },
+    "URU": {
       "rank": 20,
-      "points": 1637.89
+      "points": 1643.39
     },
     "AUT": {
       "rank": 22,
@@ -87,7 +87,7 @@
     },
     "IRN": {
       "rank": 23,
-      "points": 1597.31
+      "points": 1599.43
     },
     "ECU": {
       "rank": 24,
@@ -130,7 +130,7 @@
       "points": 1543.8
     },
     "COD": {
-      "rank": 40,
+      "rank": 39,
       "points": 1506.37
     },
     "SCO": {

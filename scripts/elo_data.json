@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-14T08:29:58.191Z",
+  "fetchedAt": "2026-11-14T18:54:17.204Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -11,7 +11,7 @@
     },
     "ARG": {
       "name": "Argentina",
-      "elo": 2175
+      "elo": 2157
     },
     "ENG": {
       "name": "England",
@@ -25,17 +25,17 @@
       "name": "Portugal",
       "elo": 2055
     },
-    "BRA": {
-      "name": "Brazil",
-      "elo": 2001
+    "COL": {
+      "name": "Colombia",
+      "elo": 1992
     },
     "NED": {
       "name": "Netherlands",
       "elo": 1990
     },
-    "COL": {
-      "name": "Colombia",
-      "elo": 1990
+    "BRA": {
+      "name": "Brazil",
+      "elo": 1982
     },
     "BEL": {
       "name": "Belgium",
@@ -49,6 +49,10 @@
       "name": "Germany",
       "elo": 1916
     },
+    "JPN": {
+      "name": "Japan",
+      "elo": 1916
+    },
     "NOR": {
       "name": "Norway",
       "elo": 1901
@@ -57,9 +61,9 @@
       "name": "Morocco",
       "elo": 1898
     },
-    "JPN": {
-      "name": "Japan",
-      "elo": 1897
+    "URU": {
+      "name": "Uruguay",
+      "elo": 1869
     },
     "MEX": {
       "name": "Mexico",
@@ -69,13 +73,9 @@
       "name": "Croatia",
       "elo": 1852
     },
-    "URU": {
-      "name": "Uruguay",
-      "elo": 1851
-    },
     "ECU": {
       "name": "Ecuador",
-      "elo": 1849
+      "elo": 1852
     },
     "AUT": {
       "name": "Austria",
@@ -105,13 +105,13 @@
       "name": "Turkey",
       "elo": 1753
     },
+    "CAN": {
+      "name": "Canada",
+      "elo": 1753
+    },
     "ALG": {
       "name": "Algeria",
       "elo": 1744
-    },
-    "CAN": {
-      "name": "Canada",
-      "elo": 1739
     },
     "IRN": {
       "name": "Iran",

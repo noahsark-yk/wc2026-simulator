@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-14T08:36:29.217Z",
+  "fetchedAt": "2026-11-14T19:01:07.325Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -10817,6 +10817,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-13",
+          "isHome": true,
+          "opponentName": "Uruguay",
+          "ourScore": 1,
+          "oppScore": 2,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-10-06",
           "isHome": true,
           "opponentName": "Benin",
@@ -11512,6 +11520,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-14",
+          "isHome": false,
+          "opponentName": "Japan",
+          "ourScore": 2,
+          "oppScore": 3,
+          "tournament": "Friendly tournament"
+        },
+        {
           "date": "2026-10-03",
           "isHome": false,
           "opponentName": "India",
@@ -12142,6 +12158,14 @@
       "code": "COL",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-13",
+          "isHome": true,
+          "opponentName": "Chile",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-10-06",
           "isHome": true,
@@ -12798,6 +12822,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-13",
+          "isHome": false,
+          "opponentName": "Argentina",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-10-06",
           "isHome": false,
           "opponentName": "India",
@@ -13404,6 +13436,14 @@
       "code": "ECU",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-13",
+          "isHome": true,
+          "opponentName": "Costa Rica",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-10-05",
           "isHome": true,
@@ -15481,6 +15521,14 @@
       "code": "CAN",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-13",
+          "isHome": false,
+          "opponentName": "Guatemala",
+          "ourScore": 3,
+          "oppScore": 2,
+          "tournament": "CONCACAF Nat League"
+        },
         {
           "date": "2026-10-06",
           "isHome": false,
@@ -18924,6 +18972,14 @@
       "code": "JPN",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-14",
+          "isHome": true,
+          "opponentName": "Brazil",
+          "ourScore": 3,
+          "oppScore": 2,
+          "tournament": "Friendly tournament"
+        },
         {
           "date": "2026-10-05",
           "isHome": true,
