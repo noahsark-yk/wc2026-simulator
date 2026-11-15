@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-15T08:45:29.256Z",
+  "fetchedAt": "2026-11-15T19:30:03.021Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -65,10 +65,6 @@
       "name": "Uruguay",
       "elo": 1869
     },
-    "MEX": {
-      "name": "Mexico",
-      "elo": 1868
-    },
     "CRO": {
       "name": "Croatia",
       "elo": 1852
@@ -84,6 +80,10 @@
     "PAR": {
       "name": "Paraguay",
       "elo": 1838
+    },
+    "MEX": {
+      "name": "Mexico",
+      "elo": 1837
     },
     "SEN": {
       "name": "Senegal",
@@ -171,7 +171,7 @@
     },
     "NZL": {
       "name": "New Zealand",
-      "elo": 1561
+      "elo": 1563
     },
     "HAI": {
       "name": "Haiti",
