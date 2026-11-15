@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-14T18:54:17.204Z",
+  "fetchedAt": "2026-11-15T08:45:29.256Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -23,7 +23,7 @@
     },
     "POR": {
       "name": "Portugal",
-      "elo": 2055
+      "elo": 1996
     },
     "COL": {
       "name": "Colombia",
@@ -55,7 +55,7 @@
     },
     "NOR": {
       "name": "Norway",
-      "elo": 1901
+      "elo": 1909
     },
     "MAR": {
       "name": "Morocco",
@@ -79,7 +79,7 @@
     },
     "AUT": {
       "name": "Austria",
-      "elo": 1841
+      "elo": 1849
     },
     "PAR": {
       "name": "Paraguay",
@@ -89,17 +89,17 @@
       "name": "Senegal",
       "elo": 1808
     },
+    "USA": {
+      "name": "United States",
+      "elo": 1803
+    },
     "AUS": {
       "name": "Australia",
       "elo": 1794
     },
-    "USA": {
-      "name": "United States",
-      "elo": 1792
-    },
     "SWE": {
       "name": "Sweden",
-      "elo": 1774
+      "elo": 1784
     },
     "TUR": {
       "name": "Turkey",
@@ -109,13 +109,13 @@
       "name": "Canada",
       "elo": 1753
     },
-    "ALG": {
-      "name": "Algeria",
-      "elo": 1744
-    },
     "IRN": {
       "name": "Iran",
-      "elo": 1738
+      "elo": 1748
+    },
+    "ALG": {
+      "name": "Algeria",
+      "elo": 1746
     },
     "CIV": {
       "name": "Ivory Coast",
@@ -139,7 +139,7 @@
     },
     "BIH": {
       "name": "Bosnia/Herzeg",
-      "elo": 1672
+      "elo": 1662
     },
     "CZE": {
       "name": "Czechia",
@@ -169,13 +169,13 @@
       "name": "Cape Verde",
       "elo": 1566
     },
-    "HAI": {
-      "name": "Haiti",
-      "elo": 1563
-    },
     "NZL": {
       "name": "New Zealand",
       "elo": 1561
+    },
+    "HAI": {
+      "name": "Haiti",
+      "elo": 1552
     },
     "IRQ": {
       "name": "Iraq",

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-14",
+  "lastUpdated": "2026-11-15",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260720",
   "sourceConfirmedDate": null,
@@ -21,17 +21,17 @@
       "rank": 4,
       "points": 1930.21
     },
-    "POR": {
-      "rank": 5,
-      "points": 1807.69
-    },
     "MAR": {
-      "rank": 6,
+      "rank": 5,
       "points": 1805.34
     },
     "BRA": {
-      "rank": 7,
+      "rank": 6,
       "points": 1800.36
+    },
+    "POR": {
+      "rank": 7,
+      "points": 1797.6
     },
     "BEL": {
       "rank": 8,
@@ -63,7 +63,7 @@
     },
     "USA": {
       "rank": 16,
-      "points": 1705.47
+      "points": 1709.57
     },
     "JPN": {
       "rank": 17,
@@ -83,7 +83,7 @@
     },
     "AUT": {
       "rank": 22,
-      "points": 1600.66
+      "points": 1605.9
     },
     "IRN": {
       "rank": 23,
@@ -127,10 +127,10 @@
     },
     "SWE": {
       "rank": 34,
-      "points": 1543.8
+      "points": 1549.68
     },
     "COD": {
-      "rank": 39,
+      "rank": 38,
       "points": 1506.37
     },
     "SCO": {
@@ -154,8 +154,8 @@
       "points": 1449.29
     },
     "BIH": {
-      "rank": 57,
-      "points": 1429.32
+      "rank": 58,
+      "points": 1423.44
     },
     "TUN": {
       "rank": 59,
@@ -174,7 +174,7 @@
       "points": 1398.83
     },
     "CPV": {
-      "rank": 67,
+      "rank": 68,
       "points": 1373.58
     },
     "GHA": {
@@ -189,13 +189,13 @@
       "rank": 80,
       "points": 1308.96
     },
-    "HAI": {
-      "rank": 84,
-      "points": 1280.91
-    },
     "NZL": {
+      "rank": 83,
+      "points": 1283.46
+    },
+    "HAI": {
       "rank": 85,
-      "points": 1280.27
+      "points": 1280.91
     }
   }
 }
