@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-16T09:03:08.465Z",
+  "fetchedAt": "2026-11-16T23:13:47.665Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -26179,6 +26179,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-16",
+          "isHome": true,
+          "opponentName": "Sudan",
+          "ourScore": 4,
+          "oppScore": 2,
+          "tournament": "African Nations Cup qual"
+        },
+        {
           "date": "2026-11-12",
           "isHome": true,
           "opponentName": "Sudan",
@@ -29773,6 +29781,14 @@
       "code": "GHA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-16",
+          "isHome": true,
+          "opponentName": "Somalia",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "African Nations Cup qual"
+        },
         {
           "date": "2026-11-12",
           "isHome": true,

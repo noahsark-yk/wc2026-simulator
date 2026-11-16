@@ -23,7 +23,7 @@
     },
     "MAR": {
       "rank": 5,
-      "points": 1805.34
+      "points": 1807.37
     },
     "BRA": {
       "rank": 6,
@@ -39,23 +39,23 @@
     },
     "NED": {
       "rank": 9,
-      "points": 1782.43
-    },
-    "MEX": {
-      "rank": 10,
-      "points": 1738.48
+      "points": 1774.06
     },
     "COL": {
-      "rank": 11,
+      "rank": 10,
       "points": 1738.36
     },
     "GER": {
-      "rank": 12,
-      "points": 1721.85
+      "rank": 11,
+      "points": 1730.22
     },
     "SUI": {
+      "rank": 12,
+      "points": 1726.15
+    },
+    "MEX": {
       "rank": 13,
-      "points": 1721.79
+      "points": 1718.25
     },
     "CRO": {
       "rank": 15,
@@ -71,7 +71,7 @@
     },
     "SEN": {
       "rank": 18,
-      "points": 1648.84
+      "points": 1655.34
     },
     "NOR": {
       "rank": 19,
@@ -95,7 +95,7 @@
     },
     "EGY": {
       "rank": 25,
-      "points": 1585.86
+      "points": 1589.47
     },
     "AUS": {
       "rank": 26,
@@ -107,11 +107,11 @@
     },
     "ALG": {
       "rank": 28,
-      "points": 1574.77
+      "points": 1578.91
     },
     "CIV": {
       "rank": 29,
-      "points": 1569.32
+      "points": 1573.94
     },
     "KOR": {
       "rank": 31,
@@ -131,19 +131,19 @@
     },
     "COD": {
       "rank": 38,
-      "points": 1506.37
+      "points": 1511.04
     },
     "SCO": {
-      "rank": 42,
-      "points": 1489.2
+      "rank": 43,
+      "points": 1484.84
     },
     "PAN": {
       "rank": 44,
       "points": 1481.68
     },
     "RSA": {
-      "rank": 48,
-      "points": 1468.88
+      "rank": 49,
+      "points": 1462.38
     },
     "CZE": {
       "rank": 53,
@@ -157,10 +157,6 @@
       "rank": 58,
       "points": 1423.44
     },
-    "TUN": {
-      "rank": 59,
-      "points": 1415.38
-    },
     "QAT": {
       "rank": 60,
       "points": 1413
@@ -170,16 +166,20 @@
       "points": 1412.75
     },
     "IRQ": {
-      "rank": 63,
+      "rank": 62,
       "points": 1398.83
+    },
+    "TUN": {
+      "rank": 63,
+      "points": 1397.38
     },
     "CPV": {
       "rank": 68,
-      "points": 1373.58
+      "points": 1379.43
     },
     "GHA": {
       "rank": 70,
-      "points": 1361.27
+      "points": 1367.02
     },
     "JOR": {
       "rank": 72,
@@ -190,12 +190,12 @@
       "points": 1300.27
     },
     "NZL": {
-      "rank": 83,
+      "rank": 85,
       "points": 1283.46
     },
     "HAI": {
-      "rank": 85,
-      "points": 1280.91
+      "rank": 87,
+      "points": 1276.81
     }
   }
 }

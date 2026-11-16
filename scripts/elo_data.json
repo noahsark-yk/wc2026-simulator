@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-16T08:56:43.684Z",
+  "fetchedAt": "2026-11-16T23:07:19.849Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -87,7 +87,7 @@
     },
     "SEN": {
       "name": "Senegal",
-      "elo": 1808
+      "elo": 1812
     },
     "USA": {
       "name": "United States",
@@ -183,7 +183,7 @@
     },
     "GHA": {
       "name": "Ghana",
-      "elo": 1514
+      "elo": 1515
     },
     "TUN": {
       "name": "Tunisia",
