@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-15T19:30:03.021Z",
+  "fetchedAt": "2026-11-16T08:56:43.684Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -7,23 +7,27 @@
   "teams": {
     "ESP": {
       "name": "Spain",
-      "elo": 2290
+      "elo": 2258
+    },
+    "ENG": {
+      "name": "England",
+      "elo": 2182
     },
     "ARG": {
       "name": "Argentina",
       "elo": 2157
     },
-    "ENG": {
-      "name": "England",
-      "elo": 2150
-    },
     "FRA": {
       "name": "France",
-      "elo": 2066
+      "elo": 2069
     },
     "POR": {
       "name": "Portugal",
       "elo": 1996
+    },
+    "BEL": {
+      "name": "Belgium",
+      "elo": 1994
     },
     "COL": {
       "name": "Colombia",
@@ -36,10 +40,6 @@
     "BRA": {
       "name": "Brazil",
       "elo": 1982
-    },
-    "BEL": {
-      "name": "Belgium",
-      "elo": 1971
     },
     "SUI": {
       "name": "Switzerland",
@@ -67,7 +67,7 @@
     },
     "CRO": {
       "name": "Croatia",
-      "elo": 1852
+      "elo": 1858
     },
     "ECU": {
       "name": "Ecuador",
@@ -101,13 +101,13 @@
       "name": "Sweden",
       "elo": 1784
     },
-    "TUR": {
-      "name": "Turkey",
-      "elo": 1753
-    },
     "CAN": {
       "name": "Canada",
       "elo": 1753
+    },
+    "TUR": {
+      "name": "Turkey",
+      "elo": 1750
     },
     "IRN": {
       "name": "Iran",
@@ -141,17 +141,17 @@
       "name": "Bosnia/Herzeg",
       "elo": 1662
     },
-    "CZE": {
-      "name": "Czechia",
-      "elo": 1653
+    "PAN": {
+      "name": "Panama",
+      "elo": 1661
     },
     "KSA": {
       "name": "Saudi Arabia",
       "elo": 1652
     },
-    "PAN": {
-      "name": "Panama",
-      "elo": 1650
+    "CZE": {
+      "name": "Czechia",
+      "elo": 1647
     },
     "UZB": {
       "name": "Uzbekistan",
@@ -185,13 +185,13 @@
       "name": "Ghana",
       "elo": 1514
     },
-    "CUW": {
-      "name": "Curaçao",
-      "elo": 1495
-    },
     "TUN": {
       "name": "Tunisia",
       "elo": 1485
+    },
+    "CUW": {
+      "name": "Curaçao",
+      "elo": 1484
     },
     "QAT": {
       "name": "Qatar",
