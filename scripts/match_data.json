@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-17T10:10:05.157Z",
+  "fetchedAt": "2026-11-17T22:04:10.824Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -5802,7 +5802,9 @@
           "tournament": "European League A"
         }
       ],
-      "sourceUrl": "https://www.eloratings.net/Switzerland"
+      "sourceUrl": "https://www.eloratings.net/Switzerland",
+      "staleFromPrior": true,
+      "freshFetchError": "navigation failed"
     },
     "BEL": {
       "code": "BEL",
@@ -11648,6 +11650,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-17",
+          "isHome": false,
+          "opponentName": "Singapore",
+          "ourScore": 7,
+          "oppScore": 0,
+          "tournament": "Friendly tournament"
+        },
+        {
           "date": "2026-11-14",
           "isHome": false,
           "opponentName": "Japan",
@@ -14227,6 +14237,14 @@
       "code": "PAR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-17",
+          "isHome": true,
+          "opponentName": "Japan",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "Friendly tournament"
+        },
         {
           "date": "2026-11-13",
           "isHome": false,
@@ -19149,6 +19167,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-17",
+          "isHome": false,
+          "opponentName": "Paraguay",
+          "ourScore": 1,
+          "oppScore": 2,
+          "tournament": "Friendly tournament"
+        },
+        {
           "date": "2026-11-14",
           "isHome": true,
           "opponentName": "Brazil",
@@ -19836,6 +19862,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-17",
+          "isHome": false,
+          "opponentName": "Qatar",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-11-13",
           "isHome": false,
           "opponentName": "Saudi Arabia",
@@ -20515,6 +20549,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-17",
+          "isHome": false,
+          "opponentName": "Iraq",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "Friendly tournament"
+        },
+        {
           "date": "2026-11-14",
           "isHome": true,
           "opponentName": "Palestine",
@@ -21129,6 +21171,14 @@
       "code": "KSA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-17",
+          "isHome": false,
+          "opponentName": "Uzbekistan",
+          "ourScore": 1,
+          "oppScore": 2,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-11-13",
           "isHome": true,
@@ -21945,6 +21995,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-17",
+          "isHome": false,
+          "opponentName": "Jordan",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-11-13",
           "isHome": false,
           "opponentName": "Qatar",
@@ -22495,6 +22553,14 @@
       "code": "UZB",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-17",
+          "isHome": true,
+          "opponentName": "Saudi Arabia",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-11-12",
           "isHome": true,
@@ -23150,6 +23216,14 @@
       "code": "JOR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-17",
+          "isHome": true,
+          "opponentName": "Australia",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-10-06",
           "isHome": true,
@@ -23894,6 +23968,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-17",
+          "isHome": true,
+          "opponentName": "Iran",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "Friendly tournament"
+        },
+        {
           "date": "2026-11-13",
           "isHome": true,
           "opponentName": "Lebanon",
@@ -24588,6 +24670,14 @@
       "code": "QAT",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-17",
+          "isHome": true,
+          "opponentName": "South Korea",
+          "ourScore": 0,
+          "oppScore": 1,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-11-13",
           "isHome": true,
@@ -25411,6 +25501,14 @@
       "code": "MAR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-17",
+          "isHome": true,
+          "opponentName": "Niger",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "African Nations Cup qual"
+        },
         {
           "date": "2026-11-13",
           "isHome": true,
@@ -26970,6 +27068,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-17",
+          "isHome": false,
+          "opponentName": "Libya",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "African Nations Cup qual"
+        },
+        {
           "date": "2026-11-13",
           "isHome": true,
           "opponentName": "Libya",
@@ -27713,6 +27819,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-17",
+          "isHome": false,
+          "opponentName": "Malawi",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "African Nations Cup qual"
+        },
+        {
           "date": "2026-11-13",
           "isHome": true,
           "opponentName": "Malawi",
@@ -28431,6 +28545,14 @@
       "code": "ALG",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-17",
+          "isHome": false,
+          "opponentName": "Togo",
+          "ourScore": 0,
+          "oppScore": 3,
+          "tournament": "African Nations Cup qual"
+        },
         {
           "date": "2026-11-14",
           "isHome": true,
@@ -29182,6 +29304,14 @@
       "code": "CIV",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-17",
+          "isHome": false,
+          "opponentName": "Gambia",
+          "ourScore": 2,
+          "oppScore": 2,
+          "tournament": "African Nations Cup qual"
+        },
         {
           "date": "2026-11-12",
           "isHome": true,
@@ -30429,6 +30559,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-17",
+          "isHome": false,
+          "opponentName": "Liberia",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "African Nations Cup qual"
+        },
+        {
           "date": "2026-11-13",
           "isHome": true,
           "opponentName": "Liberia",
@@ -31003,6 +31141,14 @@
       "code": "RSA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-17",
+          "isHome": false,
+          "opponentName": "Kenya",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "African Nations Cup qual"
+        },
         {
           "date": "2026-11-13",
           "isHome": true,
@@ -31762,6 +31908,14 @@
       "code": "COD",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-17",
+          "isHome": true,
+          "opponentName": "Sierra Leone",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "African Nations Cup qual"
+        },
         {
           "date": "2026-11-12",
           "isHome": true,
