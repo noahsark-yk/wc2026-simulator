@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-16",
+  "lastUpdated": "2026-11-17",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260720",
   "sourceConfirmedDate": null,
@@ -97,13 +97,13 @@
       "rank": 25,
       "points": 1589.47
     },
-    "AUS": {
-      "rank": 26,
-      "points": 1584
-    },
     "CAN": {
+      "rank": 26,
+      "points": 1586.12
+    },
+    "AUS": {
       "rank": 27,
-      "points": 1580.81
+      "points": 1584
     },
     "ALG": {
       "rank": 28,

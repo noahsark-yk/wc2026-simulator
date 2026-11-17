@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-16T23:07:19.849Z",
+  "fetchedAt": "2026-11-17T10:03:36.663Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -33,21 +33,21 @@
       "name": "Colombia",
       "elo": 1992
     },
-    "NED": {
-      "name": "Netherlands",
-      "elo": 1990
-    },
     "BRA": {
       "name": "Brazil",
       "elo": 1982
     },
     "SUI": {
       "name": "Switzerland",
-      "elo": 1967
+      "elo": 1976
+    },
+    "NED": {
+      "name": "Netherlands",
+      "elo": 1953
     },
     "GER": {
       "name": "Germany",
-      "elo": 1916
+      "elo": 1953
     },
     "JPN": {
       "name": "Japan",
@@ -103,7 +103,7 @@
     },
     "CAN": {
       "name": "Canada",
-      "elo": 1753
+      "elo": 1762
     },
     "TUR": {
       "name": "Turkey",
@@ -121,10 +121,6 @@
       "name": "Ivory Coast",
       "elo": 1728
     },
-    "SCO": {
-      "name": "Scotland",
-      "elo": 1724
-    },
     "EGY": {
       "name": "Egypt",
       "elo": 1719
@@ -132,6 +128,10 @@
     "KOR": {
       "name": "South Korea",
       "elo": 1717
+    },
+    "SCO": {
+      "name": "Scotland",
+      "elo": 1715
     },
     "COD": {
       "name": "DR Congo",

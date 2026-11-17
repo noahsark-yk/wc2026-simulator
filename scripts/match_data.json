@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-16T23:13:47.665Z",
+  "fetchedAt": "2026-11-17T10:10:05.157Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -2997,6 +2997,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-16",
+          "isHome": false,
+          "opponentName": "Germany",
+          "ourScore": 0,
+          "oppScore": 5,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-11-13",
           "isHome": true,
           "opponentName": "Greece",
@@ -3691,6 +3699,14 @@
       "code": "GER",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-16",
+          "isHome": true,
+          "opponentName": "Netherlands",
+          "ourScore": 5,
+          "oppScore": 0,
+          "tournament": "European League A"
+        },
         {
           "date": "2026-11-13",
           "isHome": false,
@@ -5081,6 +5097,14 @@
       "code": "SUI",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-16",
+          "isHome": true,
+          "opponentName": "Scotland",
+          "ourScore": 4,
+          "oppScore": 0,
+          "tournament": "European League B"
+        },
         {
           "date": "2026-11-13",
           "isHome": false,
@@ -8955,6 +8979,14 @@
       "code": "SCO",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-16",
+          "isHome": false,
+          "opponentName": "Switzerland",
+          "ourScore": 0,
+          "oppScore": 4,
+          "tournament": "European League B"
+        },
         {
           "date": "2026-11-13",
           "isHome": true,
@@ -15625,6 +15657,14 @@
       "code": "CAN",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-16",
+          "isHome": true,
+          "opponentName": "Guatemala",
+          "ourScore": 4,
+          "oppScore": 1,
+          "tournament": "CONCACAF Nat League"
+        },
         {
           "date": "2026-11-13",
           "isHome": false,
