@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-17",
+  "lastUpdated": "2026-11-18",
   "source": "inside.fifa.com (live)",
   "sourceScheduleId": "FRS_Male_Football_20260720",
   "sourceConfirmedDate": null,
@@ -11,7 +11,7 @@
     },
     "ARG": {
       "rank": 2,
-      "points": 1964.95
+      "points": 1966.13
     },
     "FRA": {
       "rank": 3,
@@ -23,7 +23,7 @@
     },
     "MAR": {
       "rank": 5,
-      "points": 1807.37
+      "points": 1809.37
     },
     "POR": {
       "rank": 6,
@@ -43,7 +43,7 @@
     },
     "COL": {
       "rank": 10,
-      "points": 1738.36
+      "points": 1735.9
     },
     "GER": {
       "rank": 11,
@@ -55,7 +55,7 @@
     },
     "MEX": {
       "rank": 13,
-      "points": 1718.25
+      "points": 1723.64
     },
     "CRO": {
       "rank": 15,
@@ -63,7 +63,7 @@
     },
     "USA": {
       "rank": 16,
-      "points": 1709.57
+      "points": 1713.56
     },
     "JPN": {
       "rank": 17,
@@ -79,7 +79,7 @@
     },
     "URU": {
       "rank": 20,
-      "points": 1643.39
+      "points": 1644.48
     },
     "AUT": {
       "rank": 22,
@@ -91,7 +91,7 @@
     },
     "ECU": {
       "rank": 24,
-      "points": 1590.74
+      "points": 1593.34
     },
     "CAN": {
       "rank": 25,
@@ -195,7 +195,7 @@
     },
     "HAI": {
       "rank": 86,
-      "points": 1276.81
+      "points": 1272.82
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-17T21:57:45.177Z",
+  "fetchedAt": "2026-11-18T09:40:06.467Z",
   "source": "eloratings.net",
   "matched": 48,
   "total": 48,
@@ -15,7 +15,7 @@
     },
     "ARG": {
       "name": "Argentina",
-      "elo": 2157
+      "elo": 2158
     },
     "FRA": {
       "name": "France",
@@ -23,7 +23,7 @@
     },
     "POR": {
       "name": "Portugal",
-      "elo": 1996
+      "elo": 2005
     },
     "BEL": {
       "name": "Belgium",
@@ -31,7 +31,7 @@
     },
     "COL": {
       "name": "Colombia",
-      "elo": 1992
+      "elo": 1987
     },
     "BRA": {
       "name": "Brazil",
@@ -51,11 +51,11 @@
     },
     "NOR": {
       "name": "Norway",
-      "elo": 1909
+      "elo": 1935
     },
     "MAR": {
       "name": "Morocco",
-      "elo": 1898
+      "elo": 1899
     },
     "JPN": {
       "name": "Japan",
@@ -63,7 +63,7 @@
     },
     "URU": {
       "name": "Uruguay",
-      "elo": 1869
+      "elo": 1870
     },
     "CRO": {
       "name": "Croatia",
@@ -75,15 +75,15 @@
     },
     "ECU": {
       "name": "Ecuador",
-      "elo": 1852
-    },
-    "AUT": {
-      "name": "Austria",
-      "elo": 1849
+      "elo": 1856
     },
     "MEX": {
       "name": "Mexico",
-      "elo": 1837
+      "elo": 1841
+    },
+    "AUT": {
+      "name": "Austria",
+      "elo": 1838
     },
     "SEN": {
       "name": "Senegal",
@@ -91,11 +91,11 @@
     },
     "USA": {
       "name": "United States",
-      "elo": 1804
+      "elo": 1811
     },
     "SWE": {
       "name": "Sweden",
-      "elo": 1784
+      "elo": 1783
     },
     "AUS": {
       "name": "Australia",
@@ -139,7 +139,7 @@
     },
     "BIH": {
       "name": "Bosnia/Herzeg",
-      "elo": 1662
+      "elo": 1672
     },
     "PAN": {
       "name": "Panama",
@@ -165,21 +165,21 @@
       "name": "South Africa",
       "elo": 1593
     },
-    "CPV": {
-      "name": "Cape Verde",
-      "elo": 1566
-    },
     "NZL": {
       "name": "New Zealand",
       "elo": 1563
     },
     "HAI": {
       "name": "Haiti",
-      "elo": 1552
+      "elo": 1545
     },
     "IRQ": {
       "name": "Iraq",
       "elo": 1539
+    },
+    "CPV": {
+      "name": "Cape Verde",
+      "elo": 1521
     },
     "GHA": {
       "name": "Ghana",

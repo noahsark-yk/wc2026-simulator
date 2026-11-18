@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-17T22:04:10.824Z",
+  "fetchedAt": "2026-11-18T09:47:18.918Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -2285,6 +2285,14 @@
       "code": "POR",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-17",
+          "isHome": false,
+          "opponentName": "Wales",
+          "ourScore": 3,
+          "oppScore": 2,
+          "tournament": "European League A"
+        },
         {
           "date": "2026-11-14",
           "isHome": true,
@@ -5802,9 +5810,7 @@
           "tournament": "European League A"
         }
       ],
-      "sourceUrl": "https://www.eloratings.net/Switzerland",
-      "staleFromPrior": true,
-      "freshFetchError": "navigation failed"
+      "sourceUrl": "https://www.eloratings.net/Switzerland"
     },
     "BEL": {
       "code": "BEL",
@@ -6507,12 +6513,22 @@
           "tournament": "European League A"
         }
       ],
-      "sourceUrl": "https://www.eloratings.net/Belgium"
+      "sourceUrl": "https://www.eloratings.net/Belgium",
+      "staleFromPrior": true,
+      "freshFetchError": "navigation failed"
     },
     "AUT": {
       "code": "AUT",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-17",
+          "isHome": true,
+          "opponentName": "Israel",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "European League B"
+        },
         {
           "date": "2026-11-14",
           "isHome": true,
@@ -7816,6 +7832,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-17",
+          "isHome": false,
+          "opponentName": "Denmark",
+          "ourScore": 3,
+          "oppScore": 2,
+          "tournament": "European League A"
+        },
+        {
           "date": "2026-11-14",
           "isHome": true,
           "opponentName": "Wales",
@@ -8406,6 +8430,14 @@
       "code": "BIH",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-17",
+          "isHome": true,
+          "opponentName": "Romania",
+          "ourScore": 2,
+          "oppScore": 1,
+          "tournament": "European League B"
+        },
         {
           "date": "2026-11-14",
           "isHome": false,
@@ -10284,6 +10316,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-17",
+          "isHome": false,
+          "opponentName": "Poland",
+          "ourScore": 1,
+          "oppScore": 1,
+          "tournament": "European League B"
+        },
+        {
           "date": "2026-11-14",
           "isHome": true,
           "opponentName": "Bosnia and Herzegovina",
@@ -10946,6 +10986,14 @@
       "code": "ARG",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-17",
+          "isHome": true,
+          "opponentName": "Costa Rica",
+          "ourScore": 7,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-11-13",
           "isHome": true,
@@ -12297,6 +12345,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-17",
+          "isHome": false,
+          "opponentName": "Chile",
+          "ourScore": 0,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-11-13",
           "isHome": true,
           "opponentName": "Chile",
@@ -12960,6 +13016,14 @@
       "ok": true,
       "matches": [
         {
+          "date": "2026-11-17",
+          "isHome": true,
+          "opponentName": "Dominican Republic",
+          "ourScore": 5,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
+        {
           "date": "2026-11-13",
           "isHome": false,
           "opponentName": "Argentina",
@@ -13574,6 +13638,14 @@
       "code": "ECU",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-17",
+          "isHome": true,
+          "opponentName": "Bolivia",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "Friendly"
+        },
         {
           "date": "2026-11-13",
           "isHome": true,
@@ -14820,6 +14892,14 @@
       "code": "USA",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-17",
+          "isHome": true,
+          "opponentName": "Haiti",
+          "ourScore": 2,
+          "oppScore": 0,
+          "tournament": "CONCACAF Nat League"
+        },
         {
           "date": "2026-11-14",
           "isHome": true,
@@ -16410,6 +16490,14 @@
       "code": "MEX",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-17",
+          "isHome": true,
+          "opponentName": "Jamaica",
+          "ourScore": 1,
+          "oppScore": 0,
+          "tournament": "CONCACAF Nat League"
+        },
         {
           "date": "2026-11-14",
           "isHome": false,
@@ -18671,6 +18759,14 @@
       "code": "HAI",
       "ok": true,
       "matches": [
+        {
+          "date": "2026-11-17",
+          "isHome": false,
+          "opponentName": "United States",
+          "ourScore": 0,
+          "oppScore": 2,
+          "tournament": "CONCACAF Nat League"
+        },
         {
           "date": "2026-11-14",
           "isHome": false,
