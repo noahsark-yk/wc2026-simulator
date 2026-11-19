@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-18",
+  "lastUpdated": "2026-11-19",
   "source": "Auto-generated from eloratings.net",
   "teams": [
     {
@@ -130,7 +130,7 @@
       "f": "qa",
       "atk": {
         "s": 1.13,
-        "w": 1.23
+        "w": 1.24
       },
       "def": {
         "s": 1.68,
@@ -245,7 +245,7 @@
     {
       "c": "USA",
       "opta": 73.1,
-      "elo": 1811,
+      "elo": 1810,
       "g": "D",
       "f": "us",
       "atk": {
@@ -285,7 +285,7 @@
     {
       "c": "AUS",
       "opta": 75.6,
-      "elo": 1773,
+      "elo": 1772,
       "g": "D",
       "f": "au",
       "atk": {
@@ -405,7 +405,7 @@
     {
       "c": "NED",
       "opta": 88.7,
-      "elo": 1952,
+      "elo": 1953,
       "g": "F",
       "f": "nl",
       "atk": {
@@ -579,7 +579,7 @@
       "fifaR": 1,
       "fifaP": 2004.48,
       "adjA": 1.62,
-      "adjD": 0.61,
+      "adjD": 0.62,
       "wpe": 1.7
     },
     {
@@ -678,7 +678,7 @@
       },
       "fifaR": 18,
       "fifaP": 1655.34,
-      "adjA": 1.13,
+      "adjA": 1.12,
       "adjD": 0.79,
       "wpe": 1.08
     },
@@ -964,11 +964,11 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-11-18T09:47:27.256Z",
+    "generatedAt": "2026-11-19T09:54:43.675Z",
     "eloSource": "eloratings.net",
     "matchSource": "eloratings.net",
     "fifaSource": "inside.fifa.com (live)",
-    "fifaLastUpdated": "2026-11-18",
+    "fifaLastUpdated": "2026-11-19",
     "fifaTeamCount": 48,
     "methodology": {
       "primaryPeriodStart": "2022-01-01",
