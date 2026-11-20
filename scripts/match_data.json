@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-19T22:02:18.283Z",
+  "fetchedAt": "2026-11-20T09:41:27.551Z",
   "source": "eloratings.net",
   "completedSoFar": 48,
   "totalCountries": 48,
@@ -13007,7 +13007,9 @@
           "tournament": "World Cup qualifier"
         }
       ],
-      "sourceUrl": "https://www.eloratings.net/Colombia"
+      "sourceUrl": "https://www.eloratings.net/Colombia",
+      "staleFromPrior": true,
+      "freshFetchError": "navigation failed"
     },
     "URU": {
       "code": "URU",
